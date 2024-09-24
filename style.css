@@ -340,7 +340,9 @@ main {
   #about-me .my-info h1 {
     font-size: 3rem;
   }
-
+  :is(#skills, #projects, #recommendations){
+    margin-inline: 0rem;
+  }
   :is(#skills, #projects, #recommendations) h1 {
     text-align: center;
     font-size: 2rem;
