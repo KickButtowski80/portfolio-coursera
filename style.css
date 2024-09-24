@@ -115,7 +115,10 @@ nav a {
 }
 
 main {
-  position: absolute;
+  width: calc(100vw - 1rem);
+  margin: 0 auto;
+  position: relative;
+
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
@@ -125,6 +128,7 @@ main {
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   gap: 15px;
   position: relative;
   z-index: 1;
@@ -140,13 +144,17 @@ main {
 }
 
 #about-me .my-info h1 {
-  font-size: 65px;
+  text-align: center;
+  font-size: 5rem;
   color: blueviolet;
 }
 
 #about-me .my-info p {
   line-height: 3rem;
-  width: 80%;
+  background-color: rgba(128, 128, 128, 0.5);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -218,16 +226,12 @@ main {
 
 .recommendation-cards .recommendation-card {
   border-radius: 10%;
-
   width: 20rem;
-  padding: 20px;
-
+  padding: 1.5rem;
   font-style: italic;
   text-align: left;
-
   background-color: #fff;
   box-shadow: 0 3px 10px rgb(87, 77, 77);
-
   margin: 10px;
   border: 1px solid gray;
   font-size: 18px;
@@ -246,7 +250,7 @@ main {
   margin: 30px 0px;
 }
 .recommendation-form button {
-  max-width: 200px;
+  max-width: 12.5rem;
   align-self: center;
   background: white;
   border: 1px solid blueviolet;
@@ -254,7 +258,7 @@ main {
   margin: 1rem;
   border-radius: 6px;
   color: blueviolet;
-  font-size: 20px;
+  font-size: 1.5rem;
 }
 
 .recommendation-form button:hover {
@@ -262,11 +266,20 @@ main {
   color: white;
 }
 
+.projects-info article ul {
+  margin-block: 2rem;
+}
+
 @media (max-width: 768px) {
   nav ul {
     display: none;
   }
 
+  .fixed-header nav a {
+    position: absolute;
+    right: 0;
+    
+  }
   #hamburger-icon {
     display: block;
     max-width: 3rem;
@@ -308,7 +321,6 @@ main {
     justify-content: flex-end;
   }
   :has(#cross-icon:target) #about-me {
-    background-color: red;
   }
 
   #about-me {
@@ -330,5 +342,26 @@ main {
   .recommendation-cards {
     justify-items: center;
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  #about-me .my-info h1 {
+    font-size: 3rem;
+  }
+  :is(#skills, #projects, #recommendations) {
+    margin-inline: 0rem;
+  }
+  :is(#skills, #projects, #recommendations) h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .recommendation-cards .recommendation-card {
+    width: 100%;
+  }
+
+  #skills .skill-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
