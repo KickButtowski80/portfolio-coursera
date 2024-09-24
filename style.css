@@ -115,9 +115,10 @@ nav a {
 }
 
 main {
-  width: calc(100vw - 10px);
+  width: calc(100vw - 1rem);
   margin: 0 auto;
   position: relative;
+  
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
@@ -135,6 +136,7 @@ main {
 }
 
 #about-me .my-info {
+  
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
