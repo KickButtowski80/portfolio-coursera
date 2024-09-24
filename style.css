@@ -142,7 +142,8 @@ main {
 }
 
 #about-me .my-info h1 {
-  font-size: 65px;
+  text-align: center;
+  font-size: 5rem;
   color: blueviolet;
 }
 
@@ -313,7 +314,7 @@ main {
     justify-content: flex-end;
   }
   :has(#cross-icon:target) #about-me {
-    background-color: red;
+
   }
 
   #about-me {
@@ -336,4 +337,8 @@ main {
     justify-items: center;
     grid-template-columns: repeat(1, 1fr);
   }
+
+  #about-me .my-info h1 {
+    font-size: 3rem; 
+}
 }
