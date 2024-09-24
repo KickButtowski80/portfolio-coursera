@@ -115,10 +115,10 @@ nav a {
 }
 
 main {
-  position: absolute;
+  width: calc(100vw - 10px);
+  margin: 0 auto;
+  position: relative;
   z-index: -1;
-  margin: 0 10px;
-  width: calc(100vw - 2rem);
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
   display: none;
