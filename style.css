@@ -1,0 +1,334 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;
+}
+
+nav {
+  height: 200px;
+  width: 100%;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+.my-info :is(span, icon) {
+  margin-bottom: 20px;
+}
+.my-info icon {
+  border: 1px solid blue;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+nav ul {
+  display: flex;
+  row-gap: 20px;
+}
+
+nav ul li {
+  color: white;
+  font-size: 1.5rem;
+  margin-inline: 2rem;
+  list-style: none;
+}
+
+.fixed-header nav {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  width: 100vw;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  position: absolute;
+  z-index: -1;
+}
+:is(#hamburger-icon, #cross-icon, #hamburger-menu) {
+  display: none;
+}
+#about-me {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+
+  padding-top: 200px;
+}
+
+#about-me .my-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 100px;
+}
+
+#about-me .my-info h1 {
+  font-size: 65px;
+  color: blueviolet;
+}
+
+#about-me .my-info p {
+  line-height: 3rem;
+  width: 80%;
+}
+:is(#skills, #projects, #recommendations) {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 3rem;
+  margin-block: 2rem;
+}
+:is(#skills, #projects, #recommendations) h1 {
+  font-size: 3rem;
+  color: blueviolet;
+  margin-bottom: 2rem;
+}
+#skills .skill-cards {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  flex-wrap: wrap;
+}
+#skills .skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+  height: 200px;
+  margin-top: 1rem;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 0.5rem;
+}
+
+#skills .skill-card img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#skills .skill-card figure figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#projects .projects-info hr {
+  border: 1px solid rgb(107, 107, 113);
+  width: 80%;
+  float: right;
+  margin: 20px;
+}
+#projects .projects-info article h3 {
+  white-space: nowrap;
+}
+
+#projects .projects-info article ul li {
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.recommendation-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.recommendation-cards .recommendation-card {
+  border-radius: 10%;
+
+  width: 20rem;
+  padding: 20px;
+
+  font-style: italic;
+  text-align: left;
+
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgb(87, 77, 77);
+
+  margin: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+}
+
+.recommendation-form {
+  gap: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.recommendation-form h2 {
+  font-size: 30px;
+  margin: 30px 0px;
+}
+.recommendation-form button {
+  max-width: 200px;
+  align-self: center;
+  background: white;
+  border: 1px solid blueviolet;
+  padding: 0.75rem;
+  margin: 1rem;
+  border-radius: 6px;
+  color: blueviolet;
+  font-size: 20px;
+}
+
+.recommendation-form button:hover {
+  background-color: blueviolet;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+    max-width: 3rem;
+  }
+
+  #cross-icon {
+    display: none;
+    max-width: 3rem;
+  }
+
+  #cross-icon:target {
+    display: block;
+  }
+
+  nav:has(#cross-icon:target) #hamburger-icon {
+    display: none;
+  }
+
+  #hamburger-menu ul {
+    position: fixed;
+    top: 200px;
+
+    max-width: 15rem;
+    list-style-type: none;
+    height: 100%;
+    background-color: blueviolet;
+  }
+  #hamburger-menu li {
+    font-size: 1.5rem;
+    list-style-type: none;
+    background-color: blueviolet;
+    padding: 2rem;
+  }
+  #hamburger-menu a {
+    text-decoration: none;
+  }
+  header:has(#cross-icon:target) + #hamburger-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  :has(#cross-icon:target) #about-me {
+    background-color: red;
+  }
+
+  #about-me {
+    min-height: 100vh;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  header:has(#cross-icon:target) #about-me .my-info {
+    align-items: center;
+  }
+  #recommendations {
+    align-items: center;
+    margin-inline: 1rem;
+  }
+
+  .recommendation-cards {
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

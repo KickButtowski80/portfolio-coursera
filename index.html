@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Portfolio WebSite</title>
+  </head>
+  <body>
+    <header class="fixed-header">
+      <nav>
+        <section class="my-info">
+          <span>Izak T</span>
+          <span><icon>📧</icon> jdoe@jeemail.com</span>
+          <span><icon>📞</icon> +123456789</span>
+        </section>
+        <a href="#cross-icon" title="by clicking cross icon is open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="256"
+            height="256"
+            viewBox="0 0 16 16"
+            id="hamburger-icon"
+          >
+            <path
+              fill="none"
+              stroke="#6f6767"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M2.75 12.25h10.5m-10.5-4h10.5m-10.5-4h10.5"
+            />
+          </svg>
+        </a>
+        <a href="#hamburger-icon" title="by clicking hamburger icon is open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="256"
+            height="256"
+            viewBox="0 0 36 36"
+            id="cross-icon"
+          >
+            <path
+              fill="#31373d"
+              d="m22.238 18.004l9.883-9.883a3 3 0 1 0-4.242-4.243l-9.883 9.883l-9.883-9.882A3 3 0 1 0 3.87 8.122l9.883 9.882l-9.907 9.907a3 3 0 0 0 4.243 4.242l9.906-9.906l9.882 9.882c.586.586 1.354.879 2.121.879s1.535-.293 2.121-.879a3 3 0 0 0 0-4.242z"
+            />
+          </svg>
+        </a>
+        <ul>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#recommendations">Recommendations</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="hamburger-menu">
+      <ul>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+      </ul>
+    </div>
+    <main>
+      <section id="about-me">
+        <div class="my-pic">
+          <figure>
+            <img
+              src="https://miro.medium.com/v2/resize:fit:1400/1*qdAW1TjCN57h1lbuuzvchg.gif"
+              alt="avatar of me"
+            />
+          </figure>
+        </div>
+        <div class="my-info">
+          <h1>Hi, I'm Izak T!</h1>
+          <img
+            src="./html_finalprojimages/waving-hand.png"
+            alt="waving hand icon"
+            width="100"
+            height="100"
+          />
+          <p>
+            I am a full stack developer with 2 years of experience in both
+            application and presentation layers. I have worked on applications
+            and microservices deployed on IBM Cloud. I am an avid user of IBM
+            Watson Services and have worked on Watson Assistant, NLU, Sentiment
+            analyzer to name a few.
+          </p>
+        </div>
+      </section>
+      
+    <section id="skills">
+      <h1>Skills</h1>
+      <div class="skill-cards">
+        <article class="skill-card">
+          <figure>
+            <img src="./html_finalprojimages/html5.png" alt="html 5 icon" />
+            <figcaption>
+              <h4>html</h4>
+              <div>2 years experience</div>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="skill-card">
+          <figure>
+            <img src="./html_finalprojimages/js.jpeg" alt="java script icon" />
+            <figcaption>
+              Java Script
+
+              <div>2 years experience</div>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="skill-card">
+          <figure>
+            <img src="./html_finalprojimages/CSS3.png" alt="css 3 icon" />
+            <figcaption>
+              CSS 3
+
+              <div>2 years experience</div>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="skill-card">
+          <figure>
+            <img src="./html_finalprojimages/java.png" alt="java icon" />
+            <figcaption>
+              Java
+
+              <div>2 years experience</div>
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="skill-card">
+          <figure>
+            <img src="./html_finalprojimages/node.png" alt="node icon" />
+            <figcaption>
+              node
+              <div>2 years experience</div>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h1>Projects</h1>
+      <div class="projects-info">
+        <article>
+          <h3>Chatbot</h3>
+          <ul>
+            <li>
+              Develooled a secure website integrated with a chatbot for an
+              automobile client using HTML, CSS, JavaScript, and IBM Watson
+              Assistant.
+            </li>
+          </ul>
+        </article>
+
+        <hr />
+        <br />
+        <article>
+          <h3>Sentiment Analyzer</h3>
+          <ul>
+            <li>
+              Developed and deployed a sentiment analyzer for the box reviews
+              section of an eCommerce platform using IBM NLU
+            </li>
+          </ul>
+        </article>
+
+        <hr />
+        <br />
+        <article>
+          <h3>Fashion Website</h3>
+          <ul>
+            <li>
+              Created a styled multi-page website for a new player in the
+              fashion industry and integrated it with a shopping cart, using
+              stripe for payment gateway
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="recommendations">
+      <h1>Recommendations</h1>
+      <div class="recommendation-cards">
+        <div class="recommendation-card">
+          “ Jane is a very quick learner and quickly grasps key concepts of Web
+          development. She got a great attitude & she is an excellent team
+          player. She has a curious mind and asks the right question. She takes
+          initiative within a team and has potentials to lead the team. ”
+        </div>
+        <div class="recommendation-card">
+          “ Working with Jane has been an awesome experience. She is highly
+          knowledgable and always goes the extra step to make sure everything is
+          right. For any future projects that need her expertise I would
+          definitely want to work with her again. ”
+        </div>
+        <div class="recommendation-card">
+          “ I had worked along with Jane during the initial phase of our venture
+          which needed Web development. She is a committed resource who has in
+          depth knowledge about the domain. She will be an asset for any
+          organisation! ”
+        </div>
+      </div>
+
+      <div class="recommendation-form">
+        <h2>Leave a Recommendation</h2>
+
+        <input
+          type="text"
+          name=""
+          id="recommendation-author-name"
+          placeholder="Name(Optional)"
+        />
+        <textarea
+          name=""
+          id="recommendations-author-message"
+          cols="500"
+          rows="10"
+          placeholder="message"
+        ></textarea>
+        <button type="button">Submit</button>
+      </div>
+    </section>
+    </main>
+  </body>
+</html>
