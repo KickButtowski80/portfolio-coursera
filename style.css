@@ -149,7 +149,7 @@ main {
 
 #about-me .my-info p {
   line-height: 3rem;
-  background-color: rgba(128,128,128,0.5);
+  background-color: rgba(128, 128, 128, 0.5);
   padding: 1rem;
   border-radius: 1rem;
   color: white;
@@ -314,7 +314,6 @@ main {
     justify-content: flex-end;
   }
   :has(#cross-icon:target) #about-me {
-
   }
 
   #about-me {
@@ -339,11 +338,15 @@ main {
   }
 
   #about-me .my-info h1 {
-    font-size: 3rem; 
-}
+    font-size: 3rem;
+  }
 
-:is(#skills, #projects, #recommendations) h1 {
-  text-align: center;
-  font-size: 2rem;
-}   
+  :is(#skills, #projects, #recommendations) h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .recommendation-cards .recommendation-card {
+    width: 100%;
+  }
 }
