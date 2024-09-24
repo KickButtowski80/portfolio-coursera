@@ -340,7 +340,7 @@ main {
   #about-me .my-info h1 {
     font-size: 3rem;
   }
-  :is(#skills, #projects, #recommendations){
+  :is(#skills, #projects, #recommendations) {
     margin-inline: 0rem;
   }
   :is(#skills, #projects, #recommendations) h1 {
@@ -355,6 +355,6 @@ main {
   #skills .skill-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:2rem;
+    gap: 2rem;
   }
 }
