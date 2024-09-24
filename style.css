@@ -118,7 +118,7 @@ main {
   width: calc(100vw - 1rem);
   margin: 0 auto;
   position: relative;
-  
+
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
@@ -128,6 +128,7 @@ main {
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   gap: 15px;
   position: relative;
   z-index: 1;
@@ -136,7 +137,6 @@ main {
 }
 
 #about-me .my-info {
-  
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -226,16 +226,12 @@ main {
 
 .recommendation-cards .recommendation-card {
   border-radius: 10%;
-
   width: 20rem;
   padding: 1.5rem;
-
   font-style: italic;
   text-align: left;
-
   background-color: #fff;
   box-shadow: 0 3px 10px rgb(87, 77, 77);
-
   margin: 10px;
   border: 1px solid gray;
   font-size: 18px;
@@ -270,7 +266,7 @@ main {
   color: white;
 }
 
-.projects-info article ul{
+.projects-info article ul {
   margin-block: 2rem;
 }
 
