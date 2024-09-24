@@ -270,6 +270,10 @@ main {
   color: white;
 }
 
+.projects-info article ul{
+  margin-block: 2rem;
+}
+
 @media (max-width: 768px) {
   nav ul {
     display: none;
