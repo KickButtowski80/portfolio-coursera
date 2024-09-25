@@ -148,7 +148,12 @@ main {
   font-size: 5rem;
   color: blueviolet;
 }
+#about-me .my-info img {
 
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
 #about-me .my-info p {
   line-height: 3rem;
   background-color: rgba(128, 128, 128, 0.5);
