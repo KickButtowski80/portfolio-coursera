@@ -287,12 +287,12 @@ main {
   }
   #hamburger-icon {
     display: block;
-    max-width: 3rem;
+    max-width: 4rem;
   }
 
   #cross-icon {
     display: none;
-    max-width: 3rem;
+    max-width: 4rem;
   }
 
   #cross-icon:target {
