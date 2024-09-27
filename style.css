@@ -122,7 +122,7 @@ main {
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
- display: none;
+  display: none;
 }
 #about-me {
   min-height: 100vh;
@@ -297,9 +297,8 @@ main {
   #cross-icon:target {
     display: block;
   }
- 
 
-  #hamburger-menu {    
+  #hamburger-menu {
     position: fixed;
     top: 12.5rem;
     right: 0;
@@ -317,29 +316,22 @@ main {
   #hamburger-menu a {
     text-decoration: none;
   }
- 
+
   header:has(#cross-icon:target) #hamburger-icon {
     display: none;
   }
 
-  /* Opening animation */
   header:has(#cross-icon:target) + #hamburger-menu {
-    
-    
     animation: openMenu 0.5s ease-in-out forwards;
-     display: flex;
-     justify-content: flex-end;
- 
+    display: flex;
+    justify-content: flex-end;
   }
 
-  /* Closing animation
   header:not(:has(#cross-icon:target)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
     display: flex;
     justify-content: flex-end;
-  } */
- 
-
+  }
   #about-me {
     min-height: 100vh;
     height: 100%;
