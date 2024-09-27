@@ -315,6 +315,7 @@ main {
   }
   #hamburger-menu a {
     color: white;
+    text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
 
