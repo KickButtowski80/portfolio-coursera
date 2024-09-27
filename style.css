@@ -122,7 +122,7 @@ main {
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
-  display: none;
+ display: none;
 }
 #about-me {
   min-height: 100vh;
@@ -149,7 +149,6 @@ main {
   color: blueviolet;
 }
 #about-me .my-info img {
-
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -276,18 +275,18 @@ main {
 }
 
 @media (max-width: 768px) {
-  nav ul {
+  nav ul li {
     display: none;
   }
 
   .fixed-header nav a {
     position: absolute;
     right: 0;
-    
   }
   #hamburger-icon {
     display: block;
     max-width: 4rem;
+    transition: all 0.5s ease-in-out;
   }
 
   #cross-icon {
@@ -298,15 +297,12 @@ main {
   #cross-icon:target {
     display: block;
   }
+ 
 
-  nav:has(#cross-icon:target) #hamburger-icon {
-    display: none;
-  }
-
-  #hamburger-menu ul {
+  #hamburger-menu {    
     position: fixed;
-    top: 200px;
-
+    top: 12.5rem;
+    right: 0;
     max-width: 15rem;
     list-style-type: none;
     height: 100%;
@@ -321,12 +317,28 @@ main {
   #hamburger-menu a {
     text-decoration: none;
   }
+ 
+  header:has(#cross-icon:target) #hamburger-icon {
+    display: none;
+  }
+
+  /* Opening animation */
   header:has(#cross-icon:target) + #hamburger-menu {
+    
+    
+    animation: openMenu 0.5s ease-in-out forwards;
+     display: flex;
+     justify-content: flex-end;
+ 
+  }
+
+  /* Closing animation
+  header:not(:has(#cross-icon:target)) + #hamburger-menu {
+    animation: closeMenu 0.5s ease-in-out forwards;
     display: flex;
     justify-content: flex-end;
-  }
-  :has(#cross-icon:target) #about-me {
-  }
+  } */
+ 
 
   #about-me {
     min-height: 100vh;
@@ -368,5 +380,23 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  @keyframes openMenu {
+    0% {
+      clip-path: inset(0 0 99% 100%);
+    }
+    100% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+  }
+
+  @keyframes closeMenu {
+    0% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+    100% {
+      clip-path: inset(0 0 99% 100%);
+    }
   }
 }
