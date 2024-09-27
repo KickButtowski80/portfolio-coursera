@@ -314,6 +314,7 @@ main {
     padding: 2rem;
   }
   #hamburger-menu a {
+    color: white;
     text-decoration: none;
   }
 
