@@ -1,4 +1,5 @@
 document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
+  history.pushState("", document.title, window.location.pathname + window.location.search);
   const targetElement = document.getElementById(item.hash.split('#')[1]);
   if (!targetElement) return;
   let thresholdValue;
