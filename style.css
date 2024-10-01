@@ -266,12 +266,15 @@ main {
 }
 
 .recommendation-form {
-  gap: 1rem;
   display: grid;
-  justify-content: center;
-  align-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  gap: 1rem;
+}
+.recommendation-form input,
+.recommendation-form textarea {
+  width: 100%;
+  padding: 0.5rem;
 }
 .recommendation-form h2 {
   font-size: 30px;
@@ -313,16 +316,14 @@ main {
     transition: all 0.5s ease-in-out;
   }
 
-
- #hamburger-menu a.active {
-    
+  #hamburger-menu a.active {
     font-size: 1.5rem;
     text-decoration: underline;
     text-decoration-thickness: 0.5rem;
     text-underline-offset: 1rem;
     transition: text-decoration 0.5s ease-in-out;
   }
-  
+
   #cross-icon {
     display: none;
     max-width: 4rem;
