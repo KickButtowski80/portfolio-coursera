@@ -6,14 +6,17 @@ document.querySelectorAll('#hamburger-menu  a').forEach((item) => {
     (entries) => {
       entries.forEach((entry) => {
         //    debugger;
-           console.log('entry target', entry.target, entry.isIntersecting, targetElement)
-        if (entry.isIntersecting) 
-            item.classList.add('active');
-        else 
-        item.classList.remove('active');
+        console.log(
+          'entry target',
+          entry.target,
+          entry.isIntersecting,
+          targetElement
+        );
+        if (entry.isIntersecting) item.classList.add('active');
+        else item.classList.remove('active');
       });
     },
-    { threshold: 0.5 }
+    { threshold: [0.5, 1] }
   );
   observer.observe(targetElement);
 });
