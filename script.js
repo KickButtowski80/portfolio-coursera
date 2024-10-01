@@ -1,5 +1,4 @@
 document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
-  console.log('item', item.hash);
   const targetElement = document.getElementById(item.hash.split('#')[1]);
   if (!targetElement) return;
   const observer = new IntersectionObserver(
@@ -11,7 +10,7 @@ document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
         item.classList.remove('active');
       });
     },
-    { threshold:[0.1, 0.5] }
+    { threshold:[0.19, 0.7] }
   );
   observer.observe(targetElement);
 });
