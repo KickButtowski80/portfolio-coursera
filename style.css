@@ -102,30 +102,28 @@ nav ul li {
   list-style: none;
 }
 
-
 nav ul li a {
-  display: inline-block; 
-  transition: transform 0.3s ease-in-out;  
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
   will-change: transform;
 }
 nav ul li a:hover,
-nav ul li a:focus { 
+nav ul li a:focus {
   color: white;
   text-decoration: underline;
   text-decoration-thickness: 0.6rem;
   text-underline-offset: 1rem;
-  transform-origin: top left; 
-  
-  transform: scale(1.2); 
+  transform-origin: top left;
+  transform: scale(1.2);
 }
 
-nav ul li a:active::after {
+.active {
   content: '';
   font-size: 1.5rem;
-
   text-decoration: underline;
   text-decoration-thickness: 0.5rem;
   text-underline-offset: 1rem;
+  transition: text-decoration 0.5s ease-in-out;
 }
 
 .fixed-header nav {
@@ -315,6 +313,16 @@ main {
     transition: all 0.5s ease-in-out;
   }
 
+
+ #hamburger-menu a.active {
+    
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5rem;
+    text-underline-offset: 1rem;
+    transition: text-decoration 0.5s ease-in-out;
+  }
+  
   #cross-icon {
     display: none;
     max-width: 4rem;
