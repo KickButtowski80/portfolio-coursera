@@ -102,6 +102,30 @@ nav ul li {
   list-style: none;
 }
 
+nav ul li a {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+nav ul li a:hover,
+nav ul li a:focus {
+  color: white;
+  text-decoration: underline;
+  text-decoration-thickness: 0.6rem;
+  text-underline-offset: 1rem;
+  transform-origin: top left;
+  transform: scale(1.2);
+}
+
+.active {
+  content: '';
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5rem;
+  text-underline-offset: 1rem;
+  transition: text-decoration 0.5s ease-in-out;
+}
+
 .fixed-header nav {
   position: fixed;
   top: 0;
@@ -149,7 +173,6 @@ main {
   color: blueviolet;
 }
 #about-me .my-info img {
-
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -243,12 +266,15 @@ main {
 }
 
 .recommendation-form {
-  gap: 1rem;
   display: grid;
-  justify-content: center;
-  align-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  gap: 1rem;
+}
+.recommendation-form input,
+.recommendation-form textarea {
+  width: 100%;
+  padding: 0.5rem;
 }
 .recommendation-form h2 {
   font-size: 30px;
@@ -276,38 +302,42 @@ main {
 }
 
 @media (max-width: 768px) {
-  nav ul {
+  nav ul li {
     display: none;
   }
 
   .fixed-header nav a {
     position: absolute;
     right: 0;
-    
   }
   #hamburger-icon {
     display: block;
-    max-width: 3rem;
+    max-width: 4rem;
+    transition: all 0.5s ease-in-out;
+  }
+
+  #hamburger-menu a.active {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5rem;
+    text-underline-offset: 1rem;
+    transition: text-decoration 0.5s ease-in-out;
   }
 
   #cross-icon {
     display: none;
-    max-width: 3rem;
+    max-width: 4rem;
   }
 
   #cross-icon:target {
     display: block;
   }
 
-  nav:has(#cross-icon:target) #hamburger-icon {
-    display: none;
-  }
-
-  #hamburger-menu ul {
+  #hamburger-menu {
     position: fixed;
-    top: 200px;
-
-    max-width: 15rem;
+    top: 12.5rem;
+    right: 0;
+    max-width: 15.5rem;
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
@@ -318,16 +348,36 @@ main {
     background-color: blueviolet;
     padding: 2rem;
   }
+
+  #hamburger-menu li:active,
+  #hamburger-menu li:hover {
+    text-decoration: underline;
+    color: blueviolet;
+    transform: scale(1.05); /* Example transform effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+
   #hamburger-menu a {
+    color: white;
+    text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
+
+  header:has(#cross-icon:target) #hamburger-icon {
+    display: none;
+  }
+
   header:has(#cross-icon:target) + #hamburger-menu {
+    animation: openMenu 0.5s ease-in-out forwards;
     display: flex;
     justify-content: flex-end;
   }
-  :has(#cross-icon:target) #about-me {
-  }
 
+  header:not(:has(#cross-icon:target)) + #hamburger-menu {
+    animation: closeMenu 0.5s ease-in-out forwards;
+    display: flex;
+    justify-content: flex-end;
+  }
   #about-me {
     min-height: 100vh;
     height: 100%;
@@ -368,5 +418,23 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  @keyframes openMenu {
+    0% {
+      clip-path: inset(0 0 99% 100%);
+    }
+    100% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+  }
+
+  @keyframes closeMenu {
+    0% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+    100% {
+      clip-path: inset(0 0 99% 100%);
+    }
   }
 }
