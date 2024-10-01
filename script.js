@@ -16,7 +16,7 @@ document.querySelectorAll('#hamburger-menu  a').forEach((item) => {
         else item.classList.remove('active');
       });
     },
-    { threshold: [0.5, 1] }
+    { threshold: [0.4, 0.5] }
   );
   observer.observe(targetElement);
 });
