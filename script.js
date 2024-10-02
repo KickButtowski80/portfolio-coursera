@@ -1,9 +1,11 @@
 document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
+ 
+  
   const targetElement = document.getElementById(item.hash.split('#')[1]);
   if (!targetElement) return;
   let thresholdValue;
   if (window.innerWidth <= 768) {
-    thresholdValue = 0.4; 
+    thresholdValue = 0.2; 
   } else {
     thresholdValue = 0.5; 
   }
@@ -19,3 +21,5 @@ document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
   );
   observer.observe(targetElement);
 });
+
+
