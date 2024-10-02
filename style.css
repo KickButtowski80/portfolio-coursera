@@ -341,7 +341,7 @@ main {
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
-    padding: 2rem;
+    padding: 2.5rem;
   }
   #hamburger-menu li {
     font-size: 1.5rem;
