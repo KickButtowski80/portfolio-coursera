@@ -139,8 +139,8 @@ nav a {
 }
 
 main {
-  width: calc(100vw - 1rem);
-  margin: 0 auto;
+ 
+  margin: 0.5rem;
   position: relative;
 
   z-index: -1;
