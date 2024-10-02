@@ -337,7 +337,7 @@ main {
     position: fixed;
     top: 12.5rem;
     right: 0;
-    /* max-width: 15.5rem; */
+    max-width: 15.5rem;
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
@@ -346,7 +346,7 @@ main {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-    padding: 2rem;
+    /* padding: 1rem; */
   }
 
   #hamburger-menu li:active,
