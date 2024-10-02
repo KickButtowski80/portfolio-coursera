@@ -356,7 +356,7 @@ main {
   #hamburger-menu li:hover {
     text-decoration: underline;
     color: blueviolet;
-    transform: scale(1.05); /* Example transform effect */
+    transform: scale(1.5); /* Example transform effect */
     transition: transform 0.3s ease-in-out; /* Smooth transition */
   }
 
