@@ -346,7 +346,8 @@ main {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-    /* padding: 1rem; */
+    padding-bottom: 2rem;
+    padding-right:0.5rem;
   }
 
   #hamburger-menu li:active,
