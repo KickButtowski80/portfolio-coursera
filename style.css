@@ -341,13 +341,13 @@ main {
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
-    padding-right: 2.5rem;
+  
   }
   #hamburger-menu li {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-     padding-bottom: 2rem;
+     margin: 2rem;
   
   }
 
