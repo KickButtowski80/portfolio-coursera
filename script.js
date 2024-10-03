@@ -1,5 +1,5 @@
-document.addEventListener('onLoad', function () {
-  // setTimeout(() => {
+document.addEventListener('DOMContentLoaded', function () {
+   
     document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
       const targetElement = document.getElementById(item.hash.split('#')[1]);
       if (!targetElement) return;
@@ -21,5 +21,5 @@ document.addEventListener('onLoad', function () {
       );
       observer.observe(targetElement);
     });
-  // }, 0);
+ 
 });
