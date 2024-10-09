@@ -141,7 +141,6 @@ nav a {
 main {
   margin: 0.5rem;
   position: relative;
-
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
@@ -317,22 +316,7 @@ main {
     text-underline-offset: 1rem;
     transition: text-decoration 0.5s ease-in-out;
   }
-
-  /* #hamburger-icon {
-    display: block;
-    max-width: 4rem;
-    transition: all 0.5s ease-in-out;
-  }
-
-  #cross-icon {
-    display: none;
-    max-width: 4rem;
-  }
-
-  #cross-icon:target {
-    display: block;
-  } */
-
+ 
   #hamburger-menu {
     position: fixed;
     top: 12.5rem;
@@ -343,29 +327,7 @@ main {
     background-color: blueviolet;
   }
 
-  /* header:has(#cross-icon:target) + #hamburger-menu {
-    display: flex;
-    justify-content: flex-end;
-    animation: openMenu 0.5s ease-in-out forwards;
-  }
-  header:has(#hamburger-icon:target) + #hamburger-menu {
-    display: flex;
-    justify-content: flex-end;
-    animation: closeMenu 0.5s ease-in-out forwards;
-  }
-
-  .no-animation #hamburger-menu {
-    animation: none !important;
-  } 
-    
-   header:has(#cross-icon:target) #hamburger-icon {
-    display: none;
-  }
-      header:has(#cross-icon:target) #about-me .my-info {
-    align-items: center;
-  }
-  
-  */
+ 
 
   #hamburger-icon {
     display: none;
