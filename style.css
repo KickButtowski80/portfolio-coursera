@@ -139,7 +139,6 @@ nav a {
 }
 
 main {
- 
   margin: 0.5rem;
   position: relative;
 
@@ -310,11 +309,6 @@ main {
     position: absolute;
     right: 0;
   }
-  #hamburger-icon {
-    display: block;
-    max-width: 4rem;
-    transition: all 0.5s ease-in-out;
-  }
 
   #hamburger-menu a.active {
     font-size: 1.5rem;
@@ -324,6 +318,12 @@ main {
     transition: text-decoration 0.5s ease-in-out;
   }
 
+  /* #hamburger-icon {
+    display: block;
+    max-width: 4rem;
+    transition: all 0.5s ease-in-out;
+  }
+
   #cross-icon {
     display: none;
     max-width: 4rem;
@@ -331,7 +331,7 @@ main {
 
   #cross-icon:target {
     display: block;
-  }
+  } */
 
   #hamburger-menu {
     position: fixed;
@@ -341,15 +341,85 @@ main {
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
-  
   }
+
+  /* header:has(#cross-icon:target) + #hamburger-menu {
+    display: flex;
+    justify-content: flex-end;
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+  header:has(#hamburger-icon:target) + #hamburger-menu {
+    display: flex;
+    justify-content: flex-end;
+    animation: closeMenu 0.5s ease-in-out forwards;
+  }
+
+  .no-animation #hamburger-menu {
+    animation: none !important;
+  } 
+    
+   header:has(#cross-icon:target) #hamburger-icon {
+    display: none;
+  }
+      header:has(#cross-icon:target) #about-me .my-info {
+    align-items: center;
+  }
+  
+  */
+
+  #hamburger-icon {
+    display: none;
+  }
+
+  #hamburger-icon + label {
+    margin-right: 1rem;
+    position: absolute;
+    right: 0;
+  }
+  input[type='checkbox'] + label .icon-bar {
+    display: block;
+    width: 5rem;
+    height: 1rem;
+    background-color: #cccccc;
+    margin-block: 1rem;
+    transition: all 0.2s;
+  }
+
+  input[type='checkbox'] + label .middle-bar {
+    opacity: 1;
+  }
+
+  input[type='checkbox']:checked + label .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+  input[type='checkbox']:checked + label .middle-bar {
+    opacity: 0;
+  }
+  input[type='checkbox']:checked + label .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: -20% 0%;
+  }
+
+  header:has(input[type='checkbox']:checked) + #hamburger-menu {
+    display: flex;
+    justify-content: flex-end;
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+
+  header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
+    /* display: flex;
+    justify-content: flex-end; */
+    
+    animation: closeMenu 0.5s ease-in-out forwards;
+  }
+
+
   #hamburger-menu li {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-     margin: 2rem 1rem;
- 
-  
+    margin: 2rem 1rem;
   }
 
   #hamburger-menu li:active,
@@ -366,21 +436,6 @@ main {
     text-decoration: none;
   }
 
-  header:has(#cross-icon:target) #hamburger-icon {
-    display: none;
-  }
-
-  header:has(#cross-icon:target) + #hamburger-menu {
-    animation: openMenu 0.5s ease-in-out forwards;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  header:not(:has(#cross-icon:target)) + #hamburger-menu {
-    animation: closeMenu 0.5s ease-in-out forwards;
-    display: flex;
-    justify-content: flex-end;
-  }
   #about-me {
     min-height: 100vh;
     height: 100%;
@@ -389,9 +444,6 @@ main {
     gap: 15px;
   }
 
-  header:has(#cross-icon:target) #about-me .my-info {
-    align-items: center;
-  }
   #recommendations {
     align-items: center;
     margin-inline: 1rem;
