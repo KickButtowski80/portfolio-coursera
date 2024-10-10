@@ -337,7 +337,7 @@ main {
     margin-right: 1rem;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 1rem;
   }
   input[type='checkbox'] + label .icon-bar {
     display: block;
