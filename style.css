@@ -336,7 +336,7 @@ main {
   #hamburger-icon + label {
     margin-right: 1rem;
     position: absolute;
-    right: 0;
+    right: 1rem;
     top: 1rem;
   }
   input[type='checkbox'] + label .icon-bar {
