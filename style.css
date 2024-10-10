@@ -373,7 +373,6 @@ main {
   }
 
   header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
-  
     animation: closeMenu 0.5s ease-in-out forwards;
   }
 
