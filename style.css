@@ -92,7 +92,7 @@ nav {
 }
 .my-info span:first-child {
   font-size: 3rem;
-  color:white;
+  color: white;
   margin-left: 0.5rem;
 }
 
@@ -104,9 +104,15 @@ nav ul li {
   color: white;
   font-size: 1.5rem;
   margin-inline: 2rem;
+
   list-style: none;
 }
-
+@media (min-width: 769px) and (max-width: 937px) {
+  nav ul li {
+    margin-inline: 0rem;
+    margin-right: 1rem;
+  }
+}
 nav ul li a {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
@@ -143,7 +149,6 @@ nav a {
   color: white;
 }
 
- 
 main {
   margin: 0.5rem;
   position: relative;
