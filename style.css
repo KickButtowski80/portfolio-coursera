@@ -316,7 +316,7 @@ main {
     text-underline-offset: 1rem;
     transition: text-decoration 0.5s ease-in-out;
   }
- 
+
   #hamburger-menu {
     position: fixed;
     top: 12.5rem;
@@ -327,8 +327,6 @@ main {
     background-color: blueviolet;
   }
 
- 
-
   #hamburger-icon {
     display: none;
   }
@@ -338,6 +336,10 @@ main {
     position: absolute;
     right: 1rem;
     top: 1rem;
+  }
+
+  #hamburger-icon + label:hover {
+    cursor: pointer;
   }
   input[type='checkbox'] + label .icon-bar {
     display: block;
@@ -375,7 +377,6 @@ main {
   header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
   }
-
 
   #hamburger-menu li {
     font-size: 1.5rem;
@@ -453,5 +454,12 @@ main {
     100% {
       clip-path: inset(0 0 99% 100%);
     }
+  }
+}
+
+@media (max-width: 425px) {
+  #hamburger-icon + label {
+    right: 0rem;
+    top: 0rem;
   }
 }
