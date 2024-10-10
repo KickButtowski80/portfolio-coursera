@@ -373,9 +373,7 @@ main {
   }
 
   header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
-    /* display: flex;
-    justify-content: flex-end; */
-    
+  
     animation: closeMenu 0.5s ease-in-out forwards;
   }
 
