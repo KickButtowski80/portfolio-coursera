@@ -124,8 +124,8 @@ nav ul li a:focus {
   text-decoration: underline;
   text-decoration-thickness: 0.6rem;
   text-underline-offset: 1rem;
-  transform-origin: top left;
-  transform: scale(1.2);
+  /* transform-origin: top left;
+  transform: scale(1.2); */
 }
 
 .active {
@@ -393,14 +393,14 @@ main {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-    margin: 2rem 1rem;
+    margin: 2rem;
   }
 
   #hamburger-menu li:active,
   #hamburger-menu li:hover {
     text-decoration: underline;
     color: blueviolet;
-    transform: scale(1.5); /* Example transform effect */
+    transform: scale(1.2); /* Example transform effect */
     transition: transform 0.3s ease-in-out; /* Smooth transition */
   }
 
