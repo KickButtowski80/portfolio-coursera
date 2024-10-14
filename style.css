@@ -327,6 +327,8 @@ main {
     background-color: blueviolet;
  
     /* padding: 0 1rem; */
+
+
   }
 
   #hamburger-menu a.active {
@@ -394,6 +396,8 @@ main {
     background-color: blueviolet;
     margin: 2rem;
     /* padding: 0 1rem; */
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
   }
 
   #hamburger-menu li:active,
