@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!targetElement) return;
       let thresholdValue;
       if (window.innerWidth < 768) {
-        thresholdValue = 0.2;
+        thresholdValue = 0.3;
       } else {
         thresholdValue = 0.6;
       }
