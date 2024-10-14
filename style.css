@@ -395,7 +395,7 @@ main {
     list-style-type: none;
     background-color: blueviolet;
     margin: 2rem;
-    /* padding: 0 1rem; */
+    padding-left: 1rem;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
   }
