@@ -397,8 +397,8 @@ main {
   #hamburger-menu li:hover {
     text-decoration: underline;
     color: blueviolet;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2) translateZ(0); /* Example transform effect */
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1) translateZ(0); /* Example transform effect */
     transition: transform 0.3s ease-in-out; /* Smooth transition */
     will-change: transform;
   }
