@@ -394,14 +394,15 @@ main {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-    margin: 2rem;
-    padding-left: 1rem;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+    /* margin: 2rem; */
+   
   }
 
   #hamburger-menu li:active,
   #hamburger-menu li:hover {
+    padding-left: 1rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
     text-decoration: underline;
     color: blueviolet;
     transform: scale3d(1.2, 1.2, 1); /* Example transform effect */
