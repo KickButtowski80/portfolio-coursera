@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!targetElement) return;
       let thresholdValue;
       if (window.innerWidth < 768) {
-        thresholdValue = 0.1111;
+        thresholdValue = 0.2;
       } else {
         thresholdValue = 0.5;
       }
@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) item.classList.add('active');
+            if (entry.isIntersecting) 
+              item.classList.add('active');
             else item.classList.remove('active');
           });
         },
