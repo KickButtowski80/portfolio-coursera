@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) 
               item.classList.add('active');
-            else item.classList.remove('active');
+            else {
+              item.classList.remove('active');
+              item.style.transform = 'scale(1)';
+            }
           });
         },
         { threshold: thresholdValue }
