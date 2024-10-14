@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (window.innerWidth < 768) {
         thresholdValue = 0.2;
       } else {
-        thresholdValue = 0.5;
+        thresholdValue = 0.6;
       }
 
       const observer = new IntersectionObserver(
