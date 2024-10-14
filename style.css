@@ -316,13 +316,6 @@ main {
     right: 0;
   }
 
-  #hamburger-menu a.active {
-    font-size: 1.5rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-    text-underline-offset: 1rem;
-    transition: text-decoration 0.5s ease-in-out;
-  }
 
   #hamburger-menu {
     position: fixed;
@@ -332,6 +325,14 @@ main {
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
+  }
+
+  #hamburger-menu a.active {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5rem;
+    text-underline-offset: 1rem;
+    transition: text-decoration 0.5s ease-in-out;
   }
 
   #hamburger-icon {
@@ -396,8 +397,10 @@ main {
   #hamburger-menu li:hover {
     text-decoration: underline;
     color: blueviolet;
-    transform: scale(1.2); /* Example transform effect */
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2) translateZ(0); /* Example transform effect */
     transition: transform 0.3s ease-in-out; /* Smooth transition */
+    will-change: transform;
   }
 
   #hamburger-menu a {
