@@ -326,6 +326,7 @@ main {
     height: 100%;
     background-color: blueviolet;
     overflow: hidden;
+    padding: 0 1rem;
   }
 
   #hamburger-menu a.active {
@@ -398,7 +399,6 @@ main {
   #hamburger-menu li:hover {
     text-decoration: underline;
     color: blueviolet;
-    -webkit-transform: scale(1.05);
     transform: scale3d(1.2, 1.2, 1); /* Example transform effect */
     transition: transform 0.5s ease-in-out; /* Smooth transition */
     will-change: transform;
