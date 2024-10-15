@@ -138,11 +138,17 @@ nav ul li a:focus {
   width: 100vw;
 }
 
-nav a {
+nav ul li a {
   text-decoration: none;
   color: white;
 }
-
+nav ul li a.active {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5rem;
+  text-underline-offset: 1rem;
+  transition: text-decoration 0.5s ease-in-out;
+}
 main {
   margin: 0.5rem;
   position: relative;
@@ -325,8 +331,7 @@ main {
     height: 100%;
     background-color: blueviolet;
   }
-
-  #hamburger-menu a.active {
+nav#hamburger-menu ul li a.active {
     font-size: 1.5rem;
     text-decoration: underline;
     text-decoration-thickness: 0.5rem;
@@ -379,7 +384,7 @@ main {
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
-  header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {     
+  header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
   }
   nav#hamburger-menu ul {
