@@ -1,27 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('nav ul li a').forEach((item) => {
+  const allMenuItems = document.querySelectorAll('nav ul li a');
+
+  allMenuItems.forEach((item) => {
     const targetElement = document.getElementById(item.hash.split('#')[1]);
     if (!targetElement) return;
-    let thresholdValue = [0.6];
-    let rootMarginValue = '0px';
-    if (window.innerWidth < 769) {
-      thresholdValue = [0.1111];
-      rootMarginValue = '200px 0px 0px 0px';
-    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) item.classList.add('active');
-          else {
-            item.classList.remove('active');         
-            item.style.transform = 'scale(1)';
-           
-          }
-        });
-      },
-      { threshold: thresholdValue, rootMargin: rootMarginValue }
-    );
-    observer.observe(targetElement);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const width = entry.contentRect.width;
+        if (width < 769) {
+          thresholdValue = [0.111];
+          rootMarginValue = '-200px 0px';
+        } else {
+          thresholdValue = [0.5];
+          rootMarginValue = '-100px 0px';
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              console.log(entry.intersectionRatio, entry.target.id);
+          
+              if (entry.isIntersecting ) {
+                item.classList.add('active');
+              } else {
+                item.classList.remove('active');
+                if (width< 769) {
+                  item.style.transform = 'scale(1)';
+                }
+              }
+            });
+          },
+          { threshold: thresholdValue, rootMargin: rootMarginValue }
+        );
+        observer.observe(targetElement);
+      }
+    });
+    resizeObserver.observe(targetElement);
+
+ 
   });
 });
