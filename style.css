@@ -82,26 +82,40 @@ nav {
   font-size: 1.5rem;
 }
 .my-info :is(span, icon) {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 .my-info icon {
   border: 1px solid blue;
   border-radius: 50%;
   padding: 5px;
 }
-
+.fixed-header .my-info span:first-child {
+  font-size: 3rem;
+  color: white;
+  margin-left: 0.5rem;
+}
+.fixed-header .my-info :not(span:first-child) {
+  background-color: rgb(128, 40, 128);
+  padding: 0.5rem;
+  margin-block: 0;
+  color: white;
+}
 nav ul {
   display: flex;
-  row-gap: 20px;
 }
 
 nav ul li {
   color: white;
   font-size: 1.5rem;
-  margin-inline: 2rem;
+  margin-inline: 1.85rem;
   list-style: none;
 }
-
+@media (min-width: 769px) and (max-width: 937px) {
+  nav ul li {
+    margin-inline: 0rem;
+    margin-right: 1rem;
+  }
+}
 nav ul li a {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
@@ -113,17 +127,8 @@ nav ul li a:focus {
   text-decoration: underline;
   text-decoration-thickness: 0.6rem;
   text-underline-offset: 1rem;
-  transform-origin: top left;
-  transform: scale(1.2);
-}
-
-.active {
-  content: '';
-  font-size: 1.5rem;
-  text-decoration: underline;
-  text-decoration-thickness: 0.5rem;
-  text-underline-offset: 1rem;
-  transition: text-decoration 0.5s ease-in-out;
+  /* transform-origin: top left;
+  transform: scale(1.2); */
 }
 
 .fixed-header nav {
@@ -133,11 +138,17 @@ nav ul li a:focus {
   width: 100vw;
 }
 
-nav a {
+nav ul li a {
   text-decoration: none;
   color: white;
 }
-
+nav ul li a.active {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5rem;
+  text-underline-offset: 1rem;
+  transition: text-decoration 0.5s ease-in-out;
+}
 main {
   margin: 0.5rem;
   position: relative;
@@ -147,15 +158,15 @@ main {
   display: none;
 }
 #about-me {
-  min-height: 100vh;
+ 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 15px;
   position: relative;
   z-index: 1;
-
   padding-top: 200px;
+ 
 }
 
 #about-me .my-info {
@@ -183,6 +194,7 @@ main {
   color: white;
 }
 :is(#skills, #projects, #recommendations) {
+ 
   display: flex;
   flex-direction: column;
   margin-inline: 3rem;
@@ -193,6 +205,7 @@ main {
   color: blueviolet;
   margin-bottom: 2rem;
 }
+
 #skills .skill-cards {
   display: flex;
   justify-content: center;
@@ -300,7 +313,8 @@ main {
 }
 
 @media (max-width: 768px) {
-  nav ul li {
+ 
+  .fixed-header nav ul li {
     display: none;
   }
 
@@ -309,15 +323,9 @@ main {
     right: 0;
   }
 
-  #hamburger-menu a.active {
-    font-size: 1.5rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-    text-underline-offset: 1rem;
-    transition: text-decoration 0.5s ease-in-out;
-  }
-
   #hamburger-menu {
+    display: flex;
+    align-items: flex-start;
     position: fixed;
     top: 12.5rem;
     right: 0;
@@ -325,6 +333,13 @@ main {
     list-style-type: none;
     height: 100%;
     background-color: blueviolet;
+  }
+  nav#hamburger-menu ul li a.active {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5rem;
+    text-underline-offset: 1rem;
+    transition: text-decoration 0.5s ease-in-out;
   }
 
   #hamburger-icon {
@@ -335,7 +350,7 @@ main {
     margin-right: 1rem;
     position: absolute;
     right: 1rem;
-    top: 1rem;
+    top: 0rem;
   }
 
   #hamburger-icon + label:hover {
@@ -369,28 +384,33 @@ main {
   }
 
   header:has(input[type='checkbox']:checked) + #hamburger-menu {
-    display: flex;
-    justify-content: flex-end;
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
   header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
   }
-
+  nav#hamburger-menu ul {
+    display: flex;
+    flex-direction: column;
+  }
   #hamburger-menu li {
     font-size: 1.5rem;
     list-style-type: none;
     background-color: blueviolet;
-    margin: 2rem 1rem;
+    margin: 2rem 0rem;
   }
 
   #hamburger-menu li:active,
   #hamburger-menu li:hover {
+    padding-left: 1rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
     text-decoration: underline;
     color: blueviolet;
-    transform: scale(1.5); /* Example transform effect */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    transform: scale3d(1.2, 1.2, 1); /* Example transform effect */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    will-change: transform;
   }
 
   #hamburger-menu a {
@@ -398,9 +418,11 @@ main {
     text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
-
+  .fixed-header .my-info :not(span:first-child) {
+    width: 125%;
+  }
   #about-me {
-    min-height: 100vh;
+ 
     height: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -460,6 +482,5 @@ main {
 @media (max-width: 425px) {
   #hamburger-icon + label {
     right: 0rem;
-    top: 0rem;
   }
 }
