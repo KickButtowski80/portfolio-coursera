@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
           thresholdValue = [0.111];
           rootMarginValue = '-200px 0px';
         } else {
-          thresholdValue = [0.5];
+          thresholdValue = [0.4];
           rootMarginValue = '-100px 0px';
         }
         const observer = new IntersectionObserver(
