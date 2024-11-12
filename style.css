@@ -322,6 +322,9 @@ main {
 }
 
 @media (max-width: 768px) {
+  main{
+    top:5rem;
+  }
   .contact-info {
  
     height: 10rem;
