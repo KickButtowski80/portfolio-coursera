@@ -322,7 +322,15 @@ main {
 }
 
 @media (max-width: 768px) {
+  .contact-info {
  
+    height: 10rem;
+    
+  }
+
+  .fixed-header nav {
+    top:10rem
+  }
   .fixed-header nav ul li {
     display: none;
   }
