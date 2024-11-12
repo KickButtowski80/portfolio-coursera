@@ -68,7 +68,7 @@ body {
 }
 
 nav {
-  height: 200px;
+  height:fit-content;
   width: 100%;
   background-color: blueviolet;
   display: flex;
@@ -138,13 +138,11 @@ nav ul li a:focus {
   text-decoration: underline;
   text-decoration-thickness: 0.6rem;
   text-underline-offset: 1rem;
-  /* transform-origin: top left;
-  transform: scale(1.2); */
 }
 
 .fixed-header nav {
   position: fixed;
-  top: 0;
+  top: 5rem;
   overflow: hidden;
   width: 100vw;
 }
