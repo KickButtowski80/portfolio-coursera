@@ -1,25 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-   
-    document.querySelectorAll('nav a, #hamburger-menu  a').forEach((item) => {
-      const targetElement = document.getElementById(item.hash.split('#')[1]);
-      if (!targetElement) return;
-      let thresholdValue;
-      if (window.innerWidth < 768) {
-        thresholdValue = 0.1111;
-      } else {
-        thresholdValue = 0.5;
-      }
+  const allMenuItems = document.querySelectorAll('nav ul li a');
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) item.classList.add('active');
-            else item.classList.remove('active');
-          });
-        },
-        { threshold: thresholdValue }
-      );
-      observer.observe(targetElement);
+  allMenuItems.forEach((item) => {
+    const targetElement = document.getElementById(item.hash.split('#')[1]);
+    if (!targetElement) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const width = entry.contentRect.width;
+        if (width < 769) {
+          thresholdValue = [0.111];
+          rootMarginValue = '-200px 0px';
+        } else {
+          thresholdValue = [0.4];
+          rootMarginValue = '-100px 0px';
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              console.log(entry.intersectionRatio, entry.target.id);
+          
+              if (entry.isIntersecting ) {
+                item.classList.add('active');
+              } else {
+                item.classList.remove('active');
+                if (width< 769) {
+                  item.style.transform = 'scale(1)';
+                }
+              }
+            });
+          },
+          { threshold: thresholdValue, rootMargin: rootMarginValue }
+        );
+        observer.observe(targetElement);
+      }
     });
+    resizeObserver.observe(targetElement);
+
  
+  });
 });

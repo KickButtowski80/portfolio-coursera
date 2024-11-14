@@ -3,29 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Portfolio WebSite</title>
-  
   </head>
   <body>
     <header class="fixed-header">
       <nav>
         <section class="my-info">
           <span>Jane Doe</span>
-          <span><icon>📧</icon> jdoe@jeemail.com</span>
-          <span><icon>📞</icon> +123456789</span>
         </section>
- 
-     
-          <input type="checkbox" name="" id="hamburger-icon" title="Hamburger Menu"/>
-          <label for="hamburger-icon">
-            <span class="icon-bar top-bar"></span>
-            <span class="icon-bar middle-bar"></span>
-            <span class="icon-bar bottom-bar"></span>
-          </label>
-        
-       
-        <ul >
+
+        <input
+          type="checkbox"
+          name=""
+          id="hamburger-icon"
+          title="Hamburger Menu"
+        />
+        <label
+    
+          aria-label="Toggle Hamburger Menu"
+          for="hamburger-icon"
+          role="button"
+        >
+          <span class="icon-bar top-bar"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </label>
+
+        <ul>
           <li><a href="#about-me">About Me</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -33,13 +38,17 @@
         </ul>
       </nav>
     </header>
-    <div id="hamburger-menu">
+    <nav id="hamburger-menu">
       <ul>
         <li><a href="#about-me">About Me</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
       </ul>
+    </nav>
+    <div class="contact-info">
+      <span><icon>📧</icon> jdoe@jeemail.com</span>
+      <span><icon>📞</icon> +123456789</span>
     </div>
     <main>
       <section id="about-me">
@@ -52,8 +61,10 @@
           </figure>
         </div>
         <div class="my-info">
-          <h1>Hi, <br>
-             I'm Jane Doe!</h1>
+          <h1>
+            Hi, <br />
+            I'm Jane Doe!
+          </h1>
           <img
             src="./html_finalprojimages/waving-hand.png"
             alt="waving hand icon"
@@ -216,6 +227,6 @@
         </div>
       </section>
     </main>
-    <script src="script.js" defer ></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
