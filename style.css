@@ -85,7 +85,7 @@ nav {
 .fixed-header nav .my-info span {
   font-size: 3rem;
   color: white;
- 
+
   padding-inline: clamp(1.5rem, 1.5vw + 1rem, 2.5rem);
 }
 .my-info :is(span, icon) {
@@ -389,17 +389,15 @@ main {
   }
 
   input[type='checkbox']:checked + label .top-bar {
-    width: 4rem;
     transform: rotate(41deg);
-    transform-origin: 5% 10%;
+    transform-origin: 5% 15%;
   }
   input[type='checkbox']:checked + label .middle-bar {
     opacity: 0;
   }
   input[type='checkbox']:checked + label .bottom-bar {
-    width: 4rem;
     transform: rotate(-45deg);
-    transform-origin: 15% 55%;
+    transform-origin: -2% 55%;
   }
 
   header:has(input[type='checkbox']:checked) + #hamburger-menu {
