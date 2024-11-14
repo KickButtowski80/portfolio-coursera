@@ -358,8 +358,9 @@ main {
     text-decoration: underline;
     text-decoration-thickness: 0.5rem;
     text-underline-offset: 1rem;
-    transition: text-decoration 0.5s ease-in-out;
+    transition: text-decoration 1s ease-in-out;
   }
+  
 
   #hamburger-icon {
     display: none;
