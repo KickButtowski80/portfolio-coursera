@@ -327,7 +327,7 @@ main {
   .contact-info span {
     display: block;
     padding-block: 0.1rem;
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 1.5vw + 1rem, 2.5rem);
   }
 
   .fixed-header nav {
