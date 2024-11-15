@@ -1,42 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const allMenuItems = document.querySelectorAll('nav ul li a');
+  let allLinkElements;
+  const options = {
+    root: null,
+    rootMargin: '0px 0px 0px 0px',
+    threshold: [0.4],
+  };
+  const setAddressHash = (id) => {
+    window.history.replaceState({}, "", `#${id}`);
+  }
+  const getThreshold = (targetId, sectionHeight, viewportHeight) => {
+    let targetVisiblePercent = 0.40;
+    if (targetId === "locations") {
+      targetVisiblePercent = 0.60;
+    }
+    return (viewportHeight * targetVisiblePercent) / sectionHeight;
+  };
 
-  allMenuItems.forEach((item) => {
-    const targetElement = document.getElementById(item.hash.split('#')[1]);
-    if (!targetElement) return;
+  const resizeObserver = new ResizeObserver((entries) => {
+    const width = entries[0].contentRect.width;
+    if (width < 768) {
+      allLinkElements = document.querySelectorAll('nav#hamburger-menu ul li a');
+    } else {
+      allLinkElements = document.querySelectorAll('nav#main-menu ul li a');
+    }
 
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const width = entry.contentRect.width;
-        if (width < 769) {
-          thresholdValue = [0.111];
-          rootMarginValue = '-200px 0px';
-        } else {
-          thresholdValue = [0.4];
-          rootMarginValue = '-100px 0px';
+    allLinkElements.forEach((linkElement) => {
+      const targetId = linkElement.getAttribute('href').replace('#', '');
+      const targetElement = document.getElementById(targetId);
+
+      const sectionHeight = targetElement.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      options.threshold = getThreshold(
+        targetId,
+        sectionHeight,
+        viewportHeight
+      );
+     console.log(options.threshold);
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          allLinkElements.forEach((linkElement) => {
+            linkElement.classList.remove('active');
+          })
+          linkElement.classList.add('active');
+          setAddressHash(targetId);
         }
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              console.log(entry.intersectionRatio, entry.target.id);
-          
-              if (entry.isIntersecting ) {
-                item.classList.add('active');
-              } else {
-                item.classList.remove('active');
-                if (width< 769) {
-                  item.style.transform = 'scale(1)';
-                }
-              }
-            });
-          },
-          { threshold: thresholdValue, rootMargin: rootMarginValue }
-        );
-        observer.observe(targetElement);
-      }
-    });
-    resizeObserver.observe(targetElement);
+      }, options);
 
- 
+      observer.observe(targetElement);
+    });
   });
+
+  resizeObserver.observe(document.body);
 });
