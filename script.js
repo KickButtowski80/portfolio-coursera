@@ -8,10 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const setAddressHash = (id) => {
     window.history.replaceState({}, "", `#${id}`);
   }
-  const getThreshold = (targetId, sectionHeight, viewportHeight) => {
-    let targetVisiblePercent = 0.40;
-    if (targetId === "locations") {
-      targetVisiblePercent = 0.60;
+  const getThreshold = (targetId, sectionHeight, viewportHeight, screenWidth) => {
+    let targetVisiblePercent = 0.29;
+    if(screenWidth >= 768) {
+      targetVisiblePercent = 0.45;
+    }
+    if (targetId === "skills" && screenWidth  < 768) {
+      targetVisiblePercent = 0.30;
     }
     return (viewportHeight * targetVisiblePercent) / sectionHeight;
   };
@@ -33,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
       options.threshold = getThreshold(
         targetId,
         sectionHeight,
-        viewportHeight
+        viewportHeight,
+        width
       );
      console.log(options.threshold);
       const observer = new IntersectionObserver((entries) => {
