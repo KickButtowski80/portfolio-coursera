@@ -9,14 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
     window.history.replaceState({}, "", `#${id}`);
   }
   const getThreshold = (targetId, sectionHeight, viewportHeight, screenWidth) => {
-    let targetVisiblePercent = 0.29;
-    if(screenWidth >= 768) {
-      targetVisiblePercent = 0.45;
-    }
-    if (targetId === "skills" && screenWidth  < 768) {
-      targetVisiblePercent = 0.30;
-    }
-    return (viewportHeight * targetVisiblePercent) / sectionHeight;
+    let targetVisiblePercent = 0.4;
+    // if(screenWidth >= 768) {
+    //   targetVisiblePercent = 0.45;
+    // }
+    // if (targetId === "skills" && screenWidth  < 768) {
+    //   targetVisiblePercent = 0.26;
+    // }
+    if(screenWidth >= 768) 
+    return Math.min(1, (viewportHeight * targetVisiblePercent) / sectionHeight);
+    return  (viewportHeight * targetVisiblePercent) / sectionHeight;
   };
 
   const resizeObserver = new ResizeObserver((entries) => {
