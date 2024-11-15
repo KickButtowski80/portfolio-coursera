@@ -5,23 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
     rootMargin: '0px 0px 0px 0px',
     threshold: [0.4],
   };
+  let observers = [];
   const setAddressHash = (id) => {
     window.history.replaceState({}, "", `#${id}`);
   }
   const getThreshold = (targetId, sectionHeight, viewportHeight, screenWidth) => {
     let targetVisiblePercent = 0.4;
-    // if(screenWidth >= 768) {
-    //   targetVisiblePercent = 0.45;
-    // }
-    // if (targetId === "skills" && screenWidth  < 768) {
-    //   targetVisiblePercent = 0.26;
-    // }
-    if(screenWidth >= 768) 
-    return Math.min(1, (viewportHeight * targetVisiblePercent) / sectionHeight);
-    return  (viewportHeight * targetVisiblePercent) / sectionHeight;
+    let thresholdValue = (viewportHeight * targetVisiblePercent) / sectionHeight;
+    if(screenWidth >= 768) {
+
+      
+      thresholdValue =  Math.min(1, (viewportHeight * targetVisiblePercent) / sectionHeight);
+      console.log(thresholdValue, targetId);
+    }
+    return thresholdValue;
+ 
   };
 
   const resizeObserver = new ResizeObserver((entries) => {
+    observers.forEach((observer) => observer.disconnect());
+    observers = [];
     const width = entries[0].contentRect.width;
     if (width < 768) {
       allLinkElements = document.querySelectorAll('nav#hamburger-menu ul li a');
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         viewportHeight,
         width
       );
-     console.log(options.threshold);
+ 
       const observer = new IntersectionObserver((entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }, options);
 
       observer.observe(targetElement);
+      observers.push(observer);
     });
   });
 
