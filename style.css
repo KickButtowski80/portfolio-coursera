@@ -128,15 +128,36 @@ nav ul li {
 }
 nav ul li a {
   display: inline-block;
-  transition: transform 0.3s ease-in-out;
   will-change: transform;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a.active::after {
+  transform: scaleX(1);
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(0.7);
+}
+
 nav ul li a:hover,
 nav ul li a:focus {
   color: white;
-  text-decoration: underline;
-  text-decoration-thickness: 0.6rem;
-  text-underline-offset: 1rem;
 }
 
 .fixed-header nav {
@@ -146,17 +167,10 @@ nav ul li a:focus {
   width: 100vw;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: white;
-}
 nav ul li a.active {
-  font-size: 1.5rem;
-  text-decoration: underline;
-  text-decoration-thickness: 0.5rem;
-  text-underline-offset: 1rem;
   transition: text-decoration 0.5s ease-in-out;
 }
+
 main {
   margin: 0.5rem;
   position: relative;
@@ -353,14 +367,12 @@ main {
     height: 100%;
     background-color: blueviolet;
   }
-  nav#hamburger-menu ul li a.active {
-    font-size: 1.5rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-    text-underline-offset: 1rem;
-    transition: text-decoration 0.5s ease-in-out;
+  nav#hamburger-menu ul {
+    list-style-type: none;
+    height: 100%;
+    background-color: blueviolet;
   }
-
+   
   #hamburger-icon {
     display: none;
   }
@@ -435,9 +447,7 @@ main {
     text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
-  /* .fixed-header .my-info :not(span:first-child) {
-    width: 125%;
-  } */
+ 
   #about-me {
     height: 100%;
     display: grid;
