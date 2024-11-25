@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     root: null,
-    rootMargin: '-10% 0px',  // Reduced margin for better activation
-    threshold: 0.5,  // Single threshold for clearer section detection
+    rootMargin: '-10% 0px',  
+    threshold: [0, 0.25, 0.5, 0.75, 1],  
   };
 
   const allMenuLinks = document.querySelectorAll('nav ul li a');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   allMenuLinks.forEach((menuLink) => {
     const section = document.querySelector(menuLink.getAttribute('href'));
-    if (!section) return;  // Skip if section not found
+    if (!section) return;  
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
