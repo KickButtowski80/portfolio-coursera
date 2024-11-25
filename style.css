@@ -367,15 +367,12 @@ main {
     height: 100%;
     background-color: blueviolet;
   }
-  nav#hamburger-menu ul li a.active {
-    font-size: 1.5rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-    text-underline-offset: 1rem;
-    transition: text-decoration 0.1s ease-in-out;
+  nav#hamburger-menu ul {
+    list-style-type: none;
+    height: 100%;
+    background-color: blueviolet;
   }
-  
-
+  /* Removing redundant active styles as they're covered by nav ul li a::after */
   #hamburger-icon {
     display: none;
   }
