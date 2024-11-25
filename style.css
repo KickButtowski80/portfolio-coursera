@@ -447,9 +447,7 @@ main {
     text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
-  /* .fixed-header .my-info :not(span:first-child) {
-    width: 125%;
-  } */
+ 
   #about-me {
     height: 100%;
     display: grid;
