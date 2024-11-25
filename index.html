@@ -183,47 +183,70 @@
         </div>
       </section>
 
-      <section id="recommendations">
-        <h1>Recommendations</h1>
+      <section id="recommendations" aria-labelledby="recommendations-title">
+        <h1 id="recommendations-title">Recommendations</h1>
         <div class="recommendation-cards">
-          <div class="recommendation-card">
-            “ Jane is a very quick learner and quickly grasps key concepts of
-            Web development. She got a great attitude & she is an excellent team
-            player. She has a curious mind and asks the right question. She
-            takes initiative within a team and has potentials to lead the team.
-            ”
-          </div>
-          <div class="recommendation-card">
-            “ Working with Jane has been an awesome experience. She is highly
-            knowledgable and always goes the extra step to make sure everything
-            is right. For any future projects that need her expertise I would
-            definitely want to work with her again. ”
-          </div>
-          <div class="recommendation-card">
-            “ I had worked along with Jane during the initial phase of our
-            venture which needed Web development. She is a committed resource
-            who has in depth knowledge about the domain. She will be an asset
-            for any organisation! ”
-          </div>
+          <blockquote class="recommendation-card">
+            <p>
+              Jane is a very quick learner and quickly grasps key concepts of
+              Web development. She got a great attitude \& she is an excellent team
+              player. She has a curious mind and asks the right question. She
+              takes initiative within a team and has potentials to lead the team.
+            </p>
+            <footer>
+              <cite>- John Doe, Senior Developer</cite>
+            </footer>
+          </blockquote>
+          <blockquote class="recommendation-card">
+            <p>
+              Working with Jane has been an awesome experience. She is highly
+              knowledgable and always goes the extra step to make sure everything
+              is right. For any future projects that need her expertise I would
+              definitely want to work with her again.
+            </p>
+            <footer>
+              <cite>- Sarah Smith, Project Manager</cite>
+            </footer>
+          </blockquote>
+          <blockquote class="recommendation-card">
+            <p>
+              I had worked along with Jane during the initial phase of our
+              venture which needed Web development. She is a committed resource
+              who has in depth knowledge about the domain. She will be an asset
+              for any organisation!
+            </p>
+            <footer>
+              <cite>- Michael Johnson, CTO</cite>
+            </footer>
+          </blockquote>
         </div>
 
-        <div class="recommendation-form">
-          <h2>Leave a Recommendation</h2>
-
-          <input
-            type="text"
-            name=""
-            id="recommendation-author-name"
-            placeholder="Name(Optional)"
-          />
-          <textarea
-            name=""
-            id="recommendations-author-message"
-            cols="500"
-            rows="10"
-            placeholder="message"
-          ></textarea>
-          <button type="button">Submit</button>
+        <div class="recommendation-form" role="form" aria-labelledby="form-title">
+          <h2 id="form-title">Leave a Recommendation</h2>
+          
+          <div class="form-group">
+            <label for="recommendation-author-name">Your Name (Optional)</label>
+            <input
+              type="text"
+              name="author-name"
+              id="recommendation-author-name"
+              aria-label="Your name (optional)"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="recommendation-author-message">Your Message</label>
+            <textarea
+              name="author-message"
+              id="recommendation-author-message"
+              cols="500"
+              rows="10"
+              aria-label="Your recommendation message"
+              required
+            ></textarea>
+          </div>
+          
+          <button type="submit" aria-label="Submit recommendation">Submit</button>
         </div>
       </section>
     </main>
