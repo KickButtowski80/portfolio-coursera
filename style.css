@@ -372,7 +372,7 @@ main {
     height: 100%;
     background-color: blueviolet;
   }
-  /* Removing redundant active styles as they're covered by nav ul li a::after */
+   
   #hamburger-icon {
     display: none;
   }
