@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const options = {
     root: null,
     rootMargin: '-10% 0px',  
-    threshold: [0, 0.25, 0.5, 0.75, 1],  
+    //threshold values
+    threshold: [0, 0.25, 0.5, 0.65, 0.75, 1],  
   };
 
 
