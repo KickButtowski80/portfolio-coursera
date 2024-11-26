@@ -1,41 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Wait for both DOM and all resources (including stylesheets) to load
+window.addEventListener("load", function () {
+  // Detect if mobile based on screen width (typical mobile breakpoint is 768px)
+  const isMobile = window.innerWidth <= 768;
+
   const options = {
     root: null,
-    rootMargin: '-10% 0px',  
+    rootMargin: isMobile ? "-10% 0px 5% 0px" : "-10% 0px", // Positive margin for mobile to detect sections earlier
     //threshold values
-    threshold: [0, 0.25, 0.5, 0.65, 0.75, 1],  
+    threshold: [0, 0.25, 0.5, 0.75, 1], // Different thresholds for mobile/desktop
   };
 
-
-
-  const allMenuLinks = document.querySelectorAll('nav ul li a');
+  const allMenuLinks = document.querySelectorAll("nav ul li a");
   const sectionVisibility = new Map();
 
-
-
-  allMenuLinks.forEach((menuLink) => {
-    menuLink.addEventListener('click', (e) => { 
-      // Remove active class from all menu items
-      allMenuLinks.forEach(item => item.classList.remove('active'));
-      // Add active class to clicked item
-      menuLink.classList.add('active');
-    });
-  });
-
-
+  // allMenuLinks.forEach((menuLink) => {
+  //   menuLink.addEventListener("click", (e) => {
+  //     // Remove active class from all menu items
+  //     allMenuLinks.forEach((item) => item.classList.remove("active"));
+  //     // Add active class to clicked item
+  //     menuLink.classList.add("active");
+  //   });
+  // });
 
   allMenuLinks.forEach((menuLink) => {
-    const section = document.querySelector(menuLink.getAttribute('href'));
-    if (!section) return;  
+    const section = document.querySelector(menuLink.getAttribute("href"));
+    if (!section) return;
 
     const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      
-      // Update visibility state
-      sectionVisibility.set(entry.target.id, {
-        visible: entry.isIntersecting,
-        ratio: entry.intersectionRatio,
+      entries.forEach(entry => {
+        sectionVisibility.set(entry.target.id, {
+            visible: entry.isIntersecting,
+            ratio: entry.intersectionRatio
+        });
       });
+        // Update section opacity
 
       // Find the most visible section
       let maxRatio = 0;
@@ -47,19 +45,22 @@ document.addEventListener('DOMContentLoaded', function () {
           mostVisibleSection = id;
         }
       });
-
+      
+      if(!mostVisibleSection) return;
+      //  debugger;
       // Update active state for all menu items
       allMenuLinks.forEach((link) => {
-        const sectionId = link.getAttribute('href').substring(1);
-        
-        if (sectionId === mostVisibleSection) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
+        link.classList.remove("active");
       });
+      const sectionId = document.getElementById(mostVisibleSection)?.id;
+      const currentActiveLinks = document.querySelectorAll(`[href="#${sectionId}"]`);
+      currentActiveLinks.forEach((link) => {
+        link.classList.add("active");
+      });
+ 
+   
     }, options);
-
+   
     observer.observe(section);
   });
 });
