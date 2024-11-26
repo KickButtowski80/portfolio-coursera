@@ -164,6 +164,12 @@ nav ul li a:focus {
   color: white;
 }
 
+nav ul li a:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+  text-decoration: underline;
+}
+
 .fixed-header nav {
   position: fixed;
   top: clamp(5rem, 5vw + 3rem, 8rem);
@@ -464,6 +470,12 @@ main {
     text-decoration: none;
   }
  
+  #hamburger-menu a:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+    text-decoration: underline;
+  }
+
   #about-me {
     height: 100%;
     display: grid;
