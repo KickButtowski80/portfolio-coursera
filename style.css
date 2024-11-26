@@ -172,7 +172,7 @@ nav ul li a:focus {
 
 .fixed-header nav {
   position: fixed;
-  top: clamp(5rem, 5vw + 3rem, 8rem);
+  top: clamp(4rem, 3vw + 3rem, 6rem);
   overflow: hidden;
   width: 100vw;
 }
