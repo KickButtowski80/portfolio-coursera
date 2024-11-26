@@ -103,11 +103,15 @@ nav {
   z-index: 1;
   width: 100%;
   font-size: 2rem;
-  background-color: rgb(128, 40, 128);
+  background-color:  #ab30ab;
   text-align: center;
   height: 5rem;
   color: white;
   padding-block: 1rem;
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 nav ul {
