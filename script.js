@@ -1,5 +1,5 @@
 // Wait for both DOM and all resources (including stylesheets) to load
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
   // Detect if mobile based on screen width (typical mobile breakpoint is 768px)
   const isMobile = window.innerWidth <= 768;
 
