@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
   const allMenuItems = document.querySelectorAll('nav ul li a');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+
+  hamburgerIcon.addEventListener('change', function() {
+    this.setAttribute('aria-expanded', this.checked);
+  });
 
   allMenuItems.forEach((item) => {
     const targetElement = document.getElementById(item.hash.split('#')[1]);

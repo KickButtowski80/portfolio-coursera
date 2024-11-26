@@ -15,8 +15,10 @@
 
         <input
           type="checkbox"
-          name=""
+          name="nav-toggle"
           id="hamburger-icon"
+          aria-expanded="false"
+          aria-controls="hamburger-menu"
           title="Hamburger Menu"
         />
         <label
@@ -45,8 +47,8 @@
       </ul>
     </nav>
     <div class="contact-info">
-      <span><icon>📧</icon> jdoe@jeemail.com</span>
-      <span><icon>📞</icon> +123456789</span>
+      <span><span class="icon" aria-hidden="true">📧</span> jdoe@jeemail.com</span>
+      <span><span class="icon" aria-hidden="true">📞</span> +123456789</span>
     </div>
     <main>
       <section id="about-me">
