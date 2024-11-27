@@ -174,13 +174,15 @@ nav ul li a.active::after {
   transform: scaleX(1);
 }
 
-nav ul li a:hover::after {
-  transform: scaleX(0.7);
-}
+@media (min-width: 769px) {
+  nav ul li a:hover::after {
+    transform: scaleX(0.7);
+  }
 
-nav ul li a:hover,
-nav ul li a:focus {
-  color: white;
+  nav ul li a:hover,
+  nav ul li a:focus {
+    color: white;
+  }
 }
 
 nav ul li a:focus {
