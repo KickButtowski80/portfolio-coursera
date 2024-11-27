@@ -82,12 +82,31 @@ nav {
   font-size: 1.5rem;
 }
 
-.fixed-header nav .my-info span {
+.fixed-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+}
+
+.fixed-header nav {
+  position: fixed;
+  top: clamp(4rem, 3vw + 3rem, 6rem);
+  overflow: hidden;
+  width: 100vw;
+}
+
+.fixed-header nav .my-info h1 {
   font-size: 3rem;
   color: white;
-
+  margin: 0;
   padding-inline: clamp(1.5rem, 1.5vw + 1rem, 2.5rem);
 }
+
+.fixed-header nav .my-info span {
+  display: none;
+}
+
 .my-info :is(span, icon) {
   margin-bottom: 1rem;
 }
@@ -168,17 +187,6 @@ nav ul li a:focus {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
   text-decoration: underline;
-}
-
-.fixed-header nav {
-  position: fixed;
-  top: clamp(4rem, 3vw + 3rem, 6rem);
-  overflow: hidden;
-  width: 100vw;
-}
-
-nav ul li a.active {
-  transition: text-decoration 0.5s ease-in-out;
 }
 
 main {
