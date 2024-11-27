@@ -22,10 +22,8 @@
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
         />
-        <label
-          for="hamburger-icon"
-        >
-        <span class="visually-hidden">Toggle navigation menu</span>
+        <label for="hamburger-icon">
+          <span class="visually-hidden">Toggle navigation menu</span>
           <span class="icon-bar top-bar"></span>
           <span class="icon-bar middle-bar"></span>
           <span class="icon-bar bottom-bar"></span>
@@ -48,8 +46,14 @@
       </ul>
     </nav>
     <div class="contact-info">
-      <p><i class="icon" aria-hidden="true">📧</i> <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a></p>
-      <p><i class="icon" aria-hidden="true">📞</i> <a href="tel:+123456789">+123456789</a></p>
+      <p>
+        <i class="icon" aria-hidden="true">📧</i>
+        <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
+      </p>
+      <p>
+        <i class="icon" aria-hidden="true">📞</i>
+        <a href="tel:+123456789">+123456789</a>
+      </p>
     </div>
     <main>
       <section id="about-me">
@@ -102,8 +106,7 @@
                 alt="java script icon"
               />
               <figcaption>
-                Java Script
-
+                <h2>Java Script</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -113,8 +116,7 @@
             <figure>
               <img src="./html_finalprojimages/CSS3.png" alt="css 3 icon" />
               <figcaption>
-                CSS 3
-
+                <h2>CSS 3</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -124,8 +126,7 @@
             <figure>
               <img src="./html_finalprojimages/java.png" alt="java icon" />
               <figcaption>
-                Java
-
+                <h2>Java</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -135,7 +136,7 @@
             <figure>
               <img src="./html_finalprojimages/node.png" alt="node icon" />
               <figcaption>
-                node
+                <h2>node</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -190,9 +191,10 @@
           <blockquote class="recommendation-card">
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude \& she is an excellent team
-              player. She has a curious mind and asks the right question. She
-              takes initiative within a team and has potentials to lead the team.
+              Web development. She got a great attitude \& she is an excellent
+              team player. She has a curious mind and asks the right question.
+              She takes initiative within a team and has potentials to lead the
+              team.
             </p>
             <footer>
               <cite>- John Doe, Senior Developer</cite>
@@ -201,9 +203,9 @@
           <blockquote class="recommendation-card">
             <p>
               Working with Jane has been an awesome experience. She is highly
-              knowledgable and always goes the extra step to make sure everything
-              is right. For any future projects that need her expertise I would
-              definitely want to work with her again.
+              knowledgable and always goes the extra step to make sure
+              everything is right. For any future projects that need her
+              expertise I would definitely want to work with her again.
             </p>
             <footer>
               <cite>- Sarah Smith, Project Manager</cite>
@@ -222,9 +224,13 @@
           </blockquote>
         </div>
 
-        <div class="recommendation-form" role="form" aria-labelledby="form-title">
+        <div
+          class="recommendation-form"
+          role="form"
+          aria-labelledby="form-title"
+        >
           <h2 id="form-title">Leave a Recommendation</h2>
-          
+
           <div class="form-group">
             <label for="recommendation-author-name">Your Name (Optional)</label>
             <input
@@ -234,7 +240,7 @@
               aria-label="Your name (optional)"
             />
           </div>
-          
+
           <div class="form-group">
             <label for="recommendation-author-message">Your Message</label>
             <textarea
@@ -246,8 +252,10 @@
               required
             ></textarea>
           </div>
-          
-          <button type="submit" aria-label="Submit recommendation">Submit</button>
+
+          <button type="submit" aria-label="Submit recommendation">
+            Submit
+          </button>
         </div>
       </section>
     </main>
