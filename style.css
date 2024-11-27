@@ -159,7 +159,7 @@ nav ul li a:hover::after {
   transform: scaleX(0.7);
 }
 
-nav ul li a:hover,
+/* nav ul li a:hover,
 nav ul li a:focus {
   color: white;
 }
@@ -168,7 +168,7 @@ nav ul li a:focus {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
   text-decoration: underline;
-}
+} */
 
 .fixed-header nav {
   position: fixed;
