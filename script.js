@@ -22,14 +22,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const allMenuLinks = document.querySelectorAll("nav ul li a");
   const sectionVisibility = new Map();
 
-  // allMenuLinks.forEach((menuLink) => {
-  //   menuLink.addEventListener("click", (e) => {
-  //     // Remove active class from all menu items
-  //     allMenuLinks.forEach((item) => item.classList.remove("active"));
-  //     // Add active class to clicked item
-  //     menuLink.classList.add("active");
-  //   });
-  // });
+
 
   allMenuLinks.forEach((menuLink) => {
     const section = document.querySelector(menuLink.getAttribute("href"));
