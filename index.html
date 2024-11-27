@@ -8,23 +8,24 @@
   </head>
   <body>
     <header class="fixed-header">
-      <nav id="main-menu">
+ 
+      <nav aria-label="Primary navigation">
+ 
         <section class="my-info">
-          <span>Jane Doe</span>
+          <h1>Jane Doe</h1>
         </section>
 
         <input
           type="checkbox"
-          name=""
+          name="mobile-navigation-toggle"
           id="hamburger-icon"
+          aria-expanded="false"
+          aria-controls="hamburger-menu"
+          aria-label="Toggle navigation menu"
           title="Hamburger Menu"
         />
-        <label
-    
-          aria-label="Toggle Hamburger Menu"
-          for="hamburger-icon"
-          role="button"
-        >
+        <label for="hamburger-icon">
+          <span class="visually-hidden">Toggle navigation menu</span>
           <span class="icon-bar top-bar"></span>
           <span class="icon-bar middle-bar"></span>
           <span class="icon-bar bottom-bar"></span>
@@ -38,7 +39,7 @@
         </ul>
       </nav>
     </header>
-    <nav id="hamburger-menu">
+    <nav id="hamburger-menu" aria-label="Mobile navigation">
       <ul>
         <li><a href="#about-me">About Me</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -47,8 +48,14 @@
       </ul>
     </nav>
     <div class="contact-info">
-      <span><icon>📧</icon> jdoe@jeemail.com</span>
-      <span><icon>📞</icon> +123456789</span>
+      <p>
+        <i class="icon" aria-hidden="true">📧</i>
+        <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
+      </p>
+      <p>
+        <i class="icon" aria-hidden="true">📞</i>
+        <a href="tel:+123456789">+123456789</a>
+      </p>
     </div>
     <main>
       <section id="about-me">
@@ -56,7 +63,7 @@
           <figure>
             <img
               src="https://miro.medium.com/v2/resize:fit:1400/1*qdAW1TjCN57h1lbuuzvchg.gif"
-              alt="avatar of me"
+              alt="A cartoon illustration of a female developer with a friendly smile, wearing glasses and a headset, representing Jane Doe"
             />
           </figure>
         </div>
@@ -88,7 +95,7 @@
             <figure>
               <img src="./html_finalprojimages/html5.png" alt="html 5 icon" />
               <figcaption>
-                <h4>html</h4>
+                <h2>html</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -101,8 +108,7 @@
                 alt="java script icon"
               />
               <figcaption>
-                Java Script
-
+                <h2>Java Script</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -112,8 +118,7 @@
             <figure>
               <img src="./html_finalprojimages/CSS3.png" alt="css 3 icon" />
               <figcaption>
-                CSS 3
-
+                <h2>CSS 3</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -123,8 +128,7 @@
             <figure>
               <img src="./html_finalprojimages/java.png" alt="java icon" />
               <figcaption>
-                Java
-
+                <h2>Java</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -134,7 +138,7 @@
             <figure>
               <img src="./html_finalprojimages/node.png" alt="node icon" />
               <figcaption>
-                node
+                <h2>node</h2>
                 <div>2 years experience</div>
               </figcaption>
             </figure>
@@ -146,7 +150,7 @@
         <h1>Projects</h1>
         <div class="projects-info">
           <article>
-            <h3>Chatbot</h3>
+            <h2>Chatbot</h2>
             <ul>
               <li>
                 Develooled a secure website integrated with a chatbot for an
@@ -159,7 +163,7 @@
           <hr />
           <br />
           <article>
-            <h3>Sentiment Analyzer</h3>
+            <h2>Sentiment Analyzer</h2>
             <ul>
               <li>
                 Developed and deployed a sentiment analyzer for the box reviews
@@ -171,7 +175,7 @@
           <hr />
           <br />
           <article>
-            <h3>Fashion Website</h3>
+            <h2>Fashion Website</h2>
             <ul>
               <li>
                 Created a styled multi-page website for a new player in the
@@ -183,47 +187,77 @@
         </div>
       </section>
 
-      <section id="recommendations">
-        <h1>Recommendations</h1>
+      <section id="recommendations" aria-labelledby="recommendations-title">
+        <h1 id="recommendations-title">Recommendations</h1>
         <div class="recommendation-cards">
-          <div class="recommendation-card">
-            “ Jane is a very quick learner and quickly grasps key concepts of
-            Web development. She got a great attitude & she is an excellent team
-            player. She has a curious mind and asks the right question. She
-            takes initiative within a team and has potentials to lead the team.
-            ”
-          </div>
-          <div class="recommendation-card">
-            “ Working with Jane has been an awesome experience. She is highly
-            knowledgable and always goes the extra step to make sure everything
-            is right. For any future projects that need her expertise I would
-            definitely want to work with her again. ”
-          </div>
-          <div class="recommendation-card">
-            “ I had worked along with Jane during the initial phase of our
-            venture which needed Web development. She is a committed resource
-            who has in depth knowledge about the domain. She will be an asset
-            for any organisation! ”
-          </div>
+          <blockquote class="recommendation-card">
+            <p>
+              Jane is a very quick learner and quickly grasps key concepts of
+              Web development. She got a great attitude \& she is an excellent
+              team player. She has a curious mind and asks the right question.
+              She takes initiative within a team and has potentials to lead the
+              team.
+            </p>
+            <footer>
+              <cite>- John Doe, Senior Developer</cite>
+            </footer>
+          </blockquote>
+          <blockquote class="recommendation-card">
+            <p>
+              Working with Jane has been an awesome experience. She is highly
+              knowledgable and always goes the extra step to make sure
+              everything is right. For any future projects that need her
+              expertise I would definitely want to work with her again.
+            </p>
+            <footer>
+              <cite>- Sarah Smith, Project Manager</cite>
+            </footer>
+          </blockquote>
+          <blockquote class="recommendation-card">
+            <p>
+              I had worked along with Jane during the initial phase of our
+              venture which needed Web development. She is a committed resource
+              who has in depth knowledge about the domain. She will be an asset
+              for any organisation!
+            </p>
+            <footer>
+              <cite>- Michael Johnson, CTO</cite>
+            </footer>
+          </blockquote>
         </div>
 
-        <div class="recommendation-form">
-          <h2>Leave a Recommendation</h2>
+        <div
+          class="recommendation-form"
+          role="form"
+          aria-labelledby="form-title"
+        >
+          <h2 id="form-title">Leave a Recommendation</h2>
 
-          <input
-            type="text"
-            name=""
-            id="recommendation-author-name"
-            placeholder="Name(Optional)"
-          />
-          <textarea
-            name=""
-            id="recommendations-author-message"
-            cols="500"
-            rows="10"
-            placeholder="message"
-          ></textarea>
-          <button type="button">Submit</button>
+          <div class="form-group">
+            <label for="recommendation-author-name">Your Name (Optional)</label>
+            <input
+              type="text"
+              name="author-name"
+              id="recommendation-author-name"
+              aria-label="Your name (optional)"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="recommendation-author-message">Your Message</label>
+            <textarea
+              name="author-message"
+              id="recommendation-author-message"
+              cols="500"
+              rows="10"
+              aria-label="Your recommendation message"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" aria-label="Submit recommendation">
+            Submit
+          </button>
         </div>
       </section>
     </main>
