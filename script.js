@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", function () {
             ratio: entry.intersectionRatio
         });
       });
-        // Update section opacity
+     
 
       // Find the most visible section
       let maxRatio = 0;
