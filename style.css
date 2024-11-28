@@ -125,7 +125,7 @@ body {
 }
 
 .darkmode-label:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 26px;
   height: 26px;
@@ -153,7 +153,6 @@ body {
   background-color: #2a2a2a;
   border-bottom: 1px solid #3a3a3a;
 }
-
 
 nav {
   height: fit-content;
@@ -249,7 +248,7 @@ nav ul li a {
 }
 
 nav ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: calc(-1rem + 2px);
   left: 0;
@@ -466,7 +465,6 @@ main {
     font-size: clamp(1rem, 1.5vw + 1rem, 2.5rem);
   }
 
- 
   .fixed-header nav ul li {
     display: none;
   }
@@ -480,7 +478,7 @@ main {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    top: 12rem;
+    top: 10rem;
     right: 0;
     max-width: 15.5rem;
     list-style-type: none;
@@ -492,7 +490,7 @@ main {
     height: 100%;
     background-color: blueviolet;
   }
-   
+
   #hamburger-icon {
     display: none;
   }
@@ -507,7 +505,7 @@ main {
   #hamburger-icon + label:hover {
     cursor: pointer;
   }
-  input[type='checkbox'] + label .icon-bar {
+  input[type="checkbox"] + label .icon-bar {
     display: block;
     width: 3rem;
     height: 0.5rem;
@@ -516,27 +514,27 @@ main {
     transition: all 0.2s;
   }
 
-  input[type='checkbox'] + label .middle-bar {
+  input[type="checkbox"] + label .middle-bar {
     opacity: 1;
   }
 
-  input[type='checkbox']:checked + label .top-bar {
+  input[type="checkbox"]:checked + label .top-bar {
     transform: rotate(41deg);
     transform-origin: 5% 15%;
   }
-  input[type='checkbox']:checked + label .middle-bar {
+  input[type="checkbox"]:checked + label .middle-bar {
     opacity: 0;
   }
-  input[type='checkbox']:checked + label .bottom-bar {
+  input[type="checkbox"]:checked + label .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: -2% 55%;
   }
 
-  header:has(input[type='checkbox']:checked) + #hamburger-menu {
+  header:has(input[type="checkbox"]:checked) + #hamburger-menu {
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
-  header:not(:has(input[type='checkbox']:checked)) + #hamburger-menu {
+  header:not(:has(input[type="checkbox"]:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
   }
   nav#hamburger-menu ul {
@@ -567,7 +565,7 @@ main {
     text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
- 
+
   #hamburger-menu a:focus {
     outline: 2px solid #ffffff;
     outline-offset: 4px;
