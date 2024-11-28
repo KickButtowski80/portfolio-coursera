@@ -66,6 +66,94 @@ body {
   scroll-behavior: smooth;
   scroll-padding-top: 16rem;
 }
+/* Dark mode styles */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+[data-theme="dark"] {
+  --background-color: #881010;
+  --text-color: #302f2f;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode toggle styles */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.darkmode-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.darkmode-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: #ebebeb;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+
+.darkmode-label .sun,
+.darkmode-label .moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.darkmode-label .sun {
+  left: 8px;
+}
+
+.darkmode-label .moon {
+  right: 8px;
+}
+
+.darkmode-label:after {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.darkmode-input:checked + .darkmode-label {
+  background: #4a4a4a;
+}
+
+.darkmode-input:checked + .darkmode-label:after {
+  transform: translateX(30px);
+}
+
+[data-theme="dark"] a {
+  color: #66b3ff;
+}
+
+[data-theme="dark"] .fixed-header {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #3a3a3a;
+}
+
 
 nav {
   height: fit-content;
@@ -378,9 +466,7 @@ main {
     font-size: clamp(1rem, 1.5vw + 1rem, 2.5rem);
   }
 
-  .fixed-header nav {
-    top: 7rem;
-  }
+ 
   .fixed-header nav ul li {
     display: none;
   }
