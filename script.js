@@ -1,23 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-// // Dark mode toggle functionality
-// const darkModeToggle = document.getElementById('darkmode-toggle');
-
-// // Check for saved theme preference
-// const savedTheme = localStorage.getItem('theme');
-// if (savedTheme) {
-//     document.documentElement.setAttribute('data-theme', savedTheme);
-//     darkModeToggle.checked = savedTheme === 'dark';
-// }
-
-// // Handle theme toggle
-// darkModeToggle.addEventListener('change', function() {
-//     const theme = this.checked ? 'dark' : 'light';
-//     document.documentElement.setAttribute('data-theme', theme);
-//     localStorage.setItem('theme', theme);
-// });
-
-
   // Hamburger menu functionality
   const hamburgerIcon = document.getElementById('hamburger-icon');
   hamburgerIcon.addEventListener('change', function() {
@@ -26,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Detect if mobile based on screen width
   const isMobile = window.innerWidth <= 768;
+  const observers = [];
 
+  // Create intersection observer options
   const options = {
     root: null,
     rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
@@ -74,7 +57,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     }, options);
-   
+    
     observer.observe(section);
+    observers.push(observer);
+  });
+
+  // Cleanup on page unload
+  window.addEventListener('unload', () => {
+    observers.forEach(observer => observer.disconnect());
   });
 });
