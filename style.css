@@ -73,8 +73,8 @@ body {
 }
 
 [data-theme="dark"] {
-  --background-color: #881010;
-  --text-color: #302f2f;
+  --background-color: #141313;
+  --text-color: #fcf6f6;
 }
 
 body {
@@ -398,6 +398,7 @@ main {
   font-style: italic;
   text-align: left;
   background-color: #fff;
+  color: black;
   box-shadow: 0 3px 10px rgb(87, 77, 77);
   margin: 10px;
   border: 1px solid gray;
