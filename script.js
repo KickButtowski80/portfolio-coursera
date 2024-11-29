@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const options = {
     root: null,
-    rootMargin: isMobile ? "-10% 0px 5% 0px" : "-10% 0px",
+    rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
     threshold: [0, 0.25, 0.5, 0.75, 1],
   };
 
