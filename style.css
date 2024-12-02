@@ -224,18 +224,26 @@ nav {
 
 nav ul {
   display: flex;
-  padding-inline: clamp(1.5rem, 1.5vw + 1rem, 2.5rem);
+  padding-inline: clamp(0.5rem, 0.5vw + 0.25rem, 2.5rem);
 }
 nav ul li {
   color: white;
   font-size: 1.5rem;
-  margin-inline: 1.85rem;
+  margin-inline: 1.50rem;
   list-style: none;
 }
 @media (min-width: 769px) and (max-width: 937px) {
+  nav{
+    height:8rem;
+  }
   nav ul li {
-    margin-inline: 0rem;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 6rem;
+    left: 2rem;
   }
 }
 nav ul li a {
@@ -446,6 +454,10 @@ main {
 }
 
 @media (max-width: 768px) {
+ .fixed-header:has(ul > .theme-toggle) .theme-toggle {
+  display: none;
+ }
+
   main {
     top: 5rem;
   }
