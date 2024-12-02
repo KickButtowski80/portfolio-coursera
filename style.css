@@ -69,7 +69,7 @@ body {
 /* Dark mode styles */
 :root {
   --background-color: #ffffff;
-  --text-color: #333333;
+  --text-color: #1a1919;
 }
 
 [data-theme="dark"] {
