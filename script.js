@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Dark mode toggle functionality
-  const darkModeToggles = document.querySelectorAll('darkmode-toggle');
+  const darkModeToggles = document.querySelectorAll('.darkmode-toggle');
   
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
@@ -10,11 +10,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Handle theme toggle
-  darkModeToggles.forEach(toggle => toggle.addEventListener('change', function() {
-    const theme = this.checked ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }));
+  darkModeToggles.forEach(toggle => 
+    toggle.addEventListener('change', function() {
+      
+      const theme = this.checked ? 'dark' : 'light';
+      // Update theme
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      // Sync other toggles
+      darkModeToggles.forEach(otherToggle => {
+        if (otherToggle !== this) {
+          otherToggle.checked = this.checked;
+        }
+      });
+    })
+  );
 
   // Hamburger menu functionality
   const hamburgerIcon = document.getElementById('hamburger-icon');
