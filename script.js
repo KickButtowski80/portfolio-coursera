@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   // Dark mode toggle functionality
   const darkModeToggles = document.querySelectorAll('.darkmode-toggle');
   
@@ -11,16 +11,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Handle theme toggle
   darkModeToggles.forEach(toggle => 
-    toggle.addEventListener('change', function() {
-      
-      const theme = this.checked ? 'dark' : 'light';
+    toggle.addEventListener('change', (event) => {
+      const theme = event.target.checked ? 'dark' : 'light';
       // Update theme
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
       // Sync other toggles
       darkModeToggles.forEach(otherToggle => {
-        if (otherToggle !== this) {
-          otherToggle.checked = this.checked;
+        if (otherToggle !== event.target) {
+          otherToggle.checked = event.target.checked;
         }
       });
     })
@@ -28,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Hamburger menu functionality
   const hamburgerIcon = document.getElementById('hamburger-icon');
-  hamburgerIcon.addEventListener('change', function() {
-    this.setAttribute('aria-expanded', this.checked);
+  hamburgerIcon.addEventListener('change', (event) => {
+    // Handle hamburger menu toggle
+    event.target.setAttribute('aria-expanded', event.target.checked);
   });
-
   // Detect if mobile based on screen width
   const isMobile = window.innerWidth <= 768;
   const observers = [];
