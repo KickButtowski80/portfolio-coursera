@@ -392,7 +392,7 @@ main {
   padding: 1.5rem;
   font-style: italic;
   text-align: left;
-  color: rgb(10, 10, 10);
+  color: var(--text-color);
   box-shadow: 0 3px 10px rgb(87, 77, 77);
   margin: 10px;
   border: 1px solid gray;
