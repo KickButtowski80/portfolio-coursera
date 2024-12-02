@@ -70,6 +70,7 @@ body {
 :root {
   --background-color: #ffffff;
   --text-color: #1a1919;
+  --primary-color: blueviolet;
 }
 
 [data-theme="dark"] {
@@ -88,6 +89,8 @@ body {
   position: relative;
   display: inline-block;
   margin-right: 1rem;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .darkmode-input {
@@ -117,11 +120,11 @@ body {
 }
 
 .darkmode-label .sun {
-  left: 8px;
+  right: 8px;
 }
 
 .darkmode-label .moon {
-  right: 8px;
+  left: 8px;
 }
 
 .darkmode-label:after {
@@ -130,7 +133,7 @@ body {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #fff;
+  background: #f5f1f1;
   top: 2px;
   left: 2px;
   transition: transform 0.3s;
@@ -488,12 +491,15 @@ main {
     max-width: 15.5rem;
     list-style-type: none;
     height: 100%;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
+    pointer-events: auto;
   }
   nav#hamburger-menu ul {
     list-style-type: none;
     height: 100%;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 1rem;
   }
 
   #hamburger-icon {
@@ -505,6 +511,9 @@ main {
     position: absolute;
     right: 1rem;
     top: 0.5rem;
+    z-index: 101;
+    pointer-events: auto;
+    cursor: pointer;
   }
 
   #hamburger-icon + label:hover {
@@ -549,7 +558,7 @@ main {
   #hamburger-menu li {
     font-size: 1.5rem;
     list-style-type: none;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     margin: 2rem 0rem;
   }
 
