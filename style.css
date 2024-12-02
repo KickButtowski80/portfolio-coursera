@@ -519,7 +519,7 @@ main {
   #hamburger-icon + label:hover {
     cursor: pointer;
   }
-  input[type="checkbox"] + label .icon-bar {
+  #hamburger-icon + label .icon-bar {
     display: block;
     width: 3rem;
     height: 0.5rem;
@@ -528,27 +528,27 @@ main {
     transition: all 0.2s;
   }
 
-  input[type="checkbox"] + label .middle-bar {
+  #hamburger-icon + label .middle-bar {
     opacity: 1;
   }
 
-  input[type="checkbox"]:checked + label .top-bar {
+  #hamburger-icon:checked + label .top-bar {
     transform: rotate(41deg);
     transform-origin: 5% 15%;
   }
-  input[type="checkbox"]:checked + label .middle-bar {
+  #hamburger-icon:checked + label .middle-bar {
     opacity: 0;
   }
-  input[type="checkbox"]:checked + label .bottom-bar {
+  #hamburger-icon:checked + label .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: -2% 55%;
   }
 
-  header:has(input[type="checkbox"]:checked) + #hamburger-menu {
+  header:has(#hamburger-icon:checked) + #hamburger-menu {
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
-  header:not(:has(input[type="checkbox"]:checked)) + #hamburger-menu {
+  header:not(:has(#hamburger-icon:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
   }
   nav#hamburger-menu ul {
