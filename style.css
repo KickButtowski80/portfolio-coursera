@@ -603,6 +603,10 @@ main {
     gap: 2rem;
   }
 
+  .contact-info .theme-toggle {
+    display: none;
+  }
+
   @keyframes openMenu {
     0% {
       clip-path: inset(0 0 99% 100%);
