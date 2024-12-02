@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Dark mode toggle functionality
-  const darkModeToggle = document.getElementById('darkmode-toggle');
+  const darkModeToggles = document.querySelectorAll('darkmode-toggle');
   
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
-    darkModeToggle.checked = savedTheme === 'dark';
+    darkModeToggles.forEach(toggle => toggle.checked = savedTheme === 'dark');
   }
 
   // Handle theme toggle
-  darkModeToggle.addEventListener('change', function() {
+  darkModeToggles.forEach(toggle => toggle.addEventListener('change', function() {
     const theme = this.checked ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-  });
+  }));
 
   // Hamburger menu functionality
   const hamburgerIcon = document.getElementById('hamburger-icon');
