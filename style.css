@@ -295,7 +295,7 @@ main {
   gap: 15px;
   position: relative;
   z-index: 1;
-  padding-top: clamp(3.125rem, 10vw + 2rem, 6.25rem);
+  padding-top: clamp(7rem, 15vw + 6rem, 13rem);
 }
 
 #about-me .my-info {
