@@ -83,7 +83,29 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+#back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: #c87828;
+  width: 80px;
+  height: 85px;
+  text-align: center;
+  border-radius: 10px;
+  color: #fff;
+  z-index: 2;
+  text-decoration: none;
+}
 
+#back-to-top::after {
+  content: "👆"; /* Pointing Up Hand emoji */
+  font-size: 2rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  ;
+}
 /* Dark mode toggle styles */
 .theme-toggle {
   position: relative;
@@ -91,7 +113,7 @@ body {
   margin-right: 1rem;
   z-index: 1;
   pointer-events: auto;
-  scale:1.5;
+  scale: 1.5;
 }
 
 .darkmode-input {
