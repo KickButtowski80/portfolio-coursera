@@ -91,6 +91,7 @@ body {
   margin-right: 1rem;
   z-index: 1;
   pointer-events: auto;
+  scale:1.5;
 }
 
 .darkmode-input {
