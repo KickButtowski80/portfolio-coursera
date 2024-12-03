@@ -5,3 +5,4 @@
 * Better visual hierarchy
 * Smooth responsive behavior
 * No layout breaks
+* Dark mode support
