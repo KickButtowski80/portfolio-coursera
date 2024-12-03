@@ -257,6 +257,9 @@ nav ul li {
   nav ul li a:hover,
   nav ul li a:focus {
     color: white;
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus style */
+    background-color: rgba(0, 123, 255, 0.1); /* Optional background change */
   }
 }
 
