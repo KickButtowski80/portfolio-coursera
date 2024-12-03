@@ -232,12 +232,12 @@ nav ul {
 nav ul li {
   color: white;
   font-size: 1.5rem;
-  margin-inline: 1.50rem;
+  margin-inline: 1.5rem;
   list-style: none;
 }
 @media (min-width: 769px) and (max-width: 937px) {
-  nav{
-    height:8rem;
+  nav {
+    height: 8rem;
   }
   nav ul li {
     margin-right: 0.5rem;
@@ -260,6 +260,17 @@ nav ul li {
     outline: none; /* Remove default outline */
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus style */
     background-color: rgba(0, 123, 255, 0.1); /* Optional background change */
+  }
+
+  nav ul li a:active {
+    /* Ensure no unexpected styles on active state */
+    transform: none;
+    background-color: inherit; /* or any color that matches your design */
+    box-shadow: none; /* Remove any box-shadow */
+  }
+
+  nav ul li a {
+    -webkit-tap-highlight-color: transparent; /* Prevents default tap highlight on mobile */
   }
 }
 
@@ -460,9 +471,9 @@ main {
 }
 
 @media (max-width: 768px) {
- .fixed-header:has(ul > .theme-toggle) .theme-toggle {
-  display: none;
- }
+  .fixed-header:has(ul > .theme-toggle) .theme-toggle {
+    display: none;
+  }
 
   main {
     top: 5rem;
