@@ -101,6 +101,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  scale: 1.5;
 }
 
 #back-to-top::before {
