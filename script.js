@@ -35,21 +35,23 @@ hamburgerIcon.addEventListener("change", (event) => {
 
 //show back to top button
 
-const backToTopButton = document.querySelector("#back-to-top");
+const backToTopButton = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopButton.classList.add('visible');
+    backToTopButton.setAttribute('aria-hidden', 'false');
+  } else {
+    backToTopButton.classList.remove('visible');
+    backToTopButton.setAttribute('aria-hidden', 'true');
+  }
+});
 
-if (backToTopButton) {
-  backToTopButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   });
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      backToTopButton.style.opacity = "1";
-    } else {
-      backToTopButton.style.opacity = "0";
-    }
-  });
-}
+});
 
 // Detect if mobile based on screen width
 const isMobile = window.innerWidth <= 768;
