@@ -60,7 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Make sure button exists before adding listeners
   if (backToTopButton) {
     console.log('Back to top button found');
-    backToTopButton.addEventListener('click', () => {
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       console.log('Click event fired');
       scrollToTop();
     });
