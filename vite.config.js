@@ -1,7 +1,8 @@
 export default {
   server: {
     watch: {
-      usePolling: true
+      usePolling: true,
+      include: ['**/*.html', '**/*.js', '**/*.css']
     }
   },
   css: {
