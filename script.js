@@ -56,7 +56,7 @@ const scrollToTop = () => {
 
 backToTopButton.addEventListener('click', scrollToTop);
 backToTopButton.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+  if (e.key === 'Enter' || e.key === ' ') {
     scrollToTop();
   }
 });
