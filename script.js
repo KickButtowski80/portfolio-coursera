@@ -39,14 +39,15 @@ const backToTopButton = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
     backToTopButton.classList.add('visible');
-    backToTopButton.setAttribute('aria-hidden', 'false');
+    backToTopButton.toggleAttribute('inert', false);
   } else {
     backToTopButton.classList.remove('visible');
-    backToTopButton.setAttribute('aria-hidden', 'true');
+    backToTopButton.toggleAttribute('inert', true);
   }
 });
 
 backToTopButton.addEventListener('click', () => {
+
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
