@@ -217,9 +217,7 @@ body {
   transform: translateX(30px);
 }
 
-[data-theme="dark"] a {
-  color: #66b3ff;
-}
+ 
 
 [data-theme="dark"] .fixed-header {
   background-color: #2a2a2a;
