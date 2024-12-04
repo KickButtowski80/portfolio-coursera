@@ -115,7 +115,12 @@ body {
   outline: none;
 }
 
- 
+#back-to-top:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2);
+}
+
 #back-to-top::before {
   content: "\261D";  /* Unicode for pointing up finger */
   font-size: 24px;
@@ -159,6 +164,16 @@ body {
 
 #back-to-top.visible {
   opacity: 1;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  #back-to-top {
+    border: 2px solid ButtonText;
+  }
+  #back-to-top:focus-visible {
+    outline: 2px solid ButtonText;
+  }
 }
 
 /* Accessibility: Hide elements visually but keep them available for screen readers */

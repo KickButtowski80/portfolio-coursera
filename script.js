@@ -46,12 +46,19 @@ window.addEventListener('scroll', () => {
   }
 });
 
-backToTopButton.addEventListener('click', () => {
-
+// Handle both click and keyboard events
+const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
+};
+
+backToTopButton.addEventListener('click', scrollToTop);
+backToTopButton.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    scrollToTop();
+  }
 });
 
 // Detect if mobile based on screen width
