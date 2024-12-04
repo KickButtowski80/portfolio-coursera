@@ -122,15 +122,24 @@ body {
   color: var(--background-color);
 }
 
-#back-to-top:hover {
-  background-color: var(--text-color);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+@media (hover: hover) {
+  #back-to-top:hover {
+    background-color: var(--text-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  #back-to-top:hover::before {
+    transform: translateY(1px);
+    animation: pointing 1s infinite;
+  }
 }
 
-#back-to-top:hover::before {
-  transform: translateY(1px);
-  animation: pointing 1s infinite;
+@media (hover: none) {
+  #back-to-top:active {
+    background-color: var(--text-color);
+    transform: scale(0.95);
+  }
 }
 
 @keyframes pointing {
