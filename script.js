@@ -39,10 +39,10 @@ const backToTopButton = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
     backToTopButton.classList.add('visible');
-    backToTopButton.toggleAttribute('inert', false);
+    backToTopButton.setAttribute('tabindex', '0');
   } else {
     backToTopButton.classList.remove('visible');
-    backToTopButton.toggleAttribute('inert', true);
+    backToTopButton.setAttribute('tabindex', '-1');
   }
 });
 
