@@ -131,7 +131,7 @@ body {
 
   #back-to-top:hover::before {
     transform: translateY(1px);
-    animation: pointing 1s infinite;
+    animation: pointing-up 1s infinite;
   }
 }
 
@@ -142,7 +142,7 @@ body {
   }
 }
 
-@keyframes pointing {
+@keyframes pointing-up {
   0% { transform: translateY(0); }
   50% { transform: translateY(-1rem); }
   100% { transform: translateY(0); }
