@@ -285,9 +285,22 @@
           </button>
         </div>
       </section>
-      <button type="button" id="back-to-top" 
-      aria-label="Back to top"></button>
     </main>
+    <aside aria-label="Scroll to top">
+      <button 
+        type="button" 
+        id="back-to-top" 
+        class="back-to-top-button"
+        aria-label="Back to top of page"
+        role="button"
+        aria-hidden="false"
+      >
+        <span class="visually-hidden">Back to top</span>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 3l-8 8h16l-8-8z"/>
+        </svg>
+      </button>
+    </aside>
     <script src="script.js" defer></script>
   </body>
 </html>
