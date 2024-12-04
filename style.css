@@ -115,14 +115,7 @@ body {
   outline: none;
 }
 
-@media (max-width: 768px) {
-  #back-to-top {
-    bottom: 30px;
-    right: 20px;
-    scale: 1.2;
-  }
-}
-
+ 
 #back-to-top::before {
   content: "\261D";  /* Unicode for pointing up finger */
   font-size: 24px;
@@ -133,6 +126,17 @@ body {
   background-color: var(--text-color);
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top:hover::before {
+  transform: translateY(1px);
+  animation: pointing 1s infinite;
+}
+
+@keyframes pointing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-1rem); }
+  100% { transform: translateY(0); }
 }
 
 [data-theme="dark"] #back-to-top {
@@ -146,12 +150,6 @@ body {
 
 #back-to-top.visible {
   opacity: 1;
-}
-
-@keyframes pointing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-1rem); }
-  100% { transform: translateY(0); }
 }
 
 /* Dark mode toggle styles */
