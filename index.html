@@ -70,11 +70,11 @@
               <span class="moon">🌙</span>
             </label>
           </div>
-          <div class="keyboard-shortcuts">
-            <button type="button" id="shortcuts-toggle" aria-label="Keyboard shortcuts" aria-expanded="false">
+          <div class="keyboard-shortcuts-mobile">
+            <button type="button" id="shortcuts-toggle-mobile" aria-label="Keyboard shortcuts" aria-expanded="false">
               ⌨️
             </button>
-            <div id="shortcuts-panel" class="shortcuts-panel" hidden>
+            <div id="shortcuts-panel-mobile" class="shortcuts-panel" hidden>
               <h2>Keyboard Shortcuts</h2>
               <ul>
                 <li><kbd>d</kbd> - Toggle Dark Mode</li>
@@ -231,7 +231,7 @@
           <blockquote class="recommendation-card">
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude & she is an excellent
+              Web development. She got a great attitude \& she is an excellent
               team player. She has a curious mind and asks the right question.
               She takes initiative within a team and has potentials to lead the
               team.
@@ -314,7 +314,18 @@
         </svg>
       </button>
     </aside>
-
+    <div class="keyboard-shortcuts-desktop">
+      <button type="button" id="shortcuts-toggle-desktop" aria-label="Keyboard shortcuts" aria-expanded="false">
+        ⌨️
+      </button>
+      <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
+        <h2>Keyboard Shortcuts</h2>
+        <ul>
+          <li><kbd>d</kbd> - Toggle Dark Mode</li>
+          <li><kbd>m</kbd> - Toggle Menu</li>
+        </ul>
+      </div>
+    </div>
     <script src="script.js" defer></script>
   </body>
 </html>
