@@ -83,7 +83,7 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
- 
+
 #back-to-top {
   position: fixed;
   bottom: 50px;
@@ -115,9 +115,8 @@ body {
   outline: none;
 }
 
- 
 #back-to-top::before {
-  content: "\261D";  /* Unicode for pointing up finger */
+  content: "\261D"; /* Unicode for pointing up finger */
   font-size: 24px;
   color: var(--background-color);
 }
@@ -134,9 +133,15 @@ body {
 }
 
 @keyframes pointing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-1rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 [data-theme="dark"] #back-to-top {
@@ -454,7 +459,6 @@ main {
   line-height: 3rem;
   padding: 1rem;
   border-radius: 1rem;
- 
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -572,13 +576,12 @@ main {
 /* Keyboard Shortcuts Panel */
 .keyboard-shortcuts {
   position: fixed;
-  bottom: 3rem;
-  right: 0rem;
+  
   z-index: 1000;
   display: inline-block;
 }
 
-#shortcuts-toggle {
+.shortcuts-toggle {
   background: none;
   border: none;
   cursor: pointer;
@@ -586,7 +589,13 @@ main {
   padding: 1.5rem;
   transition: transform 0.2s;
 }
+#shortcuts-toggle-mobile {
+  display: none;
+}
 
+#shortcuts-toggle-desktop {
+  display: block;
+}
 #shortcuts-toggle:hover {
   transform: scale(1.1);
 }
@@ -629,14 +638,14 @@ main {
   font-size: 0.9rem;
 }
 .shortcuts-panel li:nth-child(2) {
-   display: none;
+  display: none;
 }
 /* Media query for touch devices */
 @media (hover: none) {
   #shortcuts-toggle:hover {
     transform: none;
   }
-  
+
   /* Hide hover styles on mobile */
   .shortcuts-panel[data-hover="true"] {
     display: none;
@@ -644,10 +653,22 @@ main {
 }
 
 @media (max-width: 768px) {
-
   .shortcuts-panel li:nth-child(2) {
-    display: block ;
- }
+    display: block;
+  }
+
+  #shortcuts-toggle-mobile {
+    display: inline-block;
+    background-color:transparent;
+    padding: 0.5rem;
+    bottom: 7.25rem;
+    right: 0rem;
+ 
+  }
+
+  #shortcuts-toggle-desktop {
+    display: none;
+  }
   .fixed-header:has(ul > .theme-toggle) .theme-toggle {
     display: none;
   }
