@@ -768,3 +768,63 @@ main {
 .recommendation-card button {
   border: 0;
 }
+
+/* Keyboard shortcuts styling */
+.shortcuts-toggle {
+  position: fixed;
+  bottom: 7rem;
+  right: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  scale: 2;
+
+}
+
+.shortcuts-panel {
+  position: fixed;
+  bottom: 8.5rem;
+  right: 3rem;
+  background-color: var(--primary-color);
+  border: 1px solid var(--background-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transition: all 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.shortcuts-panel h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.shortcuts-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shortcuts-panel li {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.shortcut-key {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-weight: bold;
+}
