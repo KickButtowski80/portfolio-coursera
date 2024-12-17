@@ -13,6 +13,7 @@ if (savedTheme) {
 // Handle theme toggle
 darkModeToggles.forEach((toggle) =>
   toggle.addEventListener("change", (event) => {
+ 
     const theme = event.target.checked ? "dark" : "light";
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
@@ -31,6 +32,73 @@ const hamburgerIcon = document.getElementById("hamburger-icon");
 hamburgerIcon.addEventListener("change", (event) => {
   // Handle hamburger menu toggle
   event.target.setAttribute("aria-expanded", event.target.checked);
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (event) => {
+  // Only trigger if no input elements are focused
+  if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    // 'D' key for dark mode toggle
+    if (event.key.toLowerCase() === 'd') {
+      const firstToggle = darkModeToggles[0];
+      firstToggle.checked = !firstToggle.checked;
+      // Trigger the change event to update theme and sync other toggles
+      firstToggle.dispatchEvent(new Event('change'));
+    }
+    
+    // 'M' key for menu toggle
+    if (event.key.toLowerCase() === 'm') {
+      hamburgerIcon.checked = !hamburgerIcon.checked;
+      hamburgerIcon.dispatchEvent(new Event('change'));
+    }
+  }
+});
+
+// Keyboard shortcuts panel functionality
+const shortcutsToggle = document.getElementById('shortcuts-toggle');
+const shortcutsPanel = document.getElementById('shortcuts-panel');
+
+// Function to show panel
+function showPanel(isHover = false) {
+  shortcutsPanel.hidden = false;
+  shortcutsPanel.dataset.hover = isHover;
+  shortcutsToggle.setAttribute('aria-expanded', 'true');
+}
+
+// Function to hide panel
+function hidePanel() {
+  shortcutsPanel.hidden = true;
+  shortcutsToggle.setAttribute('aria-expanded', 'false');
+}
+
+// Click handling
+shortcutsToggle.addEventListener('click', (event) => {
+  event.stopPropagation();
+  if (shortcutsPanel.hidden) {
+    showPanel(false);
+  } else {
+    hidePanel();
+  }
+});
+
+// Hover handling (for non-touch devices)
+if (window.matchMedia('(hover: hover)').matches) {
+  shortcutsToggle.addEventListener('mouseenter', () => showPanel(true));
+  shortcutsToggle.addEventListener('mouseleave', () => {
+    // Only hide if it was shown by hover
+    if (shortcutsPanel.dataset.hover === 'true') {
+      hidePanel();
+    }
+  });
+}
+
+// Close panel when clicking outside
+document.addEventListener('click', (event) => {
+  if (!shortcutsPanel.hidden && 
+      !shortcutsPanel.contains(event.target) && 
+      event.target !== shortcutsToggle) {
+    hidePanel();
+  }
 });
 
 //show back to top button
