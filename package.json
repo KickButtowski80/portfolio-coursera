@@ -1,0 +1,12 @@
+{
+  "name": "coursera_Introduction_HTML_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

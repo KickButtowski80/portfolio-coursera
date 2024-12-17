@@ -83,6 +83,108 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+ 
+#back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease-in-out, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scale: 1.5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:focus {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+#back-to-top:focus:not(:focus-visible) {
+  outline: none;
+}
+
+ 
+#back-to-top::before {
+  content: "\261D";  /* Unicode for pointing up finger */
+  font-size: 24px;
+  color: var(--background-color);
+}
+
+#back-to-top:hover {
+  background-color: var(--text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top:hover::before {
+  transform: translateY(1px);
+  animation: pointing 1s infinite;
+}
+
+@keyframes pointing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-1rem); }
+  100% { transform: translateY(0); }
+}
+
+[data-theme="dark"] #back-to-top {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] #back-to-top:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+}
+
+/* Back to top button container */
+aside[aria-label="Scroll to top"] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.back-to-top-button {
+  background-color: var(--primary-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top-button:hover,
+.back-to-top-button:focus {
+  background-color: var(--primary-color-dark, #0056b3);
+  outline: none;
+}
+
+.back-to-top-button svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+}
 
 /* Dark mode toggle styles */
 .theme-toggle {
@@ -91,7 +193,7 @@ body {
   margin-right: 1rem;
   z-index: 1;
   pointer-events: auto;
-  scale:1.5;
+  scale: 1.5;
 }
 
 .darkmode-input {
@@ -149,8 +251,16 @@ body {
   transform: translateX(30px);
 }
 
-[data-theme="dark"] a {
-  color: #66b3ff;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 [data-theme="dark"] .fixed-header {
@@ -291,7 +401,7 @@ nav ul li a::after {
   left: 0;
   width: 100%;
   height: 0.5rem;
-  background-color: white;
+  background-color: var(--background-color);
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
 }
@@ -344,7 +454,7 @@ main {
   line-height: 3rem;
   padding: 1rem;
   border-radius: 1rem;
-  color: white;
+ 
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -457,18 +567,6 @@ main {
 
 .projects-info article ul {
   margin-block: 2rem;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 @media (max-width: 768px) {
