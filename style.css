@@ -576,7 +576,6 @@ main {
   right: 0rem;
   z-index: 1000;
   display: inline-block;
-  margin-left: 1rem;
 }
 
 #shortcuts-toggle {
@@ -584,7 +583,7 @@ main {
   border: none;
   cursor: pointer;
   font-size: 4rem;
-  padding: 0.5rem;
+  padding: 1.5rem;
   transition: transform 0.2s;
 }
 
