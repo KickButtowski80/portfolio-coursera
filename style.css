@@ -569,7 +569,86 @@ main {
   margin-block: 2rem;
 }
 
+/* Keyboard Shortcuts Panel */
+.keyboard-shortcuts {
+  position: fixed;
+  bottom: 8rem;
+  right: 0rem;
+  z-index: 1000;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+#shortcuts-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 4rem;
+  padding: 0.5rem;
+  transition: transform 0.2s;
+}
+
+#shortcuts-toggle:hover {
+  transform: scale(1.1);
+}
+
+.shortcuts-panel {
+  position: absolute;
+  top: 60%;
+  right: 60%;
+  background: var(--background-color);
+  border: 0.0625rem solid var(--text-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 12.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.shortcuts-panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.shortcuts-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shortcuts-panel li {
+  margin: 0.5rem 0;
+}
+
+.shortcuts-panel kbd {
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.shortcuts-panel li:nth-child(2) {
+   display: none;
+}
+/* Media query for touch devices */
+@media (hover: none) {
+  #shortcuts-toggle:hover {
+    transform: none;
+  }
+  
+  /* Hide hover styles on mobile */
+  .shortcuts-panel[data-hover="true"] {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+
+  .shortcuts-panel li:nth-child(2) {
+    display: block ;
+ }
   .fixed-header:has(ul > .theme-toggle) .theme-toggle {
     display: none;
   }
