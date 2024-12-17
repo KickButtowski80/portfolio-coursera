@@ -572,7 +572,7 @@ main {
 /* Keyboard Shortcuts Panel */
 .keyboard-shortcuts {
   position: fixed;
-  bottom: 8rem;
+  bottom: 3rem;
   right: 0rem;
   z-index: 1000;
   display: inline-block;
