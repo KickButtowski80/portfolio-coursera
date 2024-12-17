@@ -1,6 +1,18 @@
 // Dark mode toggle functionality
 const darkModeToggles = document.querySelectorAll(".darkmode-toggle");
 
+// Add keyboard activation when focused
+darkModeToggles.forEach((toggle) => {
+  toggle.addEventListener("keydown", (event) => {
+    // Enter or Space key when focused
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      event.preventDefault(); // Prevent page scroll on space
+      toggle.checked = !toggle.checked;
+      toggle.dispatchEvent(new Event('change'));
+    }
+  });
+});
+
 // Check for saved theme preference
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
@@ -31,6 +43,51 @@ const hamburgerIcon = document.getElementById("hamburger-icon");
 hamburgerIcon.addEventListener("change", (event) => {
   // Handle hamburger menu toggle
   event.target.setAttribute("aria-expanded", event.target.checked);
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (event) => {
+  // Only trigger if no input elements are focused
+  if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    // 'D' key for dark mode toggle
+    if (event.key.toLowerCase() === 'd') {
+      const firstToggle = darkModeToggles[0];
+      console.log(firstToggle)
+      firstToggle.checked = !firstToggle.checked;
+      firstToggle.dispatchEvent(new Event('change'));
+    }
+    
+    // 'M' key for menu toggle
+    if (event.key.toLowerCase() === 'm') {
+      hamburgerIcon.checked = !hamburgerIcon.checked;
+      hamburgerIcon.dispatchEvent(new Event('change'));
+    }
+  }
+});
+
+// Keyboard shortcuts panel functionality
+const shortcutsToggle = document.getElementById('shortcuts-toggle');
+const shortcutsPanel = document.getElementById('shortcuts-panel');
+
+shortcutsPanel.addEventListener('toggle', (event) => {
+  shortcutsPanel.hidden = !event.detail.show;
+});
+
+shortcutsToggle.addEventListener('click', () => {
+  const isHidden = shortcutsPanel.hidden;
+  const toggleEvent = new CustomEvent('toggle', { 
+    detail: { show: isHidden }
+  });
+  shortcutsPanel.dispatchEvent(toggleEvent);
+});
+
+// Close shortcuts panel when clicking outside
+document.addEventListener('click', (event) => {
+  if (!shortcutsPanel.hidden && 
+      !shortcutsPanel.contains(event.target) && 
+      event.target !== shortcutsToggle) {
+    shortcutsPanel.hidden = true;
+  }
 });
 
 //show back to top button

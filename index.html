@@ -290,17 +290,21 @@
       <button 
         type="button" 
         id="back-to-top" 
-        class="back-to-top-button"
-        aria-label="Back to top of page"
-        role="button"
-        aria-hidden="false"
-      >
-        <span class="visually-hidden">Back to top</span>
-        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M12 3l-8 8h16l-8-8z"/>
-        </svg>
+        class="back-to-top"
+        aria-label="Back to top"
+        title="Back to top">
       </button>
     </aside>
+    <button type="button" id="shortcuts-toggle" class="shortcuts-toggle" aria-label="Show keyboard shortcuts" title="Keyboard Shortcuts">
+      ⌨️
+    </button>
+    <div id="shortcuts-panel" class="shortcuts-panel" hidden>
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li><span class="shortcut-key">d</span> Toggle Dark Mode</li>
+        <li><span class="shortcut-key">m</span> Toggle Menu</li>
+      </ul>
+    </div>
     <script src="script.js" defer></script>
   </body>
 </html>
