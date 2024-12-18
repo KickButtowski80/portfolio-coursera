@@ -162,7 +162,7 @@ aside[aria-label="Scroll to top"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  /* z-index: 1000; */
 }
 
 .back-to-top-button {
@@ -605,8 +605,9 @@ main {
 }
 
 .shortcuts-panel {
+ 
   position: absolute;
-  top: 60%;
+  top: -90%;
   right: 60%;
   background: var(--background-color);
   border: 0.0625rem solid var(--text-color);
@@ -624,12 +625,14 @@ main {
 }
 
 .shortcuts-panel ul {
+ 
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .shortcuts-panel li {
+ 
   margin: 0.5rem 0;
 }
 
@@ -644,17 +647,7 @@ main {
 .shortcuts-panel li:nth-child(2) {
   display: none;
 }
-/* Media query for touch devices */
-@media (hover: none) {
-  #shortcuts-toggle:hover {
-    transform: none;
-  }
 
-  /* Hide hover styles on mobile */
-  .shortcuts-panel[data-hover="true"] {
-    display: none;
-  }
-}
 
 @media (max-width: 768px) {
   .shortcuts-panel li:nth-child(2) {
@@ -662,11 +655,14 @@ main {
   }
 
   #shortcuts-toggle-mobile {
-    display: inline-block;
+ 
+    position: absolute;
+    display: block;
     background-color:transparent;
     padding: 0.5rem;
-    bottom: 7.25rem;
+    bottom: 7.35rem;
     right: 0rem;
+    border-top-left-radius:none;
  
   }
 
@@ -761,6 +757,11 @@ main {
   }
 
   header:has(#hamburger-icon:checked) + #hamburger-menu {
+    z-index: 1100;
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+  header:has(#hamburger-icon:checked) + #hamburger-menu  + aside  #back-to-top {
+    z-index: 900;
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
