@@ -86,24 +86,24 @@ body {
 
 #back-to-top {
   position: fixed;
-  bottom: 50px;
-  right: 30px;
+  bottom: 3.125rem; /* 50px */
+  right: 1.875rem; /* 30px */
   background-color: var(--primary-color);
   color: var(--background-color);
-  width: 50px;
-  height: 50px;
+  width: 3.125rem; /* 50px */
+  height: 3.125rem; /* 50px */
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.625rem; /* 10px */
   z-index: 1000;
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.3s ease-in-out, background-color 0.3s ease;
+  transition: all 0.1875s ease-in-out, background-color 0.1875s ease; /* 0.3s to rem */
   display: flex;
   align-items: center;
   justify-content: center;
-  scale: 1.5;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  scale: 1.5; /* No conversion needed for scale */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* 2px and 5px to rem */
 }
 
 #back-to-top:focus {
@@ -576,7 +576,6 @@ main {
 /* Keyboard Shortcuts Panel */
 .keyboard-shortcuts {
   position: fixed;
-
   z-index: 1000;
   display: inline-block;
 }
@@ -585,26 +584,29 @@ main {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 4rem;
-  padding: 1.5rem;
+  font-size: 3.125rem;
+  padding: 0.5rem;
+
   transition: transform 0.2s;
 }
 
 #shortcuts-toggle-desktop {
   display: inline-block;
   background-color: transparent;
-  padding: 0.5rem;
+  border-radius: 50%;
   bottom: 7.25rem;
-  right: -1rem;
+  right: 1rem;
+  transition: transform 0.2s;
 }
-#shortcuts-toggle:hover {
+#shortcuts-toggle-desktop:hover {
+  background-color: rgba(167, 48, 131, 0.5); /* Light background on hover */
   transform: scale(1.1);
 }
 
 .shortcuts-panel {
   position: absolute;
-  top: 0%;
-  right: 60%;
+  top: -57%;
+  right: 85%;
   background: var(--background-color);
   border: 0.0625rem solid var(--text-color);
   border-radius: 0.5rem;
