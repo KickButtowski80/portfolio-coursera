@@ -576,7 +576,7 @@ main {
 /* Keyboard Shortcuts Panel */
 .keyboard-shortcuts {
   position: fixed;
-  
+
   z-index: 1000;
   display: inline-block;
 }
@@ -589,11 +589,10 @@ main {
   padding: 1.5rem;
   transition: transform 0.2s;
 }
- 
 
 #shortcuts-toggle-desktop {
   display: inline-block;
-  background-color:transparent;
+  background-color: transparent;
   padding: 0.5rem;
   bottom: 7.25rem;
   right: -1rem;
@@ -603,7 +602,6 @@ main {
 }
 
 .shortcuts-panel {
- 
   position: absolute;
   top: 0%;
   right: 60%;
@@ -623,14 +621,12 @@ main {
 }
 
 .shortcuts-panel ul {
- 
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .shortcuts-panel li {
- 
   margin: 0.5rem 0;
 }
 
@@ -646,13 +642,10 @@ main {
   display: none;
 }
 
-
 @media (max-width: 768px) {
   .shortcuts-panel li:nth-child(2) {
     display: block;
   }
-
-
 
   #shortcuts-toggle-desktop {
     display: none;
@@ -748,11 +741,10 @@ main {
     z-index: 1100;
     animation: openMenu 0.5s ease-in-out forwards;
   }
-  header:has(#hamburger-icon:checked) + #hamburger-menu  + aside  #back-to-top {
+  header:has(#hamburger-icon:checked) + #hamburger-menu + aside #back-to-top {
     z-index: 900;
     animation: openMenu 0.5s ease-in-out forwards;
   }
- 
 
   header:not(:has(#hamburger-icon:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
