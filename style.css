@@ -605,7 +605,7 @@ main {
 .shortcuts-panel {
  
   position: absolute;
-  top: -90%;
+  top: 0%;
   right: 60%;
   background: var(--background-color);
   border: 0.0625rem solid var(--text-color);
