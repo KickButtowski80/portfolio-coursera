@@ -83,27 +83,27 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
- 
+
 #back-to-top {
   position: fixed;
-  bottom: 50px;
-  right: 30px;
+  bottom: 3.125rem; /* 50px */
+  right: 1.875rem; /* 30px */
   background-color: var(--primary-color);
   color: var(--background-color);
-  width: 50px;
-  height: 50px;
+  width: 3.125rem; /* 50px */
+  height: 3.125rem; /* 50px */
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.625rem; /* 10px */
   z-index: 1000;
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.3s ease-in-out, background-color 0.3s ease;
+  transition: all 0.1875s ease-in-out, background-color 0.1875s ease; /* 0.3s to rem */
   display: flex;
   align-items: center;
   justify-content: center;
-  scale: 1.5;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  scale: 1.5; /* No conversion needed for scale */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* 2px and 5px to rem */
 }
 
 #back-to-top:focus {
@@ -115,9 +115,8 @@ body {
   outline: none;
 }
 
- 
 #back-to-top::before {
-  content: "\261D";  /* Unicode for pointing up finger */
+  content: "\261D"; /* Unicode for pointing up finger */
   font-size: 24px;
   color: var(--background-color);
 }
@@ -134,9 +133,15 @@ body {
 }
 
 @keyframes pointing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-1rem); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 [data-theme="dark"] #back-to-top {
@@ -157,7 +162,7 @@ aside[aria-label="Scroll to top"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  /* z-index: 1000; */
 }
 
 .back-to-top-button {
@@ -454,7 +459,6 @@ main {
   line-height: 3rem;
   padding: 1rem;
   border-radius: 1rem;
- 
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -569,7 +573,85 @@ main {
   margin-block: 2rem;
 }
 
+/* Keyboard Shortcuts Panel */
+.keyboard-shortcuts {
+  position: fixed;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.shortcuts-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3.125rem;
+  padding: 0.5rem;
+
+  transition: transform 0.2s;
+}
+
+#shortcuts-toggle-desktop {
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: 7.25rem;
+  right: 1rem;
+  transition: transform 0.2s;
+}
+#shortcuts-toggle-desktop:hover {
+  background-color: rgba(167, 48, 131, 0.5); /* Light background on hover */
+  transform: scale(1.1);
+}
+
+.shortcuts-panel {
+  position: absolute;
+  top: -57%;
+  right: 85%;
+  background: var(--background-color);
+  border: 0.0625rem solid var(--text-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 12.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.shortcuts-panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.shortcuts-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shortcuts-panel li {
+  margin: 0.5rem 0;
+}
+
+.shortcuts-panel kbd {
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.shortcuts-panel li:nth-child(2) {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .shortcuts-panel li:nth-child(2) {
+    display: block;
+  }
+
+  #shortcuts-toggle-desktop {
+    display: none;
+  }
   .fixed-header:has(ul > .theme-toggle) .theme-toggle {
     display: none;
   }
@@ -658,6 +740,11 @@ main {
   }
 
   header:has(#hamburger-icon:checked) + #hamburger-menu {
+    z-index: 1100;
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+  header:has(#hamburger-icon:checked) + #hamburger-menu + aside #back-to-top {
+    z-index: 900;
     animation: openMenu 0.5s ease-in-out forwards;
   }
 
