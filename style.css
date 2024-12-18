@@ -594,7 +594,11 @@ main {
 }
 
 #shortcuts-toggle-desktop {
-  display: block;
+  display: inline-block;
+  background-color:transparent;
+  padding: 0.5rem;
+  bottom: 7.25rem;
+  right: -1rem;
 }
 #shortcuts-toggle:hover {
   transform: scale(1.1);
