@@ -589,9 +589,7 @@ main {
   padding: 1.5rem;
   transition: transform 0.2s;
 }
-#shortcuts-toggle-mobile {
-  display: none;
-}
+ 
 
 #shortcuts-toggle-desktop {
   display: inline-block;
@@ -654,17 +652,7 @@ main {
     display: block;
   }
 
-  #shortcuts-toggle-mobile {
- 
-    position: absolute;
-    display: block;
-    background-color:transparent;
-    padding: 0.5rem;
-    bottom: 7.35rem;
-    right: 0rem;
-    border-top-left-radius:none;
- 
-  }
+
 
   #shortcuts-toggle-desktop {
     display: none;
@@ -764,6 +752,7 @@ main {
     z-index: 900;
     animation: openMenu 0.5s ease-in-out forwards;
   }
+ 
 
   header:not(:has(#hamburger-icon:checked)) + #hamburger-menu {
     animation: closeMenu 0.5s ease-in-out forwards;
