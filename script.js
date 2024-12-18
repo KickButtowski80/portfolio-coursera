@@ -55,51 +55,50 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Keyboard shortcuts panel functionality
-const shortcutsToggle = document.getElementById('shortcuts-toggle');
-const shortcutsPanel = document.getElementById('shortcuts-panel');
-
+const shortcutsToggles = document.querySelectorAll('.shortcuts-toggle');
+const shortcutsPanels = document.querySelectorAll('.shortcuts-panel');
+ 
 // Function to show panel
-function showPanel(isHover = false) {
-  shortcutsPanel.hidden = false;
-  shortcutsPanel.dataset.hover = isHover;
-  shortcutsToggle.setAttribute('aria-expanded', 'true');
+function showPanel(toggle, panel, isHover = false) {
+  panel.hidden = false;
+  // panel.dataset.hover = isHover;
+  toggle.setAttribute('aria-expanded', 'true');
 }
 
 // Function to hide panel
-function hidePanel() {
-  shortcutsPanel.hidden = true;
-  shortcutsToggle.setAttribute('aria-expanded', 'false');
+function hidePanel(toggle, panel) {
+  panel.hidden = true;
+  toggle.setAttribute('aria-expanded', 'false');
 }
 
-// Click handling
-shortcutsToggle.addEventListener('click', (event) => {
-  event.stopPropagation();
-  if (shortcutsPanel.hidden) {
-    showPanel(false);
-  } else {
-    hidePanel();
-  }
-});
+// Add event listeners to all shortcuts toggles
+shortcutsToggles.forEach((toggle, index) => {
+  const panel = shortcutsPanels[index];
+   console.log(toggle);
+  toggle.addEventListener('click', (event) => {
 
-// Hover handling (for non-touch devices)
-if (window.matchMedia('(hover: hover)').matches) {
-  shortcutsToggle.addEventListener('mouseenter', () => showPanel(true));
-  shortcutsToggle.addEventListener('mouseleave', () => {
-    // Only hide if it was shown by hover
-    if (shortcutsPanel.dataset.hover === 'true') {
-      hidePanel();
+    event.stopPropagation(); // Prevent propagation to other click events
+    if (panel.hidden) {
+      console.dir(panel)
+      panel.hidden = false; // Show the panel
+      toggle.setAttribute('aria-expanded', 'true');
+    } else {
+      panel.hidden = true; // Hide the panel
+      toggle.setAttribute('aria-expanded', 'false');
     }
   });
-}
-
-// Close panel when clicking outside
-document.addEventListener('click', (event) => {
-  if (!shortcutsPanel.hidden && 
-      !shortcutsPanel.contains(event.target) && 
-      event.target !== shortcutsToggle) {
-    hidePanel();
-  }
 });
+
+// Close panels when clicking outside
+// document.addEventListener('click', (event) => {
+//   shortcutsPanels.forEach((panel, index) => {
+//     if (!panel.hidden && 
+//         !panel.contains(event.target) && 
+//         event.target !== shortcutsToggles[index]) {
+//       hidePanel(shortcutsToggles[index], panel);
+//     }
+//   });
+// });
 
 //show back to top button
 
