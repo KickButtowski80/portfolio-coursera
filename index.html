@@ -7,6 +7,7 @@
     <title>Portfolio WebSite</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="fixed-header">
       <nav aria-label="Primary navigation">
         <section class="my-info">
@@ -40,6 +41,8 @@
               type="checkbox"
               id="darkmode-toggle-desktop"
               class="darkmode-toggle darkmode-input"
+              tabindex="0"
+              aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-desktop" class="darkmode-label">
               <span class="sun">☀️</span>
@@ -64,6 +67,8 @@
               type="checkbox"
               id="darkmode-toggle-mobile"
               class="darkmode-toggle darkmode-input"
+              tabindex="0"
+              aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
               <span class="sun">☀️</span>
@@ -87,7 +92,7 @@
         <a href="tel:+123456789">+123456789</a>
       </p>
     </div>
-    <main>
+    <main id="main-content">
       <section id="about-me">
         <div class="my-pic">
           <figure>
@@ -104,7 +109,7 @@
           </h1>
           <img
             src="./html_finalprojimages/waving-hand.png"
-            alt="waving hand icon"
+            alt="Animated waving hand emoji"
             width="100"
             height="100"
           />
@@ -270,6 +275,7 @@
               name="author-name"
               id="recommendation-author-name"
               aria-label="Your name (optional)"
+              tabindex="0"
             />
           </div>
 
@@ -281,11 +287,16 @@
               cols="500"
               rows="10"
               required
+              aria-required="true"
+              tabindex="0"
             ></textarea>
           </div>
 
-          <button type="submit" 
-          aria-label="Submit recommendation">
+          <button 
+            type="submit" 
+            aria-label="Submit recommendation" 
+            tabindex="0"
+          >
             Submit
           </button>
         </div>
@@ -298,7 +309,7 @@
         class="back-to-top-button"
         aria-label="Back to top of page"
         role="button"
-        aria-hidden="false"
+        aria-hidden="false" tabindex="0"
       >
         <span class="visually-hidden">Back to top</span>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
@@ -307,7 +318,7 @@
       </button>
     </aside>
     <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
-      <button type="button" class="shortcuts-toggle"  aria-label="Keyboard shortcuts" aria-expanded="false">
+      <button type="button" class="shortcuts-toggle" tabindex="0" aria-label="Keyboard shortcuts" aria-expanded="false">
         ⌨️
       </button>
       <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
