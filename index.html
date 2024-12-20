@@ -7,21 +7,23 @@
     <title>Portfolio WebSite</title>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- <a href="#main-content" class="skip-link">Skip to main content</a> -->
     <header class="fixed-header">
       <nav aria-label="Primary navigation">
-        <section class="my-info">
-          <h1>Jane Doe</h1>
+        <section class="my-info" >
+          <a href="#"><h1 >Jane Doe</h1></a>
         </section>
 
         <input
           type="checkbox"
           name="mobile-navigation-toggle"
           id="hamburger-icon"
+          class="visually-hidden-focusable hamburger-icon"
           aria-expanded="false"
           aria-controls="hamburger-menu"
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
+         
         />
         <label for="hamburger-icon">
           <span class="visually-hidden">Toggle navigation menu</span>
@@ -41,7 +43,7 @@
               type="checkbox"
               id="darkmode-toggle-desktop"
               class="darkmode-toggle darkmode-input"
-              tabindex="0"
+              tabindex="1"
               aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-desktop" class="darkmode-label">
@@ -67,7 +69,7 @@
               type="checkbox"
               id="darkmode-toggle-mobile"
               class="darkmode-toggle darkmode-input"
-              tabindex="0"
+              tabindex="1"
               aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
@@ -82,7 +84,7 @@
   
  
     </nav>
-    <div class="contact-info">
+    <div class="contact-info" tabindex="9">
       <p>
         <i class="icon" aria-hidden="true">📧</i>
         <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
@@ -275,7 +277,7 @@
               name="author-name"
               id="recommendation-author-name"
               aria-label="Your name (optional)"
-              tabindex="0"
+              tabindex="2"
             />
           </div>
 
@@ -288,14 +290,14 @@
               rows="10"
               required
               aria-required="true"
-              tabindex="0"
+              tabindex="3"
             ></textarea>
           </div>
 
           <button 
             type="submit" 
             aria-label="Submit recommendation" 
-            tabindex="0"
+            tabindex="4"
           >
             Submit
           </button>
@@ -309,7 +311,8 @@
         class="back-to-top-button"
         aria-label="Back to top of page"
         role="button"
-        aria-hidden="false" tabindex="0"
+        aria-hidden="false" 
+     
       >
         <span class="visually-hidden">Back to top</span>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
