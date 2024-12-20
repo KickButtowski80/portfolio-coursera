@@ -210,20 +210,9 @@ aside[aria-label="Scroll to top"] {
   cursor: pointer;
 }
 
-.darkmode-input:focus-visible {
-  outline: none;
-}
+ 
 
-.darkmode-input:focus-visible + .darkmode-label {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  border-radius: 20px;
-}
-
-[data-theme="dark"] .darkmode-input:focus-visible + .darkmode-label {
-  outline-color: var(--accent-color);
-}
-
+ 
 .darkmode-label {
   position: relative;
   display: inline-block;
