@@ -42,7 +42,6 @@
               type="checkbox"
               id="darkmode-toggle-desktop"
               class="darkmode-toggle darkmode-input"
-              tabindex="1"
               aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-desktop" class="darkmode-label">
@@ -68,7 +67,6 @@
               type="checkbox"
               id="darkmode-toggle-mobile"
               class="darkmode-toggle darkmode-input"
-              tabindex="1"
               aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
@@ -83,7 +81,7 @@
   
  
     </nav>
-    <div class="contact-info" tabindex="9">
+    <div class="contact-info">
       <p>
         <i class="icon" aria-hidden="true">📧</i>
         <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
@@ -276,7 +274,6 @@
               name="author-name"
               id="recommendation-author-name"
               aria-label="Your name (optional)"
-              tabindex="2"
             />
           </div>
 
@@ -289,14 +286,12 @@
               rows="10"
               required
               aria-required="true"
-              tabindex="3"
             ></textarea>
           </div>
 
           <button 
             type="submit" 
             aria-label="Submit recommendation" 
-            tabindex="4"
           >
             Submit
           </button>
@@ -320,7 +315,7 @@
       </button>
     </aside>
     <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
-      <button type="button" class="shortcuts-toggle" tabindex="0" aria-label="Keyboard shortcuts" aria-expanded="false">
+      <button type="button" class="shortcuts-toggle" aria-label="Keyboard shortcuts" aria-expanded="false">
         ⌨️
       </button>
       <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
