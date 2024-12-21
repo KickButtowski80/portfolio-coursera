@@ -862,18 +862,8 @@ label:focus-visible,
     text-decoration: none;
   }
 
-  /* Make sure the visually-hidden-focusable class shows content when focused */
-  .visually-hidden-focusable:focus,
-  .visually-hidden-focusable:focus-visible {
-    opacity: 1;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-  }
-
+   
+ 
   #about-me {
     height: 100%;
     display: grid;
