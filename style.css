@@ -664,6 +664,52 @@ main {
 .shortcuts-panel li:nth-child(2) {
   display: none;
 }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+input[type="checkbox"]:focus-visible, 
+textarea:focus-visible,
+label:focus-visible,
+.darkmode-toggle:focus-visible,
+.shortcuts-toggle:focus-visible {
+  outline: 2px solid var(--text-color) ;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Ensure the focus ring is visible in dark mode */
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] input:focus-visible,
+[data-theme="dark"] textarea:focus-visible,
+[data-theme="dark"] .darkmode-toggle:focus-visible,
+[data-theme="dark"] .shortcuts-toggle:focus-visible {
+  outline-color: var(--accent-color);
+}
+
+/* Hide focus for non-keyboard interactions
+*:focus:not(:focus-visible) {
+  outline: none;
+} */
+
+.recommendation-card button {
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 8px;
+  z-index: 9000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
 @media (max-width: 768px) {
   .shortcuts-panel li:nth-child(2) {
@@ -889,56 +935,6 @@ main {
   }
 }
 
-@media (max-width: 425px) {
-  #hamburger-icon + label {
-    right: 0rem;
-  }
-}
+ 
 
 /* Focus styles for all interactive elements */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-input[type="checkbox"]:focus-visible, 
-textarea:focus-visible,
-label:focus-visible,
-.darkmode-toggle:focus-visible,
-.shortcuts-toggle:focus-visible {
-  outline: 2px solid var(--text-color) ;
-  outline-offset: 2px;
-  border-radius: 0.25rem;
-}
-
-/* Ensure the focus ring is visible in dark mode */
-[data-theme="dark"] a:focus-visible,
-[data-theme="dark"] button:focus-visible,
-[data-theme="dark"] input:focus-visible,
-[data-theme="dark"] textarea:focus-visible,
-[data-theme="dark"] .darkmode-toggle:focus-visible,
-[data-theme="dark"] .shortcuts-toggle:focus-visible {
-  outline-color: var(--accent-color);
-}
-
-/* Hide focus for non-keyboard interactions */
-*:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.recommendation-card button {
-  border: 0;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary-color);
-  color: var(--background-color);
-  padding: 8px;
-  z-index: 9000;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
