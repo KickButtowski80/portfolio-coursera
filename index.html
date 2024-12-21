@@ -7,10 +7,11 @@
     <title>Portfolio WebSite</title>
   </head>
   <body>
+    <!-- <a href="#main-content" class="skip-link">Skip to main content</a> -->
     <header class="fixed-header">
       <nav aria-label="Primary navigation">
-        <section class="my-info">
-          <h1>Jane Doe</h1>
+        <section class="my-info" >
+          <a href="#"><h1 >Jane Doe</h1></a>
         </section>
 
         <input
@@ -21,6 +22,7 @@
           aria-controls="hamburger-menu"
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
+         
         />
         <label for="hamburger-icon">
           <span class="visually-hidden">Toggle navigation menu</span>
@@ -40,12 +42,14 @@
               type="checkbox"
               id="darkmode-toggle-desktop"
               class="darkmode-toggle darkmode-input"
+              aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-desktop" class="darkmode-label">
               <span class="sun">☀️</span>
               <span class="moon">🌙</span>
             </label>
           </div>
+      
         </li>
         </ul>
       </nav>
@@ -63,14 +67,19 @@
               type="checkbox"
               id="darkmode-toggle-mobile"
               class="darkmode-toggle darkmode-input"
+              aria-label="Toggle dark mode"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
               <span class="sun">☀️</span>
               <span class="moon">🌙</span>
             </label>
           </div>
+       
         </li>
       </ul>
+  
+  
+ 
     </nav>
     <div class="contact-info">
       <p>
@@ -82,7 +91,7 @@
         <a href="tel:+123456789">+123456789</a>
       </p>
     </div>
-    <main>
+    <main id="main-content">
       <section id="about-me">
         <div class="my-pic">
           <figure>
@@ -99,7 +108,7 @@
           </h1>
           <img
             src="./html_finalprojimages/waving-hand.png"
-            alt="waving hand icon"
+            alt="Animated waving hand emoji"
             width="100"
             height="100"
           />
@@ -218,7 +227,7 @@
           <blockquote class="recommendation-card">
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude & she is an excellent
+              Web development. She got a great attitude \& she is an excellent
               team player. She has a curious mind and asks the right question.
               She takes initiative within a team and has potentials to lead the
               team.
@@ -276,11 +285,14 @@
               cols="500"
               rows="10"
               required
+              aria-required="true"
             ></textarea>
           </div>
 
-          <button type="submit" 
-          aria-label="Submit recommendation">
+          <button 
+            type="submit" 
+            aria-label="Submit recommendation" 
+          >
             Submit
           </button>
         </div>
@@ -293,7 +305,8 @@
         class="back-to-top-button"
         aria-label="Back to top of page"
         role="button"
-        aria-hidden="false"
+        aria-hidden="false" 
+     
       >
         <span class="visually-hidden">Back to top</span>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
@@ -301,6 +314,18 @@
         </svg>
       </button>
     </aside>
+    <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
+      <button type="button" class="shortcuts-toggle" aria-label="Keyboard shortcuts" aria-expanded="false">
+        ⌨️
+      </button>
+      <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
+        <h2>Keyboard Shortcuts</h2>
+        <ul>
+          <li><kbd>d</kbd> - Toggle Dark Mode</li>
+          <li><kbd>m</kbd> - Toggle Menu</li>
+        </ul>
+      </div>
+    </div>
     <script src="script.js" defer></script>
   </body>
 </html>

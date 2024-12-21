@@ -5,9 +5,7 @@ const darkModeToggles = document.querySelectorAll(".darkmode-toggle");
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
-  darkModeToggles.forEach(
-    (toggle) => (toggle.checked = savedTheme === "dark")
-  );
+  darkModeToggles.forEach((toggle) => (toggle.checked = savedTheme === "dark"));
 }
 
 // Handle theme toggle
@@ -31,6 +29,76 @@ const hamburgerIcon = document.getElementById("hamburger-icon");
 hamburgerIcon.addEventListener("change", (event) => {
   // Handle hamburger menu toggle
   event.target.setAttribute("aria-expanded", event.target.checked);
+});
+
+// Keyboard shortcuts
+document.addEventListener("keydown", (event) => {
+  // Only trigger if no input elements are focused
+  if (
+    document.activeElement.tagName !== "INPUT" &&
+    document.activeElement.tagName !== "TEXTAREA"
+  ) {
+    // 'D' key for dark mode toggle
+    if (event.key.toLowerCase() === "d") {
+      const firstToggle = darkModeToggles[0];
+      firstToggle.checked = !firstToggle.checked;
+      // Trigger the change event to update theme and sync other toggles
+      firstToggle.dispatchEvent(new Event("change"));
+    }
+
+    // 'M' key for menu toggle
+    if (event.key.toLowerCase() === "m") {
+      hamburgerIcon.checked = !hamburgerIcon.checked;
+      hamburgerIcon.dispatchEvent(new Event("change"));
+    }
+  }
+});
+
+// Keyboard shortcuts panel functionality
+const shortcutsToggle = document.querySelector(".shortcuts-toggle");
+const shortcutsPanel = document.querySelector(".shortcuts-panel");
+
+// Function to show panel
+function showPanel(toggle, panel, isHover = false) {
+  panel.hidden = false;
+  panel.dataset.hover = isHover;
+  toggle.setAttribute("aria-expanded", "true");
+}
+
+// Function to hide panel
+function hidePanel(toggle, panel) {
+  panel.hidden = true;
+  toggle.setAttribute("aria-expanded", "false");
+}
+
+// Add event listeners to all shortcuts toggles
+ 
+const panel = shortcutsPanel;
+
+shortcutsToggle.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent propagation to other click events
+  if (panel.hidden) {
+    console.dir(panel);
+    panel.hidden = false; // Show the panel
+    shortcutsToggle.setAttribute("aria-expanded", "true");
+  } else {
+    panel.hidden = true; // Hide the panel
+    shortcutsToggle.setAttribute("aria-expanded", "false");
+  }
+});
+ 
+
+// Close panels when clicking outside
+document.addEventListener("click", (event) => {
+
+  if (
+    !panel.hidden &&
+    !panel.contains(event.target) &&
+    event.target !== shortcutsToggle
+  ) {
+    hidePanel(shortcutsToggle, panel);
+  }
+
 });
 
 //show back to top button
