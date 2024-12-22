@@ -102,8 +102,10 @@ label:focus-visible
 [data-theme="dark"] button:focus-visible,
 [data-theme="dark"] input:focus-visible,
 [data-theme="dark"] textarea:focus-visible,
-[data-theme="dark"] .darkmode-toggle:focus-visible,
-[data-theme="dark"] .shortcuts-toggle:focus-visible {
+[data-theme="dark"] input[type="checkbox"]:focus-visible + label
+/* [data-theme="dark"] .darkmode-toggle:focus-visible,
+[data-theme="dark"] .shortcuts-toggle:focus-visible */
+ {
   outline-color: var(--accent-color);
 }
 .visually-hidden {
@@ -808,16 +810,6 @@ main {
     transform-origin: -2% 55%;
   }
 
-  #hamburger-icon:focus-visible,
-  #hamburger-icon:focus {
-    opacity: 1;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-  }
 
   header:has(#hamburger-icon:checked) + #hamburger-menu {
     z-index: 0;
