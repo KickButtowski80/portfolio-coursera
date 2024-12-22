@@ -758,17 +758,17 @@ main {
     padding: 1.5rem;
   }
 
-  #hamburger-icon {
-    position: absolute; /* Keep it out of the normal flow */
-    width: 1px; /* Small size */
-    height: 1px; /* Small size */
-    opacity: 0; /* Make it invisible */
-    margin: -1px; /* Prevent layout shifts */
-    overflow: hidden; /* Hide overflow */
-    clip: rect(0, 0, 0, 0); /* Clip the element */
-    border: 0; /* Remove borders */
+  /* #hamburger-icon {
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    opacity: 0; 
+    margin: -1px; 
+    overflow: hidden; 
+    clip: rect(0, 0, 0, 0); 
+    border: 0; 
     z-index: 3;
-  }
+  } */
  
   #hamburger-icon + label {
     margin-right: 1rem;
@@ -820,7 +820,7 @@ main {
   }
 
   header:has(#hamburger-icon:checked) + #hamburger-menu {
-    z-index: 1100;
+    z-index: 0;
     animation: openMenu 0.5s ease-in-out forwards;
   }
   header:has(#hamburger-icon:checked) + #hamburger-menu + aside #back-to-top {
