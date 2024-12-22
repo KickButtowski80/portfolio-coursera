@@ -83,6 +83,28 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+input[type="checkbox"]:focus-visible, 
+textarea:focus-visible,
+label:focus-visible,
+.darkmode-toggle:focus-visible,
+.shortcuts-toggle:focus-visible {
+  outline: 2px solid var(--text-color) ;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Ensure the focus ring is visible in dark mode */
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] input:focus-visible,
+[data-theme="dark"] textarea:focus-visible,
+[data-theme="dark"] .darkmode-toggle:focus-visible,
+[data-theme="dark"] .shortcuts-toggle:focus-visible {
+  outline-color: var(--accent-color);
+}
 
 #back-to-top {
   position: fixed;
@@ -200,14 +222,14 @@ aside[aria-label="Scroll to top"] {
   scale: 1.5;
 }
 
-.darkmode-input {
+/* .darkmode-input {
   position: absolute;
   width: 1px;
   height: 1px;
   opacity: 0;
   z-index: 2;
   cursor: pointer;
-}
+} */
 
  
 .darkmode-label {
@@ -265,7 +287,7 @@ aside[aria-label="Scroll to top"] {
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
+  /* overflow: hidden; */
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
@@ -664,33 +686,8 @@ main {
 .shortcuts-panel li:nth-child(2) {
   display: none;
 }
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-input[type="checkbox"]:focus-visible, 
-textarea:focus-visible,
-label:focus-visible,
-.darkmode-toggle:focus-visible,
-.shortcuts-toggle:focus-visible {
-  outline: 2px solid var(--text-color) ;
-  outline-offset: 2px;
-  border-radius: 0.25rem;
-}
 
-/* Ensure the focus ring is visible in dark mode */
-[data-theme="dark"] a:focus-visible,
-[data-theme="dark"] button:focus-visible,
-[data-theme="dark"] input:focus-visible,
-[data-theme="dark"] textarea:focus-visible,
-[data-theme="dark"] .darkmode-toggle:focus-visible,
-[data-theme="dark"] .shortcuts-toggle:focus-visible {
-  outline-color: var(--accent-color);
-}
-
-/* Hide focus for non-keyboard interactions
-*:focus:not(:focus-visible) {
-  outline: none;
-} */
+ 
 
 .recommendation-card button {
   border: 0;
