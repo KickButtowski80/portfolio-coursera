@@ -473,7 +473,7 @@ main {
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
-  display: none;
+ opacity: 0;
 }
 #about-me {
   display: grid;
@@ -712,6 +712,17 @@ main {
 }
 
 @media (max-width: 768px) {
+  /* Hide hamburger label in desktop view */
+  #hamburger-icon + label {
+    display: block;
+    margin-right: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 101;
+    pointer-events: auto;
+    cursor: pointer;
+  }
   .shortcuts-panel li:nth-child(2) {
     display: block;
   }
@@ -739,8 +750,9 @@ main {
     display: none;
   }
 
-   
+
   #hamburger-menu {
+    opacity: 1;
     display: flex;
     align-items: flex-start;
     position: fixed;
@@ -772,16 +784,6 @@ main {
     z-index: 3;
   } */
  
-  #hamburger-icon + label {
-    margin-right: 1rem;
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    z-index: 101;
-    pointer-events: auto;
-    cursor: pointer;
-  }
-
   #hamburger-icon + label:hover {
     cursor: pointer;
   }
@@ -915,6 +917,8 @@ main {
   }
 }
 
- 
-
-/* Focus styles for all interactive elements */
+@media (min-width: 769px) {
+  #hamburger-icon + label {
+    display: none;
+  }
+}
