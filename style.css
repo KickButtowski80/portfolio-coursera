@@ -121,24 +121,24 @@ label:focus-visible
 }
 #back-to-top {
   position: fixed;
-  bottom: 3.125rem; /* 50px */
-  right: 1.875rem; /* 30px */
+  bottom: 3.125rem; 
+  right: 1.875rem; 
   background-color: var(--primary-color);
   color: var(--background-color);
-  width: 3.125rem; /* 50px */
-  height: 3.125rem; /* 50px */
+  width: 3.125rem; 
+  height: 3.125rem; 
   text-align: center;
-  border-radius: 0.625rem; /* 10px */
+  border-radius: 0.625rem; 
   z-index: 1000;
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.1875s ease-in-out, background-color 0.1875s ease; /* 0.3s to rem */
+  transition: all 0.1875s ease-in-out, background-color 0.1875s ease; 
   display: flex;
   align-items: center;
   justify-content: center;
-  scale: 1.5; /* No conversion needed for scale */
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* 2px and 5px to rem */
+  scale: 1.5; 
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); 
 }
 
 #back-to-top:focus {
