@@ -141,10 +141,10 @@ label:focus-visible
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); 
 }
 
-#back-to-top:focus {
+/* #back-to-top:focus {
   outline: 2px solid var(--text-color);
   outline-offset: 2px;
-}
+} */
 
 #back-to-top:focus:not(:focus-visible) {
   outline: none;
@@ -235,14 +235,6 @@ aside[aria-label="Scroll to top"] {
   scale: 1.5;
 }
 
-/* .darkmode-input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  z-index: 2;
-  cursor: pointer;
-} */
 
  
 .darkmode-label {
@@ -318,16 +310,7 @@ nav {
   z-index: 1; /* Lower than the hamburger icon */
 }
 
-.my-info:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-.my-info:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
+ 
 
 .my-info a {
   text-decoration: none;
@@ -416,8 +399,9 @@ nav ul li {
     transform: scaleX(0.7);
   }
 
-  nav ul li a:hover,
-  nav ul li a:focus {
+
+  nav ul li a:hover
+  {
     color: white;
     outline: none; /* Remove default outline */
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus style */
@@ -461,12 +445,7 @@ nav ul li a.active::after {
   transform: scaleX(1);
 }
 
-nav ul li a:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 4px;
-  text-decoration: underline;
-}
-
+ 
 main {
   margin: 0.5rem;
   position: relative;
