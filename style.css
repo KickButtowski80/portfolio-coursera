@@ -213,8 +213,8 @@ aside[aria-label="Scroll to top"] {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.back-to-top-button:hover,
-.back-to-top-button:focus {
+ 
+.back-to-top-button:hover {
   background-color: var(--primary-color-dark, #0056b3);
   outline: none;
 }

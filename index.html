@@ -20,8 +20,8 @@
         </p>
       </div>
       <nav aria-label="Primary navigation">
-        <section class="my-info" >
-          <a href="#"><h1 >Jane Doe</h1></a>
+        <section class="my-info">
+          <a href="#"><h1>Jane Doe</h1></a>
         </section>
 
         <input
@@ -33,7 +33,6 @@
           aria-controls="hamburger-menu"
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
-         
         />
         <label for="hamburger-icon">
           <span class="visually-hidden">Toggle navigation menu</span>
@@ -48,24 +47,37 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#recommendations">Recommendations</a></li>
           <li>
-          <div class="theme-toggle">
-            <input
-              type="checkbox"
-              id="darkmode-toggle-desktop"
-              class="visually-hidden darkmode-toggle darkmode-input "
-              aria-label="Toggle dark mode"
-            />
-            <label for="darkmode-toggle-desktop" class="darkmode-label">
-              <span class="sun">☀️</span>
-              <span class="moon">🌙</span>
-            </label>
-          </div>
-      
-        </li>
+            <div class="theme-toggle">
+              <input
+                type="checkbox"
+                id="darkmode-toggle-desktop"
+                class="visually-hidden darkmode-toggle darkmode-input"
+                aria-label="Toggle dark mode"
+              />
+              <label for="darkmode-toggle-desktop" class="darkmode-label">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+              </label>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
-
+    <aside aria-label="Scroll to top">
+      <button
+        type="button"
+        id="back-to-top"
+        class="back-to-top-button"
+        aria-label="Back to top of page"
+        role="button"
+        aria-hidden="false"
+      >
+        <span class="visually-hidden">Back to top</span>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 3l-8 8h16l-8-8z" />
+        </svg>
+      </button>
+    </aside>  
     <nav id="hamburger-menu" aria-label="Mobile navigation">
       <ul>
         <li><a href="#about-me">About Me</a></li>
@@ -85,12 +97,8 @@
               <span class="moon">🌙</span>
             </label>
           </div>
-       
         </li>
       </ul>
-  
-  
- 
     </nav>
 
     <main id="main-content">
@@ -291,33 +299,34 @@
             ></textarea>
           </div>
 
-          <button 
-            type="submit" 
-            aria-label="Submit recommendation" 
-          >
+          <button type="submit" aria-label="Submit recommendation">
             Submit
           </button>
         </div>
       </section>
     </main>
-    <aside aria-label="Scroll to top">
-      <button 
-        type="button" 
-        id="back-to-top" 
+    <!-- <aside aria-label="Scroll to top">
+      <button
+        type="button"
+        id="back-to-top"
         class="back-to-top-button"
         aria-label="Back to top of page"
         role="button"
-        aria-hidden="false" 
-     
+        aria-hidden="false"
       >
         <span class="visually-hidden">Back to top</span>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M12 3l-8 8h16l-8-8z"/>
+          <path d="M12 3l-8 8h16l-8-8z" />
         </svg>
       </button>
-    </aside>
+    </aside> -->
     <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
-      <button type="button" class="shortcuts-toggle" aria-label="Keyboard shortcuts" aria-expanded="false">
+      <button
+        type="button"
+        class="shortcuts-toggle"
+        aria-label="Keyboard shortcuts"
+        aria-expanded="false"
+      >
         ⌨️
       </button>
       <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
