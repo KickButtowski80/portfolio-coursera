@@ -77,6 +77,23 @@
         </svg>
       </button>
     </aside>
+    <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
+      <button
+        type="button"
+        class="shortcuts-toggle"
+        aria-label="Keyboard shortcuts"
+        aria-expanded="false"
+      >
+        ⌨️
+      </button>
+      <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
+        <h2>Keyboard Shortcuts</h2>
+        <ul>
+          <li><kbd>d</kbd> - Toggle Dark Mode</li>
+          <li><kbd>m</kbd> - Toggle Menu</li>
+        </ul>
+      </div>
+    </div>
     <nav id="hamburger-menu" aria-label="Mobile navigation">
       <ul>
         <li><a href="#about-me">About Me</a></li>
@@ -301,23 +318,7 @@
       </section>
     </main>
 
-    <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
-      <button
-        type="button"
-        class="shortcuts-toggle"
-        aria-label="Keyboard shortcuts"
-        aria-expanded="false"
-      >
-        ⌨️
-      </button>
-      <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
-        <h2>Keyboard Shortcuts</h2>
-        <ul>
-          <li><kbd>d</kbd> - Toggle Dark Mode</li>
-          <li><kbd>m</kbd> - Toggle Menu</li>
-        </ul>
-      </div>
-    </div>
+
     <script src="script.js" defer></script>
   </body>
 </html>

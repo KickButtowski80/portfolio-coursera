@@ -115,7 +115,17 @@ label:focus-visible
   white-space: nowrap;
   border: 0;
 }
+/* Back to top button container */
+aside[aria-label="Scroll to top"] {
+  position: fixed;
+  z-index: 9999;
+  bottom: 3.125rem; 
+  right: 1.875rem;
+  isolation: isolate;
+}
+
 #back-to-top {
+  /* position: relative; */
   background-color: var(--primary-color);
   color: var(--background-color);
   width: 3.125rem;
@@ -133,8 +143,9 @@ label:focus-visible
   scale: 1.5;
 }
 
-#back-to-top:focus:not(:focus-visible) {
-  outline: none;
+#back-to-top:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
 }
 
 #back-to-top::before {
@@ -179,12 +190,303 @@ label:focus-visible
   opacity: 1;
 }
 
-/* Back to top button container */
-aside[aria-label="Scroll to top"] {
+/* Keyboard shortcuts panel */
+.keyboard-shortcuts {
   position: fixed;
-  z-index: 9999;
-  bottom: 3.125rem; 
-  right: 1.875rem; 
+  bottom: 3.125rem;
+  right: 6.25rem;
+  z-index: 9998;
+  isolation: isolate;
+}
+
+.shortcuts-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3.125rem;
+  padding: 0.5rem;
+
+  transition: transform 0.2s;
+}
+
+#shortcuts-toggle-desktop {
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: 7.25rem;
+  right: 1rem;
+  transition: transform 0.2s;
+}
+#shortcuts-toggle-desktop:hover {
+  background-color: rgba(167, 48, 131, 0.5); /* Light background on hover */
+  transform: scale(1.1);
+}
+
+.shortcuts-panel {
+  position: absolute;
+  top: -57%;
+  right: 85%;
+  background: var(--background-color);
+  border: 0.0625rem solid var(--text-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 12.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.shortcuts-panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.shortcuts-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shortcuts-panel li {
+  margin: 0.5rem 0;
+}
+
+.shortcuts-panel kbd {
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.shortcuts-panel li:nth-child(2) {
+  display: none;
+}
+
+.recommendation-card button {
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 8px;
+  z-index: 9000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  /* Hide hamburger label in desktop view */
+  #hamburger-icon + label {
+    display: block;
+    margin-right: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 101;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .shortcuts-panel li:nth-child(2) {
+    display: block;
+  }
+
+  #shortcuts-toggle-desktop {
+    display: none;
+  }
+  .fixed-header:has(ul > .theme-toggle) .theme-toggle {
+    display: none;
+  }
+
+  main {
+    top: 5rem;
+  }
+  .contact-info {
+    height: 7rem;
+  }
+  .contact-info span {
+    display: block;
+    padding-block: 0.1rem;
+    font-size: clamp(1rem, 1.5vw + 1rem, 2.5rem);
+  }
+
+  .fixed-header nav ul li {
+    display: none;
+  }
+
+
+  #hamburger-menu {
+    opacity: 0;
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    top: 10rem;
+    right: 0;
+    max-width: 15.5rem;
+    list-style-type: none;
+    height: 100%;
+    background-color: var(--primary-color);
+    pointer-events: auto;
+  }
+  nav#hamburger-menu ul {
+    list-style-type: none;
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+ 
+  #hamburger-icon + label:hover {
+    cursor: pointer;
+  }
+  #hamburger-icon + label .icon-bar {
+    display: block;
+    width: 3rem;
+    height: 0.5rem;
+    background-color: #cccccc;
+    margin-block: 0.5rem;
+    transition: all 0.2s;
+  }
+ 
+  #hamburger-icon + label .middle-bar {
+    opacity: 1;
+  }
+
+  #hamburger-icon:checked + label .top-bar {
+    transform: rotate(41deg);
+    transform-origin: 5% 15%;
+  }
+  #hamburger-icon:checked + label .middle-bar {
+    opacity: 0;
+  }
+  #hamburger-icon:checked + label .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: -2% 55%;
+  }
+
+
+  header:has(#hamburger-icon:checked) ~ nav#hamburger-menu {
+    z-index: 999999;
+    opacity: 1;
+    display: flex;
+
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+
+
+  header:not(:has(#hamburger-icon:checked)) ~ nav#hamburger-menu {
+    z-index: 999999;
+    opacity: 1;
+    display: flex;
+    animation: closeMenu 0.5s ease-in-out forwards;
+  }
+  nav#hamburger-menu ul {
+    display: flex;
+    flex-direction: column;
+  }
+  #hamburger-menu li {
+    font-size: 1.5rem;
+    list-style-type: none;
+    background-color: var(--primary-color);
+    margin: 2rem 0rem;
+  }
+
+  #hamburger-menu li:active,
+  #hamburger-menu li:hover {
+    padding-left: 1rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    text-decoration: underline;
+    color: blueviolet;
+    transform: scale3d(1.2, 1.2, 1); /* Example transform effect */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    will-change: transform;
+  }
+
+  #hamburger-menu a {
+    color: white;
+    text-shadow: 2px 2px 2px rgb(95, 84, 84);
+    text-decoration: none;
+  }
+
+   
+ 
+  #about-me {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  #recommendations {
+    align-items: center;
+    margin-inline: 1rem;
+    position: relative;
+ 
+  
+  }
+
+  .recommendation-cards {
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  #about-me .my-info h1 {
+    font-size: 3rem;
+  }
+  :is(#skills, #projects, #recommendations) {
+    margin-inline: 0rem;
+  }
+  :is(#skills, #projects, #recommendations) h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .recommendation-cards .recommendation-card {
+    width: 100%;
+  }
+
+  #skills .skill-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .contact-info .theme-toggle {
+    display: none;
+  }
+
+  @keyframes openMenu {
+    0% {
+      clip-path: inset(0 0 99% 100%);
+    }
+    100% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+  }
+
+  @keyframes closeMenu {
+    0% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+    100% {
+      clip-path: inset(0 0 99% 100%);
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  #hamburger-icon + label {
+    display: none;
+  }
 }
 
 /* Dark mode toggle styles */
@@ -565,303 +867,4 @@ main {
 
 .projects-info article ul {
   margin-block: 2rem;
-}
-
-/* Keyboard Shortcuts Panel */
-.keyboard-shortcuts {
-  position: fixed;
-  z-index: 1000;
-  display: inline-block;
-}
-
-.shortcuts-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 3.125rem;
-  padding: 0.5rem;
-
-  transition: transform 0.2s;
-}
-
-#shortcuts-toggle-desktop {
-  display: inline-block;
-  background-color: transparent;
-  border-radius: 50%;
-  bottom: 7.25rem;
-  right: 1rem;
-  transition: transform 0.2s;
-}
-#shortcuts-toggle-desktop:hover {
-  background-color: rgba(167, 48, 131, 0.5); /* Light background on hover */
-  transform: scale(1.1);
-}
-
-.shortcuts-panel {
-  position: absolute;
-  top: -57%;
-  right: 85%;
-  background: var(--background-color);
-  border: 0.0625rem solid var(--text-color);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  min-width: 12.5rem;
-  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
-  z-index: 999;
-}
-
-.shortcuts-panel h2 {
-  margin-top: 0;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.shortcuts-panel ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.shortcuts-panel li {
-  margin: 0.5rem 0;
-}
-
-.shortcuts-panel kbd {
-  background: var(--text-color);
-  color: var(--background-color);
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem;
-  font-family: monospace;
-  font-size: 0.9rem;
-}
-.shortcuts-panel li:nth-child(2) {
-  display: none;
-}
-
- 
-
-.recommendation-card button {
-  border: 0;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary-color);
-  color: var(--background-color);
-  padding: 8px;
-  z-index: 9000;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-@media (max-width: 768px) {
-  /* Hide hamburger label in desktop view */
-  #hamburger-icon + label {
-    display: block;
-    margin-right: 1rem;
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    z-index: 101;
-    pointer-events: auto;
-    cursor: pointer;
-  }
-  .shortcuts-panel li:nth-child(2) {
-    display: block;
-  }
-
-  #shortcuts-toggle-desktop {
-    display: none;
-  }
-  .fixed-header:has(ul > .theme-toggle) .theme-toggle {
-    display: none;
-  }
-
-  main {
-    top: 5rem;
-  }
-  .contact-info {
-    height: 7rem;
-  }
-  .contact-info span {
-    display: block;
-    padding-block: 0.1rem;
-    font-size: clamp(1rem, 1.5vw + 1rem, 2.5rem);
-  }
-
-  .fixed-header nav ul li {
-    display: none;
-  }
-
-
-  #hamburger-menu {
-    opacity: 0;
-    display: flex;
-    align-items: flex-start;
-    position: fixed;
-    top: 10rem;
-    right: 0;
-    max-width: 15.5rem;
-    list-style-type: none;
-    height: 100%;
-    background-color: var(--primary-color);
-    pointer-events: auto;
-  }
-  nav#hamburger-menu ul {
-    list-style-type: none;
-    height: 100%;
-    background-color: var(--primary-color);
-    width: 100%;
-    padding: 1.5rem;
-  }
-
- 
-  #hamburger-icon + label:hover {
-    cursor: pointer;
-  }
-  #hamburger-icon + label .icon-bar {
-    display: block;
-    width: 3rem;
-    height: 0.5rem;
-    background-color: #cccccc;
-    margin-block: 0.5rem;
-    transition: all 0.2s;
-  }
- 
-  #hamburger-icon + label .middle-bar {
-    opacity: 1;
-  }
-
-  #hamburger-icon:checked + label .top-bar {
-    transform: rotate(41deg);
-    transform-origin: 5% 15%;
-  }
-  #hamburger-icon:checked + label .middle-bar {
-    opacity: 0;
-  }
-  #hamburger-icon:checked + label .bottom-bar {
-    transform: rotate(-45deg);
-    transform-origin: -2% 55%;
-  }
-
-
-  header:has(#hamburger-icon:checked) ~ nav#hamburger-menu {
-    z-index: 999999;
-    opacity: 1;
-    display: flex;
-
-    animation: openMenu 0.5s ease-in-out forwards;
-  }
-
-
-  header:not(:has(#hamburger-icon:checked)) ~ nav#hamburger-menu {
-    z-index: 999999;
-    opacity: 1;
-    display: flex;
-    animation: closeMenu 0.5s ease-in-out forwards;
-  }
-  nav#hamburger-menu ul {
-    display: flex;
-    flex-direction: column;
-  }
-  #hamburger-menu li {
-    font-size: 1.5rem;
-    list-style-type: none;
-    background-color: var(--primary-color);
-    margin: 2rem 0rem;
-  }
-
-  #hamburger-menu li:active,
-  #hamburger-menu li:hover {
-    padding-left: 1rem;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    text-decoration: underline;
-    color: blueviolet;
-    transform: scale3d(1.2, 1.2, 1); /* Example transform effect */
-    transition: transform 0.5s ease-in-out; /* Smooth transition */
-    will-change: transform;
-  }
-
-  #hamburger-menu a {
-    color: white;
-    text-shadow: 2px 2px 2px rgb(95, 84, 84);
-    text-decoration: none;
-  }
-
-   
- 
-  #about-me {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-  }
-
-  #recommendations {
-    align-items: center;
-    margin-inline: 1rem;
-    position: relative;
- 
-  
-  }
-
-  .recommendation-cards {
-    justify-items: center;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  
-  #about-me .my-info h1 {
-    font-size: 3rem;
-  }
-  :is(#skills, #projects, #recommendations) {
-    margin-inline: 0rem;
-  }
-  :is(#skills, #projects, #recommendations) h1 {
-    text-align: center;
-    font-size: 2rem;
-  }
-
-  .recommendation-cards .recommendation-card {
-    width: 100%;
-  }
-
-  #skills .skill-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .contact-info .theme-toggle {
-    display: none;
-  }
-
-  @keyframes openMenu {
-    0% {
-      clip-path: inset(0 0 99% 100%);
-    }
-    100% {
-      clip-path: inset(0 -15% 0 -61%);
-    }
-  }
-
-  @keyframes closeMenu {
-    0% {
-      clip-path: inset(0 -15% 0 -61%);
-    }
-    100% {
-      clip-path: inset(0 0 99% 100%);
-    }
-  }
-}
-
-@media (min-width: 769px) {
-  #hamburger-icon + label {
-    display: none;
-  }
 }
