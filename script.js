@@ -12,11 +12,6 @@ if (savedTheme) {
 darkModeToggles.forEach((toggle) =>
   toggle.addEventListener("change", (event) => {
     const theme = event.target.checked ? "dark" : "light";
-    const activeElement = document.activeElement; // Store the currently focused element
-    // Restore focus to the previously focused element
-    if (activeElement) {
-      activeElement.focus();
-    }
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -48,16 +43,9 @@ document.addEventListener("keydown", (event) => {
   // 'D' key for dark mode toggle
   if (event.key.toLowerCase() === "d" && (!isTyping || isToggleFocused)) {
     const firstToggle = darkModeToggles[0];
-    const activeElement = document.activeElement; // Store the currently focused element
-
     firstToggle.checked = !firstToggle.checked;
     // Trigger the change event to update theme and sync other toggles
     firstToggle.dispatchEvent(new Event("change"));
-
-    // Restore focus to the previously focused element
-    if (activeElement) {
-      activeElement.focus();
-    }
   }
   // 'M' key for menu toggle
   if (event.key.toLowerCase() === "m" && (!isTyping || isToggleFocused)) {
@@ -90,7 +78,6 @@ const panel = shortcutsPanel;
 shortcutsToggle.addEventListener("click", (event) => {
   event.stopPropagation(); // Prevent propagation to other click events
   if (panel.hidden) {
-    console.dir(panel);
     panel.hidden = false; // Show the panel
     shortcutsToggle.setAttribute("aria-expanded", "true");
   } else {
