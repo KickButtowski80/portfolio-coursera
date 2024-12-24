@@ -452,7 +452,8 @@ main {
   z-index: -1;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
- opacity: 0;
+ /* opacity: 0; */
+ display: none;
 }
 #about-me {
   display: grid;
@@ -731,7 +732,7 @@ main {
 
 
   #hamburger-menu {
-    opacity: 1;
+    opacity: 0;
     display: flex;
     align-items: flex-start;
     position: fixed;
@@ -751,17 +752,6 @@ main {
     padding: 1.5rem;
   }
 
-  /* #hamburger-icon {
-    position: absolute; 
-    width: 1px; 
-    height: 1px; 
-    opacity: 0; 
-    margin: -1px; 
-    overflow: hidden; 
-    clip: rect(0, 0, 0, 0); 
-    border: 0; 
-    z-index: 3;
-  } */
  
   #hamburger-icon + label:hover {
     cursor: pointer;
@@ -792,16 +782,23 @@ main {
   }
 
 
-  header:has(#hamburger-icon:checked) + #hamburger-menu {
-    z-index: 0;
-    animation: openMenu 0.5s ease-in-out forwards;
-  }
-  header:has(#hamburger-icon:checked) + #hamburger-menu + aside #back-to-top {
-    z-index: 900;
-    animation: openMenu 0.5s ease-in-out forwards;
-  }
+  header:has(#hamburger-icon:checked) ~ nav#hamburger-menu {
+    z-index: 999999;
+    opacity: 1;
+    display: flex;
 
-  header:not(:has(#hamburger-icon:checked)) + #hamburger-menu {
+    animation: openMenu 0.5s ease-in-out forwards;
+  }
+  /* header:has(#hamburger-icon:checked) + nav#hamburger-menu + aside #back-to-top {
+    opacity: 1;
+    display: block;
+    animation: openMenu 0.5s ease-in-out forwards;
+  } */
+
+  header:not(:has(#hamburger-icon:checked)) ~ nav#hamburger-menu {
+    z-index: 999999;
+    opacity: 1;
+    display: flex;
     animation: closeMenu 0.5s ease-in-out forwards;
   }
   nav#hamburger-menu ul {
