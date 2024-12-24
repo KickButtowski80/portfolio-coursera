@@ -186,10 +186,7 @@ aside[aria-label="Scroll to top"] {
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
-#back-to-top.visible {
-  opacity: 1;
-}
-
+ 
 /* Keyboard shortcuts panel */
 .keyboard-shortcuts {
   position: fixed;
@@ -284,11 +281,7 @@ aside[aria-label="Scroll to top"] {
 
 
 
-/* @media (min-width: 769px) {
-  #hamburger-icon + label {
-    display: none;
-  }
-} */
+ 
 
 /* Dark mode toggle styles */
 .theme-toggle {
@@ -377,12 +370,7 @@ nav {
 
  
 
-.my-info a {
-  text-decoration: none;
-  color: white;
-  margin: 0;
-  padding-inline: 1rem;
-}
+
 .fixed-header {
   position: fixed;
   width: 100%;
@@ -399,8 +387,10 @@ nav {
   padding-block: clamp(1rem, 1vw + 0.5rem, 1.5rem);
   background-color: blueviolet;
 }
+ 
 
 .fixed-header nav .my-info a {
+  text-decoration: none;
   font-size: clamp(2rem, 2vw + 1.5rem, 3rem);
   color: white;
   margin: 0;
@@ -415,7 +405,7 @@ nav {
   margin-bottom: 1rem;
 }
 .my-info icon {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   border-radius: 50%;
   padding: 5px;
 }
@@ -461,31 +451,6 @@ nav ul li {
     left: 2rem;
   }
 }
-@media (min-width: 769px) {
-  nav ul li a:hover::after {
-    transform: scaleX(0.7);
-  }
-
-
-  nav ul li a:hover
-  {
-    color: white;
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus style */
-    background-color: rgba(0, 123, 255, 0.1); /* Optional background change */
-  }
-
-  nav ul li a:active {
-    /* Ensure no unexpected styles on active state */
-    transform: none;
-    background-color: inherit; /* or any color that matches your design */
-    box-shadow: none; /* Remove any box-shadow */
-  }
-
-  nav ul li a {
-    -webkit-tap-highlight-color: transparent; /* Prevents default tap highlight on mobile */
-  }
-}
 
 nav ul li a {
   display: inline-block;
@@ -518,9 +483,11 @@ main {
   position: relative;
   z-index: 0;
 }
-:is(#hamburger-icon, #cross-icon, #hamburger-menu) {
+:is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
  opacity: 0;
 }
+
+
 #about-me {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -668,6 +635,33 @@ main {
 .projects-info article ul {
   margin-block: 2rem;
 }
+
+@media (min-width: 769px) {
+  nav ul li a:hover::after {
+    transform: scaleX(0.7);
+  }
+
+
+  nav ul li a:hover
+  {
+    color: white;
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a custom focus style */
+    background-color: rgba(0, 123, 255, 0.1); /* Optional background change */
+  }
+
+  nav ul li a:active {
+    /* Ensure no unexpected styles on active state */
+    transform: none;
+    background-color: inherit; /* or any color that matches your design */
+    box-shadow: none; /* Remove any box-shadow */
+  }
+
+  nav ul li a {
+    -webkit-tap-highlight-color: transparent; /* Prevents default tap highlight on mobile */
+  }
+}
+
 
 @media (max-width: 768px) {
   /* Hide hamburger label in desktop view */
