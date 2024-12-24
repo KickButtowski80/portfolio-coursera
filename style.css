@@ -89,8 +89,6 @@ input:focus-visible,
 input[type="checkbox"]:focus-visible + label, 
 textarea:focus-visible,
 label:focus-visible
-/* .darkmode-toggle:focus-visible,
-.shortcuts-toggle:focus-visible  */
 {
   outline: 2px solid var(--text-color) ;
   outline-offset: 2px;
@@ -103,8 +101,6 @@ label:focus-visible
 [data-theme="dark"] input:focus-visible,
 [data-theme="dark"] textarea:focus-visible,
 [data-theme="dark"] input[type="checkbox"]:focus-visible + label
-/* [data-theme="dark"] .darkmode-toggle:focus-visible,
-[data-theme="dark"] .shortcuts-toggle:focus-visible */
  {
   outline-color: var(--accent-color);
 }
@@ -120,31 +116,22 @@ label:focus-visible
   border: 0;
 }
 #back-to-top {
-  position: fixed;
-  bottom: 3.125rem; 
-  right: 1.875rem; 
   background-color: var(--primary-color);
   color: var(--background-color);
-  width: 3.125rem; 
-  height: 3.125rem; 
-  text-align: center;
-  border-radius: 0.625rem; 
-  z-index: 1000;
+  width: 3.125rem;
+  height: 3.125rem;
+  padding: 0.5rem;
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.1875s ease-in-out, background-color 0.1875s ease; 
   display: flex;
   align-items: center;
   justify-content: center;
-  scale: 1.5; 
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+  scale: 1.5;
 }
-
-/* #back-to-top:focus {
-  outline: 2px solid var(--text-color);
-  outline-offset: 2px;
-} */
 
 #back-to-top:focus:not(:focus-visible) {
   outline: none;
@@ -195,34 +182,9 @@ label:focus-visible
 /* Back to top button container */
 aside[aria-label="Scroll to top"] {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-.back-to-top-button {
-  background-color: var(--primary-color, #007bff);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  padding: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
- 
-.back-to-top-button:hover {
-  background-color: var(--primary-color-dark, #0056b3);
-  outline: none;
-}
-
-.back-to-top-button svg {
-  fill: currentColor;
-  width: 100%;
-  height: 100%;
+  z-index: 9999;
+  bottom: 3.125rem; 
+  right: 1.875rem; 
 }
 
 /* Dark mode toggle styles */
@@ -322,7 +284,9 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 2;
+  left: 0; 
+  z-index: 5;
+  background-color: var(--background-color);
 }
 
 .fixed-header nav {
@@ -449,7 +413,7 @@ nav ul li a.active::after {
 main {
   margin: 0.5rem;
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 :is(#hamburger-icon, #cross-icon, #hamburger-menu) {
  /* opacity: 0; */
@@ -568,7 +532,11 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
+
+  position: relative;
+  z-index: 2;
 }
+
 .recommendation-form input,
 .recommendation-form textarea {
   width: 100%;
@@ -789,11 +757,7 @@ main {
 
     animation: openMenu 0.5s ease-in-out forwards;
   }
-  /* header:has(#hamburger-icon:checked) + nav#hamburger-menu + aside #back-to-top {
-    opacity: 1;
-    display: block;
-    animation: openMenu 0.5s ease-in-out forwards;
-  } */
+
 
   header:not(:has(#hamburger-icon:checked)) ~ nav#hamburger-menu {
     z-index: 999999;
@@ -842,6 +806,9 @@ main {
   #recommendations {
     align-items: center;
     margin-inline: 1rem;
+    position: relative;
+ 
+  
   }
 
   .recommendation-cards {
