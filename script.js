@@ -39,31 +39,30 @@ hamburgerIcon.addEventListener("change", (event) => {
 
 // Keyboard shortcuts
 document.addEventListener("keydown", (event) => {
-  // Only trigger if no input elements are focused
-  if (
-    document.activeElement.tagName !== "INPUT" &&
-    document.activeElement.tagName !== "TEXTAREA"
-  ) {
-    // 'D' key for dark mode toggle
-    if (event.key.toLowerCase() === "d") {
-      const firstToggle = darkModeToggles[0];
-      const activeElement = document.activeElement; // Store the currently focused element
+  // Allow 'D' key to toggle dark mode only if not typing in input/textarea or if the toggle itself is focused
+  const isTyping =
+    document.activeElement.tagName === "INPUT" ||
+    document.activeElement.tagName === "TEXTAREA";
+  const isToggleFocused =
+    document.activeElement.classList.contains("darkmode-toggle");
+  // 'D' key for dark mode toggle
+  if (event.key.toLowerCase() === "d" && (!isTyping || isToggleFocused)) {
+    const firstToggle = darkModeToggles[0];
+    const activeElement = document.activeElement; // Store the currently focused element
 
-      firstToggle.checked = !firstToggle.checked;
-      // Trigger the change event to update theme and sync other toggles
-      firstToggle.dispatchEvent(new Event("change"));
+    firstToggle.checked = !firstToggle.checked;
+    // Trigger the change event to update theme and sync other toggles
+    firstToggle.dispatchEvent(new Event("change"));
 
-      // Restore focus to the previously focused element
-      if (activeElement) {
-        activeElement.focus();
-      }
+    // Restore focus to the previously focused element
+    if (activeElement) {
+      activeElement.focus();
     }
-
-    // 'M' key for menu toggle
-    if (event.key.toLowerCase() === "m") {
-      hamburgerIcon.checked = !hamburgerIcon.checked;
-      hamburgerIcon.dispatchEvent(new Event("change"));
-    }
+  }
+  // 'M' key for menu toggle
+  if (event.key.toLowerCase() === "m" && (!isTyping || isToggleFocused)) {
+    hamburgerIcon.checked = !hamburgerIcon.checked;
+    hamburgerIcon.dispatchEvent(new Event("change"));
   }
 });
 
