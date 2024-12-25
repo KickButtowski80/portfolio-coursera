@@ -175,6 +175,6 @@ allMenuLinks.forEach((menuLink) => {
 });
 
 // Cleanup on page unload
-window.addEventListener("unload", () => {
+window.addEventListener("beforeunload", () => {
   observers.forEach((observer) => observer.disconnect());
 });
