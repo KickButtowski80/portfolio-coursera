@@ -440,6 +440,7 @@ main {
 }
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
   opacity: 0;
+  display: none;
 }
 
 #about-me {
