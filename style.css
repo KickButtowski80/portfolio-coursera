@@ -617,10 +617,12 @@ main {
 
 @media (max-width: 768px) {
   nav #hamburger-icon {
+    display: block;
     opacity: 1;
   }
   /* Hide hamburger label in desktop view */
   #hamburger-icon + label {
+    display:block;
     opacity: 1;
     margin-right: 1rem;
     position: absolute;
