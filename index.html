@@ -119,7 +119,12 @@
     </nav>
 
     <main id="main-content">
-      <section id="about-me">
+      <section 
+        id="about-me" 
+        tabindex="0"
+        role="region"
+        aria-labelledby="about-me-title"
+      >
         <div class="my-pic">
           <figure>
             <img
@@ -129,7 +134,7 @@
           </figure>
         </div>
         <div class="my-info">
-          <h1>
+          <h1 id="about-me-title">
             Hi, <br />
             I'm Jane Doe!
           </h1>
@@ -149,8 +154,11 @@
         </div>
       </section>
 
-      <section id="skills">
-        <h1>Skills</h1>
+      <section id="skills"
+      tabindex="0"
+      role="region"
+      aria-labelledby="skills-title">
+        <h1 id="skills-title">Skills</h1>
         <div class="skill-cards">
           <article class="skill-card">
             <figure>
