@@ -94,7 +94,6 @@ aside[aria-label="Scroll to top"] {
 }
 
 #back-to-top {
-  /* position: relative; */
   background-color: var(--primary-color);
   color: var(--background-color);
   width: 3.125rem;
