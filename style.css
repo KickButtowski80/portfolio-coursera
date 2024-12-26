@@ -709,7 +709,8 @@ main {
   }
 
   header:has(#hamburger-icon:checked) ~ nav#hamburger-menu {
-    z-index: 999999;
+    isolation: isolate;
+    z-index: 1;
     opacity: 1;
     display: flex;
 
