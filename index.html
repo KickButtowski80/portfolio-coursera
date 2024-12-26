@@ -95,9 +95,9 @@
         </svg>
       </button>
     </aside>
-    <nav id="hamburger-menu"  aria-label="Mobile navigation">
+    <nav id="hamburger-menu" aria-label="Mobile navigation">
       <ul>
-        <li ><a href="#about-me" >About Me</a></li>
+        <li><a href="#about-me">About Me</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
@@ -119,9 +119,11 @@
     </nav>
 
     <main id="main-content">
-      <section 
-        id="about-me" 
-     
+      <section
+        id="about-me"
+        tabindex="0"
+        role="region"
+        aria-labelledby="about-me-title"
       >
         <div class="my-pic">
           <figure>
@@ -132,9 +134,7 @@
           </figure>
         </div>
         <div class="my-info">
-          <h1 id="about-me-title"
-          tabindex="0"
-          >
+          <h1>
             Hi, <br />
             I'm Jane Doe!
           </h1>
@@ -145,20 +145,27 @@
             height="100"
           />
           <p>
-            I am a full-stack developer with 2 years of experience in both application and presentation layers. 
-            My experience includes:
+            I am a full-stack developer with 2 years of experience in both
+            application and presentation layers. My experience includes:
           </p>
           <ul>
-            <li>Working on applications and microservices deployed on IBM Cloud.</li>
-            <li>Using IBM Watson Services, such as Watson Assistant, NLU, and Sentiment Analyzer.</li>
+            <li>
+              Working on applications and microservices deployed on IBM Cloud.
+            </li>
+            <li>
+              Using IBM Watson Services, such as Watson Assistant, NLU, and
+              Sentiment Analyzer.
+            </li>
           </ul>
         </div>
       </section>
 
-      <section id="skills"
-      tabindex="0"
-      role="region"
-      aria-labelledby="skills-title">
+      <section
+        id="skills"
+        tabindex="0"
+        role="region"
+        aria-labelledby="skills-title"
+      >
         <h1 id="skills-title">Skills</h1>
         <div class="skill-cards">
           <article class="skill-card">
