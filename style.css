@@ -236,11 +236,12 @@ aside[aria-label="Scroll to top"] {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--primary-color);
+  background: var(--text-color);
   color: var(--background-color);
   padding: 8px;
-  z-index: 9000;
-  transition: top 0.3s;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.3s ease;
 }
 
 .skip-link:focus {
