@@ -35,8 +35,6 @@ hamburgerIcon.addEventListener("change", (event) => {
 
 // Keyboard shortcuts
 document.addEventListener("keydown", (event) => {
-  // Prevent closing the shortcuts panel when toggling dark mode
-  event.stopPropagation(); // Prevent click event from bubbling up
   // Allow 'D' key to toggle dark mode only if not typing in input/textarea or if the toggle itself is focused
   const isTyping =
     document.activeElement.tagName === "INPUT" ||
@@ -75,17 +73,14 @@ function hidePanel(toggle, panel) {
 }
 
 // Add event listeners to all shortcuts toggles
-
 const panel = shortcutsPanel;
 
 shortcutsToggle.addEventListener("click", (event) => {
   event.stopPropagation(); // Prevent propagation to other click events
   if (panel.hidden) {
-    panel.hidden = false; // Show the panel
-    shortcutsToggle.setAttribute("aria-expanded", "true");
+    showPanel(shortcutsToggle, panel);
   } else {
-    panel.hidden = true; // Hide the panel
-    shortcutsToggle.setAttribute("aria-expanded", "false");
+    hidePanel(shortcutsToggle, panel);
   }
 });
 
