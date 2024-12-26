@@ -9,8 +9,9 @@ if (savedTheme) {
 }
 
 // Handle theme toggle
-darkModeToggles.forEach((toggle) =>
+darkModeToggles.forEach((toggle) => {
   toggle.addEventListener("change", (event) => {
+    event.stopPropagation(); // Prevent event from bubbling up
     const theme = event.target.checked ? "dark" : "light";
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
@@ -22,8 +23,8 @@ darkModeToggles.forEach((toggle) =>
         otherToggle.checked = event.target.checked;
       }
     });
-  })
-);
+  });
+});
 
 // Hamburger menu functionality
 const hamburgerIcon = document.getElementById("hamburger-icon");
@@ -34,6 +35,8 @@ hamburgerIcon.addEventListener("change", (event) => {
 
 // Keyboard shortcuts
 document.addEventListener("keydown", (event) => {
+  // Prevent closing the shortcuts panel when toggling dark mode
+  event.stopPropagation(); // Prevent click event from bubbling up
   // Allow 'D' key to toggle dark mode only if not typing in input/textarea or if the toggle itself is focused
   const isTyping =
     document.activeElement.tagName === "INPUT" ||
@@ -88,10 +91,17 @@ shortcutsToggle.addEventListener("click", (event) => {
 
 // Close panels when clicking outside
 document.addEventListener("click", (event) => {
+  // Check if click is on dark mode toggle or its label
+  const isDarkModeElement = 
+    event.target.closest('.darkmode-toggle') || 
+    event.target.closest('.darkmode-label') ||
+    event.target.closest('.theme-toggle');
+  
   if (
     !panel.hidden &&
     !panel.contains(event.target) &&
-    event.target !== shortcutsToggle
+    event.target !== shortcutsToggle &&
+    !isDarkModeElement
   ) {
     hidePanel(shortcutsToggle, panel);
   }
