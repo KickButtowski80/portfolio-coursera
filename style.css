@@ -189,7 +189,7 @@ aside[aria-label="Scroll to top"] {
 
 .shortcuts-panel {
   position: absolute;
-  top: -57%;
+  top: -280%;
   right: 85%;
   background: var(--background-color);
   border: 0.0625rem solid var(--text-color);
