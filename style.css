@@ -627,7 +627,6 @@ main {
     margin-right: 1rem;
     position: absolute;
     right: 1rem;
-    top: 0.5rem;
     z-index: 101;
     pointer-events: auto;
     cursor: pointer;
