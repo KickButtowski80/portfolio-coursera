@@ -179,6 +179,16 @@ allMenuLinks.forEach((menuLink) => {
   observers.push(observer);
 });
 
+// Helper function for screen reader announcements
+function announceToScreenReader(message) {
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('class', 'visually-hidden');
+  announcement.textContent = message;
+  document.body.appendChild(announcement);
+  setTimeout(() => announcement.remove(), 1000);
+}
+
 // Cleanup on page unload
 window.addEventListener("beforeunload", () => {
   observers.forEach((observer) => observer.disconnect());
