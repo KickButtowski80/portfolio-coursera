@@ -664,7 +664,7 @@ main {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    top: 12rem;
+    top: 10rem;
     right: 0;
     max-width: 15.5rem;
     list-style-type: none;
