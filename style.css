@@ -91,6 +91,7 @@ aside[aria-label="Scroll to top"] {
   bottom: 3.125rem;
   right: 1.875rem;
   isolation: isolate;
+  transition: opacity 0.3s ease-in-out;
 }
 
 #back-to-top {
@@ -622,7 +623,7 @@ main {
   }
   /* Hide hamburger label in desktop view */
   #hamburger-icon + label {
-    display:block;
+    display: block;
     opacity: 1;
     margin-right: 1rem;
     position: absolute;
@@ -714,6 +715,10 @@ main {
     display: flex;
 
     animation: openMenu 0.5s ease-in-out forwards;
+  }
+
+  header:has(#hamburger-icon:checked) ~ aside {
+    opacity: 0;
   }
 
   header:not(:has(#hamburger-icon:checked)) ~ nav#hamburger-menu {
