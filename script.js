@@ -55,53 +55,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Keyboard shortcuts panel functionality
-const shortcutsToggle = document.querySelector(".shortcuts-toggle");
-const shortcutsPanel = document.querySelector(".shortcuts-panel");
-
-// Function to show panel
-function showPanel(toggle, panel, isHover = false) {
-  panel.hidden = false;
-  panel.dataset.hover = isHover;
-  toggle.setAttribute("aria-expanded", "true");
-}
-
-// Function to hide panel
-function hidePanel(toggle, panel) {
-  panel.hidden = true;
-  toggle.setAttribute("aria-expanded", "false");
-}
-
-// Add event listeners to all shortcuts toggles
-const panel = shortcutsPanel;
-
-shortcutsToggle.addEventListener("click", (event) => {
-  event.stopPropagation(); // Prevent propagation to other click events
-  if (panel.hidden) {
-    showPanel(shortcutsToggle, panel);
-  } else {
-    hidePanel(shortcutsToggle, panel);
-  }
-});
-
-// Close panels when clicking outside
-document.addEventListener("click", (event) => {
-  // Check if click is on dark mode toggle or its label
-  const isDarkModeElement = 
-    event.target.closest('.darkmode-toggle') || 
-    event.target.closest('.darkmode-label') ||
-    event.target.closest('.theme-toggle');
-  
-  if (
-    !panel.hidden &&
-    !panel.contains(event.target) &&
-    event.target !== shortcutsToggle &&
-    !isDarkModeElement
-  ) {
-    hidePanel(shortcutsToggle, panel);
-  }
-});
-
 //show back to top button
 
 const backToTopButton = document.querySelector("#back-to-top");
