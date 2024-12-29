@@ -155,12 +155,6 @@ aside[aria-label="Scroll to top"] {
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
-
-
-.recommendation-card button {
-  border: 0;
-}
-
 .skip-link {
   position: absolute;
   top: -40px;
@@ -175,70 +169,6 @@ aside[aria-label="Scroll to top"] {
 
 .skip-link:focus {
   top: 0;
-}
-
-/* Dark mode toggle styles */
-.theme-toggle {
-  position: relative;
-  display: inline-block;
-  margin-right: 1rem;
-  z-index: 1;
-  pointer-events: auto;
-  scale: 1.5;
-}
-
-.darkmode-label {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  background: #ebebeb;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s;
-}
-
-.darkmode-label .sun,
-.darkmode-label .moon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-}
-
-.darkmode-label .sun {
-  right: 8px;
-}
-
-.darkmode-label .moon {
-  left: 8px;
-}
-
-.darkmode-label:after {
-  content: "";
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #f5f1f1;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.darkmode-input:checked + .darkmode-label {
-  background: #4a4a4a;
-}
-
-.darkmode-input:checked + .darkmode-label:after {
-  transform: translateX(30px);
-}
-
-[data-theme="dark"] .fixed-header {
-  background-color: #2a2a2a;
-  border-bottom: 1px solid #3a3a3a;
 }
 
 nav {
@@ -783,4 +713,121 @@ label:focus-visible {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 12;
+  margin-right: 8px;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.tooltip-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15%;
+  z-index: -1;
+  transform: rotate(180deg);
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent var(--text-color) transparent transparent;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:has(.darkmode-label:hover) .tooltip-text {
+  opacity: 1;
+}
+
+kbd {
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-color);
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+/* Dark mode toggle styles */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+  z-index: 1;
+  pointer-events: auto;
+  scale: 1.5;
+}
+
+.darkmode-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: #ebebeb;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+
+.darkmode-label .sun,
+.darkmode-label .moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.darkmode-label .sun {
+  right: 8px;
+}
+
+.darkmode-label .moon {
+  left: 8px;
+}
+
+.darkmode-label:after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f5f1f1;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.darkmode-input:checked + .darkmode-label {
+  background: #4a4a4a;
+}
+
+.darkmode-input:checked + .darkmode-label:after {
+  transform: translateX(30px);
+}
+
+[data-theme="dark"] .fixed-header {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #3a3a3a;
 }
