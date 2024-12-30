@@ -33,6 +33,7 @@ const hamburgerIcon = document.getElementById("hamburger-icon");
 hamburgerIcon.addEventListener("change", (event) => {
   // Handle hamburger menu toggle
   event.target.setAttribute("aria-expanded", event.target.checked);
+  event.target.setAttribute("aria-checked", event.target.checked);
 });
 
 // Keyboard shortcuts
