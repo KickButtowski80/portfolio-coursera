@@ -718,13 +718,12 @@ label:focus-visible {
 /* tooltip */
 .tooltip {
   position: relative;
+  top: 80%;
   display: inline-block;
 }
 
 .tooltip-text {
   position: absolute;
-  top: 50%;
-  right: 100%;
   transform: translateY(-50%);
   background-color: var(--text-color);
   color: var(--background-color);
@@ -742,10 +741,10 @@ label:focus-visible {
 .tooltip-text::before {
   content: "";
   position: absolute;
-  top: 50%;
-  right: -15%; 
+  top: -17%;
+  right: 50%; 
   z-index: -1;
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   margin-top: -0.3125rem; 
   border-width: 0.3125rem; 
   border-style: solid;
