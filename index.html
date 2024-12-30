@@ -33,6 +33,7 @@
           aria-controls="hamburger-menu"
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
+          aria-checked="false"
         />
         <label for="hamburger-icon">
           <span class="visually-hidden">Toggle navigation menu</span>
@@ -53,11 +54,21 @@
                 id="darkmode-toggle-desktop"
                 class="visually-hidden darkmode-toggle darkmode-input"
                 aria-label="Toggle dark mode"
+                aria-checked="false"
               />
-              <label for="darkmode-toggle-desktop" class="darkmode-label">
+              <label for="darkmode-toggle-desktop" class="darkmode-label" role="button" aria-describedby="theme-tooltip">
                 <span class="sun">☀️</span>
                 <span class="moon">🌙</span>
+                <span 
+                  id="theme-tooltip"
+                  data-tooltip="Theme"
+                  class="tooltip"
+                  role="tooltip"
+                  tabindex="0">
+                  <span class="tooltip-text">Press <kbd>d</kbd></span>
+                </span> 
               </label>
+           
             </div>
           </li>
         </ul>
@@ -70,46 +81,23 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
         <li>
+       
           <div class="theme-toggle">
             <input
               type="checkbox"
               id="darkmode-toggle-mobile"
               class="visually-hidden darkmode-toggle darkmode-input"
               aria-label="Toggle dark mode"
+              aria-checked="false"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
               <span class="sun">☀️</span>
-              <span class="moon">🌙</span>
+              <span class="moon">🌙</span> 
             </label>
           </div>
         </li>
       </ul>
     </nav>
-
-    <div class="keyboard-shortcuts" id="shortcuts-toggle-desktop">
-      <button
-        type="button"
-        class="shortcuts-toggle"
-        aria-label="Keyboard shortcuts"
-        aria-expanded="false"
-      >
-        ⌨️
-      </button>
-      <div id="shortcuts-panel-desktop" class="shortcuts-panel" hidden>
-        <h2>Keyboard Shortcuts</h2>
-        <ul>
-          <li><kbd>Tab</kbd> - Navigate forward</li>
-          <li><kbd>Shift</kbd> + <kbd>Tab</kbd> - Navigate backward</li>
-          <li><kbd>Up Arrow</kbd> - Scroll up</li>
-          <li><kbd>Down Arrow</kbd> - Scroll down</li>
-          <li><kbd>Page Up</kbd> - Scroll up a full page</li>
-          <li><kbd>Page Down</kbd> - Scroll down a full page</li>
-          <li><kbd>d</kbd> - Toggle Dark Mode</li>
-          <li><kbd>Enter</kbd> - Activate the link or button</li>
-          <li><kbd>Spacebar</kbd> - Activate the button or toggle checkboxes</li>
-        </ul>
-      </div>
-    </div>
 
     <aside aria-label="Scroll to top">
       <button

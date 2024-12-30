@@ -16,11 +16,13 @@ darkModeToggles.forEach((toggle) => {
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-
+ 
+    toggle.setAttribute('aria-checked', event.target.checked);
     // Sync other toggles
     darkModeToggles.forEach((otherToggle) => {
       if (otherToggle !== event.target) {
         otherToggle.checked = event.target.checked;
+        otherToggle.setAttribute('aria-checked', event.target.checked);
       }
     });
   });
@@ -31,6 +33,7 @@ const hamburgerIcon = document.getElementById("hamburger-icon");
 hamburgerIcon.addEventListener("change", (event) => {
   // Handle hamburger menu toggle
   event.target.setAttribute("aria-expanded", event.target.checked);
+  event.target.setAttribute("aria-checked", event.target.checked);
 });
 
 // Keyboard shortcuts
@@ -52,53 +55,6 @@ document.addEventListener("keydown", (event) => {
   if (event.key.toLowerCase() === "m" && (!isTyping || isToggleFocused)) {
     hamburgerIcon.checked = !hamburgerIcon.checked;
     hamburgerIcon.dispatchEvent(new Event("change"));
-  }
-});
-
-// Keyboard shortcuts panel functionality
-const shortcutsToggle = document.querySelector(".shortcuts-toggle");
-const shortcutsPanel = document.querySelector(".shortcuts-panel");
-
-// Function to show panel
-function showPanel(toggle, panel, isHover = false) {
-  panel.hidden = false;
-  panel.dataset.hover = isHover;
-  toggle.setAttribute("aria-expanded", "true");
-}
-
-// Function to hide panel
-function hidePanel(toggle, panel) {
-  panel.hidden = true;
-  toggle.setAttribute("aria-expanded", "false");
-}
-
-// Add event listeners to all shortcuts toggles
-const panel = shortcutsPanel;
-
-shortcutsToggle.addEventListener("click", (event) => {
-  event.stopPropagation(); // Prevent propagation to other click events
-  if (panel.hidden) {
-    showPanel(shortcutsToggle, panel);
-  } else {
-    hidePanel(shortcutsToggle, panel);
-  }
-});
-
-// Close panels when clicking outside
-document.addEventListener("click", (event) => {
-  // Check if click is on dark mode toggle or its label
-  const isDarkModeElement = 
-    event.target.closest('.darkmode-toggle') || 
-    event.target.closest('.darkmode-label') ||
-    event.target.closest('.theme-toggle');
-  
-  if (
-    !panel.hidden &&
-    !panel.contains(event.target) &&
-    event.target !== shortcutsToggle &&
-    !isDarkModeElement
-  ) {
-    hidePanel(shortcutsToggle, panel);
   }
 });
 
