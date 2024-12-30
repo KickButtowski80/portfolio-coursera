@@ -728,14 +728,14 @@ label:focus-visible {
   transform: translateY(-50%);
   background-color: var(--text-color);
   color: var(--background-color);
-  padding: 5px 8px;
-  border-radius: 4px;
-  font-size: 12px;
+  padding: 0.3125rem 0.5rem; 
+  border-radius: 0.25rem; 
+  font-size: 0.75rem; 
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   z-index: 12;
-  margin-right: 8px;
+  margin-right: 0.5rem; 
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -743,16 +743,15 @@ label:focus-visible {
   content: "";
   position: absolute;
   top: 50%;
-  right: -15%;
+  right: -15%; 
   z-index: -1;
   transform: rotate(180deg);
-  margin-top: -5px;
-  border-width: 5px;
+  margin-top: -0.3125rem; 
+  border-width: 0.3125rem; 
   border-style: solid;
   border-color: transparent var(--text-color) transparent transparent;
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
-
 .theme-toggle:has(.darkmode-label:hover) .tooltip-text {
   opacity: 1;
 }
