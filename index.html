@@ -54,14 +54,15 @@
                 class="visually-hidden darkmode-toggle darkmode-input"
                 aria-label="Toggle dark mode"
               />
-              <label for="darkmode-toggle-desktop" class="darkmode-label">
+              <label for="darkmode-toggle-desktop" class="darkmode-label" role="button" aria-describedby="theme-tooltip">
                 <span class="sun">☀️</span>
                 <span class="moon">🌙</span>
                 <span 
-                data-tooltip="Theme"
-                class="tooltip"
-                role="tooltip">
-                  <span class="tooltip-text">Press <kbd>d</kbd> </span>
+                  id="theme-tooltip"
+                  data-tooltip="Theme"
+                  class="tooltip"
+                  role="tooltip">
+                  <span class="tooltip-text">Press <kbd>d</kbd></span>
                 </span> 
               </label>
            
