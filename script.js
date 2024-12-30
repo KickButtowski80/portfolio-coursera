@@ -16,11 +16,13 @@ darkModeToggles.forEach((toggle) => {
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-
+ 
+    toggle.setAttribute('aria-checked', event.target.checked);
     // Sync other toggles
     darkModeToggles.forEach((otherToggle) => {
       if (otherToggle !== event.target) {
         otherToggle.checked = event.target.checked;
+        otherToggle.setAttribute('aria-checked', event.target.checked);
       }
     });
   });
