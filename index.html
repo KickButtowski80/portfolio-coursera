@@ -7,20 +7,33 @@
     <title>Portfolio WebSite</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="fixed-header">
+      <div class="contact-info">
+        <p>
+          <i class="icon" aria-hidden="true">📧</i>
+          <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
+        </p>
+        <p>
+          <i class="icon" aria-hidden="true">📞</i>
+          <a href="tel:+123456789">+123456789</a>
+        </p>
+      </div>
       <nav aria-label="Primary navigation">
-        <section class="my-info">
-          <h1>Jane Doe</h1>
-        </section>
+        <div class="my-info">
+          <h1 tabindex="0" >Jane Doe</h1>
+        </div>
 
         <input
           type="checkbox"
           name="mobile-navigation-toggle"
+          class="visually-hidden"
           id="hamburger-icon"
           aria-expanded="false"
           aria-controls="hamburger-menu"
           aria-label="Toggle navigation menu"
           title="Hamburger Menu"
+          aria-checked="false"
         />
         <label for="hamburger-icon">
           <span class="visually-hidden">Toggle navigation menu</span>
@@ -35,22 +48,32 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#recommendations">Recommendations</a></li>
           <li>
-          <div class="theme-toggle">
-            <input
-              type="checkbox"
-              id="darkmode-toggle-desktop"
-              class="darkmode-toggle darkmode-input"
-            />
-            <label for="darkmode-toggle-desktop" class="darkmode-label">
-              <span class="sun">☀️</span>
-              <span class="moon">🌙</span>
-            </label>
-          </div>
-        </li>
+            <div class="theme-toggle">
+              <input
+                type="checkbox"
+                id="darkmode-toggle-desktop"
+                class="visually-hidden darkmode-toggle darkmode-input"
+                aria-label="Toggle dark mode"
+                aria-checked="false"
+              />
+              <label for="darkmode-toggle-desktop" class="darkmode-label" role="button" aria-describedby="theme-tooltip">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+                <span 
+                  id="theme-tooltip"
+                  data-tooltip="Theme"
+                  class="tooltip"
+                  role="tooltip"
+                  tabindex="0">
+                  <span class="tooltip-text">Press <kbd>d</kbd></span>
+                </span> 
+              </label>
+           
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
-
     <nav id="hamburger-menu" aria-label="Mobile navigation">
       <ul>
         <li><a href="#about-me">About Me</a></li>
@@ -58,32 +81,44 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
         <li>
+       
           <div class="theme-toggle">
             <input
               type="checkbox"
               id="darkmode-toggle-mobile"
-              class="darkmode-toggle darkmode-input"
+              class="visually-hidden darkmode-toggle darkmode-input"
+              aria-label="Toggle dark mode"
+              aria-checked="false"
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
               <span class="sun">☀️</span>
-              <span class="moon">🌙</span>
+              <span class="moon">🌙</span> 
             </label>
           </div>
         </li>
       </ul>
     </nav>
-    <div class="contact-info">
-      <p>
-        <i class="icon" aria-hidden="true">📧</i>
-        <a href="mailto:jdoe@jeemail.com">jdoe@jeemail.com</a>
-      </p>
-      <p>
-        <i class="icon" aria-hidden="true">📞</i>
-        <a href="tel:+123456789">+123456789</a>
-      </p>
-    </div>
-    <main>
-      <section id="about-me">
+
+    <aside aria-label="Scroll to top">
+      <button
+        type="button"
+        id="back-to-top"
+        aria-label="Back to top of page"
+        role="button"
+        aria-hidden="false"
+      >
+        <span class="visually-hidden">Back to top</span>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 3l-8 8h16l-8-8z" />
+        </svg>
+      </button>
+    </aside>
+
+    <main id="main-content">
+      <section
+        id="about-me"
+        aria-labelledby="about-me-title"
+      >
         <div class="my-pic">
           <figure>
             <img
@@ -99,22 +134,31 @@
           </h1>
           <img
             src="./html_finalprojimages/waving-hand.png"
-            alt="waving hand icon"
+            alt="Animated waving hand emoji"
             width="100"
             height="100"
           />
           <p>
-            I am a full stack developer with 2 years of experience in both
-            application and presentation layers. I have worked on applications
-            and microservices deployed on IBM Cloud. I am an avid user of IBM
-            Watson Services and have worked on Watson Assistant, NLU, Sentiment
-            analyzer to name a few.
+            I am a full-stack developer with 2 years of experience in both
+            application and presentation layers. My experience includes:
           </p>
+          <ul>
+            <li>
+              Working on applications and microservices deployed on IBM Cloud.
+            </li>
+            <li>
+              Using IBM Watson Services, such as Watson Assistant, NLU, and
+              Sentiment Analyzer.
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section id="skills">
-        <h1>Skills</h1>
+      <section
+        id="skills"
+        aria-labelledby="skills-title"
+      >
+        <h1 id="skills-title">Skills</h1>
         <div class="skill-cards">
           <article class="skill-card">
             <figure>
@@ -171,8 +215,11 @@
         </div>
       </section>
 
-      <section id="projects">
-        <h1>Projects</h1>
+      <section
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <h1 id="projects-title">Projects</h1>
         <div class="projects-info">
           <article>
             <h2>Chatbot</h2>
@@ -212,13 +259,16 @@
         </div>
       </section>
 
-      <section id="recommendations" aria-labelledby="recommendations-title">
+      <section
+        id="recommendations"
+        aria-labelledby="recommendations-title"
+      >
         <h1 id="recommendations-title">Recommendations</h1>
         <div class="recommendation-cards">
           <blockquote class="recommendation-card">
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude & she is an excellent
+              Web development. She got a great attitude \& she is an excellent
               team player. She has a curious mind and asks the right question.
               She takes initiative within a team and has potentials to lead the
               team.
@@ -251,11 +301,7 @@
           </blockquote>
         </div>
 
-        <div
-          class="recommendation-form"
-          role="form"
-          aria-labelledby="form-title"
-        >
+        <form class="recommendation-form" aria-labelledby="form-title">
           <h2 id="form-title">Leave a Recommendation</h2>
 
           <div class="form-group">
@@ -276,31 +322,18 @@
               cols="500"
               rows="10"
               required
+              aria-required="true"
             ></textarea>
           </div>
 
-          <button type="submit" 
-          aria-label="Submit recommendation">
+          <button type="submit" aria-label="Submit recommendation">
             Submit
           </button>
-        </div>
+        </form>
       </section>
     </main>
-    <aside aria-label="Scroll to top">
-      <button 
-        type="button" 
-        id="back-to-top" 
-        class="back-to-top-button"
-        aria-label="Back to top of page"
-        role="button"
-        aria-hidden="false"
-      >
-        <span class="visually-hidden">Back to top</span>
-        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M12 3l-8 8h16l-8-8z"/>
-        </svg>
-      </button>
-    </aside>
+
     <script src="script.js" defer></script>
+    <script src="hamburgerMenuFocusTrap.js" defer></script>
   </body>
 </html>
