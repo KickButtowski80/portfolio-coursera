@@ -31,6 +31,7 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 /*
     6. Remove built-in form typography styles
@@ -64,7 +65,7 @@ h6 {
 html,
 body {
   scroll-behavior: smooth;
-  scroll-padding-top: 16rem;
+  scroll-padding-top: 17rem;
 }
 /* Dark mode styles */
 :root {
@@ -215,8 +216,8 @@ nav {
 
 @media (min-width: 769px) and (max-width: 778px) {
   .fixed-header nav .my-info h1 {
-      font-size: 2.2rem; /* or whatever size works best */
-      white-space: nowrap; /* Prevent wrapping */
+    font-size: 2.2rem; /* or whatever size works best */
+    white-space: nowrap; /* Prevent wrapping */
   }
 }
 
@@ -288,7 +289,7 @@ nav ul li a.active::after {
 }
 
 main {
-  margin: 0.5rem;
+  margin: clamp(2.25rem, 2vw + 1.25rem, 3rem);
   position: relative;
   z-index: 0;
 }
@@ -327,6 +328,16 @@ main {
   line-height: 3rem;
   padding: 1rem;
   border-radius: 1rem;
+}
+
+#about-me .my-pic figure {
+  display: flex;
+ justify-content: center;
+
+  & img {
+    object-fit: contain;
+    max-height: 35rem;
+  }
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -686,7 +697,6 @@ label:focus-visible,
   border-radius: 0.25rem;
 }
 
-
 /* Ensure the focus ring is visible in dark mode */
 [data-theme="dark"] a:focus-visible,
 [data-theme="dark"] button:focus-visible,
@@ -719,14 +729,14 @@ label:focus-visible,
   transform: translateY(-50%);
   background-color: var(--text-color);
   color: var(--background-color);
-  padding: 0.3125rem 0.5rem; 
-  border-radius: 0.25rem; 
-  font-size: 0.75rem; 
+  padding: 0.3125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   z-index: 12;
-  margin-right: 0.5rem; 
+  margin-right: 0.5rem;
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -734,11 +744,11 @@ label:focus-visible,
   content: "";
   position: absolute;
   top: -17%;
-  right: 50%; 
+  right: 50%;
   z-index: -1;
   transform: rotate(90deg);
-  margin-top: -0.3125rem; 
-  border-width: 0.3125rem; 
+  margin-top: -0.3125rem;
+  border-width: 0.3125rem;
   border-style: solid;
   border-color: transparent var(--text-color) transparent transparent;
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
@@ -762,7 +772,7 @@ kbd {
   font-family: monospace;
   font-size: 11px;
   color: var(--text-color);
-  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark mode toggle styles */
