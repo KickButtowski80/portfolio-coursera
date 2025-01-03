@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="lamp.css" />
     <title>Portfolio WebSite</title>
   </head>
   <body>
@@ -21,7 +22,7 @@
       </div>
       <nav aria-label="Primary navigation">
         <div class="my-info">
-          <h1 tabindex="0" >Jane Doe</h1>
+          <h1 tabindex="0">Jane Doe</h1>
         </div>
 
         <input
@@ -56,19 +57,24 @@
                 aria-label="Toggle dark mode"
                 aria-checked="false"
               />
-              <label for="darkmode-toggle-desktop" class="darkmode-label" role="button" aria-describedby="theme-tooltip">
+              <label
+                for="darkmode-toggle-desktop"
+                class="darkmode-label"
+                role="button"
+                aria-describedby="theme-tooltip"
+              >
                 <span class="sun">☀️</span>
                 <span class="moon">🌙</span>
-                <span 
+                <span
                   id="theme-tooltip"
                   data-tooltip="Theme"
                   class="tooltip"
                   role="tooltip"
-                  tabindex="0">
+                  tabindex="0"
+                >
                   <span class="tooltip-text">Press <kbd>d</kbd></span>
-                </span> 
+                </span>
               </label>
-           
             </div>
           </li>
         </ul>
@@ -81,7 +87,6 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
         <li>
-       
           <div class="theme-toggle">
             <input
               type="checkbox"
@@ -92,7 +97,7 @@
             />
             <label for="darkmode-toggle-mobile" class="darkmode-label">
               <span class="sun">☀️</span>
-              <span class="moon">🌙</span> 
+              <span class="moon">🌙</span>
             </label>
           </div>
         </li>
@@ -115,18 +120,24 @@
     </aside>
 
     <main id="main-content">
-      <section
-        id="about-me"
-        aria-labelledby="about-me-title"
-      >
-        <div class="my-pic">
-          <figure>
+      <section id="about-me" aria-labelledby="about-me-title">
+        <figure class="my-pic">
+          
+          <div class="scene">
             <img
               src="html_finalprojimages/jane-doe.webp"
               alt="A cartoon illustration of a female developer with a friendly smile, coding in front of a computer screen representing Jane Doe"
             />
-          </figure>
-        </div>
+            <div class="table">
+              <div class="lamp">
+                <div class="switch"></div>
+              </div>
+            </div>
+            <div class="chair1"></div>
+            <div class="chair2"></div>
+          </div>
+        </figure>
+
         <div class="my-info">
           <h1>
             Hi, <br />
@@ -154,10 +165,7 @@
         </div>
       </section>
 
-      <section
-        id="skills"
-        aria-labelledby="skills-title"
-      >
+      <section id="skills" aria-labelledby="skills-title">
         <h1 id="skills-title">Skills</h1>
         <div class="skill-cards">
           <article class="skill-card">
@@ -215,10 +223,7 @@
         </div>
       </section>
 
-      <section
-        id="projects"
-        aria-labelledby="projects-title"
-      >
+      <section id="projects" aria-labelledby="projects-title">
         <h1 id="projects-title">Projects</h1>
         <div class="projects-info">
           <article>
@@ -259,16 +264,13 @@
         </div>
       </section>
 
-      <section
-        id="recommendations"
-        aria-labelledby="recommendations-title"
-      >
+      <section id="recommendations" aria-labelledby="recommendations-title">
         <h1 id="recommendations-title">Recommendations</h1>
         <div class="recommendation-cards">
           <blockquote class="recommendation-card">
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude & she is an excellent
+              Web development. She got a great attitude \& she is an excellent
               team player. She has a curious mind and asks the right question.
               She takes initiative within a team and has potentials to lead the
               team.
