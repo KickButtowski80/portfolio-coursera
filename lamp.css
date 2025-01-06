@@ -13,41 +13,40 @@
   position: relative;
   bottom: 0;
   z-index: -1;
-
   display: block;
-
   width: 100%;
   height: auto;
+  /* max-height: 50vh; */
   overflow: hidden;
-
   border: 1px solid #ccc;
-} 
+}
 
 .table {
-  width: 100%; 
+  width: calc(100% - 3rem);
+  margin: 0 auto;
   height: 6.25rem;
   display: block;
-  position: absolute;
+  position: relative;
   border-top: 1.25rem solid #52331b;
   border-left: 0.625rem solid #52331b;
   border-right: 0.625rem solid #52331b;
   border-bottom: 0.625rem solid transparent;
-  top: 26rem;
-  left: 4.0625rem;
+  top: 22rem;
+  left: 1rem;
 }
 
 .lamp {
-  content: "";
   display: block;
   position: absolute;
   width: 3.75rem;
-  top: -4.75rem;
+  top: -6.75rem;
   left: -0.9375rem;
   border-top: 1.875rem solid #a18b9b;
   border-bottom: 1.875rem solid transparent;
   border-radius: 50%;
   z-index: 99999999;
   rotate: -45deg;
+  scale: 1.5;
 }
 
 .lamp:before {
@@ -55,7 +54,7 @@
   display: block;
   position: absolute;
   width: 0.3125rem;
-  height: 1.375rem;
+  height: 2.5rem;
   background: black;
   top: -0.3125rem;
   left: 0.625rem;
@@ -68,24 +67,40 @@
   position: absolute;
   width: 2.5rem;
   height: 1.25rem;
-  top: -16.875rem;
-  left: -8.25rem;
+  top: -8rem;
+  left: -3rem;
   border-bottom: none;
-  transform-origin: -16.875rem -8.25rem;
   z-index: 999999;
- 
 }
 
+.jane-doe {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  height: clamp(15rem, 40vh, 25rem);
+  object-fit: contain;
+  /* object-position: center bottom; */
+}
+
+@media screen and (min-width: 768px) {
+  .jane-doe {
+    height: clamp(20rem, 50vh, 30rem); /* Slightly larger for tablets */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .jane-doe {
+    height: clamp(25rem, 60vh, 40rem); /* Larger for desktops */
+    object-position: center center; /* Center the image vertically */
+  }
+}
 #hamburger-menu:has(.darkmode-input:checked) ~ main:has(.scene) .lamp:after {
-  border-top: 15.625rem solid transparent;
-  border-bottom: 36.25rem solid rgba(255, 255, 255, 0.4);
-  border-left: 10rem solid transparent;
-  border-right: 25rem solid transparent;
-
-  transform: scaleX(1);
+  border-top: 8rem solid transparent;
+  border-bottom: 7rem solid rgba(255, 255, 255, 0.4);
+  border-left: 5rem solid transparent;
+  border-right: 12rem solid transparent;
   z-index: 999999;
 }
-
 .switch {
   display: block;
   position: absolute;
