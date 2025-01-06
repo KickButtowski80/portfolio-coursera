@@ -330,16 +330,12 @@ main {
   border-radius: 1rem;
 }
 
-#about-me figure.my-pic {
+#about-me figure {
   display: flex;
   justify-content: center;
   min-height: 30rem;
 
-  & img {
-    object-fit: contain;
-    /* height: clamp(20rem, 20vw + 10rem, 30rem);
-    width: clamp(20rem, 20vw + 10rem, 30rem); */
-  }
+
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
