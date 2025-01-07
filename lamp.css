@@ -49,6 +49,18 @@
   scale: 1.5;
 }
 
+.bulb {
+  left: 30%;
+  top: 0;
+  width: 20px;
+  height: 10px;
+  background: #FFD53D;
+  position: absolute;
+
+  border: 1px solid #2D2D2D;
+  border-radius: 0 0 20px 20px;
+  border-top: none;
+}
 .lamp:before {
   content: "";
   display: block;
@@ -76,6 +88,7 @@
   
   background: linear-gradient(#fff1bd, transparent);  
   clip-path: polygon(53% 0, 57% 0, 100% 100%, 0% 100%);
+  opacity: 0.8; 
   z-index: 999999;
 }
 .jane-doe {
