@@ -17,8 +17,8 @@
   width: 100%;
   height: auto;
   /* max-height: 50vh; */
-  overflow: hidden;
-  border: 1px solid #ccc;
+  /* overflow: hidden;
+  border: 1px solid #ccc; */
 }
 
 .table {
@@ -92,7 +92,7 @@
 }
 .jane-doe {
   position: absolute;
-  bottom: 0;
+  bottom: 3rem;
   width: auto;
   height: clamp(15rem, 40vh, 25rem);
   object-fit: contain;
@@ -101,13 +101,13 @@
 
 @media screen and (min-width: 768px) {
   .jane-doe {
-    height: clamp(20rem, 50vh, 30rem); /* Slightly larger for tablets */
+    height: clamp(20rem, 40vh, 30rem); /* Slightly larger for tablets */
   }
 }
 
 @media screen and (min-width: 1024px) {
   .jane-doe {
-    height: clamp(25rem, 60vh, 40rem); /* Larger for desktops */
+    height: clamp(25rem, 50vh, 40rem); /* Larger for desktops */
     object-position: center center; /* Center the image vertically */
   }
 }
