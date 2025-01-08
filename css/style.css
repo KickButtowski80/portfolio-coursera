@@ -238,7 +238,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
   font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
   background-color: #ab30ab;
   text-align: center;
