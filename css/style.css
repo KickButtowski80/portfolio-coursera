@@ -310,10 +310,14 @@ main {
 }
 @media (max-width: 768px) {
   main {
-    margin: 0rem;
+    margin: 0;
   }
-  #about-me {
-   overflow:clip;
+  main > section#about-me {
+    /* margin: clamp(0.5rem, 2vw + 1.25rem, 3rem); */
+  
+    /* margin: 0rem; */
+   overflow-x:clip;
+   overflow-y: visible;
   }
 }
 
@@ -349,7 +353,7 @@ main {
 :is(#skills, #projects, #recommendations) {
   display: flex;
   flex-direction: column;
-  margin-inline: 3rem;
+  margin-inline: rem;
   margin-block: 2rem;
 }
 :is(#skills, #projects, #recommendations) h1 {
@@ -488,6 +492,7 @@ main {
 }
 
 @media (max-width: 768px) {
+ 
   nav #hamburger-icon {
     display: block;
     opacity: 1;
@@ -653,7 +658,7 @@ main {
     font-size: 3rem;
   }
   :is(#skills, #projects, #recommendations) {
-    margin-inline: 0rem;
+    margin-inline: 1rem;
   }
   :is(#skills, #projects, #recommendations) h1 {
     text-align: center;
