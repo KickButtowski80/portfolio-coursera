@@ -121,12 +121,12 @@
 
     <main id="main-content">
       <section id="about-me" aria-labelledby="about-me-title">
-        <figure>
-          <div class="scene">
-            <div class="table">
-              <div class="lamp">
-                <div class="bulb"></div>
-                <div class="switch"></div>
+        <figure aria-label="Developer workspace illustration">
+          <div class="scene" role="img" aria-label="Animated workspace scene">
+            <div class="table" role="presentation">
+              <div class="lamp" role="img" aria-label="Interactive desk lamp">
+                <div class="bulb" role="presentation"></div>
+                <div class="switch" role="presentation" aria-hidden="true"></div>
               </div>
               <img
                 src="html_finalprojimages/jane-doe.webp"
@@ -134,8 +134,9 @@
                 class="jane-doe"
               />
             </div>
-            <div class="chair1"></div>
+            <div class="chair1" role="presentation"></div>
           </div>
+          <figcaption class="visually-hidden">An interactive illustration of a developer workspace featuring Jane Doe at her desk with a controllable desk lamp</figcaption>
         </figure>
 
         <div class="my-info">
