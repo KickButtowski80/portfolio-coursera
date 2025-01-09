@@ -306,7 +306,15 @@ main {
   position: relative;
   z-index: 1;
   padding-top: clamp(7rem, 15vw + 6rem, 13rem);
-  overflow: hidden;
+  
+}
+@media (max-width: 768px) {
+  main {
+    margin: 0rem;
+  }
+  #about-me {
+   overflow:clip;
+  }
 }
 
 #about-me .my-info {
