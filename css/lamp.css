@@ -12,7 +12,7 @@
 }
 
 .table {
-  width: calc(100% - 3rem);
+  width: calc(100% - min(8rem, 50%));
   margin: 0 auto;
   height: 6.25rem;
   display: block;
@@ -20,7 +20,7 @@
   border-top: 1.25rem solid #52331b;
   border-left: 0.625rem solid #52331b;
   border-right: 0.625rem solid #52331b;
-  border-bottom: 0.625rem solid transparent;
+  border-bottom: 3.625rem solid transparent;
   top: 22rem;
   left: 1rem;
 }
@@ -88,26 +88,27 @@
 
 .jane-doe {
   position: absolute;
-  bottom: 3rem;
+  bottom: 0rem; /* Default for smaller screens */
   width: auto;
   height: clamp(15rem, 40vh, 25rem);
   object-fit: contain;
   z-index: 1;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 375px) {
   .jane-doe {
     height: clamp(20rem, 40vh, 30rem);
+    bottom: -3rem; /* Adjusted for very small screens */
   }
 }
 
 @media screen and (min-width: 1024px) {
   .jane-doe {
-    height: clamp(25rem, 50vh, 40rem);
     object-position: center center;
+    height: clamp(25rem, 50vh, 40rem);
+    bottom: 3rem; /* Adjusted for larger screens */
   }
 }
-
 .switch {
   display: block;
   position: absolute;
