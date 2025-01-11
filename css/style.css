@@ -245,14 +245,11 @@ main {
   padding-top: clamp(7rem, 15vw + 6rem, 13rem);
   
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   main {
     margin: 0;
   }
   main > section#about-me {
-    /* margin: clamp(0.5rem, 2vw + 1.25rem, 3rem); */
-  
-    /* margin: 0rem; */
    overflow-x:clip;
    overflow-y: visible;
   }
