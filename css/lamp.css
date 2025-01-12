@@ -88,7 +88,7 @@
 
 .jane-doe {
   position: absolute;
-  bottom: 0rem; /* Default for smaller screens */
+  bottom: 0rem; 
   width: auto;
   height: clamp(15rem, 40vh, 25rem);
   object-fit: contain;
@@ -98,17 +98,17 @@
 @media screen and (max-width: 375px) {
   .jane-doe {
     height: clamp(20rem, 40vh, 30rem);
-    bottom: -3rem; /* Adjusted for very small screens */
+    bottom: -3rem; 
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .jane-doe {
     object-position: center center;
     height: clamp(25rem, 50vh, 40rem);
-    bottom: 3rem; /* Adjusted for larger screens */
+    bottom: -2rem; 
   }
-}
+} */
 .switch {
   display: block;
   position: absolute;
