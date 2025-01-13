@@ -278,10 +278,11 @@ main {
 }
 
 #about-me figure {
+  margin-top:2rem;
   display: flex; 
   justify-content: center; 
-  align-items: center; 
-  min-height: clamp(50vh, 60vh, 80vh); 
+  min-height: clamp(55vh, 65vh, 75vh);align-items: center; 
+  
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
