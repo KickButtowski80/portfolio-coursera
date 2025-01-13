@@ -281,7 +281,7 @@ main {
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  min-height: 80vh; 
+  min-height: clamp(50vh, 60vh, 80vh); 
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
