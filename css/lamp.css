@@ -58,7 +58,7 @@
   height: 1.5rem; /* Smaller height */
   background: linear-gradient(
     135deg,
-    /* Diagonal gradient */ transparent 45%,
+    /* Diagonal gradient */ transparent 30%,
     /* Transparent up to 45% */ var(--text-color) 45%,
     /* Solid line starts at 45% */ var(--text-color) 47%,
     /* Solid line ends at 47% */ transparent 47% /* Transparent after 47% */
