@@ -425,7 +425,7 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
  
   nav #hamburger-icon {
     display: block;
