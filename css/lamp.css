@@ -10,7 +10,7 @@
 
 .today {
   position: relative;
-  top: -10rem;
+  top: -8rem;
   left: 1rem;
   width: 5rem;
   height: 6rem;
@@ -82,13 +82,13 @@
 .table {
   width: calc(100% - min(8rem, 50%));
   margin: 0 auto;
-  height: 6.25rem;
   display: block;
   position: relative;
-  border-top: 1.25rem solid #52331b;
-  border-left: 0.625rem solid #52331b;
-  border-right: 0.625rem solid #52331b;
-  border-bottom: 3.625rem solid transparent;
+  top: 0rem;
+  border: 2rem solid #52331b;
+  border-bottom: 9rem solid transparent; 
+  background: #52331b;
+  z-index: 1;
 }
 
 .lamp {
@@ -96,7 +96,7 @@
   position: absolute;
   width: 3.75rem;
   top: -6.75rem;
-  left: -0.9375rem;
+  left: -2.22rem;
   border-top: 1.875rem solid #a18b9b;
   border-bottom: 1.875rem solid transparent;
   border-radius: 50%;
@@ -148,21 +148,35 @@
   z-index: 3;
 }
 
-.jane-doe {
+
+
+ .jane-doe {
   position: absolute;
-  bottom: 0rem;
+ 
   width: auto;
-  height: clamp(15rem, 40vh, 25rem);
+  height: clamp(8vh, 15vh, 20vh);
   object-fit: contain;
   z-index: 1;
+  bottom: 4rem;
+  left: 2.5rem; 
+  scale: 1.9;
+
 }
 
-@media screen and (max-width: 375px) {
+@media (max-width: 320px) {
   .jane-doe {
-    height: clamp(20rem, 40vh, 30rem);
-    bottom: -3rem;
+    scale: 1.5;
+    bottom: 1.5rem;
+    left: 1.2rem;
   }
 }
+
+/* @media (min-width: 375px) {
+  .jane-doe {
+    height: clamp(10vh, 18vh, 22vh);
+
+  }
+} */
 
 .switch {
   display: block;
