@@ -86,7 +86,7 @@
   position: relative;
   top: 0rem;
   border: 2rem solid #52331b;
-  border-bottom: 9rem solid transparent; 
+  border-bottom: 9rem solid transparent;
   background: #52331b;
   z-index: 1;
 }
@@ -148,19 +148,16 @@
   z-index: 3;
 }
 
-
-
- .jane-doe {
+.jane-doe {
   position: absolute;
- 
+
   width: auto;
   height: clamp(8vh, 15vh, 20vh);
   object-fit: contain;
   z-index: 1;
   bottom: 4rem;
-  left: 2.5rem; 
+  left: 2.5rem;
   scale: 1.9;
-
 }
 
 @media (max-width: 320px) {
