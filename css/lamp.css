@@ -79,7 +79,7 @@
   transform: translateX(-50%) rotate(2deg);
 }
 
-.table {
+.desk {
   width: calc(100% - min(8rem, 50%));
   margin: 0 auto;
   position: relative;
