@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-labelledby="js-title js-desc" role="img" tabindex="0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-labelledby="js-title js-desc" role="img">
     <!-- Title and Description -->
     <title id="js-title">JavaScript Logo</title>
     <desc id="js-desc">The official JavaScript programming language logo featuring a bright yellow square with black JS text</desc>
