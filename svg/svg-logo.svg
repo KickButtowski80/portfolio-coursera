@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0.002 637.793 637.798">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0.002 637.793 637.798" aria-labelledby="title desc" role="img">
+    <title id="title">SVG Logo</title>
+    <desc id="desc">The official SVG (Scalable Vector Graphics) logo</desc>
     <path fill="#f90" d="M0 .007h637.793V637.8H0z" />
     <path fill="#de8500" d="M318.887 318.908h318.906v317.92H318.887z" />
     <path fill="#ffb13b" d="M.005.002H318.91v318.906H.005z" />

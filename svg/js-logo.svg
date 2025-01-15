@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-labelledby="title desc" role="img">
+    <title id="title">JavaScript Logo</title>
+    <desc id="desc">The official JavaScript programming language logo consisting of a bright yellow square background with the letters 'JS' in bold black text. The design is minimalist and modern, featuring sharp corners and clean typography, representing JavaScript's role as a core web technology. The distinctive yellow color (hex: #F7DF1E) has become synonymous with JavaScript in web development.</desc>
     <rect width="512" height="512" fill="#F7DF1E"/>
     <path d="M324.177 384.322c7.158 11.674 16.461 20.296 32.922 20.296 13.827 0 22.657-6.908 22.657-16.461 0-11.445-9.073-15.5-24.315-22.185l-8.357-3.587c-24.08-10.248-40.07-23.075-40.07-50.194 0-24.997 19.07-44.067 48.833-44.067 21.21 0 36.446 7.392 47.42 26.697l-25.958 16.695c-5.712-10.248-11.888-14.299-21.462-14.299-9.777 0-15.973 6.2-15.973 14.299 0 10.013 6.196 14.064 20.523 20.296l8.357 3.575c28.375 12.17 44.348 24.575 44.348 52.486 0 30.006-23.575 46.467-55.214 46.467-30.944 0-50.953-14.767-60.73-34.099l27.019-15.924zm-117.376 2.882c5.25 9.31 10.034 17.174 21.533 17.174 10.977 0 17.891-4.294 17.891-20.991v-113.62h33.198v114.09c0 34.37-20.141 50.023-49.529 50.023-26.572 0-41.965-13.75-49.815-30.31l26.722-16.366z"/>
 </svg>
