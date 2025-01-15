@@ -81,7 +81,7 @@
 
 
 .desk {
-  width: clamp(18.75rem, 80%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
+  width: clamp(16rem, 80%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
   height: min(100%, 50rem);
   margin: 0 auto;
   position: relative;
