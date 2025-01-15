@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0.002 637.793 637.798" aria-labelledby="title desc" role="img">
-    <title id="title">SVG Logo</title>
-    <desc id="desc">The official SVG (Scalable Vector Graphics) logo</desc>
-    <path fill="#f90" d="M0 .007h637.793V637.8H0z" />
-    <path fill="#de8500" d="M318.887 318.908h318.906v317.92H318.887z" />
-    <path fill="#ffb13b" d="M.005.002H318.91v318.906H.005z" />
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0.002 637.793 637.798" aria-labelledby="svg-title svg-desc" role="img" tabindex="0">
+    <!-- Title and Description -->
+    <title id="svg-title">SVG Logo</title>
+    <desc id="svg-desc">The official SVG (Scalable Vector Graphics) logo featuring an orange square divided into sections with varying shades</desc>
+    
+    <!-- Background -->
+    <path fill="#f90" d="M0 .007h637.793V637.8H0z" aria-label="Main orange background"/>
+    
+    <!-- Darker Section -->
+    <path fill="#de8500" d="M318.887 318.908h318.906v317.92H318.887z" aria-label="Dark orange section"/>
+    
+    <!-- Lighter Section -->
+    <path fill="#ffb13b" d="M.005.002H318.91v318.906H.005z" aria-label="Light orange section"/>
+    
     <g fill="#f90" transform="translate(-1474.901 -846.129) scale(4.67501)">
         <circle cx="340.757" cy="249.099" r="25.063" />
         <circle cx="353.365" cy="218.661" r="25.063" />
