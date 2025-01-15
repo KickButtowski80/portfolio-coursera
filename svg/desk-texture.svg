@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" aria-labelledby="title desc" role="img">
+  <title id="title">Desk Texture</title>
+  <desc id="desc">A decorative wood grain texture pattern featuring rich saddle brown tones (hex: #8B4513) as the base color. The design includes flowing curved lines in a slightly lighter brown shade (hex: #A0522D) that create an organic, wave-like pattern reminiscent of natural wood grain. These curved lines are arranged in parallel, creating a sense of depth and movement across the surface, simulating the authentic appearance of a wooden desk surface.</desc>
+  <rect width="200" height="200" fill="#8B4513"/>
+  <path d="M0 100 Q50 80 100 100 T200 100" stroke="#A0522D" stroke-width="10" fill="none"/>
+  <path d="M0 150 Q50 130 100 150 T200 150" stroke="#A0522D" stroke-width="10" fill="none"/>
+  <path d="M0 50 Q50 30 100 50 T200 50" stroke="#A0522D" stroke-width="10" fill="none"/>
+</svg>

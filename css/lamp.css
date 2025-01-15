@@ -1,7 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
+/* css/lamp.css */
 .scene {
   position: relative;
   bottom: 0;
@@ -13,7 +10,7 @@
 
 .today {
   position: relative;
-  top: -10rem;
+  top: -8rem;
   left: 1rem;
   width: 5rem;
   height: 6rem;
@@ -82,16 +79,142 @@
   transform: translateX(-50%) rotate(2deg);
 }
 
-.table {
-  width: calc(100% - min(8rem, 50%));
+
+.desk {
+  width: clamp(16rem, 80%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
+  height: min(100%, 50rem);
   margin: 0 auto;
-  height: 6.25rem;
-  display: block;
   position: relative;
-  border-top: 1.25rem solid #52331b;
-  border-left: 0.625rem solid #52331b;
-  border-right: 0.625rem solid #52331b;
-  border-bottom: 3.625rem solid transparent;
+  top: 0rem;
+  border: 2rem solid transparent;
+  border-bottom: 6rem solid transparent;
+  background: linear-gradient(
+    to bottom,
+    rgba(216, 203, 194, 0.8),
+    rgba(82, 51, 27, 0.1)
+  ), url("../svg/desk-texture.svg") center/cover;
+  border-radius: 1rem;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.desk::after {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  width: calc(100% + 1rem);
+  height: calc(100% + 6rem);
+  border: 0.5rem solid rgba(192, 192, 192, 0.5);
+  border-radius: 1.5rem;
+  pointer-events: none;
+}
+
+.desk:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+.jane-doe {
+  position: absolute;
+  bottom: -6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12rem;
+  height: auto;
+  z-index: 2;
+}
+
+.tech-logos {
+  position: absolute;
+  bottom: -3rem;
+  display: flex;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.html5-logo-wrapper,
+.official-css-logo-wrapper,
+.js-logo-wrapper,
+.svg-logo-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+.html5-logo-wrapper {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+.official-css-logo-wrapper {
+  top: 0.75rem;
+  left: 1rem;
+}
+.js-logo-wrapper {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.svg-logo-wrapper {
+  top: -0.5rem;
+  left: 2rem;
+}
+.html5-logo-wrapper::before,
+.official-css-logo-wrapper::before,
+.js-logo-wrapper::before,
+.svg-logo-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: scale(1.2);
+  
+}
+
+.pin {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #666;
+  border-radius: 50%;
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.html5-logo,
+.official-css-logo,
+.js-logo {
+  width: 3rem;
+  height: auto;
+  display: block;
+  transform: rotate(-15deg);
+  transition: all 0.3s ease;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.html5-logo-wrapper:nth-child(2) img {
+  transform: rotate(0deg);
+}
+
+.js-logo-wrapper:nth-child(3) img {
+  transform: rotate(15deg);
+}
+
+.html5-logo:hover,
+.official-css-logo:hover,
+.js-logo:hover {
+  transform: rotate(15deg);
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .lamp {
@@ -99,7 +222,7 @@
   position: absolute;
   width: 3.75rem;
   top: -6.75rem;
-  left: -0.9375rem;
+  left: -2.22rem;
   border-top: 1.875rem solid #a18b9b;
   border-bottom: 1.875rem solid transparent;
   border-radius: 50%;
@@ -153,17 +276,20 @@
 
 .jane-doe {
   position: absolute;
-  bottom: 0rem;
+
   width: auto;
-  height: clamp(15rem, 40vh, 25rem);
+  height: clamp(8vh, 15vh, 20vh);
   object-fit: contain;
   z-index: 1;
+  bottom: 4rem;
+  scale: 1.9;
 }
 
-@media screen and (max-width: 375px) {
+@media (max-width: 320px) {
   .jane-doe {
-    height: clamp(20rem, 40vh, 30rem);
-    bottom: -3rem;
+    scale: 1.5;
+    bottom: 1.5rem;
+    left: 6.2rem;
   }
 }
 
@@ -245,4 +371,16 @@
   background: #52331b;
   top: -3.5rem;
   left: 2.375rem;
+}
+
+@media (max-width: 320px) {
+  .tech-logos {
+    gap: 1rem;
+  }
+
+  .html5-logo,
+  .official-css-logo,
+  .js-logo {
+    width: 2.5rem;
+  }
 }
