@@ -379,7 +379,8 @@
 
   .html5-logo,
   .official-css-logo,
-  .js-logo {
-    width: 2.5rem;
+  .js-logo,
+  .svg-logo {
+    width: 3rem;
   }
 }
