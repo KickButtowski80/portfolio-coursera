@@ -374,7 +374,7 @@
 
 @media (max-width: 320px) {
   .tech-logos {
-    gap: 0.5rem;
+    gap: 0rem;
   }
 
   .html5-logo,
