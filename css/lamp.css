@@ -4,11 +4,15 @@
   bottom: 0;
   z-index: -1;
   display: block;
-  
-  width: calc(100% - max(20% + 1rem, 5rem));
+  width: 100%;
   height: 100%;
 }
 
+@media (min-width: 570px) {
+  .scene {
+    width: calc(100% - max(25% + 1rem, 5rem));
+  }
+}
 .today {
   position: relative;
   top: -8rem;
@@ -370,7 +374,7 @@
 
 @media (max-width: 320px) {
   .tech-logos {
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .html5-logo,
