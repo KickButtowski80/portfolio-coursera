@@ -2,10 +2,13 @@
 .scene {
   position: relative;
   bottom: 0;
+   left: -1.5rem;
+  
   z-index: -1;
   display: block;
-  width: 100%;
+  width: min(100%, 20rem);
   height: 100%;
+  
 }
 
 @media (min-width: 570px) {
