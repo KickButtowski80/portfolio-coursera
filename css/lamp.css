@@ -6,6 +6,7 @@
   display: block;
   width: 100%;
   height: 100%;
+  overflow-x: clip;
 }
 
 @media (min-width: 570px) {
@@ -13,6 +14,69 @@
     width: calc(100% - max(25% + 1rem, 5rem));
   }
 }
+
+.wall {
+  position: absolute;
+  left: 22%;
+  top: -65%;
+  width: 70px; /* Base width */
+  height: 25px; /* Base height */
+  background: #f3eded;
+  border-radius: 2px;
+ outline: 2px solid var(--text-color);
+  /* Define CSS variables for responsive scaling */
+  --shadow-offset: 75px; /* Base offset for shadows */
+  --shadow-color-1: var(--background-color);
+  --shadow-color-2: #4e4242;
+  --shadow-color-3: #807a7a;
+  --border-color: var(--text-color); /* Use --text-color for borders */
+  --border-width: 2px; /* Border width for each brick */
+
+  /* Responsive box-shadow with borders */
+  box-shadow:
+    /* First row of shadows with borders */
+    calc(var(--shadow-offset) * 1) 0 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 1) 0 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 2) 0 0 var(--shadow-color-2), /* Brick fill */
+    calc(var(--shadow-offset) * 2) 0 0 var(--border-width) var(--shadow-color-2), /* Brick border */
+
+    /* Second row of shadows with borders */
+    calc(var(--shadow-offset) * 1 - 120px) 30px 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 1 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 2 - 120px) 30px 0 var(--shadow-color-3), /* Brick fill */
+    calc(var(--shadow-offset) * 2 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 3 - 120px) 30px 0 var(--shadow-color-2), /* Brick fill */
+    calc(var(--shadow-offset) * 3 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 4 - 120px) 30px 0 var(--shadow-color-3), /* Brick fill */
+    calc(var(--shadow-offset) * 4 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 5 - 120px) 30px 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 5 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+
+    /* Third row of shadows with borders */
+    calc(var(--shadow-offset) * 1 - 70px) 60px 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 1 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 2 - 70px) 60px 0 var(--shadow-color-3), /* Brick fill */
+    calc(var(--shadow-offset) * 2 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 3 - 70px) 60px 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 3 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 4 - 70px) 60px 0 var(--shadow-color-2), /* Brick fill */
+    calc(var(--shadow-offset) * 4 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
+
+    /* Fourth row of shadows with borders */
+    calc(var(--shadow-offset) * 1 + 0px) 90px 0 var(--shadow-color-2), /* Brick fill */
+    calc(var(--shadow-offset) * 1 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 2 + 0px) 90px 0 var(--shadow-color-3), /* Brick fill */
+    calc(var(--shadow-offset) * 2 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 3 + 0px) 90px 0 var(--shadow-color-1), /* Brick fill */
+    calc(var(--shadow-offset) * 3 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
+    calc(var(--shadow-offset) * 4 + 0px) 90px 0 var(--shadow-color-3), /* Brick fill */
+    calc(var(--shadow-offset) * 4 + 0px) 90px 0 var(--border-width) var(--border-color); /* Brick border */
+
+  /* Apply randomized opacity */
+  filter: opacity(var(--random-opacity));
+ 
+}
+
 .today {
   position: relative;
   top: -8rem;
@@ -84,7 +148,6 @@
   transform: translateX(-50%) rotate(2deg);
 }
 
-
 .desk {
   width: clamp(16rem, 80%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
   height: min(100%, 50rem);
@@ -94,23 +157,21 @@
   border: 2rem solid transparent;
   border-bottom: 6rem solid transparent;
   background: linear-gradient(
-    to bottom,
-    rgba(216, 203, 194, 0.8),
-    rgba(82, 51, 27, 0.1)
-  ), url("../svg/desk-texture.svg") center/cover;
+      to bottom,
+      rgba(216, 203, 194, 0.8),
+      rgba(82, 51, 27, 0.1)
+    ),
+    url("../svg/desk-texture.svg") center/cover;
   border-radius: 1rem;
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.3),
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
     inset 0 -5px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   outline: 2px solid var(--text-color);
 }
 
-
-
 .desk::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -1rem;
   left: -0.5rem;
@@ -126,7 +187,6 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-
 .jane-doe {
   position: absolute;
   height: clamp(8vh, 15vh, 20vh);
@@ -136,7 +196,6 @@
   transform: translateX(-30%);
   scale: 1.9;
 }
-
 
 @media (max-width: 320px) {
   .jane-doe {
@@ -192,7 +251,6 @@
   left: 0;
   z-index: -1;
   transform: scale(1.2);
-  
 }
 
 .pin {
@@ -290,8 +348,6 @@
   opacity: 0.8;
   z-index: 3;
 }
-
-
 
 .switch {
   display: block;
