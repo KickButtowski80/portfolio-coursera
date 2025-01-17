@@ -236,7 +236,7 @@ main {
 
 #about-me {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   align-items: center;
   gap: 15px;
   position: relative;
@@ -571,7 +571,7 @@ main {
   #about-me {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit);
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 15px;
 
   }
