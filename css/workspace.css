@@ -468,7 +468,7 @@
   font-size: 1rem;
   color: var(--text-color);
   opacity: 0.7;
-  animation: steam1 2.5s infinite;
+  animation: steam1 2.5s infinite 0.2s;
 }
 
 .steam {
@@ -480,7 +480,7 @@
   top: -1.5rem;
   left: 50%;
   opacity: 0.7;
-  animation: steam1 2.5s infinite 0.2s;
+  animation: steam1 2.5s infinite 0.4s;
 }
 
 .steam::after {
@@ -492,7 +492,7 @@
   color: var(--text-color);
   opacity: 0.7;
   line-height: 0.25;
-  animation: steam1 2.5s infinite 0.4s;
+  animation: steam1 2.5s infinite 0.6s;
 }
 @keyframes steam1 {
   0% {
