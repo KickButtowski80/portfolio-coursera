@@ -309,7 +309,8 @@ main {
   width: min(100%, 200px);
   height: 200px;
   margin-top: 1rem;
-  border: 1px solid black;
+  border: 1px solid var(--text-color);
+  border-radius: 1rem;
   padding: 0.5rem;
 }
 
