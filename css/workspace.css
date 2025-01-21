@@ -2,11 +2,9 @@
 .scene {
   position: relative;
   bottom: 0;
-
-  margin-left: -0.5rem;
   z-index: -1;
   display: block;
-  width: min(100%, 50rem);
+  width: min(100%, 40rem);
   height: 100%;
 }
 
@@ -48,7 +46,7 @@
       calc(var(--brick-height) + var(--gap)) 0 0 var(--background-color),
     calc(2.5 * (var(--brick-width) + var(--gap)))
       calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
-      calc(3.5 * (var(--brick-width) + var(--gap)))
+    calc(3.5 * (var(--brick-width) + var(--gap)))
       calc(var(--brick-height) + var(--gap)) 0 0 var(--background-color),
     calc(3.5 * (var(--brick-width) + var(--gap)))
       calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
@@ -151,7 +149,7 @@
 .desk {
   display: flex;
   justify-content: center;
-  width: clamp(16rem, 80%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
+  width: clamp(16rem, 95%, 50rem); /* 300px = 18.75rem, 800px = 50rem */
   height: min(100%, 50rem);
   margin: 0 auto;
   position: relative;
@@ -191,7 +189,7 @@
 
 .jane-doe {
   position: absolute;
-  height: clamp(8vh, 15vh, 20vh);
+  height: clamp(3rem, 15vh, 10rem);
   z-index: 1;
   bottom: 4rem;
   left: 50%;
@@ -305,7 +303,7 @@
   border-radius: 50%;
   z-index: 3;
   rotate: -45deg;
-  scale: 1.5;
+  scale: 1.1;
 }
 
 .bulb {
@@ -429,6 +427,81 @@
   background: #52331b;
   top: -3.5rem;
   left: 2.375rem;
+}
+
+.cup {
+  position: absolute;
+  bottom: 8rem;
+  right: 13%;
+  width: min(100%, 3rem);
+  height: 3.5rem;
+  background: linear-gradient(
+    45deg,
+    var(--text-color) 0%,
+    #4a4a4a 50%,
+    var(--text-color) 100%
+  );
+  border-radius: 0.5rem 0.5rem 1.5rem 1.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  overflow: visible;
+}
+
+/* Cup handle */
+.cup::before {
+  content: "";
+  position: absolute;
+  right: -1rem;
+  top: 0.5rem;
+  width: 1.2rem;
+  height: 2rem;
+  border: 0.3rem solid var(--text-color);
+  border-left: none;
+  border-radius: 0 1rem 1rem 0;
+}
+
+/* Steam particles */
+.cup::after {
+  content: "~ ~";
+  rotate: 90deg;
+  position: absolute;
+  top: -2rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  animation: steam1 2.5s infinite;
+}
+
+.steam {
+  position: absolute;
+  rotate: 90deg;
+  width: 0.5rem;
+  height: 0rem;
+  background: #fff;
+  top: -1.5rem;
+  left: 50%;
+  opacity: 0.7;
+  animation: steam1 2.5s infinite 0.2s;
+}
+
+.steam::after {
+  content: "~ ~";
+  position: absolute;
+  top: 0rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.7;
+  animation: steam1 2.5s infinite 0.4s;
+}
+@keyframes steam1 {
+  0% {
+    transform: translateX(0) translateY(0) translateZ(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-0.8rem) translateY(-0.8rem) translateZ(0);
+    opacity: 0.3;
+  }
 }
 
 @media (max-width: 320px) {
