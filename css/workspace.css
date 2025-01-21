@@ -464,7 +464,7 @@
   content: "~ ~";
   rotate: 90deg;
   position: absolute;
-  top: -2rem;
+  top: -2.5rem;
   font-size: 1rem;
   color: var(--text-color);
   opacity: 0.7;
@@ -476,7 +476,7 @@
   rotate: 90deg;
   width: 0.5rem;
   height: 0rem;
-  background: #fff;
+  background: var(--text-color);
   top: -1.5rem;
   left: 50%;
   opacity: 0.7;
@@ -486,14 +486,12 @@
 .steam::after {
   content: "~ ~";
   position: absolute;
-  width: 0.5rem;
-  height: 0rem;
   top: -0.5rem;
   left: 1rem;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-color);
   opacity: 0.7;
-  line-height: 0.5;
+  line-height: 0.25;
   animation: steam1 2.5s infinite 0.4s;
 }
 @keyframes steam1 {
