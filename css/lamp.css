@@ -11,69 +11,54 @@
 }
 
 
-
 .wall {
   position: absolute;
   left: 22%;
   top: -65%;
-  width: 70px; /* Base width */
-  height: 25px; /* Base height */
+
+  --brick-width: clamp(5vw, 10vw, 15vw);  /*Responsive width */
+  --brick-height: clamp(2vh, 3vh, 5vh); /* Responsive height */
+  --gap: 0.5rem; /* Gap between bricks */
+  width: var(--brick-width);
+  height: var(--brick-height);
   background: #f3eded;
   border-radius: 2px;
- outline: 2px solid var(--text-color);
-  /* Define CSS variables for responsive scaling */
-  --shadow-offset: 75px; /* Base offset for shadows */
-  --shadow-color-1: var(--background-color);
-  --shadow-color-2: #4e4242;
-  --shadow-color-3: #807a7a;
-  --border-color: var(--text-color); /* Use --text-color for borders */
-  --border-width: 2px; /* Border width for each brick */
-
-  /* Responsive box-shadow with borders */
+  outline: 2px solid var(--text-color);
   box-shadow:
-    /* First row of shadows with borders */
-    calc(var(--shadow-offset) * 1) 0 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 1) 0 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 2) 0 0 var(--shadow-color-2), /* Brick fill */
-    calc(var(--shadow-offset) * 2) 0 0 var(--border-width) var(--shadow-color-2), /* Brick border */
+  /* First row */
 
-    /* Second row of shadows with borders */
-    calc(var(--shadow-offset) * 1 - 120px) 30px 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 1 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 2 - 120px) 30px 0 var(--shadow-color-3), /* Brick fill */
-    calc(var(--shadow-offset) * 2 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 3 - 120px) 30px 0 var(--shadow-color-2), /* Brick fill */
-    calc(var(--shadow-offset) * 3 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 4 - 120px) 30px 0 var(--shadow-color-3), /* Brick fill */
-    calc(var(--shadow-offset) * 4 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 5 - 120px) 30px 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 5 - 120px) 30px 0 var(--border-width) var(--border-color), /* Brick border */
+  calc(var(--brick-width) + var(--gap)) 0 0 0 #a57799,
+  calc(var(--brick-width) + var(--gap)) 0 0 2px var(--text-color),
+  calc(2 * (var(--brick-width) + var(--gap))) 0 0 0 #4e4242,
+  calc(2 * (var(--brick-width) + var(--gap))) 0 0 2px #4e4242,
+  calc(3 * (var(--brick-width) + var(--gap))) 0 0 0 #f3eded, /* Fill */
+  calc(3 * (var(--brick-width) + var(--gap))) 0 0 2px var(--text-color), /* Border */
+  calc(4 * (var(--brick-width) + var(--gap))) 0 0 0 #f1bee6, /* Fill */
+  calc(4 * (var(--brick-width) + var(--gap))) 0 0 2px var(--text-color), /* Border */
 
-    /* Third row of shadows with borders */
-    calc(var(--shadow-offset) * 1 - 70px) 60px 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 1 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 2 - 70px) 60px 0 var(--shadow-color-3), /* Brick fill */
-    calc(var(--shadow-offset) * 2 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 3 - 70px) 60px 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 3 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 4 - 70px) 60px 0 var(--shadow-color-2), /* Brick fill */
-    calc(var(--shadow-offset) * 4 - 70px) 60px 0 var(--border-width) var(--border-color), /* Brick border */
+  /* Second row (staggered) */
+  calc(0.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #f3eded,
+  calc(0.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+  calc(1.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #807a7a,
+  calc(1.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+  calc(2.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #f3eded,
+  calc(2.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+  /* Third row */
+  calc(var(--brick-width) + var(--gap)) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #f3eded,
+  calc(var(--brick-width) + var(--gap)) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+  calc(2 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
+  calc(2 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+  calc(3 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #dda4d6,
+  calc(3 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+  /* Fourth row (staggered) */
+  calc(0.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #b072b3,
+  calc(0.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+  calc(1.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
+  calc(1.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+  calc(2.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #474747,
+  calc(2.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color);
 
-    /* Fourth row of shadows with borders */
-    calc(var(--shadow-offset) * 1 + 0px) 90px 0 var(--shadow-color-2), /* Brick fill */
-    calc(var(--shadow-offset) * 1 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 2 + 0px) 90px 0 var(--shadow-color-3), /* Brick fill */
-    calc(var(--shadow-offset) * 2 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 3 + 0px) 90px 0 var(--shadow-color-1), /* Brick fill */
-    calc(var(--shadow-offset) * 3 + 0px) 90px 0 var(--border-width) var(--border-color), /* Brick border */
-    calc(var(--shadow-offset) * 4 + 0px) 90px 0 var(--shadow-color-3), /* Brick fill */
-    calc(var(--shadow-offset) * 4 + 0px) 90px 0 var(--border-width) var(--border-color); /* Brick border */
-
-  /* Apply randomized opacity */
-  filter: opacity(var(--random-opacity));
- 
 }
-
 .today {
   position: relative;
   top: -8rem;
