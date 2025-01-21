@@ -434,7 +434,7 @@
   bottom: 8rem;
   right: 13%;
   width: min(100%, 3rem);
-  height: 3.5rem;
+  height: 2rem;
   background: linear-gradient(
     45deg,
     var(--text-color) 0%,
@@ -450,28 +450,18 @@
 .cup::before {
   content: "";
   position: absolute;
-  right: -1rem;
+  z-index: -1;
+  right: -0.5rem;
   top: 0.5rem;
   width: 1.2rem;
-  height: 2rem;
+  height: 1rem;
   border: 0.3rem solid var(--text-color);
   border-left: none;
   border-radius: 0 1rem 1rem 0;
 }
 
-/* Steam particles */
-.cup::after {
-  content: "~ ~";
-  rotate: 90deg;
-  position: absolute;
-  top: -2.5rem;
-  font-size: 1rem;
-  color: var(--text-color);
-  opacity: 0.7;
-  animation: steam1 2.5s infinite 0.2s;
-}
 
-.steam {
+.steam1 {
   position: absolute;
   rotate: 90deg;
   width: 0.5rem;
@@ -483,10 +473,10 @@
   animation: steam1 2.5s infinite 0.4s;
 }
 
-.steam::after {
-  content: "~ ~";
-  position: absolute;
-  top: -0.5rem;
+.steam1::before {
+  content: "~~~ ~ ~";
+  position: absolute; 
+  top: 0rem;
   left: 1rem;
   font-size: 1rem;
   color: var(--text-color);
@@ -494,6 +484,55 @@
   line-height: 0.25;
   animation: steam1 2.5s infinite 0.6s;
 }
+
+.steam1::after {
+  content: "~ ~~";
+  position: absolute; 
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 0.25;
+  animation: steam1 2.5s infinite 0.8s;
+}
+
+.steam2 {
+  position: absolute;
+  rotate: 90deg;
+  width: 0.5rem;
+  height: 0rem;
+  background: var(--text-color);
+  top: -2rem;
+  left:0rem;
+  opacity: 0.7;
+  animation: steam1 2.5s infinite 0.2s;
+}
+
+.steam2::before {
+  content: "~~~ ~ ~";
+  position: absolute; 
+  top: -0.5rem;
+  left: 0rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 0.25;
+  animation: steam1 2.5s infinite 0.3s;
+}
+
+.steam2::after {
+  content: "~ ~~";
+  position: absolute; 
+  top: -1rem;
+  left: 0.8rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 0.25;
+  animation: steam1 2.5s infinite 0.5s;
+}
+
 @keyframes steam1 {
   0% {
     transform: translateX(0)  translateZ(0);
