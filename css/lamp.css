@@ -2,7 +2,7 @@
 .scene {
   position: relative;
   bottom: 0;
- 
+
   margin-left: -0.5rem;
   z-index: -1;
   display: block;
@@ -10,14 +10,13 @@
   height: 100%;
 }
 
-
 .wall {
   position: absolute;
-  left: 22%;
+  left: 20%;
   top: -65%;
 
-  --brick-width: clamp(5vw, 10vw, 15vw);  /*Responsive width */
-  --brick-height: clamp(2vh, 3vh, 5vh); /* Responsive height */
+  --brick-width: clamp(2.5rem, 10vw, 3.5rem); /*Responsive width */
+  --brick-height: 3vh; /* Responsive height */
   --gap: 0.5rem; /* Gap between bricks */
   width: var(--brick-width);
   height: var(--brick-height);
@@ -25,39 +24,58 @@
   border-radius: 2px;
   outline: 2px solid var(--text-color);
   box-shadow:
-  /* First row */
-
-  calc(var(--brick-width) + var(--gap)) 0 0 0 #a57799,
-  calc(var(--brick-width) + var(--gap)) 0 0 2px var(--text-color),
-  calc(2 * (var(--brick-width) + var(--gap))) 0 0 0 #4e4242,
-  calc(2 * (var(--brick-width) + var(--gap))) 0 0 2px #4e4242,
-  calc(3 * (var(--brick-width) + var(--gap))) 0 0 0 #f3eded, /* Fill */
-  calc(3 * (var(--brick-width) + var(--gap))) 0 0 2px var(--text-color), /* Border */
-  calc(4 * (var(--brick-width) + var(--gap))) 0 0 0 #f1bee6, /* Fill */
-  calc(4 * (var(--brick-width) + var(--gap))) 0 0 2px var(--text-color), /* Border */
-
-  /* Second row (staggered) */
-  calc(0.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #f3eded,
-  calc(0.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
-  calc(1.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #807a7a,
-  calc(1.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
-  calc(2.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 0 #f3eded,
-  calc(2.5 * (var(--brick-width) + var(--gap))) calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
-  /* Third row */
-  calc(var(--brick-width) + var(--gap)) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #f3eded,
-  calc(var(--brick-width) + var(--gap)) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
-  calc(2 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
-  calc(2 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
-  calc(3 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 0 #dda4d6,
-  calc(3 * (var(--brick-width) + var(--gap))) calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
-  /* Fourth row (staggered) */
-  calc(0.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #b072b3,
-  calc(0.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
-  calc(1.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
-  calc(1.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
-  calc(2.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 0 #474747,
-  calc(2.5 * (var(--brick-width) + var(--gap))) calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color);
-
+  /* First row */ calc(var(--brick-width) + var(--gap)) 0 0 0
+      #a57799,
+    calc(var(--brick-width) + var(--gap)) 0 0 2px var(--text-color),
+    calc(2 * (var(--brick-width) + var(--gap))) 0 0 0 #4e4242,
+    calc(2 * (var(--brick-width) + var(--gap))) 0 0 2px #4e4242,
+    calc(3 * (var(--brick-width) + var(--gap))) 0 0 0 #f3eded,
+    /* Fill */ calc(3 * (var(--brick-width) + var(--gap))) 0 0 2px
+      var(--text-color),
+    /* Border */ /* Fill */ calc(4 * (var(--brick-width) + var(--gap))) 0 0 0
+      var(--background-color),
+    /* Border */ calc(4 * (var(--brick-width) + var(--gap))) 0 0 2px
+      var(--text-color),
+    /* Second row (staggered) */ calc(0.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 0 var(--background-color),
+    calc(0.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+    calc(1.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 0 #807a7a,
+    calc(1.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+    calc(2.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 0 var(--background-color),
+    calc(2.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+      calc(3.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 0 var(--background-color),
+    calc(3.5 * (var(--brick-width) + var(--gap)))
+      calc(var(--brick-height) + var(--gap)) 0 2px var(--text-color),
+    /* Third row */ calc(var(--brick-width) + var(--gap))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 0 #f3eded,
+    calc(var(--brick-width) + var(--gap))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+    calc(2 * (var(--brick-width) + var(--gap)))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
+    calc(2 * (var(--brick-width) + var(--gap)))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+    calc(3 * (var(--brick-width) + var(--gap)))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 0 #dda4d6,
+    calc(3 * (var(--brick-width) + var(--gap)))
+      calc(2 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+    /* Fourth row (staggered) */ calc(0.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 0 #b072b3,
+    calc(0.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+    calc(1.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 0 #807a7a,
+    calc(1.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color),
+    calc(2.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 0 #474747,
+    calc(2.5 * (var(--brick-width) + var(--gap)))
+      calc(3 * (var(--brick-height) + var(--gap))) 0 2px var(--text-color);
 }
 .today {
   position: relative;
