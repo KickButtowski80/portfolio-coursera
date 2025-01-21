@@ -286,7 +286,6 @@ main {
 :is(#skills, #projects, #recommendations) {
   display: flex;
   flex-direction: column;
-  margin-inline: rem;
   margin-block: 2rem;
 }
 :is(#skills, #projects, #recommendations) h1 {
@@ -298,6 +297,7 @@ main {
 #skills .skill-cards {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 5%;
   flex-wrap: wrap;
 }
@@ -306,7 +306,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 150px;
+  width: min(100%, 200px);
   height: 200px;
   margin-top: 1rem;
   border: 1px solid black;
@@ -317,7 +317,6 @@ main {
   width: 50%;
   height: 50%;
   object-fit: contain;
-  display: block;
   margin: 0 auto;
 }
 
@@ -476,7 +475,7 @@ main {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    top: 10rem;
+    top: 12rem;
     right: 0;
     max-width: 15.5rem;
     list-style-type: none;
@@ -602,11 +601,6 @@ main {
     width: 100%;
   }
 
-  #skills .skill-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
 
   .contact-info .theme-toggle {
     display: none;
