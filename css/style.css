@@ -1,4 +1,3 @@
-
 html,
 body {
   scroll-behavior: smooth;
@@ -237,7 +236,7 @@ main {
 
 #about-me {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   align-items: center;
   gap: 15px;
   position: relative;
@@ -346,7 +345,7 @@ main {
 
 .recommendation-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2em;
 }
 
@@ -572,8 +571,9 @@ main {
   #about-me {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 15px;
+
   }
 
   #recommendations {
@@ -584,7 +584,7 @@ main {
 
   .recommendation-cards {
     justify-items: center;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   #about-me .my-info h1 {
@@ -604,7 +604,7 @@ main {
 
   #skills .skill-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
