@@ -483,7 +483,7 @@
   animation: steam1 2.5s infinite 0.3s;
 }
 
-.steam1::after {
+.steam11::after {
   content: "~~~ ~~~ ~~~";
   position: absolute; 
   top: -1rem;
@@ -518,7 +518,7 @@
   animation: steam1 2.5s infinite 0.5s;
 }
 
-.steam2::after {
+.steam21::after {
   content: "~~~ ~~~ ~~~";
   position: absolute; 
   top: -1.35rem;
