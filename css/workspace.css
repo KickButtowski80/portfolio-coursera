@@ -460,7 +460,6 @@
   border-radius: 0 1rem 1rem 0;
 }
 
-
 .steam1 {
   position: absolute;
   rotate: 90deg;
@@ -470,27 +469,26 @@
   top: -1.5rem;
   left: 50%;
   opacity: 0.7;
-  animation: steam1 2.5s infinite 0.4s;
 }
 
 .steam1::before {
-  content: "~~~ ~ ~";
+  content: "~~~ ~~~ ~~~";
   position: absolute; 
-  top: 0rem;
-  left: 1rem;
-  font-size: 1rem;
+  top: -1rem;
+  left: -0.5rem;
+  font-size: 1.5rem;
   color: var(--text-color);
   opacity: 0.7;
   line-height: 0.25;
-  animation: steam1 2.5s infinite 0.6s;
+  animation: steam1 2.5s infinite 0.3s;
 }
 
 .steam1::after {
-  content: "~ ~~";
+  content: "~~~ ~~~ ~~~";
   position: absolute; 
-  top: -0.5rem;
-  left: 1rem;
-  font-size: 1rem;
+  top: -1rem;
+  left: -0.5rem;
+  font-size: 1.5rem;
   color: var(--text-color);
   opacity: 0.7;
   line-height: 0.25;
@@ -503,34 +501,33 @@
   width: 0.5rem;
   height: 0rem;
   background: var(--text-color);
-  top: -2rem;
+  top: -0.75rem;
   left:0rem;
   opacity: 0.7;
-  animation: steam1 2.5s infinite 0.2s;
 }
 
 .steam2::before {
-  content: "~~~ ~ ~";
+  content: "~~~ ~~~ ~~~";
   position: absolute; 
-  top: -0.5rem;
-  left: 0rem;
-  font-size: 1rem;
-  color: var(--text-color);
-  opacity: 0.7;
-  line-height: 0.25;
-  animation: steam1 2.5s infinite 0.3s;
-}
-
-.steam2::after {
-  content: "~ ~~";
-  position: absolute; 
-  top: -1rem;
-  left: 0.8rem;
-  font-size: 1rem;
+  top: -1.35rem;
+  left: -1.5rem;
+  font-size: 1.5rem;
   color: var(--text-color);
   opacity: 0.7;
   line-height: 0.25;
   animation: steam1 2.5s infinite 0.5s;
+}
+
+.steam2::after {
+  content: "~~~ ~~~ ~~~";
+  position: absolute; 
+  top: -1.35rem;
+  left: -1.5rem;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 0.25;
+  animation: steam1 2.5s infinite 0.9s;
 }
 
 @keyframes steam1 {
