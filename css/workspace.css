@@ -432,7 +432,7 @@
 .cup {
   position: absolute;
   bottom: 8rem;
-  right: 13%;
+  right: clamp(0.25rem, 8%, 5rem);
   width: min(100%, 3rem);
   height: 2rem;
   background: linear-gradient(
