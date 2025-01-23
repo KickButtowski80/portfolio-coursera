@@ -568,13 +568,6 @@ main {
     text-decoration: none;
   }
 
-  #about-me {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 15px;
-
-  }
 
   #recommendations {
     align-items: center;
