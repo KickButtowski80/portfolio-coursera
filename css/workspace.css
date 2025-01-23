@@ -257,7 +257,7 @@
   position: absolute;
   width: 0.5rem;
   height: 0.5rem;
-  background: #666;
+  background: var(--text-color);
   border-radius: 50%;
   top: -0.25rem;
   left: 50%;
@@ -268,7 +268,9 @@
 
 .html5-logo,
 .official-css-logo,
-.js-logo {
+.js-logo,
+.java-logo {
+  position: relative;
   width: 3rem;
   height: auto;
   display: block;
@@ -277,6 +279,21 @@
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+.html5-logo::before,
+.official-css-logo::before,
+.js-logo::before,
+.java-logo::before {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background: rgb(63, 7, 7);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* transform: scale(1.2); */
+}
 .html5-logo-wrapper:nth-child(2) img {
   transform: rotate(0deg);
 }
