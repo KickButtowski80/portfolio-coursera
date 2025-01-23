@@ -432,7 +432,7 @@
 .cup {
   position: absolute;
   bottom: 8rem;
-  right: 13%;
+  right: clamp(0.25rem, 8%, 5rem);
   width: min(100%, 3rem);
   height: 2rem;
   background: linear-gradient(
@@ -473,7 +473,7 @@
 
 .steam1::before {
   content: "~~~ ~~~ ~~~";
-  position: absolute; 
+  position: absolute;
   top: -1rem;
   left: -0.5rem;
   font-size: 1.5rem;
@@ -485,7 +485,7 @@
 
 .steam11::after {
   content: "~~~ ~~~ ~~~";
-  position: absolute; 
+  position: absolute;
   top: -1rem;
   left: -0.5rem;
   font-size: 1.5rem;
@@ -502,13 +502,13 @@
   height: 0rem;
   background: var(--text-color);
   top: -0.75rem;
-  left:0rem;
+  left: 0rem;
   opacity: 0.7;
 }
 
 .steam2::before {
   content: "~~~ ~~~ ~~~";
-  position: absolute; 
+  position: absolute;
   top: -1.35rem;
   left: -1.5rem;
   font-size: 1.5rem;
@@ -520,7 +520,7 @@
 
 .steam21::after {
   content: "~~~ ~~~ ~~~";
-  position: absolute; 
+  position: absolute;
   top: -1.35rem;
   left: -1.5rem;
   font-size: 1.5rem;
