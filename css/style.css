@@ -280,7 +280,9 @@ main {
   margin-top:2rem;
   display: flex; 
   justify-content: center; 
-  min-height: clamp(55vh, 65vh, 75vh);align-items: center; 
+  /* min-height: clamp(55vh, 65vh, 75vh); */
+  min-height: 65vh;
+  align-items: center; 
   
 }
 :is(#skills, #projects, #recommendations) {
