@@ -241,7 +241,8 @@
 .official-css-logo,
 .js-logo,
 .java-logo,
-.nodejs-logo {
+.nodejs-logo,
+.svg-logo {
   position: relative;
   width: 3rem;
   height: auto;
@@ -266,7 +267,6 @@
   top: 0;
   left: 0;
   z-index: -1;
-  /* transform: scale(1.2); */
 }
 .html5-logo-wrapper:nth-child(2) img {
   transform: rotate(0deg);
@@ -282,7 +282,7 @@
 .java-logo:hover,
 .nodejs-logo:hover {
   transform: rotate(15deg);
-  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.9));
 }
 
 .lamp {
