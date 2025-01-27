@@ -318,7 +318,7 @@ main {
 @keyframes glowBorder {
   0% {
     border-color: var(--text-color);
-    box-shadow: 0 0 15px var(--text-color);
+    box-shadow: 0 0 1.3rem var(--text-color);
   }
   50% {
     border-color: var(--accent-color);
@@ -326,7 +326,7 @@ main {
   }
   100% {
     border-color: var(--text-color);
-    box-shadow: 0 0 15px var(--text-color);
+    box-shadow: 0 0 1.3rem var(--text-color);
   }
 }
 
