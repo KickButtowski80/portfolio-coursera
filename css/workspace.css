@@ -216,42 +216,13 @@
 .html5-logo-wrapper,
 .official-css-logo-wrapper,
 .js-logo-wrapper,
-.svg-logo-wrapper {
+.svg-logo-wrapper,
+.java-logo-wrapper,
+.nodejs-logo-wrapper {
   position: relative;
   cursor: pointer;
 }
-.html5-logo-wrapper {
-  top: 0.5rem;
-  left: -0.75rem;
-}
-.official-css-logo-wrapper {
-  top: 0.75rem;
-  left: 0.25rem;
-}
-.js-logo-wrapper {
-  top: 1.5rem;
-  left: 1.25rem;
-}
 
-.svg-logo-wrapper {
-  top: -0.5rem;
-  left: 2rem;
-}
-.html5-logo-wrapper::before,
-.official-css-logo-wrapper::before,
-.js-logo-wrapper::before,
-.svg-logo-wrapper::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: white;
-  border-radius: 50%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transform: scale(1.2);
-}
 
 .pin {
   position: absolute;
@@ -263,13 +234,14 @@
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  z-index: 3;
+  z-index: 4;
 }
 
 .html5-logo,
 .official-css-logo,
 .js-logo,
-.java-logo {
+.java-logo,
+.nodejs-logo {
   position: relative;
   width: 3rem;
   height: auto;
@@ -282,7 +254,9 @@
 .html5-logo::before,
 .official-css-logo::before,
 .js-logo::before,
-.java-logo::before {
+.java-logo::before,
+.nodejs-logo::before
+ {
   content: "";
   position: absolute;
   width: 5rem;
@@ -304,7 +278,9 @@
 
 .html5-logo:hover,
 .official-css-logo:hover,
-.js-logo:hover {
+.js-logo:hover,
+.java-logo:hover,
+.nodejs-logo:hover {
   transform: rotate(15deg);
   filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
 }
