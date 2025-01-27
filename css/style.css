@@ -355,6 +355,14 @@ main {
   animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+#skills .skill-card figcaption {
+  text-align: center;
+}
+
+#skills .skill-card:hover img {
+  transform: scale(1.1);
+}
+
 #skills .skill-card::before {
   content: "";
   position: absolute;
