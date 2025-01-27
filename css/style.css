@@ -384,7 +384,7 @@ main {
 
 @media (hover: hover) and (min-width: 768px) {
   #skills .skill-card:hover {
-    transform: scale(2) rotateX(10deg) rotateY(10deg) translateZ(50px);
+    transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg) translateZ(50px);
     box-shadow: 
       0 0 30px rgba(255, 255, 255, 0.4),
       0 10px 20px rgba(0, 0, 0, 0.3);
@@ -393,8 +393,8 @@ main {
   }
 
   #skills .skill-card::before {
-    width: 35%;
-    height: 35%;
+    width: 25%;
+    height: 25%;
   }
 
   #skills .skill-card:hover::before {
