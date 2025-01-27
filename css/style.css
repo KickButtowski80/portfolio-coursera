@@ -343,7 +343,7 @@ main {
   height: 200px;
   margin-top: 1rem;
   border: 2px solid var(--text-color);
-  border-radius: 100%;
+  border-radius: 15%;
   padding: 0.5rem;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -375,7 +375,7 @@ main {
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
-  border-radius: 100%;
+  border-radius: 15%;
   z-index: -1;
   will-change: transform, opacity;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -400,7 +400,7 @@ main {
   #skills .skill-card:hover::before {
     width: 108%;
     height: 108%;
-    border-radius: 10%;
+    border-radius: 15%;
     background: radial-gradient(
       circle at center,
       rgba(255, 255, 255, 0.8),
