@@ -300,44 +300,34 @@ main {
   gap: 5%;
   flex-wrap: wrap;
 }
-/* #skills .skill-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: min(100%, 200px);
-  height: 200px;
-  margin-top: 1rem;
-  border: 1px solid var(--text-color);
-  border-radius: 100%;
-  padding: 0.5rem;
-} */
 
 @keyframes gradientAnimation {
   0% {
-    opacity: 0.5;
+    opacity: 0.3;
+    transform: scale(0.95);
   }
   50% {
-    opacity: 1;
+    opacity: 0.8;
+    transform: scale(1.05);
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.3;
+    transform: scale(0.95);
   }
 }
 
 @keyframes glowBorder {
   0% {
     border-color: var(--text-color);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
   50% {
     border-color: var(--accent-color);
-    box-shadow: 0 0 40px var(--accent-color);
+    box-shadow: 0 0 50px var(--accent-color);
   }
   100% {
     border-color: var(--text-color);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -360,58 +350,63 @@ main {
   backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  animation: glowBorder 3s infinite ease-in-out;
+  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #skills .skill-card::before {
   content: "";
   position: absolute;
-  top: 0rem;
-  left: 0rem;
- width: 100%;
- height: 100%;
-   background: radial-gradient(
-    ellipse,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.5)
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
   );
   border-radius: 100%;
   z-index: -1;
-  transition: border-radius 0.3s ease, box-shadow 0.5s ease, width 0.5s ease,
-    height 0.3s ease; 
-  animation: gradientAnimation 5s infinite ease-in-out;
+  will-change: transform, opacity;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: gradientAnimation 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 @media (hover: hover) and (min-width: 768px) {
   #skills .skill-card:hover {
-    transform: scale(2) rotateX(5deg) rotateY(5deg) translateZ(0);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: scale(2) rotateX(10deg) rotateY(10deg) translateZ(50px);
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: var(--accent-color);
+    z-index: 1;
   }
 
   #skills .skill-card::before {
-    content: "";
- 
     width: 35%;
     height: 35%;
- 
   }
+
   #skills .skill-card:hover::before {
     width: 108%;
     height: 108%;
     border-radius: 10%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.2)
+    );
   }
 
   #skills:has(.skill-card:hover) .skill-card:not(:hover) {
     font-size: 1rem;
-    transform: scale(0.5) rotateX(-5deg) rotateY(-5deg) translateZ(0);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     border-color: var(--accent-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    filter: blur(1px);
+    opacity: 0.7;
   }
 }
 
@@ -420,13 +415,11 @@ main {
   height: 50%;
   object-fit: cover;
   margin: 0 auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#skills .skill-card figure figcaption {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+#skills .skill-card:hover img {
+  transform: scale(1.1);
 }
 
 #projects .projects-info hr {
