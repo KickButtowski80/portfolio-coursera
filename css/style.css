@@ -319,7 +319,7 @@ main {
 @keyframes glowBorder {
   0% {
     border-color: var(--text-color);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px var(--text-color);
   }
   50% {
     border-color: var(--accent-color);
@@ -327,7 +327,7 @@ main {
   }
   100% {
     border-color: var(--text-color);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px var(--text-color);
   }
 }
 
@@ -372,6 +372,7 @@ main {
   height: 100%;
   background: radial-gradient(
     circle at center,
+    
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
