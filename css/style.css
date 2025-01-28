@@ -415,10 +415,14 @@ section {
     transform: rotate(0deg);
   }
 }
+#skills .skill-card::before {
+  width: 25%;
+  height: 25%;
+}
 
 
 @media (hover: hover)  {
-  #skills .skill-card:hover , #skills .skill-card:active{
+  #skills .skill-card:hover {
     transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg)
       translateZ(50px);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
@@ -428,12 +432,8 @@ section {
     animation: adjustFrame 0.3s ease-in-out;
   }
 
-  #skills .skill-card::before {
-    width: 25%;
-    height: 25%;
-  }
 
-  #skills .skill-card:hover::before , #skills .skill-card:active::before{
+  #skills .skill-card:hover::before {
     width: 100%;
     height: 100%;
     border-radius: 15%;
@@ -465,10 +465,6 @@ section {
     animation: adjustFrame 0.3s ease-in-out;
   }
 
-  #skills .skill-card::before {
-    width: 25%;
-    height: 25%;
-  }
 
   #skills .skill-card:active::before{
     width: 100%;
