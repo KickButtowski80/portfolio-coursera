@@ -436,6 +436,42 @@ section {
   }
 }
 
+@media (hover: none)  {
+ #skills .skill-card:active{
+    transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg)
+      translateZ(50px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+      0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+    z-index: 1;
+    animation: adjustFrame 0.3s ease-in-out;
+  }
+
+  #skills .skill-card::before {
+    width: 25%;
+    height: 25%;
+  }
+
+  #skills .skill-card:active::before{
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--text-color) 50%, rgba(0, 0, 0, 0)),
+      color-mix(in srgb, var(--text-color) 20%, rgba(0, 0, 0, 0))
+    );
+  }
+
+  #skills:has(.skill-card:active) .skill-card:not(:active){
+    font-size: 1rem;
+    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    border-color: var(--accent-color);
+    filter: blur(1px);
+    opacity: 0.7;
+  }
+}
 @keyframes adjustFrame {
   0% {
     transform: rotate(0deg);
