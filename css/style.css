@@ -245,7 +245,7 @@ main {
 }
 @media (max-width: 1200px) {
   main {
-    margin-right: 0rem;
+    margin-inline: 0rem;
   }
   main > section#about-me {
     overflow-x: clip;
