@@ -8,6 +8,7 @@ body {
   --background-color: #ffffff;
   --text-color: #1a1919;
   --primary-color: blueviolet;
+
 }
 
 [data-theme="dark"] {
@@ -165,7 +166,6 @@ nav {
   margin-bottom: 1rem;
 }
 .my-info icon {
-  /* border: 1px solid blue; */
   border-radius: 50%;
   padding: 5px;
 }
@@ -225,9 +225,12 @@ nav ul li a.active::after {
 }
 
 main {
-  margin: clamp(0.5rem, 2vw + 1.25rem, 3rem);
   position: relative;
   z-index: 0;
+}
+
+section {
+  margin: clamp(0.5rem, 2vw + 1.25rem, 3rem);
 }
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
   opacity: 0;
@@ -242,15 +245,14 @@ main {
   position: relative;
   z-index: 1;
   padding-top: clamp(7rem, 15vw + 6rem, 13rem);
-  
 }
 @media (max-width: 1200px) {
   main {
-    margin: 0;
+    margin-inline: 0rem;
   }
   main > section#about-me {
-   overflow-x:clip;
-   overflow-y: visible;
+    overflow-x: clip;
+    overflow-y: visible;
   }
 }
 
@@ -277,11 +279,11 @@ main {
 }
 
 #about-me figure {
-  margin-top:2rem;
-  display: flex; 
-  justify-content: center; 
-  min-height: clamp(55vh, 65vh, 75vh);align-items: center; 
-  
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  min-height: clamp(55vh, 65vh, 75vh);
+  align-items: center;
 }
 :is(#skills, #projects, #recommendations) {
   display: flex;
@@ -298,34 +300,167 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5%;
+  gap: min(25%, 0.5rem);
   flex-wrap: wrap;
 }
+
+@keyframes gradientAnimation {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes glowBorder {
+  0% {
+    border-color: var(--text-color);
+    box-shadow: 0 0 1.3rem var(--text-color);
+  }
+  50% {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 50px var(--accent-color);
+  }
+  100% {
+    border-color: var(--text-color);
+    box-shadow: 0 0 1.3rem var(--text-color);
+  }
+}
+
 #skills .skill-card {
+  --scale-factor: calc(2.2 + (100vw - 1400px) / 320);
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: min(100%, 200px);
+  font-size: clamp(1rem, 1vw, 2rem);
   height: 200px;
   margin-top: 1rem;
-  border: 1px solid var(--text-color);
-  border-radius: 1rem;
+  border: 2px solid var(--text-color);
+  border-radius: 15%;
   padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  overflow: visible;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+#skills .skill-card figure .pin{
+  width: 1rem;
+  height: 1rem;
+ 
+}
+#skills .skill-card figure img {
+  width: clamp(4rem, 8vw, 6rem);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#skills .skill-card figcaption {
+  text-align: center;
+}
+
+
+#skills .skill-card::before {
+  content: "";
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--text-color) 30%, rgba(160, 150, 150, 0.5)),
+    color-mix(in srgb, var(--text-color) 20%, rgba(0, 0, 0, 0.5))
+  );
+  border-radius: 15%;
+  z-index: -1;
+  will-change: transform, opacity;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: gradientAnimation 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  #skills .skill-card:hover {
+    transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg)
+      translateZ(50px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+      0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+    z-index: 1;
+    animation: adjustFrame 0.3s ease-in-out;
+  }
+
+  #skills .skill-card::before {
+    width: 25%;
+    height: 25%;
+  }
+
+  #skills .skill-card:hover::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--text-color) 50%, rgba(0, 0, 0, 0)),
+      color-mix(in srgb, var(--text-color) 20%, rgba(0, 0, 0, 0))
+    );
+  }
+
+  #skills:has(.skill-card:hover) .skill-card:not(:hover) {
+    font-size: 1rem;
+    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    border-color: var(--accent-color);
+    filter: blur(1px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes adjustFrame {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 #skills .skill-card img {
   width: 50%;
   height: 50%;
-  object-fit: contain;
   margin: 0 auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#skills .skill-card figure figcaption {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+#skills .skill-card:hover img {
+  transform: scale(1.1);
 }
 
 #projects .projects-info hr {
@@ -424,7 +559,6 @@ main {
 }
 
 @media (max-width: 768px) {
- 
   nav #hamburger-icon {
     display: block;
     opacity: 1;
@@ -567,7 +701,7 @@ main {
     text-shadow: 2px 2px 2px rgb(95, 84, 84);
     text-decoration: none;
   }
- 
+
   #recommendations {
     align-items: center;
     margin-inline: 1rem;
@@ -593,7 +727,6 @@ main {
   .recommendation-cards .recommendation-card {
     width: 100%;
   }
-
 
   .contact-info .theme-toggle {
     display: none;
@@ -770,3 +903,15 @@ kbd {
   background-color: #2a2a2a;
   border-bottom: 1px solid #3a3a3a;
 }
+
+
+/* [data-theme="dark"] .nodejs-logo {
+  filter: brightness(1.4) contrast(1.1) saturate(150%);
+ 
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .nodejs-logo:hover {
+  filter: brightness(0.5) contrast(1) saturate(250%);
+ 
+} */
