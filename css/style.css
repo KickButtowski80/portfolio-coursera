@@ -365,11 +365,17 @@ section {
   height: 1rem;
  
 }
+#skills .skill-card figure img {
+  width: clamp(4rem, 8vw, 6rem);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
 #skills .skill-card figcaption {
   text-align: center;
 }
 
- 
+
 #skills .skill-card::before {
   content: "";
   position: absolute;
