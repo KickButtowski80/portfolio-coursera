@@ -398,7 +398,7 @@ section {
   animation: gradientAnimation 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (hover: hover)  {
+/* @media (hover: hover)  { */
   #skills .skill-card:hover .skill-card:active{
     transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg)
       translateZ(50px);
@@ -434,7 +434,7 @@ section {
     filter: blur(1px);
     opacity: 0.7;
   }
-}
+/* } */
 
 @keyframes adjustFrame {
   0% {
