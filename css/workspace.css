@@ -230,7 +230,7 @@
   height: 0.5rem;
   background: var(--text-color);
   border-radius: 50%;
-  top: -0.25rem;
+  top: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -247,7 +247,7 @@
   width: 3rem;
   height: auto;
   display: block;
-  transform: rotate(-15deg);
+  transform: rotate(-35deg);
   transition: all 0.3s ease;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
