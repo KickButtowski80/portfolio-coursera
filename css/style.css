@@ -385,7 +385,7 @@ section:not(#about-me) {
   text-align: center;
   & p {
     font-size: clamp(1rem, 1vw, 1.5rem);
-    font-weight: clamp(400, 1vw + 450, 600);
+    font-weight: clamp(500, 1vw + 550, 900);
     margin: 0;
   }
 }
