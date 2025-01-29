@@ -8,7 +8,6 @@ body {
   --background-color: #ffffff;
   --text-color: #1a1919;
   --primary-color: blueviolet;
-
 }
 
 [data-theme="dark"] {
@@ -229,7 +228,7 @@ main {
   z-index: 0;
 }
 
-section {
+section:not(#about-me) {
   margin: clamp(0.5rem, 2vw + 1.25rem, 3rem);
 }
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
@@ -336,35 +335,49 @@ section {
 
 #skills .skill-card {
   --scale-factor: calc(2.2 + (100vw - 1400px) / 320);
+  --card-gradient: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--text-color) 50%, transparent),
+    color-mix(in srgb, var(--text-color) 20%, transparent)
+  );
+  --card-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.3);
+  --card-transform: rotateX(10deg) rotateY(10deg) translateZ(50px);
+
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: min(100%, 200px);
-  font-size: clamp(1rem, 1vw, 2rem);
   height: 200px;
   margin-top: 1rem;
+  padding: 0.5rem;
+  font-size: clamp(1rem, 1vw, 2rem);
   border: 2px solid var(--text-color);
   border-radius: 15%;
-  padding: 0.5rem;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   overflow: visible;
   backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
-  will-change: transform, box-shadow;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow, z-index;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s;
   animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+#skills .skill-card figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-#skills .skill-card figure .pin{
+#skills .skill-card figure .pin {
   width: 1rem;
   height: 1rem;
- 
 }
+
 #skills .skill-card figure img {
   width: clamp(4rem, 8vw, 6rem);
   margin-bottom: 1rem;
@@ -375,67 +388,24 @@ section {
   text-align: center;
 }
 
-
 #skills .skill-card::before {
   content: "";
   position: absolute;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center,
-    color-mix(in srgb, var(--text-color) 30%, rgba(160, 150, 150, 0.5)),
-    color-mix(in srgb, var(--text-color) 20%, rgba(0, 0, 0, 0.5))
-  );
+  width: 25%;
+  height: 25%;
+  background: var(--card-gradient);
   border-radius: 15%;
   z-index: -1;
   will-change: transform, opacity;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: gradientAnimation 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (hover: hover) and (min-width: 768px) {
-  #skills .skill-card:hover {
-    transform: scale(var(--scale-factor)) rotateX(10deg) rotateY(10deg)
-      translateZ(50px);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
-      0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent-color);
-    z-index: 1;
-    animation: adjustFrame 0.3s ease-in-out;
-  }
-
-  #skills .skill-card::before {
-    width: 25%;
-    height: 25%;
-  }
-
-  #skills .skill-card:hover::before {
-    width: 100%;
-    height: 100%;
-    border-radius: 15%;
-    background: radial-gradient(
-      circle at center,
-      color-mix(in srgb, var(--text-color) 50%, rgba(0, 0, 0, 0)),
-      color-mix(in srgb, var(--text-color) 20%, rgba(0, 0, 0, 0))
-    );
-  }
-
-  #skills:has(.skill-card:hover) .skill-card:not(:hover) {
-    font-size: 1rem;
-    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-    border-color: var(--accent-color);
-    filter: blur(1px);
-    opacity: 0.7;
-  }
 }
 
 @keyframes adjustFrame {
-  0% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   25% {
@@ -447,8 +417,82 @@ section {
   75% {
     transform: rotate(10deg);
   }
-  100% {
-    transform: rotate(0deg);
+}
+
+/* Keyboard focus styles */
+#skills .skill-card:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 4px;
+  transform: scale(var(--scale-factor)) var(--card-transform);
+  box-shadow: var(--card-shadow);
+  border-color: var(--text-color);
+  z-index: 4;
+}
+
+#skills .skill-card:focus-visible figure img {
+  transform: var(--card-transform);
+}
+#skills .skill-card:focus-visible::before {
+  width: 100%;
+  height: 100%;
+}
+
+#skills:has(.skill-card:focus-visible)
+  .skill-card:not(:focus-visible):not(:hover) {
+  transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  border-color: var(--text-color);
+  filter: blur(1px);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Hover effects for devices with hover capability */
+@media (hover: hover) {
+  #skills .skill-card:hover {
+    transform: scale(var(--scale-factor)) var(--card-transform);
+    box-shadow: var(--card-shadow);
+    border-color: var(--accent-color);
+    z-index: 3;
+    animation: adjustFrame 0.3s ease-in-out;
+  }
+
+  #skills .skill-card:hover::before {
+    width: 100%;
+    height: 100%;
+  }
+
+  #skills:has(.skill-card:hover) .skill-card:not(:hover):not(:focus-visible) {
+    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    border-color: var(--accent-color);
+    filter: blur(1px);
+    opacity: 0.7;
+    z-index: 1;
+  }
+}
+
+/* Touch effects for devices without hover */
+@media (hover: none) {
+  #skills .skill-card:active {
+    transform: scale(var(--scale-factor)) var(--card-transform);
+    box-shadow: var(--card-shadow);
+    border-color: var(--accent-color);
+    z-index: 3;
+    animation: adjustFrame 0.3s ease-in-out;
+  }
+
+  #skills .skill-card:active::before {
+    width: 100%;
+    height: 100%;
+  }
+
+  #skills:has(.skill-card:active) .skill-card:not(:active) {
+    transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    border-color: var(--accent-color);
+    filter: blur(1px);
+    opacity: 0.7;
   }
 }
 
@@ -903,15 +947,3 @@ kbd {
   background-color: #2a2a2a;
   border-bottom: 1px solid #3a3a3a;
 }
-
-
-/* [data-theme="dark"] .nodejs-logo {
-  filter: brightness(1.4) contrast(1.1) saturate(150%);
- 
-  transition: filter 0.3s ease;
-}
-
-[data-theme="dark"] .nodejs-logo:hover {
-  filter: brightness(0.5) contrast(1) saturate(250%);
- 
-} */

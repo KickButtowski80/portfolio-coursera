@@ -1,4 +1,4 @@
-// Dark mode toggle functionality
+  // Dark mode toggle functionality
 const darkModeToggles = document.querySelectorAll(".darkmode-toggle");
 
 // Check for saved theme preference
