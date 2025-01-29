@@ -229,7 +229,7 @@ main {
   z-index: 0;
 }
 
-section {
+section:not(#about-me) {
   margin: clamp(0.5rem, 2vw + 1.25rem, 3rem);
 }
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
@@ -347,7 +347,7 @@ section {
   --card-transform: rotateX(10deg) rotateY(10deg) translateZ(50px);
   
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -364,8 +364,9 @@ section {
   backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
-  will-change: transform, box-shadow;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow, z-index;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              z-index 0s;
   animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -419,7 +420,7 @@ section {
   transform: scale(var(--scale-factor)) var(--card-transform);
   box-shadow: var(--card-shadow);
   border-color: var(--text-color);
-  z-index: 3;
+  z-index: 4;
 }
 
 #skills .skill-card:focus-visible::before {
@@ -427,12 +428,13 @@ section {
   height: 100%;
 }
 
-#skills:has(.skill-card:focus-visible) .skill-card:not(:focus-visible) {
+#skills:has(.skill-card:focus-visible) .skill-card:not(:focus-visible):not(:hover) {
   transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
   border-color: var(--text-color);
   filter: blur(1px);
   opacity: 0.7;
+  z-index: 1;
 }
 
 /* Hover effects for devices with hover capability */
@@ -450,12 +452,13 @@ section {
     height: 100%;
   }
 
-  #skills:has(.skill-card:hover) .skill-card:not(:hover) {
+  #skills:has(.skill-card:hover) .skill-card:not(:hover):not(:focus-visible) {
     transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
     box-shadow: 0 0 20px rgba(255, 255, 255, 1);
     border-color: var(--accent-color);
     filter: blur(1px);
     opacity: 0.7;
+    z-index: 1;
   }
 }
 
