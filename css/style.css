@@ -384,7 +384,7 @@ section:not(#about-me) {
 #skills .skill-card figcaption {
   text-align: center;
   & p {
-    font-size: clamp(1rem, 1vw, 1.5rem);
+    font-size: clamp(1.1rem, 1vw, 1.5rem);
     font-weight: clamp(500, 1vw + 550, 900);
     margin: 0;
   }
