@@ -1,4 +1,4 @@
-// Dark mode toggle functionality
+  // Dark mode toggle functionality
 const darkModeToggles = document.querySelectorAll(".darkmode-toggle");
 
 // Check for saved theme preference
@@ -133,6 +133,16 @@ allMenuLinks.forEach((menuLink) => {
 
   observer.observe(section);
   observers.push(observer);
+});
+
+
+
+// Reset interaction state when clicking outside cards
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.skill-card')) {
+    isMouseNavigating = false;
+    lastInteractionWasKeyboard = false;
+  }
 });
 
 // Helper function for screen reader announcements
