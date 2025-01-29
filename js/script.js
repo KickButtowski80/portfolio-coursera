@@ -135,16 +135,6 @@ allMenuLinks.forEach((menuLink) => {
   observers.push(observer);
 });
 
-
-
-// Reset interaction state when clicking outside cards
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.skill-card')) {
-    isMouseNavigating = false;
-    lastInteractionWasKeyboard = false;
-  }
-});
-
 // Helper function for screen reader announcements
 function announceToScreenReader(message) {
   const announcement = document.createElement('div');

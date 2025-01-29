@@ -8,7 +8,6 @@ body {
   --background-color: #ffffff;
   --text-color: #1a1919;
   --primary-color: blueviolet;
-
 }
 
 [data-theme="dark"] {
@@ -304,7 +303,6 @@ section:not(#about-me) {
   flex-wrap: wrap;
 }
 
-
 @keyframes gradientAnimation {
   0% {
     opacity: 0.3;
@@ -343,9 +341,9 @@ section:not(#about-me) {
     color-mix(in srgb, var(--text-color) 20%, transparent)
   );
   --card-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
-                 0 10px 20px rgba(0, 0, 0, 0.3);
+    0 10px 20px rgba(0, 0, 0, 0.3);
   --card-transform: rotateX(10deg) rotateY(10deg) translateZ(50px);
-  
+
   position: relative;
   z-index: 1;
   display: flex;
@@ -365,8 +363,7 @@ section:not(#about-me) {
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
   will-change: transform, box-shadow, z-index;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              z-index 0s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s;
   animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -407,15 +404,24 @@ section:not(#about-me) {
 }
 
 @keyframes adjustFrame {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-10deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(10deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
 }
 
 /* Keyboard focus styles */
 #skills .skill-card:focus-visible {
-  outline: 3px solid var(--text-color);     
+  outline: 3px solid var(--text-color);
   outline-offset: 4px;
   transform: scale(var(--scale-factor)) var(--card-transform);
   box-shadow: var(--card-shadow);
@@ -423,12 +429,16 @@ section:not(#about-me) {
   z-index: 4;
 }
 
+#skills .skill-card:focus-visible figure img {
+  transform: var(--card-transform);
+}
 #skills .skill-card:focus-visible::before {
   width: 100%;
   height: 100%;
 }
 
-#skills:has(.skill-card:focus-visible) .skill-card:not(:focus-visible):not(:hover) {
+#skills:has(.skill-card:focus-visible)
+  .skill-card:not(:focus-visible):not(:hover) {
   transform: scale(0.5) rotateX(-10deg) rotateY(-10deg) translateZ(-50px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
   border-color: var(--text-color);
@@ -937,15 +947,3 @@ kbd {
   background-color: #2a2a2a;
   border-bottom: 1px solid #3a3a3a;
 }
-
-
-/* [data-theme="dark"] .nodejs-logo {
-  filter: brightness(1.4) contrast(1.1) saturate(150%);
- 
-  transition: filter 0.3s ease;
-}
-
-[data-theme="dark"] .nodejs-logo:hover {
-  filter: brightness(0.5) contrast(1) saturate(250%);
- 
-} */
