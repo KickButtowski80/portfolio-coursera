@@ -48,11 +48,19 @@
   min-width: 100%;
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--primary-color) 10%, white) 0%,
-    color-mix(in srgb, var(--primary-color) 30%, transparent) 100%
+    color-mix(in srgb, var(--primary-color) 6%, white) 0%,
+    color-mix(in srgb, var(--primary-color) 60%, black) 100%
   );
-  border: 2px solid color-mix(in srgb, var(--primary-color) 40%, transparent);
-  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
+  border: 2px solid color-mix(in srgb, var(--primary-color) 70%, black);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color) 50%, black);
+  & h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* add an ellipsis (...) */
+    text-align: center;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    min-width: fit-content;
+  }
 }
 
 /* Transform the card face on hover or focus */
@@ -124,7 +132,9 @@
 
 /* Dim non-interacted cards */
 .white-board:has(.project-card:hover) .project-card:not(:hover) .card-face,
-.white-board:has(.project-card:focus-visible) .project-card:not(:focus-visible) .card-face {
+.white-board:has(.project-card:focus-visible)
+  .project-card:not(:focus-visible)
+  .card-face {
   transform: scale(0.5) rotate(20deg) translateZ(0px);
   filter: brightness(0.5);
 }
@@ -136,7 +146,9 @@
   border-radius: 20px;
   font-size: 0.9rem;
   margin: 0.5rem;
-  transition: transform var(--tech-transition);
+
+  transition: transform var(--tech-transition) ease, filter 0.15s ease,
+    border 0.15s ease;
   text-align: center;
   background: linear-gradient(
     145deg,
@@ -148,21 +160,46 @@
 }
 
 /* Tech tag hover effect */
-.tech-tag:hover {
+/* .tech-tag:hover {
   color: var(--background-color);
   background-color: linear-gradient(
-    45deg,
-    color-mix(in srgb, var(--primary-color) 20%, rgb(85, 24, 104)),
-    color-mix(in srgb, var(--primary-color) 80%, transparent)
+    145deg,
+    color-mix(in srgb, var(--primary-color) 90%, rgb(85, 24, 104)),
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
   );
   transform: scale(1.1);
+} */
+
+.tech-tag:hover {
+  /* Use 'background' instead of 'background-color' for gradients */
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 90%, rgb(85, 24, 104)),
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
+  );
+  /* Increase text contrast and add a subtle text shadow */
+  color: var(--background-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* Add a brighter effect */
+  filter: brightness(1.5);
+  /* Increase size slightly for more emphasis */
+  transform: scale(1.1);
+  /* Optional: add a more pronounced border */
+  border: 2px solid var(--primary-color);
 }
 
 /* Reuse animations from skills section */
 @keyframes adjustFrame {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-2deg); }
-  75% { transform: rotate(2deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
 }
 
 /*
