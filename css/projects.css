@@ -1,0 +1,178 @@
+#projects .white-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-rows: auto;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  max-height: 150%;
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* projects.css */
+.project-card {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  width: 100%;
+  max-height: fit-content;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-face {
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 1.5rem;
+  transform: translateZ(30px);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 100%;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 10%, white) 0%,
+    color-mix(in srgb, var(--primary-color) 30%, transparent) 100%
+  );
+  border: 2px solid color-mix(in srgb, var(--primary-color) 40%, transparent);
+  box-shadow: 0 4px 15px
+    color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+.project-card:hover .card-face,
+.project-card:focus-visible .card-face {
+  transform: translateZ(150px) rotateX(5deg) rotateY(150deg);
+  box-shadow: var(--card-shadow);
+  z-index: 6;
+}
+
+/* Pinned paper effect (matches skills section) */
+.project-card .pin {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--text-color) 0%,
+    var(--text-color) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-icon {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  background: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--primary-color) 80%, white),
+    color-mix(in srgb, var(--primary-color) 80%, transparent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.card-info {
+  opacity: 0;
+  transition: all 0.3s ease 0.1s;
+  transform: translateY(10px);
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--background-color) 70%, white) 60%,
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
+  );
+  backdrop-filter: blur(10px) saturate(200%);
+  isolation: isolate;
+  z-index: 5;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+  transition: transform 0.5s ease-in-out;
+  & h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(1rem, 1vw, 2rem);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+.project-card:hover .card-info,
+.project-card:focus-visible .card-info {
+  opacity: 1;
+  transform: scale(1.2) translateY(0);
+  margin: 0.5rem;
+}
+
+/* Hover effect for other cards */
+.white-board:has(.project-card:hover) .project-card:not(:hover) .card-face,
+.white-board:has(.project-card:focus-visible)
+  .project-card:not(:focus-visible)
+  .card-face {
+  transform: scale(0.5) rotate(20deg) translateZ(0px);
+  filter: brightness(0.5);
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.3rem 0.4rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin: 0.5rem;
+  transition: transform 0.2s ease;
+  text-align: center;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 40%, white),
+    color-mix(in srgb, var(--primary-color) 60%, transparent)
+  );
+  color: var(--background-color);
+  border: 1px solid color-mix(in srgb, var(--primary-color) 70%, transparent);
+}
+
+.tech-tag:hover {
+  color: var(--background-color);
+  background-color: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--primary-color) 20%, rgb(85, 24, 104)),
+    color-mix(in srgb, var(--primary-color) 80%, transparent)
+  );
+  transform: scale(1.1);
+}
+
+/* Reuse animations from skills section */
+@keyframes adjustFrame {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+/* .project-card {
+  animation: adjustFrame 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:nth-child(even) {
+  animation-delay: 1.5s;
+} */
