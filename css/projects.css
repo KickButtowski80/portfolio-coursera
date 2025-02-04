@@ -1,7 +1,14 @@
+:root {
+  /* Transition durations and easing functions */
+  --card-transition: 0.4s ease-out;
+  --face-transition: 0.5s ease-out;
+  --info-transition: 0.6s ease-out 0.15s;
+  --tech-transition: 0.15s ease;
+}
+
 #projects .white-board {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  grid-template-rows: auto;
   gap: 1rem;
   padding: 1rem;
   background-color: #f9f9f9;
@@ -13,7 +20,7 @@
   position: relative;
 }
 
-/* projects.css */
+/* Project card container */
 .project-card {
   perspective: 2000px;
   transform-style: preserve-3d;
@@ -23,16 +30,17 @@
   padding: 1.5rem;
   display: flex;
   justify-content: center;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--card-transition);
 }
 
+/* Card face styles */
 .card-face {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 15px;
   padding: 1.5rem;
   transform: translateZ(30px);
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--face-transition);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,10 +52,10 @@
     color-mix(in srgb, var(--primary-color) 30%, transparent) 100%
   );
   border: 2px solid color-mix(in srgb, var(--primary-color) 40%, transparent);
-  box-shadow: 0 4px 15px
-    color-mix(in srgb, var(--primary-color) 30%, transparent);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
 }
 
+/* Transform the card face on hover or focus */
 .project-card:hover .card-face,
 .project-card:focus-visible .card-face {
   transform: translateZ(150px) rotateX(5deg) rotateY(150deg);
@@ -71,11 +79,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Project icon styles */
 .project-icon {
   font-size: 3.5rem;
-  color: var(--primary-color);
   margin-bottom: 1rem;
-  color: var(--primary-color);
   background: linear-gradient(
     45deg,
     color-mix(in srgb, var(--primary-color) 80%, white),
@@ -87,9 +94,10 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
+/* Card info (project details) */
 .card-info {
   opacity: 0;
-  transition: all 0.3s ease 0.1s;
+  transition: transform var(--info-transition), opacity var(--info-transition);
   transform: translateY(10px);
   color: var(--text-color);
   padding: 1rem;
@@ -104,14 +112,9 @@
   isolation: isolate;
   z-index: 5;
   border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
-  transition: transform 0.5s ease-in-out;
-  & h2 {
-    text-align: center;
-    font-weight: 600;
-    font-size: clamp(1rem, 1vw, 2rem);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  }
 }
+
+/* Reveal card info on hover or focus */
 .project-card:hover .card-info,
 .project-card:focus-visible .card-info {
   opacity: 1;
@@ -119,22 +122,21 @@
   margin: 0.5rem;
 }
 
-/* Hover effect for other cards */
+/* Dim non-interacted cards */
 .white-board:has(.project-card:hover) .project-card:not(:hover) .card-face,
-.white-board:has(.project-card:focus-visible)
-  .project-card:not(:focus-visible)
-  .card-face {
+.white-board:has(.project-card:focus-visible) .project-card:not(:focus-visible) .card-face {
   transform: scale(0.5) rotate(20deg) translateZ(0px);
   filter: brightness(0.5);
 }
 
+/* Tech tag styles */
 .tech-tag {
   display: inline-block;
   padding: 0.3rem 0.4rem;
   border-radius: 20px;
   font-size: 0.9rem;
   margin: 0.5rem;
-  transition: transform 0.2s ease;
+  transition: transform var(--tech-transition);
   text-align: center;
   background: linear-gradient(
     145deg,
@@ -145,6 +147,7 @@
   border: 1px solid color-mix(in srgb, var(--primary-color) 70%, transparent);
 }
 
+/* Tech tag hover effect */
 .tech-tag:hover {
   color: var(--background-color);
   background-color: linear-gradient(
@@ -157,22 +160,19 @@
 
 /* Reuse animations from skills section */
 @keyframes adjustFrame {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-2deg);
-  }
-  75% {
-    transform: rotate(2deg);
-  }
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
 }
 
-/* .project-card {
+/*
+Optional animation for project cards (uncomment if desired):
+
+.project-card {
   animation: adjustFrame 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:nth-child(even) {
   animation-delay: 1.5s;
-} */
+}
+*/
