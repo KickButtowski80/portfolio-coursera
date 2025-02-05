@@ -269,6 +269,6 @@ Optional animation for project cards (uncomment if desired):
 
   .project-card:hover .card-info,
   .project-card:focus-visible .card-info {
-    transform: translateY(220px);
+    transform: translateY(244px);
   }
 }
