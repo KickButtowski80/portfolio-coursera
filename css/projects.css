@@ -1,0 +1,274 @@
+:root {
+  /* Transition durations and easing functions */
+  --card-transition: 0.4s ease-out;
+  --face-transition: 0.5s ease-out;
+  --info-transition: 0.6s ease-out 0.15s;
+  --tech-transition: 0.15s ease;
+}
+
+#projects .white-board {
+ 
+min-height: 40vh;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Project card container */
+.project-card {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  width: 100%;
+  max-height: fit-content;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  transition: transform var(--card-transition);
+}
+
+/* Card face styles */
+.card-face {
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 1.5rem;
+  transform: translateZ(30px);
+  transition: transform var(--face-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 100%;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 6%, white) 0%,
+    color-mix(in srgb, var(--primary-color) 60%, black) 100%
+  );
+  border: 2px solid color-mix(in srgb, var(--primary-color) 70%, black);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color) 50%, black);
+  & h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* add an ellipsis (...) */
+    text-align: center;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    min-width: fit-content;
+  }
+}
+
+/* Transform the card face on hover or focus */
+.project-card:hover .card-face,
+.project-card:focus-visible .card-face {
+  transform: translateZ(150px) rotateX(5deg) rotateY(150deg);
+  box-shadow: var(--card-shadow);
+  z-index: 6;
+}
+
+/* Pinned paper effect (matches skills section) */
+.project-card .pin {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--text-color) 0%,
+    var(--text-color) 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Project icon styles */
+.project-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--primary-color) 80%, white),
+    color-mix(in srgb, var(--primary-color) 80%, transparent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Card info (project details) */
+.card-info {
+ height: fit-content;
+ padding: 2rem 1rem;
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  /* transform: translateY(10px); */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  color: var(--text-color);
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--background-color) 70%, white) 60%,
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
+  );
+  backdrop-filter: blur(10px) saturate(200%);
+  isolation: isolate;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+  & h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color); /* Replace with your primary color */
+    margin: 0;
+  }
+
+  & p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Show card info on hover/focus */
+.project-card:hover .card-info,
+.project-card:focus-visible .card-info {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
+/* Reveal card info on hover or focus */
+/* .project-card:hover .card-info,
+.project-card:focus-visible .card-info {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1.2) translateY(0);
+} */
+
+/* Dim non-interacted cards */
+.white-board:has(.project-card:hover) .project-card:not(:hover) .card-face,
+.white-board:has(.project-card:focus-visible)
+  .project-card:not(:focus-visible)
+  .card-face {
+  transform: scale(0.5) rotate(20deg) translateZ(0px);
+  filter: brightness(0.5);
+}
+
+/* .white-board:has(.project-card:hover) .project-card:not(:hover) .card-info{
+  height: 6rem;
+} */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Tech tag styles */
+.tech-tag {
+  display: inline-block;
+  padding: 0.3rem 0.4rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin: 0rem;
+
+  transition: transform var(--tech-transition) ease, filter 0.15s ease,
+    border 0.15s ease;
+  text-align: center;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 40%, white),
+    color-mix(in srgb, var(--primary-color) 60%, transparent)
+  );
+  color: var(--background-color);
+  border: 1px solid color-mix(in srgb, var(--primary-color) 70%, transparent);
+}
+
+/* Tech tag hover effect */
+/* .tech-tag:hover {
+  color: var(--background-color);
+  background-color: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 90%, rgb(85, 24, 104)),
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
+  );
+  transform: scale(1.1);
+} */
+
+.tech-tag:hover {
+  /* Use 'background' instead of 'background-color' for gradients */
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--primary-color) 90%, rgb(85, 24, 104)),
+    color-mix(in srgb, var(--primary-color) 10%, transparent)
+  );
+  /* Increase text contrast and add a subtle text shadow */
+  color: var(--background-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* Add a brighter effect */
+  filter: brightness(1.5);
+  /* Increase size slightly for more emphasis */
+  transform: scale(1.1);
+  /* Optional: add a more pronounced border */
+  border: 2px solid var(--primary-color);
+}
+
+/* Reuse animations from skills section */
+@keyframes adjustFrame {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+/*
+Optional animation for project cards (uncomment if desired):
+
+.project-card {
+  animation: adjustFrame 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:nth-child(even) {
+  animation-delay: 1.5s;
+}
+*/
+
+/* Mobile adjustments */
+@media (max-width: 427px) {
+  #projects .white-board {
+    height: 100vh;
+    /* min-height: 800px;
+    max-height: 1200px; */
+
+  }
+
+  .card-info {
+    top: auto;
+    bottom: 100%;
+  }
+
+  .project-card:hover .card-info,
+  .project-card:focus-visible .card-info {
+    transform: translateY(244px);
+  }
+}
