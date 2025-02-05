@@ -7,6 +7,9 @@
 }
 
 #projects .white-board {
+ 
+min-height: 40vh;
+  overflow: visible;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
@@ -15,7 +18,6 @@
   border-radius: 10px;
   border: 2px solid var(--text-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  max-height: 150%;
   animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
@@ -104,13 +106,17 @@
 
 /* Card info (project details) */
 .card-info {
+ height: fit-content;
+ padding: 2rem 1rem;
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
   opacity: 0;
-  transition: transform var(--info-transition), opacity var(--info-transition);
-  transform: translateY(10px);
+  /* transform: translateY(10px); */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
   color: var(--text-color);
-  padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: linear-gradient(
     145deg,
     color-mix(in srgb, var(--background-color) 70%, white) 60%,
@@ -118,17 +124,38 @@
   );
   backdrop-filter: blur(10px) saturate(200%);
   isolation: isolate;
-  z-index: 5;
   border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+  & h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color); /* Replace with your primary color */
+    margin: 0;
+  }
+
+  & p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Show card info on hover/focus */
+.project-card:hover .card-info,
+.project-card:focus-visible .card-info {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
 }
 
 /* Reveal card info on hover or focus */
-.project-card:hover .card-info,
+/* .project-card:hover .card-info,
 .project-card:focus-visible .card-info {
+  visibility: visible;
   opacity: 1;
   transform: scale(1.2) translateY(0);
-  margin: 0.5rem;
-}
+} */
 
 /* Dim non-interacted cards */
 .white-board:has(.project-card:hover) .project-card:not(:hover) .card-face,
@@ -139,13 +166,25 @@
   filter: brightness(0.5);
 }
 
+/* .white-board:has(.project-card:hover) .project-card:not(:hover) .card-info{
+  height: 6rem;
+} */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 /* Tech tag styles */
 .tech-tag {
   display: inline-block;
   padding: 0.3rem 0.4rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  margin: 0.5rem;
+  margin: 0rem;
 
   transition: transform var(--tech-transition) ease, filter 0.15s ease,
     border 0.15s ease;
@@ -213,3 +252,23 @@ Optional animation for project cards (uncomment if desired):
   animation-delay: 1.5s;
 }
 */
+
+/* Mobile adjustments */
+@media (max-width: 427px) {
+  #projects .white-board {
+    height: 100vh;
+    /* min-height: 800px;
+    max-height: 1200px; */
+
+  }
+
+  .card-info {
+    top: auto;
+    bottom: 100%;
+  }
+
+  .project-card:hover .card-info,
+  .project-card:focus-visible .card-info {
+    transform: translateY(220px);
+  }
+}
