@@ -8,6 +8,7 @@ body {
   --background-color: #ffffff;
   --text-color: #1a1919;
   --primary-color: blueviolet;
+  
 }
 
 [data-theme="dark"] {
