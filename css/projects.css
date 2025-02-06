@@ -7,8 +7,7 @@
 }
 
 #projects .white-board {
- 
-min-height: 40vh;
+  min-height: 40vh;
   overflow: visible;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -106,8 +105,8 @@ min-height: 40vh;
 
 /* Card info (project details) */
 .card-info {
- height: fit-content;
- padding: 2rem 1rem;
+  height: fit-content;
+  padding: 2rem 1rem;
   visibility: hidden;
   position: absolute;
   z-index: 10;
@@ -227,39 +226,44 @@ min-height: 40vh;
   border: 2px solid var(--primary-color);
 }
 
-/* Reuse animations from skills section */
-@keyframes adjustFrame {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-2deg);
-  }
-  75% {
-    transform: rotate(2deg);
-  }
+#projects {
+  position: relative;
+  overflow: visible;
+  z-index: 0;
 }
 
-/*
-Optional animation for project cards (uncomment if desired):
-
-.project-card {
-  animation: adjustFrame 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+#projects:before {
+  content: "";
+  display: block;
+  position: absolute;
+  overflow-x: clip;
+  overflow-y: visible;
+  width: 50rem;
+  height: 40rem;
+  top: 53%;
+  left: 5%;
+  transform-origin: top center;
+  /* rotate(-45deg) */
+  transform: translateX(-50%) ;
+  z-index: 99;
+  pointer-events: none;
 }
 
-.project-card:nth-child(even) {
-  animation-delay: 1.5s;
+#hamburger-menu:has(.darkmode-input:checked) ~ main #projects:before {
+  background: linear-gradient(#fff1bd, transparent);
+  clip-path: polygon(48% 0, 52% 0, 100% 100%, 0% 100%);
+  opacity: 0.9;
 }
-*/
 
-/* Mobile adjustments */
 @media (max-width: 427px) {
+  #projects::before {
+    top: 3rem;
+    left: 50%;
+    /* transform: translateX(-50%); */
+  }
+
   #projects .white-board {
     height: 100vh;
-    /* min-height: 800px;
-    max-height: 1200px; */
-
   }
 
   .card-info {
@@ -272,3 +276,5 @@ Optional animation for project cards (uncomment if desired):
     transform: translateY(244px);
   }
 }
+
+/* Dark mode lighting effect */
