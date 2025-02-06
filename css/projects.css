@@ -226,33 +226,33 @@
   border: 2px solid var(--primary-color);
 }
 
+
+
 #projects {
   position: relative;
-  overflow: visible;
+  
+  overflow-x: clip;
   z-index: 0;
+  
 }
 
 #projects:before {
   content: "";
   display: block;
   position: absolute;
-  overflow-x: clip;
-  overflow-y: visible;
   width: 50rem;
   height: 40rem;
-  top: 53%;
-  left: 5%;
-  transform-origin: top center;
-  /* rotate(-45deg) */
-  transform: translateX(-50%) ;
-  z-index: 99;
+  top: 12%;
+  left: -40%; 
+  isolation: isolate;
+  z-index: 99999999999999999999999;
   pointer-events: none;
 }
 
 #hamburger-menu:has(.darkmode-input:checked) ~ main #projects:before {
   background: linear-gradient(#fff1bd, transparent);
   clip-path: polygon(48% 0, 52% 0, 100% 100%, 0% 100%);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 @media (max-width: 427px) {
