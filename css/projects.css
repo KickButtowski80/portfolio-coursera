@@ -253,10 +253,11 @@
   #projects .white-board {
     margin: 1rem;
     height: 100vh;
-    padding-block: 7rem
+    padding-block: 7rem;
   }
 
   .card-info {
+    margin-block: 4rem;
     top: auto;
     bottom: 100%;
   }
