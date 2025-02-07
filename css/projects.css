@@ -252,7 +252,8 @@
 
   #projects .white-board {
     margin: 1rem;
-    min-height: 780px;
+    min-height: 1000px;
+    
    
   }
 
@@ -263,6 +264,6 @@
 
   .project-card:hover .card-info,
   .project-card:focus-visible .card-info {
-    transform: translateY(244px);
+    transform: translateY(317px);
   }
 }
