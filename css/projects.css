@@ -6,10 +6,19 @@
   --tech-transition: 0.15s ease;
 }
 
+#projects {
+  position: relative;
+
+  /* overflow-x: clip;
+  overflow-y: visible; */
+  display: grid;
+  /* margin: 1rem; */
+}
+
 #projects .white-board {
+  display: grid;
   min-height: 40vh;
   overflow: visible;
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
   padding: 1rem;
@@ -197,16 +206,7 @@
   border: 1px solid color-mix(in srgb, var(--primary-color) 70%, transparent);
 }
 
-/* Tech tag hover effect */
-/* .tech-tag:hover {
-  color: var(--background-color);
-  background-color: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--primary-color) 90%, rgb(85, 24, 104)),
-    color-mix(in srgb, var(--primary-color) 10%, transparent)
-  );
-  transform: scale(1.1);
-} */
+
 
 .tech-tag:hover {
   /* Use 'background' instead of 'background-color' for gradients */
@@ -226,43 +226,45 @@
   border: 2px solid var(--primary-color);
 }
 
-
-
-#projects {
+#projects h1#projects-title {
   position: relative;
-  
-  overflow-x: clip;
-  z-index: 0;
-  
+  z-index: 2;
 }
 
-#projects:before {
+#projects h1#projects-title::before {
   content: "";
   display: block;
   position: absolute;
   width: 50rem;
   height: 40rem;
-  top: 12%;
-  left: -40%; 
-  isolation: isolate;
-  z-index: 99999999999999999999999;
+  top: -1.5rem;
+  left: -4rem;
+  z-index: 3;
   pointer-events: none;
+  rotate: -45deg;
+  overflow: hidden;
+ 
 }
 
-#hamburger-menu:has(.darkmode-input:checked) ~ main #projects:before {
+#hamburger-menu:has(.darkmode-input:checked) ~ main #projects h1#projects-title::before {
   background: linear-gradient(#fff1bd, transparent);
   clip-path: polygon(48% 0, 52% 0, 100% 100%, 0% 100%);
   opacity: 1;
+ 
+  z-index: 3;
 }
 
-@media (max-width: 427px) {
-  #projects::before {
-    top: 3rem;
-    left: 50%;
-    /* transform: translateX(-50%); */
+@media (max-width: 768px) {
+
+  #projects h1#projects-title::before {
+    top: 100%;
+    left: -16rem;
+    rotate: 0deg;
+   
   }
 
   #projects .white-board {
+    margin:1rem;
     height: 100vh;
   }
 
@@ -277,4 +279,4 @@
   }
 }
 
-/* Dark mode lighting effect */
+
