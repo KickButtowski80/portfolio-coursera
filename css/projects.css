@@ -253,17 +253,18 @@
   #projects .white-board {
     margin: 1rem;
     min-height: 1000px;
+    padding-top: 2rem;
     
    
   }
 
   .card-info {
-    top: auto;
+    top: -1.5rem;
     bottom: 100%;
   }
-
+/* 
   .project-card:hover .card-info,
   .project-card:focus-visible .card-info {
     transform: translateY(317px);
-  }
+  } */
 }
