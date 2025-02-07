@@ -17,7 +17,7 @@
 
 #projects .white-board {
   display: grid;
-  min-height: 40vh;
+  min-height: 35vh;
   overflow: visible;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
@@ -55,11 +55,10 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
   width: 100%;
   background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--primary-color) 6%, white) 0%,
+    135deg,
+    color-mix(in srgb, var(--primary-color) 70%, rgba(197, 132, 223, 0.5)) 50%,
     color-mix(in srgb, var(--primary-color) 60%, black) 100%
   );
   border: 2px solid color-mix(in srgb, var(--primary-color) 70%, black);
@@ -71,6 +70,7 @@
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 2rem);
     min-width: fit-content;
+    color: color-mix(in srgb, white 85%, var(--text-color));
   }
 }
 
@@ -103,9 +103,9 @@
   font-size: 3.5rem;
   margin-bottom: 1rem;
   background: linear-gradient(
-    45deg,
+    90deg,
     color-mix(in srgb, var(--primary-color) 80%, white),
-    color-mix(in srgb, var(--primary-color) 80%, transparent)
+    color-mix(in srgb, var(--primary-color) 8%, white)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -121,15 +121,14 @@
   position: absolute;
   z-index: 10;
   opacity: 0;
-  /* transform: translateY(10px); */
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   pointer-events: none;
   color: var(--text-color);
   border-radius: 12px;
   background: linear-gradient(
-    145deg,
+    315deg,
     color-mix(in srgb, var(--background-color) 70%, white) 60%,
-    color-mix(in srgb, var(--primary-color) 10%, transparent)
+    color-mix(in srgb, var(--primary-color) 7%, transparent)
   );
   backdrop-filter: blur(10px) saturate(200%);
   isolation: isolate;
@@ -137,7 +136,8 @@
   & h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary-color); /* Replace with your primary color */
+    color: var(--primary-color);
+    filter: saturate(1.5) brightness(1.2);
     margin: 0;
   }
 
