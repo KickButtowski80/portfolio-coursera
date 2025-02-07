@@ -252,8 +252,8 @@
 
   #projects .white-board {
     margin: 1rem;
-    height: 100vh;
-    /* padding-block: 7rem; */
+    min-height: 780px;
+   
   }
 
   .card-info {
