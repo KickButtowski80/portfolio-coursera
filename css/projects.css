@@ -54,7 +54,7 @@
   width: max(100%, 220px);
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--primary-color) 70%, rgba(197, 132, 223, 0.5)) 50%,
+    color-mix(in srgb, var(--primary-color) 60%, rgba(197, 132, 223, 0.5)) 50%,
     color-mix(in srgb, var(--primary-color) 60%, black) 100%
   );
   border: 2px solid color-mix(in srgb, var(--primary-color) 70%, black);
