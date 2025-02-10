@@ -124,7 +124,7 @@
   border-radius: 12px;
   background: linear-gradient(
     315deg,
-    color-mix(in srgb, var(--background-color) 70%, white) 60%,
+    color-mix(in srgb, var(--background-color) 60%, rgba(15, 15, 15, 0.5)) 80%,
     color-mix(in srgb, var(--primary-color) 7%, transparent)
   );
   backdrop-filter: blur(10px) saturate(200%);
@@ -134,15 +134,19 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--primary-color);
-    filter: saturate(1.5) brightness(1.2);
+    filter: saturate(1.5) brightness(1.5);
     margin: 0;
   }
 
   & p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     color: var(--text-color);
     margin-bottom: 1.5rem;
+    text-shadow: 0 0 2px rgba(241, 229, 229, 0.3);
+    font-weight: 500;
+    /* Optional - add slight stroke */
+    -webkit-text-stroke: 0.2px rgba(0,0,0,0.1);
   }
 }
 
