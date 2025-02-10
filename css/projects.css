@@ -8,11 +8,7 @@
 
 #projects {
   position: relative;
-
-  /* overflow-x: clip;
-  overflow-y: visible; */
   display: grid;
-  /* margin: 1rem; */
 }
 
 #projects .white-board {
@@ -55,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: min(100%, 230px);
+  width: max(100%, 220px);
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--primary-color) 70%, rgba(197, 132, 223, 0.5)) 50%,
@@ -116,7 +112,8 @@
 /* Card info (project details) */
 .card-info {
   height: fit-content;
-  padding: 2rem 1rem;
+  padding: 2rem 0.5rem;
+  width: max(100%, 220px);
   visibility: hidden;
   position: absolute;
   z-index: 10;
@@ -233,34 +230,15 @@
   overflow: hidden;
 }
 
-#hamburger-menu:has(.darkmode-input:checked)
-  ~ main
-  #projects
-  h1#projects-title::before {
-  background: linear-gradient(#fff1bd, transparent);
-  clip-path: polygon(48% 0, 52% 0, 100% 100%, 0% 100%);
-  opacity: 1;
-  z-index: 3;
-}
-
 @media (max-width: 768px) {
-  #projects h1#projects-title::before {
-    top: 100%;
-    left: -16rem;
-    rotate: 0deg;
-  }
-
   #projects .white-board {
     margin: 1rem;
-    min-height: 1000px;
-    padding-top: 2rem;
-    
-   
+    min-height: 900px;
+    padding-top: 3rem;
   }
 
   .card-info {
     top: -1.5rem;
     bottom: 100%;
   }
- 
 }
