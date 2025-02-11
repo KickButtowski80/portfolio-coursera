@@ -228,9 +228,6 @@ main {
   z-index: 0;
 }
 
-section {
-  margin: 1rem;
-}
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
   opacity: 0;
   display: none;
@@ -245,7 +242,6 @@ section {
   z-index: 1;
   padding-top: clamp(7rem, 15vw + 6rem, 16rem);
 }
-
 
 #about-me .my-info {
   display: flex;
@@ -263,12 +259,73 @@ section {
   display: block;
   margin: 0 auto;
 }
-#about-me .my-info p {
-  line-height: 3rem;
+
+.whiteboard-effect {
+  /* display: flex;
+  flex-direction: column; */
+  margin: 0 0.5rem;
+  min-width: min(100%, 270px);
+  overflow: visible;
+  transform: translateZ(0); /* Force GPU rendering */
+  will-change: transform; /* Optimize for animations */
+  backface-visibility: hidden; /* Improve rendering quality */
+  filter: blur(0); /* Force sharp text rendering */
+  gap: 1rem;
   padding: 1rem;
-  border-radius: 1rem;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    /* top: 0.5rem; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: color-mix(
+      in srgb,
+      var(--text-color) 70%,
+      var(--text-color)
+    );
+    border-radius: 50%;
+    z-index: 4;
+  }
 }
 
+.whiteboard-effect:hover {
+  --rotation-angle: 2deg;
+  animation: adjustFrame 0.5s ease-in;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  border-color: var(--text-color);
+  z-index: 1;
+}
+
+#about-me .my-info {
+  & h1 {
+    font-size: clamp(2.2rem, 2.75vw + 1.3rem, 4.2rem);
+  }
+  & p {
+    position: relative;
+    line-height: 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  & ul {
+    gap: 1rem;
+    list-style: circle;
+    padding-left: 2rem;
+    & li::marker {
+      color: color-mix(in srgb, var(--primary-color) 70%, var(--text-color));
+      font-size: 1.5rem;
+      content: "●";
+    }
+  }
+}
 #about-me figure {
   margin-top: 2rem;
   display: flex;
@@ -279,7 +336,6 @@ section {
 :is(#skills, #projects, #recommendations) {
   display: flex;
   flex-direction: column;
-  /* margin-block: 2rem; */
   margin: 2rem;
 }
 :is(#skills, #projects, #recommendations) h1 {
@@ -401,16 +457,16 @@ section {
 @keyframes adjustFrame {
   0%,
   100% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateZ(0);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(var(--rotation-angle)) translateZ(0);
   }
   50% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateZ(0);
   }
   75% {
-    transform: rotate(10deg);
+    transform: rotate(var(--rotation-angle)) translateZ(0);
   }
 }
 
@@ -445,6 +501,7 @@ section {
 /* Hover effects for devices with hover capability */
 @media (hover: hover) {
   #skills .skill-card:hover {
+    --rotation-angle: 10deg;
     transform: scale(var(--scale-factor)) var(--card-transform);
     box-shadow: var(--card-shadow);
     border-color: var(--accent-color);
@@ -470,6 +527,7 @@ section {
 /* Touch effects for devices without hover */
 @media (hover: none) {
   #skills .skill-card:active {
+    --rotation-angle: 10deg;
     transform: scale(var(--scale-factor)) var(--card-transform);
     box-shadow: var(--card-shadow);
     border-color: var(--accent-color);
