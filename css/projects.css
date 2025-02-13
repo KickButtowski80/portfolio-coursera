@@ -8,7 +8,6 @@
 
 #projects .white-board {
   display: grid;
-  min-height: 45vh;
   overflow: visible;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
@@ -246,7 +245,6 @@
 @media (max-width: 768px) {
   #projects .white-board {
     margin: 1rem;
-    min-height: 900px;
     padding-top: 3rem;
   }
 
