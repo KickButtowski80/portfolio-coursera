@@ -110,10 +110,11 @@
 /* Card info (project details) */
 .card-info {
   width: 100%;
+  overflow: hidden; 
   padding: 2rem 0.5rem;
   visibility: hidden;
   position: absolute;
-  top: -1.5rem; 
+  bottom: -25%;
   left: 0;
   z-index: 10;
   opacity: 0;
@@ -246,12 +247,8 @@
 /* Media query for smaller screens */
 @media (max-width: 480px) {
   .card-info {
-      width: 95%; /* Reduce width */
-      padding: 1rem; /* Reduce padding */
-      max-width: 400px; /* Set max width */
-      box-sizing: border-box; /* Ensure box-sizing */
+    width: 90vw;
+    margin:0 -2.4rem;
   }
-  .project-card {
-      box-sizing: border-box; /* Ensure box-sizing */
-  }
+
 }
