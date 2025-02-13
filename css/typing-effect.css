@@ -1,0 +1,82 @@
+h1 {
+  display: inline-block; /* Ensure the h1 wraps the text */
+  position: relative; /* Create a positioning context */
+  color: #8a2be2;
+  text-align: center;
+}
+
+.line-1 {
+  overflow: hidden;
+}
+.line-1,
+.line-2 {
+  position: relative; /* Create a positioning context for each line */
+  display: inline-block;
+}
+.spaced-text {
+  margin: 0 5rem;
+}
+.line-2 {
+  opacity: 0;
+  animation: reveal 0.5s ease 2s forwards; /* Show after the first line's animation */
+}
+
+.typing-mask {
+  width: 0; /* Start with 0 width */
+  height: 1.2em; /* Match the line height */
+  position: absolute; /* Position absolutely within the line */
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: var(--background-color);
+}
+
+.line-1 .typing-mask {
+  animation: move 2s steps(20, end);
+}
+
+.line-2 .typing-mask {
+  animation: move 2s steps(20, end) 2s forwards;
+}
+
+.typing-mask::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0; /* Position at the end of the mask */
+  width: 2rem;
+  height: 1rem;
+  background-color: black;
+  z-index: 2;
+  animation: blink 0.5s steps(2, start) infinite; /* Blinking cursor */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0% {
+    width: 100%; /* Start with full mask */
+  }
+  100% {
+    width: 0%; /* Remove mask to reveal text */
+  }
+}
