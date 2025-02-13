@@ -115,6 +115,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: clamp(7rem, 3vw + 4rem, 8rem);
+  padding-block: clamp(1rem, 1vw + 0.5rem, 1.5rem);
 }
 
 .my-info {
@@ -127,19 +130,11 @@ nav {
 
 .fixed-header {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   z-index: 5;
   background-color: var(--background-color);
-}
-
-.fixed-header nav {
-  position: fixed;
-  top: clamp(7rem, 3vw + 4rem, 8rem);
-  width: 100vw;
-  padding-block: clamp(1rem, 1vw + 0.5rem, 1.5rem);
-  background-color: blueviolet;
 }
 
 .fixed-header nav .my-info h1 {
@@ -148,13 +143,6 @@ nav {
   color: white;
   margin: 0;
   padding-inline: clamp(0.75rem, 1vw + 0.5rem, 2rem);
-}
-
-@media (min-width: 769px) and (max-width: 778px) {
-  .fixed-header nav .my-info h1 {
-    font-size: 2.2rem; /* or whatever size works best */
-    white-space: nowrap; /* Prevent wrapping */
-  }
 }
 
 .fixed-header nav .my-info span {
@@ -173,7 +161,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100vw;
+  width: 100%;
   font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
   background-color: #ab30ab;
   text-align: center;
@@ -224,12 +212,10 @@ nav ul li a.active::after {
 }
 
 main {
+  width: 100%; /* Use percentage instead of viewport units */
   position: relative;
   z-index: 0;
-}
-
-section {
-  margin: 1rem;
+  box-sizing: border-box; /* Include padding/borders in width */
 }
 :is(#hamburger-icon, #hamburger-icon + label, #cross-icon, #hamburger-menu) {
   opacity: 0;
@@ -246,29 +232,105 @@ section {
   padding-top: clamp(7rem, 15vw + 6rem, 16rem);
 }
 
+.whiteboard-effect {
+  margin: 0 0.5rem;
+  min-width: min(100%, 270px);
+  overflow: visible;
+  transform: translateZ(0); /* Force GPU rendering */
+  will-change: transform; /* Optimize for animations */
+  backface-visibility: hidden; /* Improve rendering quality */
+  filter: blur(0); /* Force sharp text rendering */
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  animation: glowBorder 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: color-mix(
+      in srgb,
+      var(--text-color) 70%,
+      var(--text-color)
+    );
+    border-radius: 50%;
+    z-index: 4;
+  }
+}
+
+.whiteboard-effect:hover {
+  --rotation-angle: 2deg;
+  animation: adjustFrame 0.5s ease-in;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  border-color: var(--text-color);
+  z-index: 1;
+}
 
 #about-me .my-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  & h1 {
+    font-size: clamp(3.5rem, 2.2vw + 1.3rem, 5rem);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  & img {
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+  & img:hover {
+    --rotation-angle: 25deg;
+    animation: adjustFrame 1s ease-in;
+  }
+  & p {
+    position: relative;
+    line-height: 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  & ul {
+    gap: 1rem;
+    list-style: circle;
+    padding-left: 2rem;
+    & li::marker {
+      color: color-mix(in srgb, var(--primary-color) 70%, var(--text-color));
+      font-size: 1.5rem;
+      content: "●";
+    }
+  }
 }
 
-#about-me .my-info h1 {
-  text-align: center;
-  font-size: 5rem;
-  color: blueviolet;
-}
-#about-me .my-info img {
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-#about-me .my-info p {
-  line-height: 3rem;
-  padding: 1rem;
-  border-radius: 1rem;
+@keyframes moveCursor {
+  0% {
+    width: 100%; /* Start with no mask */
+  }
+  100% {
+    width: 8%; /* Expand mask to cover the text */
+  }
 }
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 #about-me figure {
   margin-top: 2rem;
   display: flex;
@@ -279,15 +341,14 @@ section {
 :is(#skills, #projects, #recommendations) {
   display: flex;
   flex-direction: column;
-  /* margin-block: 2rem; */
   margin: 2rem;
+  & h1 {
+    font-size: 3rem;
+    color: blueviolet;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
 }
-:is(#skills, #projects, #recommendations) h1 {
-  font-size: 3rem;
-  color: blueviolet;
-  margin-bottom: 2rem;
-}
-
 #skills .skill-cards {
   display: flex;
   justify-content: center;
@@ -401,16 +462,16 @@ section {
 @keyframes adjustFrame {
   0%,
   100% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateZ(0);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(var(--rotation-angle)) translateZ(0);
   }
   50% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateZ(0);
   }
   75% {
-    transform: rotate(10deg);
+    transform: rotate(var(--rotation-angle)) translateZ(0);
   }
 }
 
@@ -445,6 +506,7 @@ section {
 /* Hover effects for devices with hover capability */
 @media (hover: hover) {
   #skills .skill-card:hover {
+    --rotation-angle: 10deg;
     transform: scale(var(--scale-factor)) var(--card-transform);
     box-shadow: var(--card-shadow);
     border-color: var(--accent-color);
@@ -470,6 +532,7 @@ section {
 /* Touch effects for devices without hover */
 @media (hover: none) {
   #skills .skill-card:active {
+    --rotation-angle: 10deg;
     transform: scale(var(--scale-factor)) var(--card-transform);
     box-shadow: var(--card-shadow);
     border-color: var(--accent-color);
@@ -754,15 +817,8 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
-  #about-me .my-info h1 {
-    font-size: 3rem;
-  }
   :is(#skills, #projects, #recommendations) {
     margin-inline: 1rem;
-  }
-  :is(#skills, #projects, #recommendations) h1 {
-    text-align: center;
-    font-size: 2rem;
   }
 
   .recommendation-cards .recommendation-card {
@@ -811,7 +867,8 @@ label:focus-visible,
 [data-theme="dark"] input[type="checkbox"]:focus-visible + label {
   outline-color: var(--accent-color);
 }
-.visually-hidden {
+.visually-hidden,
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;

@@ -6,14 +6,9 @@
   --tech-transition: 0.15s ease;
 }
 
-#projects {
-  position: relative;
-  display: grid;
-}
-
 #projects .white-board {
   display: grid;
-  min-height: 40vh;
+  min-height: 45vh;
   overflow: visible;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
