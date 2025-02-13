@@ -243,10 +243,6 @@
 }
 
 @media (max-width: 768px) {
-  #projects .white-board {
-    margin: 1rem;
-    padding-top: 3rem;
-  }
 
   .card-info {
     top: -1.5rem;
