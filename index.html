@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/typing-effect.css" />
     <link rel="stylesheet" href="css/workspace.css" />
     <link rel="stylesheet" href="css/projects.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Portfolio WebSite</title>
   </head>
   <body>
@@ -196,11 +203,19 @@
             Doe at her desk with a controllable desk lamp
           </figcaption>
         </figure>
-
+        
         <div class="my-info">
-          <h1>
-            Hi, <br />
-            I'm Jane Doe!
+          <h1 aria-label="Hi, I'm Jane Doe">
+            <div class="line-1" aria-hidden="true">
+              <div class="typing-mask"></div>
+              <span class="spaced-text">Hi,</span>
+            </div>
+            <br aria-hidden="true" />
+            <div class="line-2" aria-hidden="true">
+              <div class="typing-mask"></div>
+              <span>I'm Jane Doe</span>
+            </div>
+            <div class="sr-only">Hi, I'm Jane Doe</div>
           </h1>
           <img
             src="./html_finalprojimages/waving-hand.png"
@@ -209,20 +224,20 @@
             height="100"
           />
           <div class="whiteboard-effect">
-          <p >
-            I am a full-stack developer with 2 years of experience in both
-            application and presentation layers. My experience includes:
-          </p>
-          <ul >
-            <li>
-              Working on applications and microservices deployed on IBM Cloud.
-            </li>
-            <li>
-              Using IBM Watson Services, such as Watson Assistant, NLU, and
-              Sentiment Analyzer.
-            </li>
-          </ul>
-        </div>
+            <p>
+              I am a full-stack developer with 2 years of experience in both
+              application and presentation layers. My experience includes:
+            </p>
+            <ul>
+              <li>
+                Working on applications and microservices deployed on IBM Cloud.
+              </li>
+              <li>
+                Using IBM Watson Services, such as Watson Assistant, NLU, and
+                Sentiment Analyzer.
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -327,14 +342,16 @@
           <article class="project-card" tabindex="0">
             <div class="card-face">
               <div class="pin" aria-hidden="true"></div>
-              
+
               <i class="project-icon fa-solid fa-robot"></i>
-              <h2>Chatbot</h2>  
+              <h2>Chatbot</h2>
             </div>
             <div class="card-info">
               <h3>Chatbot</h3>
-              <p>Developed a secure website integrated with a chatbot for an
-                automobile dealer ship client in the west region of USA</p>
+              <p>
+                Developed a secure website integrated with a chatbot for an
+                automobile dealer ship client in the west region of USA
+              </p>
               <div class="tech-stack">
                 <span class="tech-tag">HTML</span>
                 <span class="tech-tag">CSS</span>
@@ -345,14 +362,16 @@
           <article class="project-card" tabindex="0">
             <div class="card-face">
               <div class="pin" aria-hidden="true"></div>
-              
+
               <i class="project-icon fa-solid fa-heart"></i>
               <h2>Sentiment Analyzer</h2>
             </div>
             <div class="card-info">
               <h3>Sentiment Analyzer</h3>
-              <p>Developed an app that analyzes the sentiment of a given text
-                 using IBM Watson</p>
+              <p>
+                Developed an app that analyzes the sentiment of a given text
+                using IBM Watson
+              </p>
               <div class="tech-stack">
                 <span class="tech-tag">HTML</span>
                 <span class="tech-tag">CSS</span>
@@ -364,15 +383,17 @@
           <article class="project-card" tabindex="0">
             <div class="card-face">
               <div class="pin" aria-hidden="true"></div>
-              
+
               <i class="project-icon fa-solid fas fa-tshirt"></i>
               <h2>Fashion Website</h2>
             </div>
             <div class="card-info">
               <h3>Fashion Website</h3>
-              <p>Created a styled multi-page website for a new player in the
+              <p>
+                Created a styled multi-page website for a new player in the
                 fashion industry and integrated it with a shopping cart, using
-                stripe for payment gateway</p>
+                stripe for payment gateway
+              </p>
               <div class="tech-stack">
                 <span class="tech-tag">HTML</span>
                 <span class="tech-tag">CSS</span>
@@ -381,7 +402,6 @@
             </div>
           </article>
         </div>
-      
       </section>
 
       <section id="recommendations" aria-labelledby="recommendations-title">
