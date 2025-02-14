@@ -112,11 +112,10 @@
 .card-info {
   width: 100%;
   overflow: hidden;
-  padding: 2rem 0.5rem;
+  padding: 0.5rem 1rem;
   visibility: hidden;
   position: absolute;
   bottom: -25%;
-  /* left: 0; */
   z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
@@ -130,13 +129,17 @@
   );
   backdrop-filter: blur(10px) saturate(200%);
   isolation: isolate;
-  border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+  border: 2px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
   & h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 5vw, 1.5rem); /* Responsive font size */
     font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0 5px color-mix(in srgb, var(--primary-color) 40%, transparent);
+    -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.1);
     color: var(--primary-color);
     filter: saturate(1.5) brightness(1.5);
     margin: 0;
+     white-space: nowrap;
   }
 
   & p {
@@ -148,6 +151,13 @@
     font-weight: 500;
     /* Optional - add slight stroke */
     -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .card-info {
+      border-color: color-mix(in srgb, var(--primary-color) 80%, transparent); /* Lighter shade in dark mode */
   }
 }
 .top-light {
@@ -244,9 +254,3 @@
   overflow: hidden;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 480px) {
-  .card-info {
-      width: 85vw;
-  }
-}
