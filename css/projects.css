@@ -116,7 +116,7 @@
   visibility: hidden;
   position: absolute;
   bottom: -25%;
-  left: 0;
+  /* left: 0; */
   z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
@@ -247,7 +247,6 @@
 /* Media query for smaller screens */
 @media (max-width: 480px) {
   .card-info {
-    width: 90vw;
-    margin: 0 -2.1rem;
+      width: 85vw;
   }
 }
