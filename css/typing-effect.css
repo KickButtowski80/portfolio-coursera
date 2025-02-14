@@ -46,7 +46,7 @@ h1 {
   left: 0; /* Position at the end of the mask */
   width: 2rem;
   height: 1rem;
-  background-color: black;
+  background-color: var(--text-color);
   z-index: 2;
   animation: blink 0.5s steps(2, start) infinite; /* Blinking cursor */
 }
