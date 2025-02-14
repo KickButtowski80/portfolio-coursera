@@ -114,8 +114,8 @@
   overflow: hidden;
   padding: 0.5rem 1rem;
   visibility: hidden;
-  position: absolute;
-  bottom: -25%;
+  position: absolute;  
+  margin: 0 auto;
   z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
