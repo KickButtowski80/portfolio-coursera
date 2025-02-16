@@ -240,8 +240,7 @@ main {
   will-change: transform; /* Optimize for animations */
   backface-visibility: hidden; /* Improve rendering quality */
   filter: blur(0); /* Force sharp text rendering */
-  gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 0.25rem;
   background-color: var(--background-color);
   border-radius: 10px;
   border: 2px solid var(--text-color);
@@ -343,7 +342,8 @@ main {
   flex-direction: column;
   margin: 2rem;
   & h1 {
-    font-size: 3rem;
+    font-size: clamp(2.4rem, 2.2vw + 1.3rem, 5rem);
+    display: inline-block;
     color: blueviolet;
     margin-bottom: 2rem;
     text-align: center;
@@ -459,21 +459,7 @@ main {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes adjustFrame {
-  0%,
-  100% {
-    transform: rotate(0deg) translateZ(0);
-  }
-  25% {
-    transform: rotate(var(--rotation-angle)) translateZ(0);
-  }
-  50% {
-    transform: rotate(0deg) translateZ(0);
-  }
-  75% {
-    transform: rotate(var(--rotation-angle)) translateZ(0);
-  }
-}
+
 
 /* Keyboard focus styles */
 #skills .skill-card:focus-visible {
@@ -580,57 +566,7 @@ main {
   margin-left: 30px;
 }
 
-.recommendation-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2em;
-}
 
-.recommendation-cards .recommendation-card {
-  border-radius: 10%;
-  padding: 1.5rem;
-  font-style: italic;
-  text-align: left;
-  box-shadow: 0 3px 10px rgb(87, 77, 77);
-  margin: 10px;
-  border: 1px solid gray;
-}
-
-.recommendation-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  gap: 1rem;
-
-  position: relative;
-  z-index: 2;
-}
-
-.recommendation-form input,
-.recommendation-form textarea {
-  width: 100%;
-  padding: 0.5rem;
-}
-.recommendation-form h2 {
-  font-size: 30px;
-  margin: 30px 0px;
-}
-.recommendation-form button {
-  max-width: 12.5rem;
-  align-self: center;
-  background: white;
-  border: 1px solid blueviolet;
-  padding: 0.75rem;
-  margin: 1rem;
-  border-radius: 6px;
-  color: blueviolet;
-  font-size: 1.5rem;
-}
-
-.recommendation-form button:hover {
-  background-color: blueviolet;
-  color: white;
-}
 
 .projects-info article ul {
   margin-block: 2rem;
@@ -806,46 +742,17 @@ main {
     text-decoration: none;
   }
 
-  #recommendations {
-    align-items: center;
-    margin-inline: 1rem;
-    position: relative;
-  }
-
-  .recommendation-cards {
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
 
   :is(#skills, #projects, #recommendations) {
     margin-inline: 1rem;
   }
 
-  .recommendation-cards .recommendation-card {
-    width: 100%;
-  }
 
   .contact-info .theme-toggle {
     display: none;
   }
 
-  @keyframes openMenu {
-    0% {
-      clip-path: inset(0 0 99% 100%);
-    }
-    100% {
-      clip-path: inset(0 -15% 0 -61%);
-    }
-  }
 
-  @keyframes closeMenu {
-    0% {
-      clip-path: inset(0 -15% 0 -61%);
-    }
-    100% {
-      clip-path: inset(0 0 99% 100%);
-    }
-  }
 }
 a:focus-visible,
 button:focus-visible,
