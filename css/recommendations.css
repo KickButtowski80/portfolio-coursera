@@ -74,12 +74,12 @@
 .recommendation-card .pin {
   content: "";
   position: absolute;
-  top: 10px; 
-  left: 50%; 
-  width: 20px; 
-  height: 20px; 
-  background-color: var(--text-color); 
-  border-radius: 50%; 
+  top: 10px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-color);
+  border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
 }
 .recommendation-card:before,
@@ -123,11 +123,12 @@
 }
 .recommendation-form {
   position: relative;
+  isolation: isolate; 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
-  z-index: 2;
+  z-index: 0;
   background-color: rgba(
     from var(--text-color) r g b / 0.1
   ); /* Semi-transparent white */
@@ -171,17 +172,20 @@
       background-color: color-mix(in srgb, var(--primary-color) 90%, black);
     }
   }
-  .cosmatic-box {
+  & .pin {
+    content: "";
     position: absolute;
-    z-index: -2;
-    bottom: 10%;
-    right: 70%;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    width: 200px;
-    height: 300px;
-    border-radius: 15px;
+    top: 10px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the pin */
+    width: 30px; /* Pin width */
+    height: 30px; /* Pin height */
+    background-color: var(--text-color); /* Use your text color */
+    border-radius: 50%; /* Make it circular */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    z-index: 1; /* Ensure it's above the box */
   }
+
   &::before {
     content: "";
     position: absolute;
@@ -202,17 +206,44 @@
     z-index: -1;
     animation: moveBlob 3s ease-in-out infinite;
   }
+  &:hover{
+    animation: adjustFrame 0.5s ease-in-out;
+  }
 
-  &::after {
+}
+
+
+.cosmatic-box {
+  position: absolute;
+  z-index: 1;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+
+  &::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    bottom: 50%;
-    left: 90%;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    width: 200px;
-    height: 300px;
-    border-radius: 15px;
+    top: 10px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the pin */
+    width: 20px; /* Pin width */
+    height: 20px; /* Pin height */
+    background-color: var(--text-color); /* Use your text color */
+    border-radius: 50%; /* Make it circular */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    z-index: 1; /* Ensure it's above the box */
+  }
+
+  &.one {
+    top: 15%;
+    right: 70%;
+  }
+
+  &.two {
+    bottom: 0%;
+    left: 80%;
   }
 }
