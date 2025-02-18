@@ -103,11 +103,11 @@
   scale: 0.25;
 }
 .recommendation-form {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
-  position: relative;
   z-index: 2;
   background-color: rgba(from var(--text-color) r g b / 0.1); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
@@ -149,6 +149,23 @@
     &button:hover {
       background-color: color-mix(in srgb, var(--primary-color) 90%, black);
     }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #ee91ee 0%, #B721FF 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    position: absolute;
+    z-index: -99;
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    z-index: -1;
+    animation: moveBlob 3s ease-in-out infinite;
   }
 }
 
