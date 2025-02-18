@@ -14,3 +14,38 @@
     }
   }
   
+
+  @keyframes openMenu {
+    0% {
+      clip-path: inset(0 0 99% 100%);
+    }
+    100% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+  }
+
+  @keyframes closeMenu {
+    0% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+    100% {
+      clip-path: inset(0 0 99% 100%);
+    }
+  }
+
+
+  @keyframes glowBorder {
+    0% {
+      border-color: var(--text-color);
+      box-shadow: 0 0 1.3rem var(--text-color);
+    }
+    50% {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 50px var(--accent-color);
+    }
+    100% {
+      border-color: var(--text-color);
+      box-shadow: 0 0 1.3rem var(--text-color);
+    }
+  }
+  
