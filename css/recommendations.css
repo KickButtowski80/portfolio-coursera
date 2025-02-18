@@ -75,12 +75,12 @@
   width: 0%;
   height: 0%;
   transform-origin: top left;
-
   border-radius: 30%;
   position: absolute;
-  left: -50%;
-  top: -50%;
+  left:0%;
+  top: 0%;
   z-index: -1;
+  animation: none;
   transition: width 1s ease-in-out, height 1s ease-in-out;
 }
 .recommendation-card:before {
@@ -92,12 +92,20 @@
   transition-delay: 0.25s;
 }
 
+
 .recommendation-card:hover:before,
 .recommendation-card:hover:after {
   border-radius: 30%;
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
+
 }
+
+.recommendation-card:hover:after {
+  transition-delay: 0.5s;
+  transform: translate(-50%, -50%);
+}
+
 .recommendation-cards:has(.recommendation-card:hover)
   .recommendation-card:not(:hover) {
   scale: 0.25;
