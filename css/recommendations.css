@@ -31,7 +31,17 @@
     backface-visibility: hidden;
     transition: scale 0.3s ease-in-out;
     animation: glowBorder 3s ease-in-out infinite;
-
+    & .pin {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    }
     & p {
       font-size: 1.25rem;
       line-height: 1.2;
@@ -71,17 +81,6 @@
   }
 }
 
-.recommendation-card .pin {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: var(--text-color);
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-}
 .recommendation-card:before,
 .recommendation-card:after {
   content: "";
