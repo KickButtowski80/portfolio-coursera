@@ -19,7 +19,6 @@
     position: relative;
     isolation: isolate;
     overflow: clip;
-
     background-size: cover;
     background-position: center;
     width: min(100%, 390px);
@@ -97,11 +96,11 @@
   transition: width 1s ease-in-out, height 1s ease-in-out;
 }
 .recommendation-card:before {
-  background: #8c6b94;
+  background: #d39de0;
 }
 
 .recommendation-card:after {
-  background: rgb(111, 45, 166);
+  background: rgb(231, 63, 223);
   transition-delay: 0.25s;
 }
 
@@ -123,21 +122,19 @@
 }
 .recommendation-form {
   position: relative;
-  isolation: isolate; 
+  isolation: isolate;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
-  z-index: 0;
-  background-color: rgba(
-    from var(--text-color) r g b / 0.1
-  ); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* Blur effect */
+  z-index: 2;
+  background-color: rgba(from var(--text-color) r g b / 0.5);
+  backdrop-filter: blur(10px);
   padding: 1rem;
   margin-top: 1rem;
   max-width: 500px;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   & input,
   & textarea {
     width: 100%;
@@ -154,51 +151,88 @@
       box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
     }
   }
+  & label {
+    font-size: clamp(1rem, 2.2vw + 1.3rem, 1.5rem);
+    margin: 0.5rem 0;
+  }
   & h2 {
     font-size: clamp(2.4rem, 2.2vw + 1.3rem, 5rem);
     margin: 30px 0px;
+    text-align: center;
   }
   & button {
     max-width: 12.5rem;
+    position: relative;
+    z-index: 0;
     align-self: center;
     background: white;
     border: 1px solid blueviolet;
     padding: 0.75rem;
-    margin: 1rem;
+    margin-block: 1rem;
     border-radius: 6px;
     color: blueviolet;
     font-size: 1.5rem;
-    &button:hover {
+    transition: background-color 0.3s ease;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      z-index: -1;
+      height: 100%;
       background-color: color-mix(in srgb, var(--primary-color) 90%, black);
+      color: var(--text-color);
+      transition: width 0.3s ease; /* Smooth width transition */
+      z-index: 1; /* Place it behind the text */
+    }
+    &:hover {
+      color: var(--text-color);
+      &::before {
+        width: 100%;
+        z-index: -1;
+      }
     }
   }
   & .pin {
     content: "";
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust to center the pin */
-    width: 30px; /* Pin width */
-    height: 30px; /* Pin height */
-    background-color: var(--text-color); /* Use your text color */
-    border-radius: 50%; /* Make it circular */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-    z-index: 1; /* Ensure it's above the box */
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
   }
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: -10%;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
     width: 260px;
     height: 260px;
-    background-color: rgba(33, 212, 253, 0.5); /* Semi-transparent color */
+    background-color: rgba(209, 33, 253, 0.5);
     background-image: linear-gradient(
-      19deg,
-      rgba(238, 145, 238, 0.5) 0%,
-      rgba(183, 33, 255, 0.5) 100%
-    ); /* Gradient color */
+      45deg,
+      hsl(301deg 85% 36%) 0%,
+      hsl(300deg 78% 36%) 8%,
+      hsl(298deg 73% 36%) 17%,
+      hsl(297deg 69% 35%) 25%,
+      hsl(295deg 66% 35%) 33%,
+      hsl(294deg 63% 34%) 42%,
+      hsl(293deg 61% 34%) 50%,
+      hsl(291deg 59% 33%) 58%,
+      hsl(290deg 57% 32%) 67%,
+      hsl(288deg 55% 31%) 75%,
+      hsl(287deg 53% 30%) 83%,
+      hsl(285deg 52% 29%) 92%,
+      hsl(284deg 50% 28%) 100%
+    );
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: absolute;
     z-index: -99;
@@ -206,18 +240,12 @@
     z-index: -1;
     animation: moveBlob 3s ease-in-out infinite;
   }
-  &:hover{
-    animation: adjustFrame 0.5s ease-in-out;
-  }
-
 }
-
 
 .cosmatic-box {
   position: absolute;
-  z-index: 1;
-
-  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  background-color: rgba(from var(--text-color) r g b / 0.2);
   backdrop-filter: blur(10px);
   width: 200px;
   height: 300px;
@@ -226,24 +254,43 @@
   &::before {
     content: "";
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust to center the pin */
-    width: 20px; /* Pin width */
-    height: 20px; /* Pin height */
-    background-color: var(--text-color); /* Use your text color */
-    border-radius: 50%; /* Make it circular */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-    z-index: 1; /* Ensure it's above the box */
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    animation: adjustFrame 0.5s ease-in-out;
   }
 
   &.one {
-    top: 15%;
-    right: 70%;
+    top: 0%;
+    left: 80%;
+    height: 150px;
+    &:hover {
+      --rotation-angle: -5deg;
+    }
   }
 
   &.two {
     bottom: 0%;
     left: 80%;
+    &:hover {
+      --rotation-angle: 5deg;
+    }
+  }
+
+  &.three {
+    top: 55%;
+    right: 80%;
+    height: 200px;
+    &:hover {
+      --rotation-angle: 10deg;
+    }
   }
 }
