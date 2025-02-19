@@ -58,7 +58,8 @@
         font-size: clamp(1rem, 2vw, 1.5rem);
       }
     }
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       --rotation-angle: 10deg;
       animation: adjustFrame 0.5s ease-in-out;
       color: var(--text-color);
@@ -121,15 +122,10 @@
   scale: 0.25;
 }
 
-
 .recommendation-form-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
-
-
-
-
 
 .recommendation-form {
   position: relative;
@@ -197,7 +193,8 @@
       transition: width 0.3s ease; /* Smooth width transition */
       z-index: 1; /* Place it behind the text */
     }
-    &:hover, &:focus-visible {    
+    &:hover,
+    &:focus-visible {
       color: var(--text-color);
       &::before {
         width: 100%;
@@ -253,76 +250,80 @@
   }
 }
 
-.cosmatic-boxes{
+.cosmatic-boxes {
   position: relative;
-}
-
-@media screen and (max-width: 425px){
-  .cosmatic-boxes{
-   opacity: 0;
-   visibility: hidden;
-  }
-}
-.cosmatic-box {
-  position: absolute;
-  z-index: -1;
-  background-color: rgba(from var(--text-color) r g b / 0.2);
-  backdrop-filter: blur(10px);
-  width: 200px;
-  height: 300px;
-  border-radius: 15px;
-
-  &::before {
-    content: "";
+  & .cosmatic-box {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background-color: var(--text-color);
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
+    z-index: 0;
+    background-color: rgba(from var(--text-color) r g b / 0.2);
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    --rotation-angle: 0deg;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
 
-  &:hover, &:focus-visible {
-    animation: adjustFrame 0.5s ease-in-out;
-  }
-
-
-  
-  &.one {
-    top: 0%;
-    left: 50%;
-    height: 150px;
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       --rotation-angle: -5deg;
+      animation: adjustFrame 0.5s ease-in-out;
+    }
+
+    &.one {
+      top: 0%;
+      left: 50%;
+      height: 150px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: -5deg;
+      }
+    }
+
+    &.two {
+      bottom: 0%;
+      left: 40%;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 5deg;
+      }
+    }
+
+    &.three {
+      top: 10%;
+      left: 30%;
+      height: 200px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 10deg;
+      }
+    }
+
+    &.four {
+      top: 35%;
+      left: 10%;
+      height: 200px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 15deg;
+      }
     }
   }
+}
 
-  &.two {
-    bottom: 0%;
-    left: 40%;
-    &:hover, &:focus-visible {
-      --rotation-angle: 5deg;
-    }
-  }
-
-  &.three {
-    top: 10%;
-    left: 30%;
-    height: 200px;
-    &:hover, &:focus-visible {
-      --rotation-angle: 10deg;
-    }
-  }
-
-  &.four {
-    top: 35%;
-    left: 10%;
-    height: 200px;
-    &:hover, &:focus-visible {
-      --rotation-angle: 10deg;
-    }
+@media screen and (max-width: 425px) {
+  .cosmatic-boxes {
+    opacity: 0;
+    visibility: hidden;
   }
 }
