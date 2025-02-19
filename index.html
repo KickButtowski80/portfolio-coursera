@@ -432,9 +432,9 @@
             <div class="pin" aria-hidden="true"></div>
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She got a great attitude ,and she is an excellent
-              team player. She has a curious mind and asks the right question.
-              She takes initiative within a team and has potentials to lead the
+              Web development. She has a great attitude and is an excellent
+              team player. She has a curious mind and asks the right questions.
+              She takes initiative within a team and has potential to lead the
               team.
             </p>
             <footer>
@@ -473,32 +473,39 @@
           <h2 id="form-title">Your Review Matters</h2>
           <div class="cosmatic-box two" aria-hidden="true"></div>
           <div class="cosmatic-box three" aria-hidden="true"></div>
+          
           <div class="form-group">
             <label for="recommendation-author-name">Your Name (Optional)</label>
+            <span id="name-description" class="visually-hidden">Enter your full name if you wish to be credited</span>
             <input
               type="text"
               name="author-name"
               id="recommendation-author-name"
               aria-label="Enter your name (optional)"
               aria-required="false"
+              aria-describedby="name-description"
             />
           </div>
 
           <div class="form-group">
             <label for="recommendation-author-message">Your Message</label>
+            <span id="message-description" class="visually-hidden">Share your experience working with me</span>
+            <span id="message-error" class="error-message" aria-live="polite"></span>
             <textarea
               name="author-message"
               id="recommendation-author-message"
               cols="500"
               rows="10"
               required
+              minlength="10"
               aria-required="true"
+              aria-describedby="message-description message-error"
               aria-label="Enter your recommendation message"
             ></textarea>
           </div>
 
-          <button type="submit" aria-label="Submit recommendation">
-            Submit
+          <button type="submit" class="submit-button" aria-label="Submit your recommendation">
+            Submit Recommendation
           </button>
         </form>
       </section>
