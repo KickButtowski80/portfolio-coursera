@@ -1,0 +1,322 @@
+#recommendations {
+  align-items: center;
+  margin-inline: 1rem;
+  position: relative;
+}
+
+.recommendation-cards {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  & .recommendation-card {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background-size: cover;
+    background-position: center;
+    width: min(100%, 390px);
+    border-radius: 10%;
+    padding: 1rem;
+    font-style: italic;
+    text-align: left;
+    box-shadow: 0 3px 10px rgb(87, 77, 77);
+    border: 1px solid gray;
+    backface-visibility: hidden;
+    transition: scale 0.3s ease-in-out;
+    animation: glowBorder 3s ease-in-out infinite;
+    & .pin {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    }
+    & p {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      color: var(--text-color);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(
+        from var(--text-color) r g b / 0.1
+      ); /* Semi-transparent white */
+      backdrop-filter: blur(1rem); /* Blur effect */
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    }
+
+    & footer {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 1.5rem;
+      & cite {
+        white-space: nowrap;
+        font-style: normal;
+        font-weight: 600;
+        font-size: clamp(1rem, 2vw, 1.5rem);
+      }
+    }
+    &:hover,
+    &:focus-visible {
+      --rotation-angle: 10deg;
+      animation: adjustFrame 0.5s ease-in-out;
+      color: var(--text-color);
+      margin: 1rem;
+      scale: calc(
+        1 + 0.3 * (100vw / 1920)
+      ); /* Scale between 1 and 1.3 based on viewport width */
+    }
+  }
+}
+
+.recommendation-card:before,
+.recommendation-card:after {
+  content: "";
+  width: 0%;
+  height: 0%;
+  transform-origin: top left;
+  border-radius: 30%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  z-index: -1;
+  animation: none;
+  transition: width 1s ease-in-out, height 1s ease-in-out;
+}
+.recommendation-card:before {
+  background: #d39de0;
+}
+
+.recommendation-card:after {
+  background: rgb(231, 63, 223);
+  transition-delay: 0.25s;
+}
+
+.recommendation-card:hover:before,
+.recommendation-card:hover:after {
+  border-radius: 30%;
+  width: 250%;
+  height: 250%;
+}
+
+.recommendation-card:hover:after {
+  transition-delay: 0.5s;
+  transform: translate(-50%, -50%);
+}
+
+.recommendation-cards:has(.recommendation-card:hover)
+  .recommendation-card:not(:hover) {
+  scale: 0.25;
+}
+
+.recommendation-form-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.recommendation-form {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  z-index: 2;
+  background-color: rgba(from var(--text-color) r g b / 0.5);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  & input,
+  & textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    &:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+    }
+  }
+  & label {
+    font-size: clamp(1rem, 2.2vw + 1.3rem, 1.5rem);
+    margin: 0.5rem 0;
+  }
+  & h2 {
+    font-size: clamp(2.4rem, 2.2vw + 1.3rem, 5rem);
+    margin: 30px 0px;
+    text-align: center;
+  }
+  & button {
+    max-width: 12.5rem;
+    position: relative;
+    z-index: 0;
+    align-self: center;
+    background: white;
+    border: 1px solid blueviolet;
+    padding: 0.75rem;
+    margin-block: 1rem;
+    border-radius: 6px;
+    color: blueviolet;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      z-index: -1;
+      height: 100%;
+      background-color: color-mix(in srgb, var(--primary-color) 90%, black);
+      color: var(--text-color);
+      transition: width 0.3s ease; /* Smooth width transition */
+      z-index: 1; /* Place it behind the text */
+    }
+    &:hover,
+    &:focus-visible {
+      color: var(--text-color);
+      &::before {
+        width: 100%;
+        z-index: -1;
+      }
+    }
+  }
+  & .pin {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    background-color: rgba(209, 33, 253, 0.5);
+    background-image: linear-gradient(
+      45deg,
+      hsl(320deg 80% 66%) 0%,
+      hsl(310deg 75% 66%) 15%,
+      hsl(300deg 70% 65%) 30%,
+      hsl(290deg 65% 64%) 45%,
+      hsl(280deg 60% 64%) 60%,
+      hsl(270deg 55% 63%) 75%,
+      hsl(260deg 50% 62%) 90%,
+      hsl(250deg 45% 60%) 100%
+    );
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: -99;
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    z-index: -1;
+    animation: moveBlob 3s ease-in-out infinite;
+  }
+}
+
+.cosmatic-boxes {
+  position: relative;
+  & .cosmatic-box {
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(from var(--text-color) r g b / 0.2);
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    --rotation-angle: 0deg;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover,
+    &:focus-visible {
+      --rotation-angle: -5deg;
+      animation: adjustFrame 0.5s ease-in-out;
+    }
+
+    &.one {
+      top: 5%;
+      left: 50%;
+      height: 150px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: -5deg;
+      }
+    }
+
+    &.two {
+      bottom: 0%;
+      left: 40%;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 5deg;
+      }
+    }
+
+    &.three {
+      top: 10%;
+      left: 30%;
+      height: 200px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 10deg;
+      }
+    }
+
+    &.four {
+      top: 35%;
+      left: 10%;
+      height: 200px;
+      &:hover,
+      &:focus-visible {
+        --rotation-angle: 15deg;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .cosmatic-boxes {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

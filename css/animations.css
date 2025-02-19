@@ -1,0 +1,66 @@
+@keyframes adjustFrame {
+    0%,
+    100% {
+      transform: rotate(0deg) translateZ(0);
+    }
+    25% {
+      transform: rotate(var(--rotation-angle)) translateZ(0);
+    }
+    50% {
+      transform: rotate(0deg) translateZ(0);
+    }
+    75% {
+      transform: rotate(var(--rotation-angle)) translateZ(0);
+    }
+  }
+  
+
+  @keyframes openMenu {
+    0% {
+      clip-path: inset(0 0 99% 100%);
+    }
+    100% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+  }
+
+  @keyframes closeMenu {
+    0% {
+      clip-path: inset(0 -15% 0 -61%);
+    }
+    100% {
+      clip-path: inset(0 0 99% 100%);
+    }
+  }
+
+
+  @keyframes glowBorder {
+    0% {
+      border-color: var(--text-color);
+      box-shadow: 0 0 1.3rem var(--text-color);
+    }
+    50% {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 50px var(--accent-color);
+    }
+    100% {
+      border-color: var(--text-color);
+      box-shadow: 0 0 1.3rem var(--text-color);
+    }
+  }
+  
+
+  @keyframes moveBlob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, 20px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 40px) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
