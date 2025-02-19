@@ -281,7 +281,7 @@
     }
 
     &.one {
-      top: 0%;
+      top: 5%;
       left: 50%;
       height: 150px;
       &:hover,
