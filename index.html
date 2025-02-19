@@ -427,9 +427,9 @@
 
       <section id="recommendations" aria-labelledby="recommendations-title">
         <h1 id="recommendations-title">Recommendations</h1>
-        <div class="recommendation-cards">
-          <blockquote class="recommendation-card ">
-            <div class="pin"></div>
+        <div class="recommendation-cards" role="region" aria-label="Testimonials from colleagues">
+          <blockquote class="recommendation-card" tabindex="0">
+            <div class="pin" aria-hidden="true"></div>
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
               Web development. She got a great attitude ,and she is an excellent
@@ -441,8 +441,8 @@
               <cite>- John Doe, Senior Developer</cite>
             </footer>
           </blockquote>
-          <blockquote class="recommendation-card ">
-             <div class="pin"></div>
+          <blockquote class="recommendation-card" tabindex="0">
+             <div class="pin" aria-hidden="true"></div>
             <p>
               Working with Jane has been an awesome experience. She is highly
               knowledgeable and always goes the extra step to make sure
@@ -453,8 +453,8 @@
               <cite>- Sarah Smith, Project Manager</cite>
             </footer>
           </blockquote>
-          <blockquote class="recommendation-card ">
-             <div class="pin"></div>
+          <blockquote class="recommendation-card" tabindex="0">
+             <div class="pin" aria-hidden="true"></div>
             <p>
               I had worked along with Jane during the initial phase of our
               venture which needed Web development. She is a committed resource
@@ -467,19 +467,20 @@
           </blockquote>
         </div>
 
-        <form class="recommendation-form " aria-labelledby="form-title">
-          <div class="pin"></div> 
-          <div class="cosmatic-box one"></div>
+        <form class="recommendation-form" aria-labelledby="form-title">
+          <div class="pin" aria-hidden="true"></div> 
+          <div class="cosmatic-box one" aria-hidden="true"></div>
           <h2 id="form-title">Your Review Matters</h2>
-          <div class="cosmatic-box two"></div>
-          <div class="cosmatic-box three"></div>
+          <div class="cosmatic-box two" aria-hidden="true"></div>
+          <div class="cosmatic-box three" aria-hidden="true"></div>
           <div class="form-group">
             <label for="recommendation-author-name">Your Name (Optional)</label>
             <input
               type="text"
               name="author-name"
               id="recommendation-author-name"
-              aria-label="Your name (optional)"
+              aria-label="Enter your name (optional)"
+              aria-required="false"
             />
           </div>
 
@@ -492,6 +493,7 @@
               rows="10"
               required
               aria-required="true"
+              aria-label="Enter your recommendation message"
             ></textarea>
           </div>
 
