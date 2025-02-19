@@ -58,7 +58,7 @@
         font-size: clamp(1rem, 2vw, 1.5rem);
       }
     }
-    &:hover {
+    &:hover, &:focus-visible {
       --rotation-angle: 10deg;
       animation: adjustFrame 0.5s ease-in-out;
       color: var(--text-color);
@@ -186,7 +186,7 @@
       transition: width 0.3s ease; /* Smooth width transition */
       z-index: 1; /* Place it behind the text */
     }
-    &:hover {
+    &:hover, &:focus-visible {    
       color: var(--text-color);
       &::before {
         width: 100%;
@@ -264,7 +264,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
 
-  &:hover {
+  &:hover, &:focus-visible {
     animation: adjustFrame 0.5s ease-in-out;
   }
 
@@ -272,7 +272,7 @@
     top: 0%;
     left: 80%;
     height: 150px;
-    &:hover {
+    &:hover, &:focus-visible {
       --rotation-angle: -5deg;
     }
   }
@@ -280,7 +280,7 @@
   &.two {
     bottom: 0%;
     left: 80%;
-    &:hover {
+    &:hover, &:focus-visible {
       --rotation-angle: 5deg;
     }
   }
@@ -289,7 +289,7 @@
     top: 55%;
     right: 80%;
     height: 200px;
-    &:hover {
+    &:hover, &:focus-visible {
       --rotation-angle: 10deg;
     }
   }
