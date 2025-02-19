@@ -120,6 +120,17 @@
   .recommendation-card:not(:hover) {
   scale: 0.25;
 }
+
+
+.recommendation-form-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+}
+
+
+
+
+
 .recommendation-form {
   position: relative;
   isolation: isolate;
@@ -132,7 +143,7 @@
   backdrop-filter: blur(10px);
   padding: 1rem;
   margin-top: 1rem;
-  max-width: 500px;
+  /* width: 100%; */
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   & input,
@@ -242,6 +253,16 @@
   }
 }
 
+.cosmatic-boxes{
+  position: relative;
+}
+
+@media screen and (max-width: 425px){
+  .cosmatic-boxes{
+   opacity: 0;
+   visibility: hidden;
+  }
+}
 .cosmatic-box {
   position: absolute;
   z-index: -1;
@@ -268,9 +289,11 @@
     animation: adjustFrame 0.5s ease-in-out;
   }
 
+
+  
   &.one {
     top: 0%;
-    left: 80%;
+    left: 50%;
     height: 150px;
     &:hover, &:focus-visible {
       --rotation-angle: -5deg;
@@ -279,15 +302,24 @@
 
   &.two {
     bottom: 0%;
-    left: 80%;
+    left: 40%;
     &:hover, &:focus-visible {
       --rotation-angle: 5deg;
     }
   }
 
   &.three {
-    top: 55%;
-    right: 80%;
+    top: 10%;
+    left: 30%;
+    height: 200px;
+    &:hover, &:focus-visible {
+      --rotation-angle: 10deg;
+    }
+  }
+
+  &.four {
+    top: 35%;
+    left: 10%;
     height: 200px;
     &:hover, &:focus-visible {
       --rotation-angle: 10deg;

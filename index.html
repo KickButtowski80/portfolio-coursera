@@ -405,44 +405,48 @@
           </article>
           <article class="project-card" tabindex="0">
             <div class="card-face">
-                <div class="pin" aria-hidden="true"></div>
-                <i class="project-icon fa-solid fa-cloud-sun"></i>
-                <h2>Weather App</h2>
+              <div class="pin" aria-hidden="true"></div>
+              <i class="project-icon fa-solid fa-cloud-sun"></i>
+              <h2>Weather App</h2>
             </div>
             <div class="card-info">
-                <h3>Weather App</h3>
-                <p>
-                    Developed a real-time weather application with 5-day forecasts and interactive maps.
-                    Integrated with OpenWeatherMap API for accurate weather data.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">API</span>
-                    <span class="tech-tag">CSS</span>
-                </div>
+              <h3>Weather App</h3>
+              <p>
+                Developed a real-time weather application with 5-day forecasts
+                and interactive maps. Integrated with OpenWeatherMap API for
+                accurate weather data.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">API</span>
+                <span class="tech-tag">CSS</span>
+              </div>
             </div>
-        </article>
+          </article>
         </div>
       </section>
 
       <section id="recommendations" aria-labelledby="recommendations-title">
         <h1 id="recommendations-title">Recommendations</h1>
-        <div class="recommendation-cards" role="region" aria-label="Testimonials from colleagues">
+        <div
+          class="recommendation-cards"
+          role="region"
+          aria-label="Testimonials from colleagues"
+        >
           <blockquote class="recommendation-card" tabindex="0">
             <div class="pin" aria-hidden="true"></div>
             <p>
               Jane is a very quick learner and quickly grasps key concepts of
-              Web development. She has a great attitude and is an excellent
-              team player. She has a curious mind and asks the right questions.
-              She takes initiative within a team and has potential to lead the
-              team.
+              Web development. She has a great attitude and is an excellent team
+              player. She has a curious mind and asks the right questions. She
+              takes initiative within a team and has potential to lead the team.
             </p>
             <footer>
               <cite>- John Doe, Senior Developer</cite>
             </footer>
           </blockquote>
           <blockquote class="recommendation-card" tabindex="0">
-             <div class="pin" aria-hidden="true"></div>
+            <div class="pin" aria-hidden="true"></div>
             <p>
               Working with Jane has been an awesome experience. She is highly
               knowledgeable and always goes the extra step to make sure
@@ -454,7 +458,7 @@
             </footer>
           </blockquote>
           <blockquote class="recommendation-card" tabindex="0">
-             <div class="pin" aria-hidden="true"></div>
+            <div class="pin" aria-hidden="true"></div>
             <p>
               I had worked along with Jane during the initial phase of our
               venture which needed Web development. She is a committed resource
@@ -466,48 +470,66 @@
             </footer>
           </blockquote>
         </div>
+        <div class="recommendation-form-section">
+          <form class="recommendation-form" aria-labelledby="form-title">
+            <div class="pin" aria-hidden="true"></div>
+            <h2 id="form-title">Your Review Matters</h2>
 
-        <form class="recommendation-form" aria-labelledby="form-title">
-          <div class="pin" aria-hidden="true"></div> 
-          <div class="cosmatic-box one" aria-hidden="true"></div>
-          <h2 id="form-title">Your Review Matters</h2>
-          <div class="cosmatic-box two" aria-hidden="true"></div>
-          <div class="cosmatic-box three" aria-hidden="true"></div>
-          
-          <div class="form-group">
-            <label for="recommendation-author-name">Your Name (Optional)</label>
-            <span id="name-description" class="visually-hidden">Enter your full name if you wish to be credited</span>
-            <input
-              type="text"
-              name="author-name"
-              id="recommendation-author-name"
-              aria-label="Enter your name (optional)"
-              aria-required="false"
-              aria-describedby="name-description"
-            />
+            <div class="form-group">
+              <label for="recommendation-author-name"
+                >Your Name (Optional)</label
+              >
+              <span id="name-description" class="visually-hidden"
+                >Enter your full name if you wish to be credited</span
+              >
+              <input
+                type="text"
+                name="author-name"
+                id="recommendation-author-name"
+                aria-label="Enter your name (optional)"
+                aria-required="false"
+                aria-describedby="name-description"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="recommendation-author-message">Your Message</label>
+              <span id="message-description" class="visually-hidden"
+                >Share your experience working with me</span
+              >
+              <span
+                id="message-error"
+                class="error-message"
+                aria-live="polite"
+              ></span>
+              <textarea
+                name="author-message"
+                id="recommendation-author-message"
+                cols="500"
+                rows="10"
+                required
+                minlength="10"
+                aria-required="true"
+                aria-describedby="message-description message-error"
+                aria-label="Enter your recommendation message"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="submit-button"
+              aria-label="Submit your recommendation"
+            >
+              Submit
+            </button>
+          </form>
+          <div class="cosmatic-boxes">
+            <div class="cosmatic-box one" aria-hidden="true" ></div>
+            <div class="cosmatic-box two" aria-hidden="true" ></div>
+            <div class="cosmatic-box three" aria-hidden="true" ></div>
+            <div class="cosmatic-box four" aria-hidden="true" ></div>
           </div>
-
-          <div class="form-group">
-            <label for="recommendation-author-message">Your Message</label>
-            <span id="message-description" class="visually-hidden">Share your experience working with me</span>
-            <span id="message-error" class="error-message" aria-live="polite"></span>
-            <textarea
-              name="author-message"
-              id="recommendation-author-message"
-              cols="500"
-              rows="10"
-              required
-              minlength="10"
-              aria-required="true"
-              aria-describedby="message-description message-error"
-              aria-label="Enter your recommendation message"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="submit-button" aria-label="Submit your recommendation">
-            Submit
-          </button>
-        </form>
+        </div>
       </section>
     </main>
 
