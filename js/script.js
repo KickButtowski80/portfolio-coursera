@@ -1,4 +1,4 @@
-  // Dark mode toggle functionality
+// Dark mode toggle functionality
 const darkModeToggles = document.querySelectorAll(".darkmode-toggle");
 
 // Check for saved theme preference
@@ -16,13 +16,13 @@ darkModeToggles.forEach((toggle) => {
     // Update theme
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
- 
-    toggle.setAttribute('aria-checked', event.target.checked);
+
+    toggle.setAttribute("aria-checked", event.target.checked);
     // Sync other toggles
     darkModeToggles.forEach((otherToggle) => {
       if (otherToggle !== event.target) {
         otherToggle.checked = event.target.checked;
-        otherToggle.setAttribute('aria-checked', event.target.checked);
+        otherToggle.setAttribute("aria-checked", event.target.checked);
       }
     });
   });
@@ -44,15 +44,22 @@ document.addEventListener("keydown", (event) => {
     document.activeElement.tagName === "TEXTAREA";
   const isToggleFocused =
     document.activeElement.classList.contains("darkmode-toggle");
+
   // 'D' key for dark mode toggle
-  if (event.key.toLowerCase() === "d" && (!isTyping || isToggleFocused)) {
+  if (
+    (!isTyping || isToggleFocused) &&
+    event.key.trim().toLowerCase() === "d"
+  ) {
     const firstToggle = darkModeToggles[0];
     firstToggle.checked = !firstToggle.checked;
     // Trigger the change event to update theme and sync other toggles
     firstToggle.dispatchEvent(new Event("change"));
   }
   // 'M' key for menu toggle
-  if (event.key.toLowerCase() === "m" && (!isTyping || isToggleFocused)) {
+  if (
+    (!isTyping || isToggleFocused) &&
+    event.key.trim().toLowerCase() === "m"
+  ) {
     hamburgerIcon.checked = !hamburgerIcon.checked;
     hamburgerIcon.dispatchEvent(new Event("change"));
   }
@@ -137,9 +144,9 @@ allMenuLinks.forEach((menuLink) => {
 
 // Helper function for screen reader announcements
 function announceToScreenReader(message) {
-  const announcement = document.createElement('div');
-  announcement.setAttribute('aria-live', 'polite');
-  announcement.setAttribute('class', 'visually-hidden');
+  const announcement = document.createElement("div");
+  announcement.setAttribute("aria-live", "polite");
+  announcement.setAttribute("class", "visually-hidden");
   announcement.textContent = message;
   document.body.appendChild(announcement);
   setTimeout(() => announcement.remove(), 1000);
