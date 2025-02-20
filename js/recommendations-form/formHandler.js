@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Recommendation is required!');
             return;
         }
-
+       
         // Display the submitted data
         displayFormData(formData, outputDiv);
+        form.reset();
     });
+
 });
