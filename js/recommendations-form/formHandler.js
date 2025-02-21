@@ -14,13 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         // Read the form data
-        const formData = readFormData(form);
-
-        // Validate the recommendation field
-        if (!formData.recommendation) {
-            alert('Recommendation is required!');
-            return;
-        }
+        const formData = readFormData(form);    
        
         // Display the submitted data
         displayFormData(formData, outputDiv);
