@@ -500,19 +500,23 @@
                 class="error-message"
                 aria-live="polite"
               ></span>
-              <textarea
-                name="author-message"
-                id="recommendation-author-message"
-                cols="500"
-                rows="10"
-                required
-                minlength="10"
-                maxlength="300"
-                aria-required="true"
-                aria-describedby="message-description message-error"
-                aria-label="Enter your recommendation message"
-              ></textarea>
-
+              <div class="textarea-layout1">
+              
+                <textarea
+                  name="author-message"
+                  id="recommendation-author-message"
+                  cols="500"
+                  rows="10"
+                  required
+                  minlength="10"
+                  maxlength="300"
+                  aria-required="true"
+                  aria-describedby="message-description message-error"
+                  aria-label="Enter your recommendation message"
+                  pattern="\\S+"
+                ></textarea>
+                <span>here:</span>
+              </div>
               <div>
                 * (required)
 
@@ -545,6 +549,11 @@
     <script
       type="module"
       src="js/recommendations-form/formHandler.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="js/recommendations-form/formValidator.js"
       defer
     ></script>
   </body>

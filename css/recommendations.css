@@ -75,9 +75,7 @@
       animation: adjustFrame 0.5s ease-in-out;
       color: var(--text-color);
       margin: 1rem;
-      scale: calc(
-        1 + 0.3 * (100vw / 1920)
-      ); /* Scale between 1 and 1.3 based on viewport width */
+      scale: calc( 1 + 0.3 * (100vw / 1920)); /* Scale between 1 and 1.3 based on viewport width */
     }
   }
 }
@@ -151,7 +149,15 @@
     color: var(--text-color);
     font-size: 1rem;
     transition: all 0.3s ease;
-    &:focus {
+
+ 
+    &:user-valid {
+      border: 2px solid green;
+    }
+    &:user-invalid {
+      border: 2px solid red;
+    }
+    &:focus-visible {
       border-color: var(--primary-color);
       outline: none;
       box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
@@ -242,6 +248,10 @@
     z-index: -1;
     animation: moveBlob 3s ease-in-out infinite;
   }
+}
+.textarea-layout{
+  display: flex;
+  gap: 0.5rem;
 }
 
 .cosmatic-boxes {
