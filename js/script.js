@@ -91,7 +91,7 @@ const observers = [];
 const options = {
   root: null,
   rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
-  threshold: [0, 0.25, 0.5, 0.75, 1],
+  threshold: [0, 0.0077, 0.21,  0.25, 0.5, 0.75, 1],
 };
 
 const allMenuLinks = document.querySelectorAll("nav ul li a");
@@ -107,6 +107,8 @@ allMenuLinks.forEach((menuLink) => {
         visible: entry.isIntersecting,
         ratio: entry.intersectionRatio,
       });
+
+      console.log('entry',entry.target.id, entry.intersectionRatio)
     });
 
     // Find the most visible section
