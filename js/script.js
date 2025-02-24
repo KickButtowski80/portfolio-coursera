@@ -107,8 +107,6 @@ allMenuLinks.forEach((menuLink) => {
         visible: entry.isIntersecting,
         ratio: entry.intersectionRatio,
       });
-
-      console.log('entry',entry.target.id, entry.intersectionRatio)
     });
 
     // Find the most visible section
