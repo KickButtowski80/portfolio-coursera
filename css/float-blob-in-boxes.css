@@ -1,0 +1,91 @@
+
+:root {
+  --rotation-angle: 5deg; /* Define the variable in the root scope */
+}
+
+.cosmetic-boxes {
+  position: relative;
+  & .cosmetic-box {
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(from var(--text-color) r g b / 0.2);
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &.one {
+      top: 5%;
+      left: 50%;
+      height: 150px;
+    }
+
+    &.two {
+      bottom: 0%;
+      left: 40%;
+    }
+
+    &.three {
+      top: 10%;
+      left: 30%;
+      height: 200px;
+    }
+
+    &.four {
+      top: 35%;
+      left: 10%;
+      height: 200px;
+    }
+  }
+}
+
+/* Blob styling */
+.blob {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(209, 33, 253, 0.5);
+  background-image: linear-gradient(
+    45deg,
+    hsl(320deg 80% 66%) 0%,
+    hsl(310deg 75% 66%) 15%,
+    hsl(300deg 70% 65%) 30%,
+    hsl(290deg 65% 64%) 45%,
+    hsl(280deg 60% 64%) 60%,
+    hsl(270deg 55% 63%) 75%,
+    hsl(260deg 50% 62%) 90%,
+    hsl(250deg 45% 60%) 100%
+  );
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 1s ease-in-out, left 1s ease-in-out;
+}
+
+.shake {
+  --rotation-angle: 5deg;
+  animation: adjustFrame 0.5s ease-in-out forwards;
+}
+
+@media screen and (max-width: 425px) {
+  .cosmetic-boxes {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
