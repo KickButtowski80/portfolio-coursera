@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/workspace.css" />
     <link rel="stylesheet" href="css/projects.css" />
     <link rel="stylesheet" href="css/recommendations.css" />
+    <link rel="stylesheet" href="css/float-blob-in-boxes.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -524,11 +525,12 @@
               Submit
             </button>
           </form>
-          <div class="cosmatic-boxes">
-            <div class="cosmatic-box one" aria-hidden="true"></div>
-            <div class="cosmatic-box two" aria-hidden="true"></div>
-            <div class="cosmatic-box three" aria-hidden="true"></div>
-            <div class="cosmatic-box four" aria-hidden="true"></div>
+          <div class="cosmetic-boxes">
+            <div class="cosmetic-box one" aria-hidden="true"></div>
+            <div class="cosmetic-box two" aria-hidden="true"></div>
+            <div class="cosmetic-box three" aria-hidden="true"></div>
+            <div class="cosmetic-box four" aria-hidden="true"></div>
+            <div class="blob" id="blob"></div>
           </div>
         </div>
       </section>
@@ -548,5 +550,6 @@
       src="js/recommendations-form/formValidator.js"
       defer
     ></script>
+    <script src="js/floatBlobInBoxes.js" defer></script>
   </body>
 </html>
