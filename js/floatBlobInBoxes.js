@@ -39,9 +39,13 @@ function moveBlob() {
   const boxX = nextBox.offsetLeft + nextBox.offsetWidth / 2;
   const boxY = nextBox.offsetTop + nextBox.offsetHeight / 2;
 
+  // Adjust for blob size to center it
+  const adjustedBoxX = boxX - blob.offsetWidth / 2;
+  const adjustedBoxY = boxY - blob.offsetHeight / 2;
+
   // Move the blob to the center of the next box
-  blob.style.left = `${boxX}px`;
-  blob.style.top = `${boxY}px`;
+  blob.style.left = `${adjustedBoxX}px`;
+  blob.style.top = `${adjustedBoxY}px`;
 
   blob.addEventListener(
     "transitionend",

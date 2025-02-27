@@ -53,6 +53,7 @@
 
 /* Blob styling */
 .blob {
+
   width: 150px;
   height: 150px;
   background-color: rgba(209, 33, 253, 0.5);
@@ -71,14 +72,14 @@
   border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
   position: absolute;
   z-index: -1;
-  top: 50%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   transition: top 1s ease-in-out, left 1s ease-in-out;
 }
 
 .shake {
-  --rotation-angle: 5deg;
+  /* --rotation-angle: 5deg; */
   animation: adjustFrame 0.5s ease-in-out forwards;
 }
 
