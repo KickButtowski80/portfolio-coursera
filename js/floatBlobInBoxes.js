@@ -1,11 +1,10 @@
 const blob = document.getElementById("blob");
 const boxes = document.querySelectorAll(".cosmetic-box");
 
-
-const pathPoints = Array.from(boxes).map(box => {
+const pathPoints = Array.from(boxes).map((box) => {
   return {
     x: box.offsetLeft + box.offsetWidth / 2,
-    y: box.offsetTop + box.offsetHeight / 2
+    y: box.offsetTop + box.offsetHeight / 2,
   };
 });
 
@@ -17,7 +16,7 @@ const moveInterval = 2000; // Milliseconds between moves
 function animate(currentTime) {
   // Calculate elapsed time since the last move
   const elapsedTime = currentTime - lastMoveTime;
- // Check if it's time to move the blob
+  // Check if it's time to move the blob
   if (elapsedTime >= moveInterval) {
     moveBlob();
     lastMoveTime = currentTime;
@@ -36,6 +35,11 @@ function moveBlob() {
   currentBoxIndex = (currentBoxIndex + 1) % boxes.length;
 
   // Calculate the center of the next box
+  //   offsetLeft: This tells us how far the left
+  // edge of the box is from the left edge of the screen.
+
+  // offsetTop: This tells us how far the top
+  // edge of the box is from the top edge of the screen.
   const boxX = nextBox.offsetLeft + nextBox.offsetWidth / 2;
   const boxY = nextBox.offsetTop + nextBox.offsetHeight / 2;
 
