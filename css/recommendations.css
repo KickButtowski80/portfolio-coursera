@@ -242,92 +242,10 @@
       hsl(250deg 45% 60%) 100%
     );
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    z-index: -99;
     border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
     z-index: -1;
     animation: moveBlob 3s ease-in-out infinite;
   }
 }
-.textarea-layout{
-  display: flex;
-  gap: 0.5rem;
-}
 
-.cosmatic-boxes {
-  position: relative;
-  & .cosmatic-box {
-    position: absolute;
-    z-index: 0;
-    background-color: rgba(from var(--text-color) r g b / 0.2);
-    backdrop-filter: blur(10px);
-    width: 200px;
-    height: 300px;
-    border-radius: 15px;
-    --rotation-angle: 0deg;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      background-color: var(--text-color);
-      border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
 
-    &:hover,
-    &:focus-visible {
-      --rotation-angle: -5deg;
-      animation: adjustFrame 0.5s ease-in-out;
-    }
-
-    &.one {
-      top: 5%;
-      left: 50%;
-      height: 150px;
-      &:hover,
-      &:focus-visible {
-        --rotation-angle: -5deg;
-      }
-    }
-
-    &.two {
-      bottom: 0%;
-      left: 40%;
-      &:hover,
-      &:focus-visible {
-        --rotation-angle: 5deg;
-      }
-    }
-
-    &.three {
-      top: 10%;
-      left: 30%;
-      height: 200px;
-      &:hover,
-      &:focus-visible {
-        --rotation-angle: 10deg;
-      }
-    }
-
-    &.four {
-      top: 35%;
-      left: 10%;
-      height: 200px;
-      &:hover,
-      &:focus-visible {
-        --rotation-angle: 15deg;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .cosmatic-boxes {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
