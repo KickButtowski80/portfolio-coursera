@@ -1,5 +1,5 @@
 {
-  "name": "coursera-introduction-html",
+  "name": "coursera_Introduction_HTML_",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "firebase": "^11.4.0",
     "vite": "^6.0.5"
   }
