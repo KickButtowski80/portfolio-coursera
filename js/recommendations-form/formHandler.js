@@ -1,24 +1,32 @@
- // Import functions from other modules
-import { readFormData } from './readFormData.js';
-import { displayFormData } from './displayFormData.js';
+import { readFormData } from "./readFormData.js";
+import { displayFormData } from "./displayFormData.js";
+import { db, collection, addDoc } from "../firebase.js";
+import { displaySavedRecommendations } from "./fetchRecommendations.js"; // New import
+import { showNotification } from "./notification.js";
 
-// Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', function () {
-    // Get references to the form and output div
-    const form = document.querySelector('.recommendation-form');
-    const outputDiv = document.querySelector('.recommendation-cards');
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".recommendation-form");
+    const outputDiv = document.querySelector(".recommendation-cards");
 
-    // Add a submit event listener to the form
-    form.addEventListener('submit', function (event) {
-        // Prevent the form from submitting (to avoid page reload)
+    // Display saved recommendations on page load
+    displaySavedRecommendations(outputDiv);
+
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
-
-        // Read the form data
-        const formData = readFormData(form);    
-       
-        // Display the submitted data
+        const formData = readFormData(form);
         displayFormData(formData, outputDiv);
-        form.reset();
-    });
+        try {
+            await addDoc(collection(db, "recommendations"), {
+                name: formData.name,
+                recommendation: formData.recommendation,
+                timestamp: new Date(),
+            });
+            showNotification("Recommendation submitted successfully!", "success");
+            form.reset();
 
+        } catch (error) {
+            console.error("Error adding document: ", error);
+            showNotification("An error occurred. Please try again.", "error");
+        }
+    });
 });
