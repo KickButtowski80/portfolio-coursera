@@ -1,6 +1,7 @@
 // fetchRecommendations.js
 import { db, collection, getDocs } from "../firebase.js";
 import { displayFormData } from "./displayFormData.js";
+import { showNotification } from "./notification.js";
 
 export async function displaySavedRecommendations(outputDiv) {
   try {
@@ -11,6 +12,6 @@ export async function displaySavedRecommendations(outputDiv) {
     });
   } catch (error) {
     console.error("Error fetching recommendations: ", error);
-    alert("Failed to load recommendations. Please try again.");
+    showNotification("Failed to load recommendations. Please try again.", "error");
   }
 }

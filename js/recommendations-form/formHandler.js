@@ -2,6 +2,7 @@ import { readFormData } from "./readFormData.js";
 import { displayFormData } from "./displayFormData.js";
 import { db, collection, addDoc } from "../firebase.js";
 import { displaySavedRecommendations } from "./fetchRecommendations.js"; // New import
+import { showNotification } from "./notification.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".recommendation-form");
@@ -13,20 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
         const formData = readFormData(form);
-
+        displayFormData(formData, outputDiv);
         try {
             await addDoc(collection(db, "recommendations"), {
                 name: formData.name,
                 recommendation: formData.recommendation,
                 timestamp: new Date(),
             });
-            alert("Recommendation submitted successfully!");
+            showNotification("Recommendation submitted successfully!", "success");
             form.reset();
-            // Refresh the displayed recommendations
-            displaySavedRecommendations(outputDiv);
+
         } catch (error) {
             console.error("Error adding document: ", error);
-            alert("An error occurred. Please try again.");
+            showNotification("An error occurred. Please try again.", "error");
         }
     });
 });
