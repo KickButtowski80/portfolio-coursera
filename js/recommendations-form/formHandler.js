@@ -1,7 +1,6 @@
 import { readFormData } from "./readFormData.js";
 import { displayFormData } from "./displayFormData.js";
-import { db } from "../firebase.js";
-import { addDoc, collection } from "firebase/firestore";
+import { db, collection, addDoc } from "../firebase.js";
 import { displaySavedRecommendations } from "./fetchRecommendations.js"; // New import
 
 document.addEventListener("DOMContentLoaded", function () {

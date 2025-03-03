@@ -1,6 +1,5 @@
 // fetchRecommendations.js
-import { getDocs, collection } from "firebase/firestore";
-import { db } from "../firebase.js";
+import { db, collection, getDocs } from "../firebase.js";
 import { displayFormData } from "./displayFormData.js";
 
 export async function displaySavedRecommendations(outputDiv) {
