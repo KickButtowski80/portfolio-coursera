@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             form.reset();
 
         } catch (error) {
-            console.error("Error adding document: ", error);
-            showNotification("An error occurred. Please try again.", "error");
+            showNotification(`An error occurred: ${error.message}. Please try again.`, "error");
         }
     });
 });
