@@ -48,7 +48,7 @@
       line-height: 1.2;
       color: var(--text-color);
       padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
       background-color: rgba(
         from var(--text-color) r g b / 0.1
       ); /* Semi-transparent white */
@@ -67,6 +67,19 @@
         font-style: normal;
         font-weight: 600;
         font-size: clamp(1rem, 2vw, 1.5rem);
+        &::before {
+          content: "— ";
+        }
+      }
+      & time {
+        display: block;
+        font-size: 0.8em;
+        font-size: 0.8rem;
+        font-style: italic;
+        color: var(--text-color);
+        &::before {
+          content: " — ";
+        }
       }
     }
     &:hover,
@@ -75,7 +88,9 @@
       animation: adjustFrame 0.5s ease-in-out;
       color: var(--text-color);
       margin: 1rem;
-      scale: calc( 1 + 0.3 * (100vw / 1920)); /* Scale between 1 and 1.3 based on viewport width */
+      scale: calc(
+        1 + 0.3 * (100vw / 1920)
+      ); /* Scale between 1 and 1.3 based on viewport width */
     }
   }
 }
@@ -150,7 +165,6 @@
     font-size: 1rem;
     transition: all 0.3s ease;
 
- 
     &:user-valid {
       border: 2px solid green;
     }
@@ -247,5 +261,3 @@
     animation: moveBlob 3s ease-in-out infinite;
   }
 }
-
-
