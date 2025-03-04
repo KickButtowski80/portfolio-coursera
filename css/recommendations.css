@@ -132,6 +132,7 @@
 
 .recommendation-cards:has(.recommendation-card:hover)
   .recommendation-card:not(:hover) {
+  animation: none;
   scale: 0.25;
 }
 
