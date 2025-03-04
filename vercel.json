@@ -6,14 +6,13 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    { "src": "/js/(.*)", "dest": "/js/$1" },
-    { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/svg/(.*)", "dest": "/svg/$1" },
-    { "src": "/html_finalprojimages/(.*)", "dest": "/html_finalprojimages/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/js/(.*)", "destination": "/js/$1" },
+    { "source": "/css/(.*)", "destination": "/css/$1" },
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/svg/(.*)", "destination": "/svg/$1" },
+    { "source": "/html_finalprojimages/(.*)", "destination": "/html_finalprojimages/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
