@@ -11,6 +11,11 @@ export default {
       input: {
         main: 'index.html',
       },
+      output: {
+        manualChunks: {
+          firebase: ['firebase/app', 'firebase/firestore'],
+        },
+      },
     },
   },
   resolve: {
@@ -18,6 +23,9 @@ export default {
       'firebase/app': '/node_modules/firebase/app',
       'firebase/firestore': '/node_modules/firebase/firestore'
     }
+  },
+  optimizeDeps: {
+    include: ['firebase/app', 'firebase/firestore']
   },
   css: {
     devSourcemap: true

@@ -4,12 +4,12 @@ import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: "AIzaSyBgTlJM9BgJ8fSZQT-WT9E5RxaOBJGNIFM",
+  authDomain: "portfolio-coursera-3d4c6.firebaseapp.com",
+  projectId: "portfolio-coursera-3d4c6",
+  storageBucket: "portfolio-coursera-3d4c6.appspot.com",
+  messagingSenderId: "1015606911988",
+  appId: "1:1015606911988:web:8c3e3b0c1a9b2c0c4c4c4c"
 };
 
 // Initialize Firebase
