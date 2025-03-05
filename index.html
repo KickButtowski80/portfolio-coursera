@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/notification.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/typing-effect.css" />
     <link rel="stylesheet" href="css/workspace.css" />
@@ -21,6 +22,7 @@
     <title>Jane Doe Portfolio WebSite</title>
   </head>
   <body>
+    <div class="notification-container"></div>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="fixed-header">
       <div class="contact-info">
@@ -443,7 +445,8 @@
               takes initiative within a team and has potential to lead the team.
             </p>
             <footer>
-              <cite>- John Doe, Senior Developer</cite>
+              <cite>John Doe, Senior Developer</cite>
+              <time>February 15, 2025 at 01:50 PM</time>
             </footer>
           </blockquote>
           <blockquote class="recommendation-card" tabindex="0">
@@ -455,7 +458,8 @@
               expertise I would definitely want to work with her again.
             </p>
             <footer>
-              <cite>- Sarah Smith, Project Manager</cite>
+              <cite>Sarah Smith, Project Manager</cite>
+              <time>February 3, 2025 at 00:50 PM</time>
             </footer>
           </blockquote>
           <blockquote class="recommendation-card" tabindex="0">
@@ -467,7 +471,8 @@
               for any organization!
             </p>
             <footer>
-              <cite>- Michael Johnson, CTO</cite>
+              <cite>Michael Johnson, CTO</cite>
+              <time>January 3, 2025 at 05:50 PM</time>
             </footer>
           </blockquote>
         </div>
@@ -509,7 +514,19 @@
                 aria-describedby="message-description message-error"
                 aria-label="Enter your recommendation message"
               ></textarea>
-
+              <!-- Honeypot field (hidden from users) -->
+              <div style="position: absolute; left: -9999px; top: -9999px;">
+                <label for="website" aria-hidden="true">Leave this field blank</label>
+                <input 
+                  type="text" 
+                  id="website" 
+                  name="website" 
+                  tabindex="-1"
+                  aria-hidden="true"
+                  autocomplete="off"
+                />
+              </div>
+           
               <div>
                 * (required)
 
@@ -536,20 +553,20 @@
       </section>
     </main>
 
-    <script src="js/script.js" defer></script>
-    <script src="js/hamburgerMenuFocusTrap.js" defer></script>
-    <script src="js/todayCalendar.js" defer></script>
-    <script src="js/brickRandomOpacity.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/hamburgerMenuFocusTrap.js" defer></script>
+    <script src="/js/todayCalendar.js" defer></script>
+    <script src="/js/brickRandomOpacity.js" defer></script>
     <script
       type="module"
-      src="js/recommendations-form/formHandler.js"
+      src="/js/recommendations-form/formHandler.js"
       defer
     ></script>
     <script
       type="module"
-      src="js/recommendations-form/formValidator.js"
+      src="/js/recommendations-form/formValidator.js"
       defer
     ></script>
-    <script src="js/floatBlobInBoxes.js" defer></script>
+    <script src="/js/floatBlobInBoxes.js" defer></script>
   </body>
 </html>

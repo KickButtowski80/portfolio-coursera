@@ -1,24 +1,55 @@
- // Import functions from other modules
-import { readFormData } from './readFormData.js';
-import { displayFormData } from './displayFormData.js';
+import { readFormData } from "./readFormData.js";
+import { displayFormData } from "./displayFormData.js";
+import { db, collection, addDoc } from "../firebase.js";
+import { displaySavedRecommendations } from "./fetchRecommendations.js"; // New import
+import { showNotification } from "./notification.js";
+import { setupCharacterCount } from "./characterCount.js";
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".recommendation-form");
+  const outputDiv = document.querySelector(".recommendation-cards");
+  const submitButton = form.querySelector("button[type='submit']");
+  // Display saved recommendations on page load
+  displaySavedRecommendations(outputDiv);
+  setupCharacterCount(form);
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-// Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', function () {
-    // Get references to the form and output div
-    const form = document.querySelector('.recommendation-form');
-    const outputDiv = document.querySelector('.recommendation-cards');
+    // Honeypot validation
+    const honeypotField = document.getElementById("website").value;
+    if (honeypotField) {
+      console.log("Spam detected: Honeypot field was filled out.");
+      showNotification("Spam detected!", "error");
+      return; // Stop further execution
+    }
 
-    // Add a submit event listener to the form
-    form.addEventListener('submit', function (event) {
-        // Prevent the form from submitting (to avoid page reload)
-        event.preventDefault();
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
 
-        // Read the form data
-        const formData = readFormData(form);    
-       
-        // Display the submitted data
-        displayFormData(formData, outputDiv);
-        form.reset();
+    const formData = readFormData(form);
+    formData["displayDate"] = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
-
+    try {
+      await addDoc(collection(db, "recommendations"), {
+        name: formData.name,
+        recommendation: formData.recommendation,
+        displayDate: formData.displayDate,
+      });
+      showNotification("Recommendation submitted successfully!", "success");
+      displayFormData(formData, outputDiv);
+      form.reset();
+      submitButton.focus();
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+    } catch (error) {
+      showNotification(
+        `An error occurred: ${error.message}. Please try again.`,
+        "error"
+      );
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+    }
+  });
 });
