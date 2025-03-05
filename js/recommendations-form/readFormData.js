@@ -2,7 +2,12 @@
 
 // Sanitize input
 function sanitizeInput(input) {
-    return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return input
+      .replace(/&/g, '&amp;')  // Escape &
+      .replace(/</g, '&lt;')   // Escape <
+      .replace(/>/g, '&gt;')   // Escape >
+      .replace(/"/g, '&quot;') // Escape "
+      .replace(/'/g, '&#039;'); // Escape '
   }
   export function readFormData(form) {
     const formData = {
