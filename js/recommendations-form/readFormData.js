@@ -1,8 +1,13 @@
 // Export a function to read form data
-export function readFormData(form) {
+
+// Sanitize input
+function sanitizeInput(input) {
+    return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  export function readFormData(form) {
     const formData = {
-        name: form['recommendation-author-name'].value.trim() || "Anonymous",
-        recommendation: form['recommendation-author-message'].value.trim()
-    };
+        name: sanitizeInput(form.name.value),
+        recommendation: sanitizeInput(form.recommendation.value)
+      };
     return formData;
 }
