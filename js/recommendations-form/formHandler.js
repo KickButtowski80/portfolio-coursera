@@ -14,14 +14,20 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
         const formData = readFormData(form);
-        displayFormData(formData, outputDiv);
+        formData['displayDate'] = new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+       
         try {
             await addDoc(collection(db, "recommendations"), {
                 name: formData.name,
                 recommendation: formData.recommendation,
-                timestamp: new Date(),
+                displayDate: formData.displayDate
             });
             showNotification("Recommendation submitted successfully!", "success");
+            displayFormData(formData, outputDiv);
             form.reset();
 
         } catch (error) {
