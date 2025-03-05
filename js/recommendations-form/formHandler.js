@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showNotification("Recommendation submitted successfully!", "success");
             displayFormData(formData, outputDiv);
             form.reset();
+            submitButton.focus(); 
             submitButton.disabled = false;
             submitButton.textContent = "Submit";
 
