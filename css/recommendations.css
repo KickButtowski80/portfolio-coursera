@@ -139,6 +139,7 @@
 .recommendation-form-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 5rem;
 }
 
 .recommendation-form {
