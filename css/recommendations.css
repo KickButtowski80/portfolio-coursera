@@ -149,7 +149,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
-  row-gap: 5rem;
   z-index: 2;
   background-color: rgba(from var(--text-color) r g b / 0.5);
   backdrop-filter: blur(10px);
