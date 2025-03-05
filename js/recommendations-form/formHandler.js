@@ -3,14 +3,14 @@ import { displayFormData } from "./displayFormData.js";
 import { db, collection, addDoc } from "../firebase.js";
 import { displaySavedRecommendations } from "./fetchRecommendations.js"; // New import
 import { showNotification } from "./notification.js";
-
+import { setupCharacterCount } from "./characterCount.js";
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".recommendation-form");
     const outputDiv = document.querySelector(".recommendation-cards");
     const submitButton = form.querySelector("button[type='submit']");
     // Display saved recommendations on page load
     displaySavedRecommendations(outputDiv);
-
+    setupCharacterCount(form);
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
         submitButton.disabled = true;
@@ -42,4 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.textContent = "Submit";
         }
     });
+
+    
 });
