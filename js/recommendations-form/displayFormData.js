@@ -21,17 +21,9 @@ export function displayFormData(data, outputDiv) {
   const cite = document.createElement("cite");
   cite.textContent = `${data.name || "Anonymous"}`;
   const time = document.createElement("time");
-  // the first way of getting the date in seconds
-  //  const date = new Date(data.timestamp.seconds * 1000);
-  const date = data.timestamp.toDate();
-  const formattedDate = date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+ 
 
-  time.dateTime = date.toISOString();
-  time.textContent = formattedDate;
+  time.textContent = data.displayDate; // Use formatted date
   footer.appendChild(cite);
   footer.appendChild(time);
   blockquote.appendChild(footer);
