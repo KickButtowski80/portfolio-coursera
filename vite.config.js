@@ -1,5 +1,4 @@
 export default {
-  base: './',
   server: {
     watch: {
       usePolling: true,
@@ -11,19 +10,11 @@ export default {
     rollupOptions: {
       input: {
         main: 'index.html',
-      },
-      output: {
-        manualChunks: {
-          firebase: ['firebase/app', 'firebase/firestore'],
-        },
-      },
-    },
-  },
-  resolve: {
-    // Remove aliases to let Vite handle module resolution naturally
+      }
+    }
   },
   optimizeDeps: {
-    include: []
+    include: ['firebase/app', 'firebase/firestore']
   },
   css: {
     devSourcemap: true
