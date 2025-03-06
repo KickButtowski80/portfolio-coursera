@@ -7,9 +7,9 @@ export default defineConfig({
       include: ['**/*.html', '**/*.js', '**/*.css']
     }
   },
-  define: {
-    'process.env': config({ path: '.env.production' }).parsed
-  },
+  // define: {
+  //   'process.env': config({ path: '.env.production' }).parsed
+  // },
   build: {
     target: 'esnext',
     rollupOptions: {
