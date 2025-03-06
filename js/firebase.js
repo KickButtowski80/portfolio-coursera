@@ -8,7 +8,7 @@ import {
   getDocs,
   collection,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-console.log("Environment Variables are:", import.meta.env, process.env);
+console.log("Environment Variables are:",firebaseConfig );
 const firebaseConfig = {
   apiKey: "import.meta.env.VITE_FIREBASE_API_KEY",
   authDomain: "import.meta.env.VITE_FIREBASE_AUTH_DOMAIN",
