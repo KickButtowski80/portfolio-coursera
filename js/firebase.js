@@ -9,6 +9,7 @@ import {
   collection,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 // Your web app's Firebase configuration
+console.log("Environment Variables are:", import.meta.env);
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -18,7 +19,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-console.log("Environment Variables:", import.meta.env);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
