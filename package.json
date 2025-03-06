@@ -22,5 +22,8 @@
     "ignoredBuiltDependencies": [
       "esbuild"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
   }
 }

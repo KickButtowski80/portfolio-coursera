@@ -19,7 +19,11 @@ importers:
         version: 41.3.0(rollup@4.29.0)
       vite:
         specifier: ^6.0.5
-        version: 6.0.5(@types/node@16.18.11)
+        version: 6.0.5(@types/node@20.17.23)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.17.23
 
 packages:
 
@@ -592,8 +596,8 @@ packages:
   '@types/node@16.18.11':
     resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
 
-  '@types/node@22.13.7':
-    resolution: {integrity: sha512-oU2q+BsQldB9lYxHNp/5aZO+/Bs0Usa74Abo9mAKulz4ahQyXRHK6UVKYIN8KSC8HXwhWSi7b49JnX+txuac0w==}
+  '@types/node@20.17.23':
+    resolution: {integrity: sha512-8PCGZ1ZJbEZuYNTMqywO+Sj4vSKjSjT6Ua+6RFOYlEvIvKQABPtrNkoVSLSKDb4obYcMhspVKmsw8Cm10NFRUg==}
 
   '@vercel/build-utils@10.3.1':
     resolution: {integrity: sha512-aWVzwW4UYwrO0yxHQBSiFn/P665S3pORKTRbmdQ/DXMvzsvGtmyG2zeSFApV2WJ3fH46V74i8Lv9IouhmYkbVQ==}
@@ -1564,8 +1568,8 @@ packages:
   uid-promise@1.0.0:
     resolution: {integrity: sha512-R8375j0qwXyIu/7R0tjdF06/sElHqbmdmWC9M2qQHpEVbvE4I5+38KJI7LUUmQMp7NVq4tKHiBMkT0NFM453Ig==}
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   undici@5.28.4:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
@@ -2138,7 +2142,7 @@ snapshots:
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.13
-      '@types/node': 22.13.7
+      '@types/node': 20.17.23
 
   '@grpc/proto-loader@0.6.13':
     dependencies:
@@ -2320,9 +2324,9 @@ snapshots:
 
   '@types/node@16.18.11': {}
 
-  '@types/node@22.13.7':
+  '@types/node@20.17.23':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.19.8
 
   '@vercel/build-utils@10.3.1': {}
 
@@ -3109,7 +3113,7 @@ snapshots:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 22.13.7
+      '@types/node': 20.17.23
       long: 4.0.0
 
   protobufjs@7.4.0:
@@ -3124,7 +3128,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.13.7
+      '@types/node': 20.17.23
       long: 5.3.1
 
   punycode@2.3.1: {}
@@ -3350,7 +3354,7 @@ snapshots:
 
   uid-promise@1.0.0: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.19.8: {}
 
   undici@5.28.4:
     dependencies:
@@ -3392,13 +3396,13 @@ snapshots:
       - rollup
       - supports-color
 
-  vite@6.0.5(@types/node@16.18.11):
+  vite@6.0.5(@types/node@20.17.23):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
       rollup: 4.29.0
     optionalDependencies:
-      '@types/node': 16.18.11
+      '@types/node': 20.17.23
       fsevents: 2.3.3
 
   web-vitals@0.2.4: {}
