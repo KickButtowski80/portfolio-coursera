@@ -18,7 +18,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-console.log("Environment Variables are:",firebaseConfig );
+console.log("Environment Variables are:", firebaseConfig);
 // const firebaseConfig = {
 //   apiKey: process.env.VITE_FIREBASE_API_KEY,
 //   authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
