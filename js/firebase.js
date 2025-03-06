@@ -8,7 +8,7 @@ import {
   getDocs,
   collection,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-console.log("Environment Variables are:",firebaseConfig );
+
 const firebaseConfig = {
   apiKey: "import.meta.env.VITE_FIREBASE_API_KEY",
   authDomain: "import.meta.env.VITE_FIREBASE_AUTH_DOMAIN",
@@ -17,6 +17,8 @@ const firebaseConfig = {
   messagingSenderId: "import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID",
   appId: "import.meta.env.VITE_FIREBASE_APP_ID",
 };
+
+console.log("Environment Variables are:",firebaseConfig );
 // const firebaseConfig = {
 //   apiKey: process.env.VITE_FIREBASE_API_KEY,
 //   authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
