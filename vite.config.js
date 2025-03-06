@@ -1,4 +1,7 @@
 export default {
+  define: {
+    'process.env': config({ path: '.env.production' }).parsed
+  },
   server: {
     watch: {
       include: ['**/*.html', '**/*.js', '**/*.css']
