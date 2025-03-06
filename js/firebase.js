@@ -2,7 +2,7 @@
 import { initializeApp } from "/node_modules/firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "/node_modules/firebase/firestore";
 
-// Your web app's Firebase configuration
+;
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
