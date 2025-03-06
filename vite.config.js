@@ -1,14 +1,7 @@
 export default {
   server: {
     watch: {
-      usePolling: true,
       include: ['**/*.html', '**/*.js', '**/*.css']
-    }
-  },
-  resolve: {
-    alias: {
-      'firebase/app': 'firebase/app',
-      'firebase/firestore': 'firebase/firestore'
     }
   },
   build: {
