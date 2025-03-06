@@ -1,13 +1,13 @@
 // Import the functions you need from the SDKs you need
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import {
-  getFirestore,
-  addDoc,
-  getDocs,
-  collection,
-} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+// import {
+//   getFirestore,
+//   addDoc,
+//   getDocs,
+//   collection,
+// } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "import.meta.env.VITE_FIREBASE_API_KEY",

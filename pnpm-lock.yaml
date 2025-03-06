@@ -8,22 +8,16 @@ importers:
 
   .:
     dependencies:
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
       firebase:
         specifier: ^9.4.0
         version: 9.4.0
+    devDependencies:
       vercel:
         specifier: ^41.3.0
         version: 41.3.0(rollup@4.29.0)
       vite:
         specifier: ^6.0.5
-        version: 6.0.5(@types/node@20.17.23)
-    devDependencies:
-      '@types/node':
-        specifier: ^20.0.0
-        version: 20.17.23
+        version: 6.0.5(@types/node@16.18.11)
 
 packages:
 
@@ -827,10 +821,6 @@ packages:
   diff@4.0.2:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
     engines: {node: '>=0.3.1'}
-
-  dotenv@16.4.7:
-    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
-    engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -2606,8 +2596,6 @@ snapshots:
 
   diff@4.0.2: {}
 
-  dotenv@16.4.7: {}
-
   eastasianwidth@0.2.0: {}
 
   edge-runtime@2.5.9:
@@ -3396,13 +3384,13 @@ snapshots:
       - rollup
       - supports-color
 
-  vite@6.0.5(@types/node@20.17.23):
+  vite@6.0.5(@types/node@16.18.11):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
       rollup: 4.29.0
     optionalDependencies:
-      '@types/node': 20.17.23
+      '@types/node': 16.18.11
       fsevents: 2.3.3
 
   web-vitals@0.2.4: {}
