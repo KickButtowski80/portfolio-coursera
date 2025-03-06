@@ -13,13 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^9.4.0"
+    "firebase": "^11.4.0"
   },
   "devDependencies": {
-    "vercel": "^41.3.0",
-    "vite": "^6.0.5"
+    "vercel": "^41.3.2",
+    "vite": "^6.2.0"
   },
-  
   "pnpm": {
     "ignoredBuiltDependencies": [
       "esbuild"
