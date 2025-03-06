@@ -5,8 +5,11 @@ export default {
       include: ['**/*.html', '**/*.js', '**/*.css']
     }
   },
-  define: {
-    'process.env': process.env
+  resolve: {
+    alias: {
+      'firebase/app': 'firebase/app',
+      'firebase/firestore': 'firebase/firestore'
+    }
   },
   build: {
     rollupOptions: {
