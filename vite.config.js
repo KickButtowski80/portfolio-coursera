@@ -25,7 +25,7 @@ export default {
     }
   },
   optimizeDeps: {
-    include: ['firebase/app', 'firebase/firestore']
+    include: []
   },
   css: {
     devSourcemap: true
