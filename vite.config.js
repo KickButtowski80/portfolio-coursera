@@ -19,10 +19,7 @@ export default {
     },
   },
   resolve: {
-    alias: {
-      'firebase/app': '/node_modules/firebase/app',
-      'firebase/firestore': '/node_modules/firebase/firestore'
-    }
+    // Remove aliases to let Vite handle module resolution naturally
   },
   optimizeDeps: {
     include: []
