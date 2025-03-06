@@ -6,10 +6,10 @@ export default {
     }
   },
   build: {
-    outDir: 'dist',
     rollupOptions: {
       input: {
         main: 'index.html',
+     recommendations: './js/recommendations-form/main.js'
       }
     }
   },
