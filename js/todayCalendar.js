@@ -20,4 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const monthName = monthNames[month];
   dateElement.textContent = day;
   dateElement.setAttribute("data-month", `${monthName}`);
+  console.log("Environment Variables:", import.meta.env);
 });
