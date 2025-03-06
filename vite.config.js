@@ -5,6 +5,9 @@ export default {
       include: ['**/*.html', '**/*.js', '**/*.css']
     }
   },
+  define: {
+    'process.env': process.env
+  },
   build: {
     rollupOptions: {
       target: 'esnext',
