@@ -7,9 +7,10 @@ export default {
   },
   build: {
     rollupOptions: {
+      target: 'esnext',
       input: {
         main: 'index.html',
-     recommendations: './js/recommendations-form/main.js'
+        recommendations: './js/recommendations-form/main.js'
       }
     }
   },
