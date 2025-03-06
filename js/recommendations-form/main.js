@@ -1,4 +1,4 @@
-// main.js
-import './formHandler.js';
-import './formValidator.js';
-// other imports
+// main.js at project root
+import './js/recommendations-form/formHandler.js';
+import './js/recommendations-form/formValidator.js';
+// Add any other imports you need
