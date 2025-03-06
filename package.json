@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
+  "node": "22.13.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
@@ -13,7 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^11.4.0"
+    "dotenv": "^16.4.7",
+    "firebase": "^11.4.0",
+    "terser": "^5.39.0"
   },
   "devDependencies": {
     "vercel": "^41.3.2",
