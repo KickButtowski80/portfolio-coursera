@@ -21,11 +21,11 @@
   ],
   "headers": [
     {
-      "source": "/js/(.*)",
+      "source": "/js/config/firebase-config.json",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript"
+          "value": "application/json"
         },
         {
           "key": "Cache-Control",
