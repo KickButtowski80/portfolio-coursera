@@ -45,17 +45,7 @@ async function loadFirebaseConfig() {
       throw new Error("Response is not JSON");
     }
     
-    const config = await response.json();
-    
-    // Map the config keys to the expected format
-    return {
-      apiKey: config.FIREBASE_API_KEY || config.apiKey,
-      authDomain: config.FIREBASE_AUTH_DOMAIN || config.authDomain,
-      projectId: config.FIREBASE_PROJECT_ID || config.projectId,
-      storageBucket: config.FIREBASE_STORAGE_BUCKET || config.storageBucket,
-      messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID || config.messagingSenderId,
-      appId: config.FIREBASE_APP_ID || config.appId
-    };
+    return await response.json();
   } catch (error) {
     console.error("Error loading Firebase config:", error);
     throw error;
