@@ -33,6 +33,7 @@ import {
 async function loadFirebaseConfig() {
   try {
     const response = await fetch('/js/config/firebase-config.json');
+    console.log('Response status:', response.status);
     
     // Check if response is OK
     if (!response.ok) {
@@ -45,7 +46,22 @@ async function loadFirebaseConfig() {
       throw new Error("Response is not JSON");
     }
     
-    return await response.json();
+    // Get the JSON data
+    const config = await response.json();
+    console.log('Raw config:', config);
+    
+    // Map the keys to what Firebase expects
+    const firebaseConfig = {
+      apiKey: config.FIREBASE_API_KEY,
+      authDomain: config.FIREBASE_AUTH_DOMAIN,
+      projectId: config.FIREBASE_PROJECT_ID,
+      storageBucket: config.FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID,
+      appId: config.FIREBASE_APP_ID
+    };
+    
+    console.log('Mapped config:', firebaseConfig);
+    return firebaseConfig;
   } catch (error) {
     console.error("Error loading Firebase config:", error);
     throw error;
@@ -60,6 +76,7 @@ async function initializeFirebase() {
     const firebaseConfig = await loadFirebaseConfig();
     console.log("Firebase Config:", firebaseConfig); // Add this for debugging
     const app = initializeApp(firebaseConfig);
+    console.log('app', app)
     db = getFirestore(app);
     firebaseInitialized = true;
     console.log("Firebase initialized successfully");
