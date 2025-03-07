@@ -5,11 +5,11 @@
   "description": "",
   "main": "index.html",
   "node": "22.13.1",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build --emptyOutDir",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "npx serve",
+  "build": "node generate-config.js",
+  "preview": "npx serve"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
