@@ -32,9 +32,26 @@ import {
 // Add this function
 async function loadFirebaseConfig() {
   try {
+    console.log('Fetching config from:', '/js/config/firebase-config.json');
     const response = await fetch('/js/config/firebase-config.json');
     console.log('Response status:', response.status);
     
+
+    // Debug the response content
+    const text = await response.text();
+    console.log('Response text (first 100 chars):', text.substring(0, 100));
+
+
+    // If we got HTML instead of JSON, it's likely a routing issue
+    if (text.trim().startsWith('<!DOCTYPE')) {
+      console.error('Received HTML instead of JSON - check your Vercel routing');
+      throw new Error('Received HTML instead of JSON - routing issue');
+    }
+    
+
+     // Try to parse as JSON
+     const config = JSON.parse(text);
+     console.log('Raw config:', config);
     // Check if response is OK
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,10 +62,6 @@ async function loadFirebaseConfig() {
     if (!contentType || !contentType.includes('application/json')) {
       throw new Error("Response is not JSON");
     }
-    
-    // Get the JSON data
-    const config = await response.json();
-    console.log('Raw config:', config);
     
     // Map the keys to what Firebase expects
     const firebaseConfig = {
