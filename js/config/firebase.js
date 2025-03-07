@@ -8,25 +8,25 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 // Create a function to load Firebase configuration
-async function loadFirebaseConfig() {
-  try {
-    const response = await fetch('/js/config/firebase-config.json');
-    const config = await response.json();
+// async function loadFirebaseConfig() {
+//   try {
+//     const response = await fetch('/js/config/firebase-config.json');
+//     const config = await response.json();
     
-    // Map the config keys to the expected format
-    return {
-      apiKey: config.FIREBASE_API_KEY,
-      authDomain: config.FIREBASE_AUTH_DOMAIN,
-      projectId: config.FIREBASE_PROJECT_ID,
-      storageBucket: config.FIREBASE_STORAGE_BUCKET,
-      messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID,
-      appId: config.FIREBASE_APP_ID
-    };
-  } catch (error) {
-    console.error("Error loading Firebase config:", error);
-    throw error; // Rethrow to handle in calling code
-  }
-}
+//     // Map the config keys to the expected format
+//     return {
+//       apiKey: config.FIREBASE_API_KEY,
+//       authDomain: config.FIREBASE_AUTH_DOMAIN,
+//       projectId: config.FIREBASE_PROJECT_ID,
+//       storageBucket: config.FIREBASE_STORAGE_BUCKET,
+//       messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID,
+//       appId: config.FIREBASE_APP_ID
+//     };
+//   } catch (error) {
+//     console.error("Error loading Firebase config:", error);
+//     throw error; // Rethrow to handle in calling code
+//   }
+// }
 
 
 // Add this function
