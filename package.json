@@ -15,12 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "firebase": "^11.4.0",
-    "terser": "^5.39.0"
+    "firebase": "^11.4.0"
   },
   "devDependencies": {
-    "vercel": "^41.3.2",
-    "vite": "^6.2.0"
+    "vercel": "^41.3.2"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
