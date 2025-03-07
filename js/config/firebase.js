@@ -34,7 +34,8 @@ async function loadFirebaseConfig() {
   try {
     const response = await fetch('/js/config/firebase-config.json');
     console.log('Response status:', response.status);
-    
+    const text = await response.text();
+console.log('Response text:', text);
     // Check if response is OK
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
