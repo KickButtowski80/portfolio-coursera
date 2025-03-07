@@ -6,13 +6,18 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  
+  "rewrites": [
     {
-      "src": "/js/config/firebase-config.json",
-      "dest": "/js/config/firebase-config.json",
-      "headers": { "Content-Type": "application/json" }
+      "source": "/js/config/firebase-config.json", 
+      "destination": "/js/config/firebase-config.json"
     },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "source": "/js/(.*)", "destination": "/js/$1" },
+    { "source": "/css/(.*)", "destination": "/css/$1" },
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/svg/(.*)", "destination": "/svg/$1" },
+    { "source": "/html_finalprojimages/(.*)", "destination": "/html_finalprojimages/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -21,10 +26,6 @@
         {
           "key": "Content-Type",
           "value": "application/json"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
