@@ -6,6 +6,18 @@
       "use": "@vercel/static"
     }
   ],
+  "routes": [
+    {
+      "src": "/js/config/firebase-config.json",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "rewrites": [
     { "source": "/js/(.*)", "destination": "/js/$1" },
     { "source": "/css/(.*)", "destination": "/css/$1" },

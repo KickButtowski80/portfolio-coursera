@@ -28,6 +28,30 @@ async function loadFirebaseConfig() {
   }
 }
 
+
+// Add this function
+async function loadFirebaseConfig() {
+  try {
+    const response = await fetch('/js/config/firebase-config.json');
+    
+    // Check if response is OK
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    // Check content type
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error("Response is not JSON");
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error("Error loading Firebase config:", error);
+    throw error;
+  }
+}
+
 // Initialize Firebase
 let db;
 let firebaseInitialized = false;
