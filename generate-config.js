@@ -1,3 +1,4 @@
+
 // generate-config.js - Creates Firebase configuration during build
 import fs from 'fs';
 import path from 'path';
@@ -21,6 +22,13 @@ if (!fs.existsSync(configDir)) {
 const inlineScriptContent = `
 // This script injects Firebase configuration into window object
 window.__FIREBASE_CONFIG__ = {
+
+// In generate-config.js
+// Create a JavaScript file with the config
+const jsContent = `
+// This file is auto-generated during build
+export const firebaseConfig = {
+
   apiKey: "${process.env.FIREBASE_API_KEY || ''}",
   authDomain: "${process.env.FIREBASE_AUTH_DOMAIN || ''}",
   projectId: "${process.env.FIREBASE_PROJECT_ID || ''}",
@@ -29,6 +37,7 @@ window.__FIREBASE_CONFIG__ = {
   appId: "${process.env.FIREBASE_APP_ID || ''}"
 };
 `;
+
 
 // Write the inline script to a file
 fs.writeFileSync(
@@ -63,3 +72,18 @@ if (!indexContent.includes('firebase-config-inline.js')) {
 } else {
   console.log('Firebase config script already included in index.html');
 }
+=======
+const configDir = path.join(__dirname, 'js', 'config');
+if (!fs.existsSync(configDir)) {
+  fs.mkdirSync(configDir, { recursive: true });
+}
+
+fs.writeFileSync(
+  path.join(configDir, 'firebase-config.js'),
+  jsContent
+);
+// Add this after writing the file
+// Add this after writing the file
+console.log('Config file path:', path.join(configDir, 'firebase-config.js'));
+console.log('File exists:', fs.existsSync(path.join(configDir, 'firebase-config.js')));
+console.log('Firebase config JS file generated successfully');
