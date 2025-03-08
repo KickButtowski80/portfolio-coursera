@@ -6,18 +6,8 @@
       "use": "@vercel/static"
     }
   ],
-  
-  "rewrites": [
-    {
-      "source": "/js/config/firebase-config.json", 
-      "destination": "/js/config/firebase-config.json"
-    },
-    { "source": "/js/(.*)", "destination": "/js/$1" },
-    { "source": "/css/(.*)", "destination": "/css/$1" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/svg/(.*)", "destination": "/svg/$1" },
-    { "source": "/html_finalprojimages/(.*)", "destination": "/html_finalprojimages/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ],
   "headers": [
     {
