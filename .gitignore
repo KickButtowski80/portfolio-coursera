@@ -30,3 +30,8 @@ dist-ssr
 !.env.example
 
 *.Identifier
+.vercel
+.env*.local
+
+
+/js/config/firebase-config.json

@@ -20,4 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const monthName = monthNames[month];
   dateElement.textContent = day;
   dateElement.setAttribute("data-month", `${monthName}`);
+
 });

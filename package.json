@@ -1,21 +1,24 @@
 {
   "name": "coursera_IntroductionHTML_",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+  "node": "22.13.1",
+"scripts": {
+  "dev": "npx serve",
+  "build": "node generate-config.js",
+  "preview": "npx serve"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "firebase": "^11.4.0",
-    "vercel": "^41.3.0",
-    "vite": "^6.0.5"
+    "firebase": "^11.4.0"
+  },
+  "devDependencies": {
+    "vercel": "^41.3.2"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [

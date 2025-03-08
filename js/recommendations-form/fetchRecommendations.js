@@ -1,11 +1,11 @@
 // fetchRecommendations.js
-import { db, collection, getDocs } from "../firebase.js";
+import { getFirestoreDocuments } from '../config/firebase.js';
 import { displayFormData } from "./displayFormData.js";
 import { showNotification } from "./notification.js";
 
 export async function displaySavedRecommendations(outputDiv) {
   try {
-    const querySnapshot = await getDocs(collection(db, "recommendations"));
+    const querySnapshot = await getFirestoreDocuments('recommendations');
     querySnapshot.forEach((doc) => {
       const data = doc.data();
       displayFormData(data, outputDiv);
