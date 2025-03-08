@@ -1,22 +1,27 @@
 // Import the functions you need from the SDKs you need
-const firebaseConfig = {
-  apiKey: "${process.env.FIREBASE_API_KEY || ''}",
-  authDomain: "${process.env.FIREBASE_AUTH_DOMAIN || ''}",
-  projectId: "${process.env.FIREBASE_PROJECT_ID || ''}",
-  storageBucket: "${process.env.FIREBASE_STORAGE_BUCKET || ''}",
-  messagingSenderId: "${process.env.FIREBASE_MESSAGING_SENDER_ID || ''}",
-  appId: "${process.env.FIREBASE_APP_ID || ''}"
-};
-
-
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   addDoc,
   getDocs,
   collection,
-} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+} from 'firebase/firestore';
+
+// Firebase configuration
+// This will be replaced with actual values during build by generate-config.js
+let firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: ''
+};
+
+// Try to load config from window if it exists (set by inline script)
+if (typeof window !== 'undefined' && window.__FIREBASE_CONFIG__) {
+  firebaseConfig = window.__FIREBASE_CONFIG__;
+}
 // import { firebaseConfig } from './firebase-config.json';
 
 // Create a function to load Firebase configuration
