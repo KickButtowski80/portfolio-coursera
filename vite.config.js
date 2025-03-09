@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/", // Ensure proper path resolution in Vercel
+  base: "/", // Ensure proper path resolution in Vercel place
   build: {
     outDir: "dist", // Default output folder
     sourcemap: true, // Enable source maps for debugging
