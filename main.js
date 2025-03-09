@@ -3,6 +3,7 @@
 import './js/brickRandomOpacity.js';
 import './js/floatBlobInBoxes.js';
 import './js/hamburgerMenuFocusTrap.js';
+import './js/activeMenuItem.js';
 import './js/recommendations-form/notification.js';
 import './js/recommendations-form/characterCount.js';
 import './js/recommendations-form/displayFormData.js';
