@@ -5,16 +5,12 @@ const isMobile = window.innerWidth <= 768;
 const observers = [];
 
 // Create intersection observer options
-// const options = {
-//   root: null,
-//   rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
-//   threshold: [0, 0.10,0.21, 0.25, 0.5, 0.75, 1],
-// };
 const options = {
-    root: null,
-    rootMargin: isMobile ? "-5% 0px" : "-5% 0px", // Less negative margin
-    threshold: Array.from({ length: 21 }, (_, i) => i * 0.05), // More granular thresholds
-  };
+  root: null,
+  rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
+  threshold: [0, 0.10,0.21, 0.25, 0.5, 0.75, 1],
+};
+
 const allMenuLinks = document.querySelectorAll("nav ul li a");
 const sectionVisibility = new Map();
 
