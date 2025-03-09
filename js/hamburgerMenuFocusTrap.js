@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  const hamburgerMenu = document.getElementById("hamburger-menu");
+  
+  const hamburgerIcon = document.getElementById("hamburger-icon");
 
   hamburgerIcon.addEventListener("change", (event) => {
     const isMenuExpanded = event.target.getAttribute("aria-expanded");
