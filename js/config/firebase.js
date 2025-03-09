@@ -3,13 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, getDocs, collection } from "firebase/firestore";
 
 
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-// import {
-//   getFirestore,
-//   addDoc,
-//   getDocs,
-//   collection,
-// } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
 
 // Firebase configuration
 // This will be replaced with actual values during build by generate-config.js
