@@ -16,7 +16,7 @@ export function handleFormSubmit(event) {
       console.log("Spam detected: Honeypot field was filled out.");
     }
     showNotification("Spam detected!", "error");
-    return; // Stop further execution
+    return; // Stop further execution here
   }
 
   const submitButton = event.target.querySelector("button[type='submit']");
