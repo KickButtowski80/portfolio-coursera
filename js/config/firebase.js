@@ -29,11 +29,12 @@ let firebaseInitialized = false;
 
 async function initializeFirebase() {
   try {
-    console.log("Firebase Config:", firebaseConfig);
-    const app = initializeApp(firebaseConfig);
+       const app = initializeApp(firebaseConfig);
     db = getFirestore(app);
     firebaseInitialized = true;
-    console.log("Firebase initialized successfully");
+    if (import.meta.env.DEV) {
+      console.log("Firebase initialized successfully");
+    }
   } catch (error) {
     console.error("Failed to initialize Firebase:", error);
     throw error;
