@@ -22,7 +22,7 @@ let firebaseConfig = {
 };
 
 
-
+// Initialize Firebase
 
 let db;
 let firebaseInitialized = false;
