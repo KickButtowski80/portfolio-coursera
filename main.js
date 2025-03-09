@@ -1,3 +1,5 @@
+// entry points file all js files
+
 import './js/brickRandomOpacity.js';
 import './js/floatBlobInBoxes.js';
 import './js/hamburgerMenuFocusTrap.js';
