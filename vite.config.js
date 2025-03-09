@@ -1,25 +1,22 @@
-export default {
-  server: {
-    watch: {
-      usePolling: true,
-      include: ['**/*.html', '**/*.js', '**/*.css']
-    }
-  },
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  base: "/", // Ensure proper path resolution in Vercel place
   build: {
-    outDir: 'dist',
+    outDir: "dist", // Default output folder
+    sourcemap: true, // Enable source maps for debugging
     rollupOptions: {
       input: {
-        main: 'index.html',
+        main: "index.html",
       },
     },
   },
-  resolve: {
-    alias: {
-      'firebase/app': '/node_modules/firebase/app',
-      'firebase/firestore': '/node_modules/firebase/firestore'
-    }
+  optimizeDeps: {
+    include: ["firebase/app", "firebase/firestore"], // Ensure Firebase is pre-bundled
   },
-  css: {
-    devSourcemap: true
-  }
-}
+  server: {
+    watch: {
+      usePolling: true, // Useful for WSL, Docker, or network file systems
+    },
+  },
+});

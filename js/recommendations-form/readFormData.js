@@ -10,9 +10,12 @@ function sanitizeInput(input) {
       .replace(/'/g, '&#039;'); // Escape '
   }
   export function readFormData(form) {
+    const recommendationAuthorName = form.elements['recommendation-author-name']; // Access by name or id
+    const recommendationAuthorMessage = form.elements['recommendation-author-message']; // Access by name or id
+  
     const formData = {
-        name: sanitizeInput(form.name.value),
-        recommendation: sanitizeInput(form.recommendation.value)
-      };
+      name: sanitizeInput(recommendationAuthorName.value),
+      recommendation: sanitizeInput(recommendationAuthorMessage.value)
+    };
     return formData;
-}
+  }
