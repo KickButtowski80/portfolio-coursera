@@ -1,7 +1,11 @@
 // Import all necessary modules
-import { initializeForm, handleFormSubmit } from './formHandler.js';
-import { validateForm, initializeValidation } from './formValidator.js';
+import { initializeForm, handleFormSubmit } from './recommendations-form/formHandler.js';
+import { validateForm, initializeValidation } from './recommendations-form/formValidator.js';
 
+
+
+// Initialize modules if needed
+// Add any initialization code here if your modules require it
 // Export all functionality
 export { handleFormSubmit, validateForm, initializeForm, initializeValidation };
 
