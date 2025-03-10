@@ -7,18 +7,15 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: false,
-    minify: "esbuild",
+    minify: "esbuild", // Explicitly declared
     cssCodeSplit: true,
     cssMinify: true,
     assetsInlineLimit: 4096,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        main: resolve(__dirname, "index.html")
       },
       output: {
-        // manualChunks: {
-        //   vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
-        // },
         assetFileNames: (assetInfo) => {
           const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
           if (assetInfo.name && imgType.test(assetInfo.name)) {
@@ -26,25 +23,10 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         }
-      },
-    //   treeshake: {
-    //     moduleSideEffects: false,
-    //     propertyReadSideEffects: false,
-    //     tryCatch: false
-    //   }
-    },
-  },
-  server: {
-    watch: {
-      usePolling: true,
-    },
-  },
-  css: {
-    modules: false,
-    preprocessorOptions: {
-      scss: {
-        additionalData: ''
       }
     }
   },
+  optimizeDeps: {
+    include: ["firebase/app", "firebase/firestore"]
+  }
 });
