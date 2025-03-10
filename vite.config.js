@@ -27,12 +27,12 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]';
         }
       },
-      treeshake: {
-        moduleSideEffects: false,
-        propertyReadSideEffects: false,
-        tryCatch: false
-      }
-    },
+    //   treeshake: {
+    //     moduleSideEffects: false,
+    //     propertyReadSideEffects: false,
+    //     tryCatch: false
+    //   }
+    // },
   },
   server: {
     watch: {
