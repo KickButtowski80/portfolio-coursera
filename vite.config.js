@@ -35,8 +35,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"],
-    exclude: []
+    include: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
   },
   server: {
     watch: {
@@ -44,13 +43,10 @@ export default defineConfig({
     },
   },
   css: {
-    modules: {
-      localsConvention: 'camelCase',
-      generateScopedName: '[name]__[local]__[hash:base64:5]'
-    },
+    modules: false, // Disable CSS modules to avoid conflicts
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/styles/variables.scss";'
+        additionalData: ''
       }
     }
   }
