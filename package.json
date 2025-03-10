@@ -20,7 +20,8 @@
     "firebase": "^11.4.0"
   },
   "devDependencies": {
-    "vite": "^6.2.1"
+    "vite": "^6.2.1",
+    "vite-plugin-imagemin": "^0.6.1"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [

@@ -8,6 +8,7 @@ export default defineConfig({
     minify: "esbuild", // Use esbuild for minification
     cssCodeSplit: true, // Enable CSS code splitting
     cssMinify: true, // Enable CSS minification
+    assetsInlineLimit: 4096, // Files smaller than 4kb will be inlined as base64
     rollupOptions: {
       input: {
         main: "index.html",
@@ -15,6 +16,15 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
+        },
+        assetFileNames: (assetInfo) => {
+          // Process image files
+          const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
+          if (assetInfo.name && imgType.test(assetInfo.name)) {
+            return 'assets/img/[name]-[hash][extname]';
+          }
+          // Process other files
+          return 'assets/[name]-[hash][extname]';
         }
       },
       treeshake: {
