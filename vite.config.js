@@ -1,22 +1,26 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/", // Ensure proper path resolution in Vercel place
+  base: "/", // Ensure proper path resolution in Vercel
   build: {
-    outDir: "dist", // Default output folder
-    sourcemap: true, // Enable source maps for debugging
+    outDir: "dist",
+    sourcemap: false, // Disable source maps for production
+    minify: "terser", // Enable JavaScript minification
     rollupOptions: {
       input: {
         main: "index.html",
       },
+      output: {
+        manualChunks: undefined, // Optimize chunking
+      },
     },
   },
   optimizeDeps: {
-    include: ["firebase/app", "firebase/firestore"], // Ensure Firebase is pre-bundled
+    include: ["firebase/app", "firebase/firestore"],
   },
   server: {
     watch: {
-      usePolling: true, // Useful for WSL, Docker, or network file systems
+      usePolling: true,
     },
   },
 });
