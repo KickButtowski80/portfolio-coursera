@@ -7,7 +7,7 @@ const observers = [];
 // Create intersection observer options
 const options = {
   root: null,
-  rootMargin: isMobile ? "-12% 0px 5% 0px" : "-10% 0px",
+  rootMargin: isMobile ? "-55% 0px 5% 0px" : "-30% 0px",
   threshold: [0, 0.10,0.21, 0.25, 0.5, 0.75, 1],
 };
 
@@ -20,7 +20,6 @@ allMenuLinks.forEach((menuLink) => {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry.target.id, entry.intersectionRatio);
       sectionVisibility.set(entry.target.id, {
         visible: entry.isIntersecting,
         ratio: entry.intersectionRatio,
