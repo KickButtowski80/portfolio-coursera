@@ -32,7 +32,7 @@ export default defineConfig({
     //     propertyReadSideEffects: false,
     //     tryCatch: false
     //   }
-    // },
+    },
   },
   server: {
     watch: {
