@@ -34,9 +34,6 @@ export default defineConfig({
       }
     },
   },
-  // optimizeDeps: {
-  //   include: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
-  // },
   server: {
     watch: {
       usePolling: true,
