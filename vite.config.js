@@ -16,8 +16,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
       },
       output: {
-        manualChunks: {
-          vendor: undefined
+        manualChunks: undefined 
           // vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
         },
         assetFileNames: (assetInfo) => {
