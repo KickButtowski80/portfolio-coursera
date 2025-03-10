@@ -16,9 +16,11 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
       },
       output: {
-        manualChunks: undefined 
-          // vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
-        },
+        manualChunks: undefined
+        // {
+        //   vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
+        // }
+        ,
         assetFileNames: (assetInfo) => {
           const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
           if (assetInfo.name && imgType.test(assetInfo.name)) {
