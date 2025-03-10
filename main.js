@@ -1,5 +1,5 @@
 // entry points file all js files
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './js/brickRandomOpacity.js';
 import './js/floatBlobInBoxes.js';
 import './js/hamburgerMenuFocusTrap.js';
