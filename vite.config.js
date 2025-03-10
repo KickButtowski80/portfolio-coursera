@@ -1,29 +1,29 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
 
 export default defineConfig({
-  base: "/", // Ensure proper path resolution in Vercel
+  base: "/",
+  publicDir: "public",
   build: {
     outDir: "dist",
-    sourcemap: false, // Disable source maps for production
-    minify: "esbuild", // Use esbuild for minification
-    cssCodeSplit: true, // Enable CSS code splitting
-    cssMinify: true, // Enable CSS minification
-    assetsInlineLimit: 4096, // Files smaller than 4kb will be inlined as base64
+    sourcemap: false,
+    minify: "esbuild",
+    cssCodeSplit: true,
+    cssMinify: true,
+    assetsInlineLimit: 4096,
     rollupOptions: {
       input: {
-        main: "index.html",
+        main: resolve(__dirname, "index.html"),
       },
       output: {
         manualChunks: {
           vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
         },
         assetFileNames: (assetInfo) => {
-          // Process image files
           const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
           if (assetInfo.name && imgType.test(assetInfo.name)) {
             return 'assets/img/[name]-[hash][extname]';
           }
-          // Process other files
           return 'assets/[name]-[hash][extname]';
         }
       },
@@ -43,11 +43,14 @@ export default defineConfig({
     },
   },
   css: {
-    modules: false, // Disable CSS modules to avoid conflicts
+    modules: false,
     preprocessorOptions: {
       scss: {
         additionalData: ''
       }
     }
+  },
+  define: {
+    'process.env': process.env
   }
 });
