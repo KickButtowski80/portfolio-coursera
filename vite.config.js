@@ -5,7 +5,7 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: false, // Disable source maps for production vercel
-    minify: "terser", // Enable JavaScript minification
+    minify: "esbuild", // Enable JavaScript minification
     rollupOptions: {
       input: {
         main: "index.html",
