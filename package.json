@@ -20,7 +20,6 @@
     "firebase": "^11.4.0"
   },
   "devDependencies": {
-    "vercel": "^41.3.2",
     "vite": "^6.2.1"
   },
   "pnpm": {
