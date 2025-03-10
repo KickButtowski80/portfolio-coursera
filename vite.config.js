@@ -6,6 +6,8 @@ export default defineConfig({
     outDir: "dist",
     sourcemap: false, // Disable source maps for production
     minify: "esbuild", // Use esbuild for minification
+    cssCodeSplit: true, // Enable CSS code splitting
+    cssMinify: true, // Enable CSS minification
     rollupOptions: {
       input: {
         main: "index.html",
@@ -31,4 +33,15 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+      generateScopedName: '[name]__[local]__[hash:base64:5]'
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/styles/variables.scss";'
+      }
+    }
+  }
 });
