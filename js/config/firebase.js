@@ -3,9 +3,7 @@ import { initializeApp } from "firebase/app";
 // import { getFirestore, addDoc, getDocs, collection } from "firebase/firestore";
 // Or even more granular:
 import { getFirestore } from "firebase/firestore/lite";
-import { addDoc } from "firebase/firestore/lite/addDoc";
-import { getDocs } from "firebase/firestore/lite/getDocs";
-import { collection } from "firebase/firestore/lite/collection";
+import { addDoc, getDocs, collection } from "firebase/firestore/lite";
 
 
 
