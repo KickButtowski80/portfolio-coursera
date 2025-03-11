@@ -29,11 +29,11 @@ export default defineConfig({
       },
    
     },
-    treeshake: {
-      moduleSideEffects: true,
-      propertyReadSideEffects: true,
-      tryCatch: true
-    }
+    // treeshake: {
+    //   moduleSideEffects: true,
+    //   propertyReadSideEffects: true,
+    //   tryCatch: true
+    // }
   },
   server: {
     watch: {
