@@ -1,9 +1,8 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
+import sharp from "vite-plugin-sharp";
 
 export default defineConfig({
-  base: "/",
-  publicDir: "public",
   build: {
     outDir: "dist",
     sourcemap: false,
@@ -35,48 +34,28 @@ export default defineConfig({
     },
   },
   plugins: [
-    imagemin({
-      gifsicle: {
-        optimizationLevel: 3,
-        interlaced: false
-      },
-      optipng: {
-        optimizationLevel: 3
-      },
+    sharp({
+      quality: 80,
       mozjpeg: {
         quality: 80,
-        progressive: true
+        progressive: true,
       },
       pngquant: {
         quality: [0.8, 0.9],
-        speed: 4
-      },
-      svgo: {
-        plugins: [
-          {
-            name: "removeViewBox",
-            active: false
-          },
-          {
-            name: "removeEmptyAttrs",
-            active: true
-          }
-        ]
+        speed: 4,
       },
       webp: {
-        quality: 80
+        quality: 80,
       },
       avif: {
-        quality: 80
-      }
+        quality: 80,
+      },
     }),
   ],
   server: {
     watch: {
       usePolling: true,
     },
-  },
-  css: {
     modules: false,
     preprocessorOptions: {
       scss: {
