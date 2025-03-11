@@ -20,10 +20,10 @@
     "firebase": "^11.4.0"
   },
   "devDependencies": {
-    "sharp": "^0.33.5",
+    "css-declaration-sorter": "^7.2.0",
+    "purgecss": "^7.0.2",
     "terser": "^5.39.0",
-    "vite": "^6.2.1",
-    "vite-plugin-sharp": "^1.0.0"
+    "vite": "^6.2.1"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [

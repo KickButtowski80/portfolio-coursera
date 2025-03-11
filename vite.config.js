@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import sharp from "vite-plugin-sharp";
 
 export default defineConfig({
   build: {
@@ -33,25 +32,6 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    sharp({
-      quality: 80,
-      mozjpeg: {
-        quality: 80,
-        progressive: true,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
-      webp: {
-        quality: 80,
-      },
-      avif: {
-        quality: 80,
-      },
-    }),
-  ],
   server: {
     watch: {
       usePolling: true,
