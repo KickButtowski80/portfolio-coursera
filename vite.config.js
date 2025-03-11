@@ -7,7 +7,6 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: false,
-    // minify: "esbuild",
     minify: "terser",
     terserOptions: {
       compress: true,
@@ -36,11 +35,6 @@ export default defineConfig({
       },
    
     },
-    // treeshake: {
-    //   moduleSideEffects: true,
-    //   propertyReadSideEffects: true,
-    //   tryCatch: true
-    // }
   },
   server: {
     watch: {
