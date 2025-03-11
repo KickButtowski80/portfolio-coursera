@@ -30,9 +30,9 @@ export default defineConfig({
    
     },
     treeshake: {
-      moduleSideEffects: false,
-      propertyReadSideEffects: false,
-      tryCatch: false
+      moduleSideEffects: true,
+      propertyReadSideEffects: true,
+      tryCatch: true
     }
   },
   server: {
