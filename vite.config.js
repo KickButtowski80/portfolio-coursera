@@ -17,7 +17,9 @@ export default defineConfig({
       },
       output: {
         manualChunks: {
-          vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
+          // vendor: ["firebase/app", "firebase/firestore", "@fortawesome/fontawesome-free"]
+          firebase: ["firebase/app", "firebase/firestore"],
+  fontawesome: ["@fortawesome/fontawesome-free"]
         },
         assetFileNames: (assetInfo) => {
           const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
