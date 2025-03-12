@@ -101,6 +101,16 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    purgecss({
+      content: ['./index.html', './js/**/*.js'],
+      safelist: {
+        standard: ['html', 'body', /^fa-/],
+        deep: [/^modal-/, /^carousel-/],
+        greedy: [/^nav-/]
+      }
+    })
+  ],
   css: {
     modules: false,
     preprocessorOptions: {
