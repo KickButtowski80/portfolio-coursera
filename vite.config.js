@@ -50,6 +50,8 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import purgecss from 'vite-plugin-purgecss';
+import sharp from 'vite-plugin-sharp';
+
 export default defineConfig({
   build: {
     outDir: "dist",
@@ -108,6 +110,40 @@ export default defineConfig({
         standard: ['html', 'body', /^fa-/],
         deep: [/^modal-/, /^carousel-/],
         greedy: [/^nav-/]
+      }
+    }),
+    sharp({
+      force: true,
+      include: /\.(jpe?g|png|gif|webp)$/i,
+      exclude: /node_modules/,
+      removeMetadata: true,
+      defaultOptions: {
+        jpeg: {
+          quality: 80,
+          progressive: true,
+        },
+        png: {
+          quality: 80,
+          compressionLevel: 9,
+        },
+        webp: {
+          quality: 80,
+          lossless: false,
+          effort: 6,
+        },
+        gif: {
+          quality: 80,
+        },
+        avif: {
+          quality: 80,
+          effort: 9,
+        },
+        resize: {
+          width: 1920,
+          height: 1080,
+          fit: 'inside',
+          withoutEnlargement: true,
+        }
       }
     })
   ],
