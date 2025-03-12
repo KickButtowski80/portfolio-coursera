@@ -49,7 +49,7 @@
 
 import { defineConfig } from "vite";
 import { resolve } from "path";
-
+import purgecss from 'vite-plugin-purgecss';
 export default defineConfig({
   build: {
     outDir: "dist",
