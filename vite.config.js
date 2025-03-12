@@ -5,11 +5,11 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: false,
-    // minify: "terser",
-    // terserOptions: {
-    //   compress: true,
-    //   mangle: true,
-    // },
+    minify: "terser",
+    terserOptions: {
+      compress: true,
+      mangle: true,
+    },
     // cssCodeSplit: true,
     // cssMinify: true,
     assetsInlineLimit: 4096,
