@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
+import purgecss from 'vite-plugin-purgecss';
 
 export default defineConfig({
   build: {
@@ -21,8 +22,6 @@ export default defineConfig({
         manualChunks: {
           firebase: ["firebase/app", "firebase/firestore"],
           fontawesome: ["@fortawesome/fontawesome-free"],
-          utils: ["./js/utils/*.js"],
-          components: ["./js/components/*.js"],
         },
         assetFileNames: (assetInfo) => {
           const imgType = /\.(png|jpe?g|gif|svg|webp|avif)$/;
@@ -34,6 +33,16 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    purgecss({
+      content: ['./index.html', './js/**/*.js'],
+      safelist: {
+        standard: ['html', 'body', /^fa-/], // Keep Font Awesome classes
+        deep: [/^modal-/, /^carousel-/],    // Keep important component classes
+        greedy: [/^nav-/]                   // Keep navigation classes
+      }
+    }),
+  ],
   server: {
     watch: {
       usePolling: true,
