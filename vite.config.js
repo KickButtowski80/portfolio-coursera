@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import sharp from 'vite-plugin-sharp';
 
 export default defineConfig({
   build: {
