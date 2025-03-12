@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
-    "css-declaration-sorter": "^7.2.0",
     "postcss": "^8.5.3",
     "purgecss": "^7.0.2",
     "sharp": "^0.33.5",
