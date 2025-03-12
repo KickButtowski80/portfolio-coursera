@@ -144,12 +144,21 @@
                   aria-hidden="true"
                 ></div>
               </div>
-              <img
-                src="html_finalprojimages/jane-doe.webp"
-                alt="A cartoon illustration of a female developer with a friendly smile, coding in front of a computer screen representing Jane Doe"
-                class="jane-doe"
-                loading="lazy"
-              />
+              <picture>
+                <source 
+                  srcset="html_finalprojimages/jane-doe.webp"
+                  type="image/webp"
+                  width="400"
+                  height="400" />
+                <img
+                  src="html_finalprojimages/jane-doe.jpg"
+                  alt="A cartoon illustration of a female developer with a friendly smile, coding in front of a computer screen representing Jane Doe"
+                  class="jane-doe"
+                  loading="lazy"
+                  width="400"
+                  height="400"
+                />
+              </picture>
               <div
                 class="tech-logos"
                 role="region"
