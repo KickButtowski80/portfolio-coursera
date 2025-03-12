@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import purgecss from 'vite-plugin-purgecss';
 
 export default defineConfig({
   build: {
@@ -33,25 +32,20 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    purgecss({
-      content: ['./index.html', './js/**/*.js'],
-      safelist: {
-        standard: ['html', 'body', /^fa-/], // Keep Font Awesome classes
-        deep: [/^modal-/, /^carousel-/],    // Keep important component classes
-        greedy: [/^nav-/]                   // Keep navigation classes
-      }
-    }),
-  ],
+  // CSS configuration should be at this level
+  css: {
+
+  },
   server: {
     watch: {
       usePolling: true,
     },
-    modules: false,
-    preprocessorOptions: {
-      scss: {
-        additionalData: "",
-      },
+  },
+  // These should also be at the top level, not under server
+  modules: false,
+  preprocessorOptions: {
+    scss: {
+      additionalData: "",
     },
   },
 });
