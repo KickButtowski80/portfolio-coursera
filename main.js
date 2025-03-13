@@ -1,4 +1,4 @@
-// entry points file all js files
+// entry points file all javascript files
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './js/brickRandomOpacity.js';
 import './js/floatBlobInBoxes.js';
