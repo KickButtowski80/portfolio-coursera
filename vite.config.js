@@ -99,7 +99,7 @@ export default defineConfig({
         },
         gif: {
           quality: 60,
-          effort: 9,
+          effort: 10,
           colors: 128
         },
         avif: {
