@@ -58,16 +58,25 @@ export default defineConfig({
   plugins: [
     purgecss({
       content: [
-        './src/**/*.html',
-        './src/**/*.js',
-        './src/**/*.jsx',
-        './src/**/*.ts',
-        './src/**/*.tsx',
+        './index.html',
+        './js/**/*.js'
       ],
-      safelist: [
-        'active', // Keep the 'active' class
-        /^bg-/, // Keep all classes starting with 'bg-'
-      ],
+      safelist: {
+        standard: [
+          'html', 'body', 'active', 'open', 'show', 'fade', 'collapse'
+        ],
+        deep: [
+          /^fa-/,
+          /^modal-/,
+          /^carousel-/
+        ],
+        greedy: [
+          /^nav-/,
+          /^bg-/,
+          /^theme-/,
+          /^darkmode-/
+        ]
+      }
     }),
     sharp({
       force: true,
