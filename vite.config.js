@@ -98,8 +98,8 @@ export default defineConfig({
           effort: 6,
         },
         gif: {
-          quality: 75,
-          effort: 7,
+          quality: 70,
+          effort: 9,
           colors: 128
         },
         avif: {
