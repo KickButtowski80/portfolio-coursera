@@ -35,7 +35,7 @@ export default defineConfig({
     },
     cssCodeSplit: true,
     cssMinify: true,
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 0,
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
