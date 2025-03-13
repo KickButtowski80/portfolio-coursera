@@ -1,6 +1,6 @@
 # Ignore specific GIFs to prevent Vercel processing
 # Replace with the actual path to your waving hand GIF
-/html_finalprojimages/waving-hand.gif
+/html_finalprojimages/waving-hand.webp
 /html_finalprojimages/jane-doe-compressed.webp
 
 # Other common files to ignore
