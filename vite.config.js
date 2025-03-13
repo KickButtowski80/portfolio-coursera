@@ -57,12 +57,17 @@ export default defineConfig({
   },
   plugins: [
     purgecss({
-      content: ['./index.html', './js/**/*.js'],
-      safelist: {
-        standard: ['html', 'body', /^fa-/],
-        deep: [/^modal-/, /^carousel-/],
-        greedy: [/^nav-/]
-      }
+      content: [
+        './src/**/*.html',
+        './src/**/*.js',
+        './src/**/*.jsx',
+        './src/**/*.ts',
+        './src/**/*.tsx',
+      ],
+      safelist: [
+        'active', // Keep the 'active' class
+        /^bg-/, // Keep all classes starting with 'bg-'
+      ],
     }),
     sharp({
       force: true,
