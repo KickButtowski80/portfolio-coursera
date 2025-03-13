@@ -97,11 +97,11 @@ export default defineConfig({
           lossless: false,
           effort: 6,
         },
-        gif: {
-          quality: 70,
-          effort: 9,
-          colors: 128
-        },
+        // gif: {
+        //   quality: 70,
+        //   effort: 9,
+        //   colors: 128
+        // },
         avif: {
           quality: 75,
           effort: 9,
