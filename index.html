@@ -11,6 +11,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://portfolio-it-rouge.vercel.app" />
     <meta property="og:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp" />
+    <link rel="canonical" href="https://portfolio-it-rouge.vercel.app" />
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jane Doe - Frontend Developer | HTML/CSS/JS Expert">
+    <meta name="twitter:description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies.">
+    <meta name="twitter:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/notification.css" />
@@ -169,6 +178,9 @@
                     src="svg/html5-logo.svg"
                     alt="HTML5 - Hypertext Markup Language Version 5"
                     class="html5-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="official-css-logo-wrapper">
@@ -177,6 +189,9 @@
                     src="svg/official-css-logo.svg"
                     alt="Official CSS Logo - Cascading Style Sheets"
                     class="official-css-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="js-logo-wrapper">
@@ -185,6 +200,9 @@
                     src="svg/js-logo.svg"
                     alt="JavaScript - Web Programming Language"
                     class="js-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="svg-logo-wrapper">
@@ -260,6 +278,9 @@
                 src="svg/html5-logo.svg"
                 alt="HTML5 - Hypertext Markup Language Version 5"
                 class="html5-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>HTML</h2>
@@ -275,6 +296,9 @@
                 src="svg/js-logo.svg"
                 alt="JavaScript - Web Programming Language"
                 class="js-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>JavaScript</h2>
@@ -290,6 +314,9 @@
                 src="svg/official-css-logo.svg"
                 alt="Official CSS Logo - Cascading Style Sheets"
                 class="official-css-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>CSS</h2>
@@ -561,5 +588,28 @@
       </section>
     </main>
     <script type="module" src="/main.js"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jane Doe",
+      "url": "https://portfolio-it-rouge.vercel.app",
+      "image": "https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp",
+      "jobTitle": "Frontend Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "description": "Frontend Developer specializing in HTML, CSS, and JavaScript",
+      "skills": "HTML, CSS, JavaScript, Web Design, Frontend Development",
+      "email": "jdoe@jeemail.com",
+      "telephone": "+123456789",
+      "sameAs": [
+        "https://github.com/janedoe",
+        "https://linkedin.com/in/janedoe"
+      ]
+    }
+    </script>
   </body>
 </html>
