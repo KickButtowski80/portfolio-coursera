@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Disallow: /api/
+Disallow: /js/config/
+Disallow: /*.json$
+
+# Portfolio website robots.txt
+# Updated: 2025-03-13
+
+Sitemap: https://portfolio-it-rouge.vercel.app/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 10
