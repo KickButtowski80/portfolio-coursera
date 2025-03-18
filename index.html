@@ -3,6 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies." />
+    <meta name="keywords" content="web developer, portfolio, HTML, CSS, JavaScript, web design, front-end development" />
+    <meta name="author" content="Jane Doe" />
+    <meta property="og:title" content="Jane Doe - Web Developer Portfolio" />
+    <meta property="og:description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portfolio-it-rouge.vercel.app" />
+    <meta property="og:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp" />
+    <link rel="canonical" href="https://portfolio-it-rouge.vercel.app" hreflang="en" />
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jane Doe - Frontend Developer | HTML/CSS/JS Expert">
+    <meta name="twitter:description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies.">
+    <meta name="twitter:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/notification.css" />
@@ -12,7 +31,7 @@
     <link rel="stylesheet" href="css/projects.css" />
     <link rel="stylesheet" href="css/recommendations.css" />
     <link rel="stylesheet" href="css/float-blob-in-boxes.css" />
-    <title>Jane Doe Portfolio WebSite</title>
+    <title>Jane Doe - Frontend Developer | HTML/CSS/JS Expert</title>
   </head>
   <body>
     <div class="notification-container"></div>
@@ -161,6 +180,9 @@
                     src="svg/html5-logo.svg"
                     alt="HTML5 - Hypertext Markup Language Version 5"
                     class="html5-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="official-css-logo-wrapper">
@@ -169,6 +191,9 @@
                     src="svg/official-css-logo.svg"
                     alt="Official CSS Logo - Cascading Style Sheets"
                     class="official-css-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="js-logo-wrapper">
@@ -177,6 +202,9 @@
                     src="svg/js-logo.svg"
                     alt="JavaScript - Web Programming Language"
                     class="js-logo"
+                    loading="lazy"
+                    width="150"
+                    height="50"
                   />
                 </div>
                 <div class="svg-logo-wrapper">
@@ -252,6 +280,9 @@
                 src="svg/html5-logo.svg"
                 alt="HTML5 - Hypertext Markup Language Version 5"
                 class="html5-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>HTML</h2>
@@ -267,6 +298,9 @@
                 src="svg/js-logo.svg"
                 alt="JavaScript - Web Programming Language"
                 class="js-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>JavaScript</h2>
@@ -282,6 +316,9 @@
                 src="svg/official-css-logo.svg"
                 alt="Official CSS Logo - Cascading Style Sheets"
                 class="official-css-logo"
+                loading="lazy"
+                width="150"
+                height="50"
               />
               <figcaption>
                 <h2>CSS</h2>
@@ -553,5 +590,32 @@
       </section>
     </main>
     <script type="module" src="/main.js"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jane Doe",
+      "url": "https://portfolio-it-rouge.vercel.app",
+      "image": "https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp",
+      "jobTitle": "Frontend Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "description": "Frontend Developer specializing in HTML, CSS, and JavaScript",
+      "knowsAbout": ["HTML", "CSS", "JavaScript", "Web Design", "Frontend Development"],
+      "email": "mailto:jdoe@jeemail.com",
+      "telephone": "+123456789",
+      "sameAs": [
+        "https://github.com/janedoe",
+        "https://linkedin.com/in/janedoe"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      }
+    }
+    </script>
   </body>
 </html>
