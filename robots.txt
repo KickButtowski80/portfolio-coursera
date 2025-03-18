@@ -6,6 +6,7 @@ Allow: /assets/
 Disallow: /api/
 Disallow: /js/config/
 Disallow: /*.json$
+Allow: /manifest.json
 
 # Portfolio website robots.txt
 # Updated: 2025-03-13
