@@ -4,6 +4,30 @@ import purgecss from 'vite-plugin-purgecss';
 import sharp from 'vite-plugin-sharp';
 
 export default defineConfig({
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    headers: {
+      'X-Robots-Tag': 'index, follow'
+    },
+    historyApiFallback: {
+      rewrites: [
+        {
+          from: /^\/.*$/,
+          to: ({ url }) => {
+            const filePath = resolve(__dirname, 'dist', url.slice(1));
+            try {
+              require('fs').accessSync(filePath);
+              return url;
+            } catch {
+              return '/404.html';
+            }
+          }
+        }
+      ]
+    }
+  },
   build: {
     outDir: "dist",
     sourcemap: false,
@@ -39,6 +63,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        notFound: resolve(__dirname, "404.html")
       },
       output: {
         manualChunks: {
@@ -59,6 +84,7 @@ export default defineConfig({
     purgecss({
       content: [
         './index.html',
+        './404.html',
         './js/**/*.js'
       ],
       safelist: {
@@ -123,13 +149,5 @@ export default defineConfig({
         additionalData: "",
       },
     },
-  },
-  server: {
-    watch: {
-      usePolling: true,
-    },
-    headers: {
-      'X-Robots-Tag': 'index, follow'
-    },
-  },
+  }
 });
