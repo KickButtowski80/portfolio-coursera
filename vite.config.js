@@ -8,9 +8,6 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    headers: {
-      'X-Robots-Tag': 'index, follow'
-    },
     historyApiFallback: {
       rewrites: [
         {
