@@ -18,18 +18,22 @@
   @keyframes openMenu {
     0% {
       clip-path: inset(0 0 99% 100%);
+      transform: translateZ(0);
     }
     100% {
       clip-path: inset(0 -15% 0 -61%);
+      transform: translateZ(0);
     }
   }
 
   @keyframes closeMenu {
     0% {
       clip-path: inset(0 -15% 0 -61%);
+      transform: translateZ(0);
     }
     100% {
       clip-path: inset(0 0 99% 100%);
+      transform: translateZ(0);
     }
   }
 
@@ -38,29 +42,32 @@
     0% {
       border-color: var(--text-color);
       box-shadow: 0 0 1.3rem var(--text-color);
+      transform: translateZ(0);
     }
     50% {
       border-color: var(--accent-color);
       box-shadow: 0 0 50px var(--accent-color);
+      transform: translateZ(0);
     }
     100% {
       border-color: var(--text-color);
       box-shadow: 0 0 1.3rem var(--text-color);
+      transform: translateZ(0);
     }
   }
   
 
   @keyframes moveBlob {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) scale(1) translateZ(0);
     }
     33% {
-        transform: translate(30px, 20px) scale(1.1);
+        transform: translate(30px, 20px) scale(1.1) translateZ(0);
     }
     66% {
-        transform: translate(-20px, 40px) scale(0.9);
+        transform: translate(-20px, 40px) scale(0.9) translateZ(0);
     }
     100% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) scale(1) translateZ(0);
     }
 }

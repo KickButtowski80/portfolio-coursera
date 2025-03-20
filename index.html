@@ -3,25 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="googlebot" content="index, follow" />
-    <meta name="description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies." />
-    <meta name="keywords" content="web developer, portfolio, HTML, CSS, JavaScript, web design, front-end development" />
+    <meta
+      name="description"
+      content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies."
+    />
+    <meta
+      name="keywords"
+      content="web developer, portfolio, HTML, CSS, JavaScript, web design, front-end development"
+    />
     <meta name="author" content="Jane Doe" />
     <meta property="og:title" content="Jane Doe - Web Developer Portfolio" />
-    <meta property="og:description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies." />
+    <meta
+      property="og:description"
+      content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://portfolio-it-rouge.vercel.app" />
-    <meta property="og:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp" />
-    <link rel="canonical" href="https://portfolio-it-rouge.vercel.app" hreflang="en" />
+    <meta
+      property="og:image"
+      content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp"
+    />
+    <link
+      rel="canonical"
+      href="https://portfolio-it-rouge.vercel.app"
+      hreflang="en"
+    />
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jane Doe - Frontend Developer | HTML/CSS/JS Expert">
-    <meta name="twitter:description" content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies.">
-    <meta name="twitter:image" content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/manifest.json">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Jane Doe - Frontend Developer | HTML/CSS/JS Expert"
+    />
+    <meta
+      name="twitter:description"
+      content="Jane Doe's portfolio showcasing web development projects, skills, and recommendations. Expert in HTML, CSS, JavaScript, and modern web technologies."
+    />
+    <meta
+      name="twitter:image"
+      content="https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp"
+    />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/notification.css" />
@@ -31,10 +59,46 @@
     <link rel="stylesheet" href="css/projects.css" />
     <link rel="stylesheet" href="css/recommendations.css" />
     <link rel="stylesheet" href="css/float-blob-in-boxes.css" />
-    <link rel="stylesheet" href="css/404-page-style.css">
+    <link rel="stylesheet" href="css/404-page-style.css" />
     <title>Jane Doe - Frontend Developer | HTML/CSS/JS Expert</title>
   </head>
   <body>
+    <script>
+      // Mark the desk/lamp as a priority element
+
+      const markLCP = () => {
+        try {
+          const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach((entry) => {
+              console.log("LCP:", entry.element, entry.startTime);
+              if (
+                entry.element &&
+                (entry.element.classList.contains("desk") ||
+                  entry.element.closest(".desk"))
+              ) {
+                entry.element.classList.add("is-lcp");
+              }
+            });
+            observer.disconnect();
+          });
+
+          observer.observe({
+            type: "largest-contentful-paint",
+            buffered: true,
+          });
+        } catch (error) {
+          console.error("LCP Observer Error:", error);
+        }
+      };
+      // Run immediately, don't wait for DOMContentLoaded
+      if (
+        PerformanceObserver?.supportedEntryTypes?.includes(
+          "largest-contentful-paint"
+        )
+      ) {
+        markLCP();
+      }
+    </script>
     <div class="notification-container"></div>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="fixed-header">
@@ -164,12 +228,13 @@
                   aria-hidden="true"
                 ></div>
               </div>
-                <img
-                src="/jane-doe-compressed.webp"
-                  alt="A cartoon illustration of a female developer with a friendly smile, coding in front of a computer screen representing Jane Doe"
-                  class="jane-doe"
-                  loading="lazy"
-                />
+              <img
+                src="/jane-doe-593.webp"
+                alt="A cartoon illustration of a female developer with a friendly smile, coding in front of a computer screen representing Jane Doe"
+                class="jane-doe"
+                loading="lazy"
+                fetchpriority="high"
+              />
               <div
                 class="tech-logos"
                 role="region"
@@ -248,13 +313,13 @@
             <div class="sr-only">Hi, I'm Jane Doe</div>
           </h1>
           <img
-            src="/waving-hand.webp"
+            src="/waving-hand-100.webp"
             alt="Animated waving hand emoji"
             width="100"
             height="100"
           />
           <div class="whiteboard-effect">
-            <p>
+            <p fetchpriority="high">
               I am a full-stack developer with 2 years of experience in both
               application and presentation layers. My experience includes:
             </p>
@@ -512,7 +577,6 @@
               <time>January 3, 2025</time>
             </footer>
           </blockquote>
-        
         </div>
         <div class="recommendation-form-section">
           <form class="recommendation-form" aria-labelledby="form-title">
@@ -553,18 +617,20 @@
                 aria-label="Enter your recommendation message"
               ></textarea>
               <!-- Honeypot field (hidden from users) -->
-              <div style="position: absolute; left: -9999px; top: -9999px;">
-                <label for="website" aria-hidden="true">Leave this field blank</label>
-                <input 
-                  type="text" 
-                  id="website" 
-                  name="website" 
+              <div style="position: absolute; left: -9999px; top: -9999px">
+                <label for="website" aria-hidden="true"
+                  >Leave this field blank</label
+                >
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
                   tabindex="-1"
                   aria-hidden="true"
                   autocomplete="off"
                 />
               </div>
-           
+
               <div>
                 * (required)
 
@@ -593,30 +659,36 @@
     <script type="module" src="/main.js"></script>
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jane Doe",
-      "url": "https://portfolio-it-rouge.vercel.app",
-      "image": "https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp",
-      "jobTitle": "Frontend Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      },
-      "description": "Frontend Developer specializing in HTML, CSS, and JavaScript",
-      "knowsAbout": ["HTML", "CSS", "JavaScript", "Web Design", "Frontend Development"],
-      "email": "mailto:jdoe@jeemail.com",
-      "telephone": "+123456789",
-      "sameAs": [
-        "https://github.com/janedoe",
-        "https://linkedin.com/in/janedoe"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jane Doe",
+        "url": "https://portfolio-it-rouge.vercel.app",
+        "image": "https://portfolio-it-rouge.vercel.app/assets/jane-doe-DZTCTzpW.webp",
+        "jobTitle": "Frontend Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "description": "Frontend Developer specializing in HTML, CSS, and JavaScript",
+        "knowsAbout": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Web Design",
+          "Frontend Development"
+        ],
+        "email": "mailto:jdoe@jeemail.com",
+        "telephone": "+123456789",
+        "sameAs": [
+          "https://github.com/janedoe",
+          "https://linkedin.com/in/janedoe"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        }
       }
-    }
     </script>
   </body>
 </html>
