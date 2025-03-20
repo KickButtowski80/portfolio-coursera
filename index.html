@@ -67,28 +67,37 @@
       // Mark the desk/lamp as a priority element
 
       const markLCP = () => {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      list.getEntries().forEach((entry) => {
-        console.log('LCP:', entry.element, entry.startTime);
-        if (entry.element && 
-            (entry.element.classList.contains('desk') || 
-             entry.element.closest('.desk'))) {
-          entry.element.classList.add('is-lcp');
-        }
-      });
-      observer.disconnect();
-    });
+        try {
+          const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach((entry) => {
+              console.log("LCP:", entry.element, entry.startTime);
+              if (
+                entry.element &&
+                (entry.element.classList.contains("desk") ||
+                  entry.element.closest(".desk"))
+              ) {
+                entry.element.classList.add("is-lcp");
+              }
+            });
+            observer.disconnect();
+          });
 
-    observer.observe({type: 'largest-contentful-paint', buffered: true});
-  } catch (error) {
-    console.error('LCP Observer Error:', error);
-  }
-};
+          observer.observe({
+            type: "largest-contentful-paint",
+            buffered: true,
+          });
+        } catch (error) {
+          console.error("LCP Observer Error:", error);
+        }
+      };
       // Run immediately, don't wait for DOMContentLoaded
-      if (PerformanceObserver?.supportedEntryTypes?.includes('largest-contentful-paint')) {
-  markLCP();
-}
+      if (
+        PerformanceObserver?.supportedEntryTypes?.includes(
+          "largest-contentful-paint"
+        )
+      ) {
+        markLCP();
+      }
     </script>
     <div class="notification-container"></div>
     <a href="#main-content" class="skip-link">Skip to main content</a>
