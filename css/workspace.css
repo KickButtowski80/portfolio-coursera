@@ -161,7 +161,7 @@
       rgba(216, 203, 194, 0.8),
       rgba(82, 51, 27, 0.1)
     ),
-    url("../svg/desk-texture.svg") center/cover;
+    url("/desk-texture.webp") center/cover;
   border-radius: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
     inset 0 -5px 10px rgba(0, 0, 0, 0.2);
@@ -195,6 +195,8 @@
   left: 50%;
   transform: translateX(-30%);
   scale: 1.9;
+  contain: layout paint;
+  content-visibility: auto;
 }
 
 @media (max-width: 320px) {
@@ -462,6 +464,7 @@
   top: -1.5rem;
   left: 50%;
   opacity: 0.7;
+  will-change: transform, opacity;
 }
 
 .steam1::before {
@@ -497,6 +500,7 @@
   top: -0.75rem;
   left: 0rem;
   opacity: 0.7;
+  will-change: transform, opacity;
 }
 
 .steam2::before {
@@ -541,9 +545,8 @@
     opacity: 0.4;
   }
   100% {
-    transform: translateX(-0.8rem) translateZ(0);
-    opacity: 0.3;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-1rem) translateZ(0);
+    opacity: 0;
   }
 }
 
